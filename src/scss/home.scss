@@ -1395,15 +1395,19 @@
 		}
 
 		&--editable {
-			&:not(._edit &) {
-				display: none !important;
+			display: none !important;
+			
+			._edit & {
+				display: inline-block !important;
 			}
 		}
 	}
 
 	&__edit-wrapper {
-		&:not(._edit &) {
-			display: none;
+		display: none;
+
+		._edit & {
+			display: block;
 		}
 
 		grid-column: span 2;
