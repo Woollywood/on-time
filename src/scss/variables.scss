@@ -1,0 +1,87 @@
+:root {
+	--ui-calendar-layout-users-panel-width: 172px;
+	--ui-calendar-layout-users-panel-width-adapt: 108px;
+	--ui-calendar-layout-grid-cell-width: 68px;
+	--ui-calendar-layout-grid-cell-width-week: 66px;
+	--ui-calendar-layout-grid-cell-width-adapt: 52px;
+	--ui-calendar-layout-grid-cell-height: 58px;
+	--ui-calendar-layout-grid-cell-height-adapt: 44px;
+	--ui-calendar-layout-grid-cell-month-height: 96px;
+	--ui-calendar-layout-gutter: 12px;
+	--ui-calendar-clock-radius: 7px;
+	--ui-calendar-timestamp-height: 28px;
+
+	/* Events */
+	--ui-events-top-positionY: 6px;
+	--ui-events-height: 56px;
+	--ui-events-height-adapt: 44px;
+	--ui-events-gutter: 12px;
+}
+
+$colors--light-theme: (
+	'background': #f1f5f8,
+	'white': #fff,
+	'black': #111,
+	'accent': #1a7fb9,
+	'accent-2': #0d6293,
+	'accent-3': #d0e4f0,
+	'grey': #6e6e6e,
+	'grey-2': #dfdfe0,
+	'grey-3': #D9D9D9,
+	'grey-4': #e0e0e0,
+	'grey-5': #aaa,
+	'grey-6': #ccc,
+
+	'green': #82dfb2,
+	'brown': #dfd682,
+	'red': #fab2b2,
+);
+
+$colors--dark-theme: (
+	'background': #151521,
+	'white': #fff,
+	'black': #111,
+	'accent': #1a7fb9,
+	'accent-2': #0d6293,
+	'accent-3': #d0e4f0,
+	'grey': #6e6e6e,
+	'grey-2': #dfdfe0,
+	'grey-3': #D9D9D9,
+	'grey-4': #e0e0e0,
+	'grey-5': #aaa,
+	'grey-6': #ccc,
+
+	'green': #82dfb2,
+	'brown': #dfd682,
+	'red': #fab2b2,
+);
+
+@function HexToRGB($hex) {
+	@return red($hex), green($hex), blue($hex);
+}
+
+@function cl($name, $opacity: false) {
+	@if $opacity {
+		@return RGBA(var(--ui-color-#{unquote($name)}--rgb), $opacity);
+	} @else {
+		@return var(--ui-color-#{unquote($name)});
+	}
+}
+
+:root {
+	@if $colors--light-theme {
+		@each $key, $value in $colors--light-theme {
+			--ui-color-#{$key}: #{$value};
+			--ui-color-#{$key}--rgb: #{HexToRGB($value)};
+		}
+	}
+}
+
+:root[data-bs-theme='dark'] {
+	@if $colors--dark-theme {
+		@each $key, $value in $colors--dark-theme {
+			--ui-color-#{$key}: #{$value};
+			--ui-color-#{$key}--rgb: #{HexToRGB($value)};
+		}
+	}
+}

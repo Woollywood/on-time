@@ -1,0 +1,762 @@
+// Подключение функционала "Чертоги Фрилансера"
+import { isMobile } from './functions.js';
+
+// Подключение списка активных модулей
+import { flsModules } from './modules.js';
+
+window.addEventListener('load', (windowEvent) => {
+	// flsModules.popup.open('#on-board--pl');
+
+	clockPosition(0.2);
+
+	const MAX_ELEM_ADD = 30;
+	for (let i = 0; i < MAX_ELEM_ADD; i++) {
+		userDayAdd('img/content/calendar-layout/users/01.jpg', 'Alyona <br /> Kolontaevskaya');
+		dayEventAddRandom();
+	}
+
+	for (let i = 0; i < MAX_ELEM_ADD / 3; i++) {
+		userWeekAdd('img/content/calendar-layout/users/01.jpg', 'Alyona <br /> Kolontaevskaya');
+	}
+
+	userDayAdd('img/content/calendar-layout/users/01.jpg', 'eqweqe <br /> Kolontaevskaewwe');
+	dayEventAddRandom();
+
+	taskEventAdd('6:00 am – All Day', 'Ermington', 'Riverside Church', 'Must attend today', [
+		'img/content/calendar-layout/event-block/02/user-01.jpg',
+		'img/content/calendar-layout/event-block/02/user-01.jpg',
+	]);
+
+	taskEventAdd('6:00 am – All Day', 'Ermington', 'Riverside Church', 'Must attend today', [
+		'img/content/calendar-layout/event-block/02/user-01.jpg',
+		'img/content/calendar-layout/event-block/02/user-01.jpg',
+		'img/content/calendar-layout/event-block/02/user-01.jpg',
+		'img/content/calendar-layout/event-block/02/user-01.jpg',
+		'img/content/calendar-layout/event-block/02/user-01.jpg',
+		'img/content/calendar-layout/event-block/02/user-01.jpg',
+		'img/content/calendar-layout/event-block/02/user-01.jpg',
+		'img/content/calendar-layout/event-block/02/user-01.jpg',
+	]);
+
+	const layoutControlls = new Map();
+
+	const buttonsControllTimeTags = document.querySelectorAll('[data-layout="time"]');
+
+	const timeStampsLayoutTimeTags = document.querySelectorAll('[data-layout-time-display]');
+	const calendarLayoutTimeTags = document.querySelectorAll('[data-layout-cells-display]');
+	const usersLayoutTags = document.querySelectorAll('[data-users-layout]');
+
+	buttonsControllTimeTags.forEach((button) => {
+		const dataLayoutControll = button.dataset.layoutControll;
+		layoutControlls.set(button, {
+			layouts: Array.from(timeStampsLayoutTimeTags).concat(
+				Array.from(calendarLayoutTimeTags),
+				Array.from(usersLayoutTags)
+			),
+			timeStampLayout: Array.from(timeStampsLayoutTimeTags).find((elem) =>
+				elem.dataset.layoutTimeDisplay == button.dataset.layoutControll ? true : false
+			),
+			calendarCellsLayout: Array.from(calendarLayoutTimeTags).find((elem) =>
+				elem.dataset.layoutCellsDisplay == button.dataset.layoutControll ? true : false
+			),
+			scrollRelativeBlocks: Array.from(calendarLayoutTimeTags)
+				.find((elem) => (elem.dataset.layoutCellsDisplay == button.dataset.layoutControll ? true : false))
+				.dataset.scrollRelative?.split(',')
+				.map((elem) => elem.trim()),
+			swipeRelativeBlocks: Array.from(calendarLayoutTimeTags)
+				.find((elem) => (elem.dataset.layoutCellsDisplay == button.dataset.layoutControll ? true : false))
+				.dataset.swipeRelative?.split(',')
+				.map((elem) => elem.trim()),
+			usersLayoutTags,
+			usersLayoutRelativeTag: button.dataset.usersLayoutTag,
+		});
+	});
+
+	const tasksButton = document.querySelector('[data-layout-controll="tasks"]');
+	const staffButton = document.querySelector('[data-layout-controll="staff"]');
+
+	layoutControlls.set(tasksButton, {
+		layouts: Array.from(timeStampsLayoutTimeTags).concat(
+			Array.from(calendarLayoutTimeTags),
+			Array.from(usersLayoutTags)
+		),
+		timeStampLayout: document.querySelector('[data-layout-time-display="tasks"]'),
+		calendarCellsLayout: document.querySelector('[data-layout-cells-display="tasks"]'),
+		usersLayoutTags,
+		usersLayoutRelativeTag: tasksButton.dataset.usersLayoutTag,
+	});
+
+	layoutControlls.set(staffButton, {
+		layouts: Array.from(timeStampsLayoutTimeTags).concat(
+			Array.from(calendarLayoutTimeTags),
+			Array.from(usersLayoutTags)
+		),
+		timeStampLayout: document.querySelector('[data-layout-time-display="day"]'),
+		calendarCellsLayout: document.querySelector('[data-layout-cells-display="day"]'),
+		usersLayoutTags,
+		usersLayoutRelativeTag: staffButton.dataset.usersLayoutTag,
+	});
+
+	for (const iterator of layoutControlls) {
+		iterator[0].addEventListener('click', (e) => {
+			if (e.pointerId !== -1) {
+				return;
+			}
+
+			iterator[1].layouts.forEach((layout) => {
+				layout.style.display = 'none';
+			});
+
+			iterator[1].timeStampLayout.style.display = '';
+			iterator[1].calendarCellsLayout.style.display = '';
+
+			let usersLayoutTag = document.querySelector(iterator[1].usersLayoutRelativeTag);
+			if (usersLayoutTag) {
+				usersLayoutTag.style.display = '';
+			}
+
+			for (const iteratorInner of layoutControlls) {
+				if (iteratorInner[1].calendarCellsLayout.hasAttribute('data-scroll')) {
+					scrollReset(iteratorInner[1].calendarCellsLayout);
+					iteratorInner[1].scrollRelativeBlocks?.forEach((block) =>
+						scrollReset(document.querySelector(block))
+					);
+				}
+
+				if (iteratorInner[1].calendarCellsLayout.hasAttribute('data-swipe')) {
+					scrollReset(iteratorInner[1].calendarCellsLayout);
+					iteratorInner[1].swipeRelativeBlocks?.forEach((block) =>
+						scrollReset(document.querySelector(block))
+					);
+				}
+			}
+
+			if (iterator[1].calendarCellsLayout.hasAttribute('data-scroll')) {
+				let scrollRelativeBlocks = null;
+				if (iterator[1].scrollRelativeBlocks) {
+					scrollRelativeBlocks = iterator[1].scrollRelativeBlocks.map((block) => ({
+						elem: document.querySelector(block),
+						allowScrollX: JSON.parse(document.querySelector(block).dataset.scrollableX),
+						allowScrollY: JSON.parse(document.querySelector(block).dataset.scrollableY),
+					}));
+				}
+
+				layerScrollTemplateInit(iterator[1].calendarCellsLayout, true, true, scrollRelativeBlocks);
+			}
+
+			if (iterator[1].calendarCellsLayout.hasAttribute('data-swipe')) {
+				let swipeRelativeBlocks = null;
+				if (iterator[1].swipeRelativeBlocks) {
+					swipeRelativeBlocks = iterator[1].swipeRelativeBlocks.map((block) => ({
+						elem: document.querySelector(block),
+						allowSwipeX: JSON.parse(document.querySelector(block).dataset.swipeableX),
+						allowSwipeY: JSON.parse(document.querySelector(block).dataset.swipeableY),
+					}));
+				}
+
+				layerSwipeTemplateInit(iterator[1].calendarCellsLayout, true, true, swipeRelativeBlocks);
+			}
+		});
+	}
+
+	document.addEventListener('click', (clickEvent) => {
+		const targetElement = clickEvent.target;
+
+		if (
+			targetElement.closest('.event-block') ||
+			targetElement.closest('.event-block__mobile') ||
+			targetElement.closest('.event-day')
+		) {
+			if (document.documentElement.classList.contains('task-details-open')) {
+				document.documentElement.classList.remove('task-details-open');
+				setTimeout(() => {
+					document.documentElement.classList.add('task-details-open');
+				}, 300);
+			} else {
+				document.documentElement.classList.add('task-details-open');
+			}
+		} else if (!targetElement.closest('.task-details') || targetElement.closest('.task-details__close')) {
+			document.documentElement.classList.remove('task-details-open');
+		}
+
+		if (targetElement.closest('.controlls__filter')) {
+			document.documentElement.classList.add('filters-open');
+		} else if (!targetElement.closest('.filters') || targetElement.closest('.filters__close')) {
+			document.documentElement.classList.remove('filters-open');
+		}
+
+		if (targetElement.closest('#new-job-button')) {
+			document.documentElement.classList.add('new-job-open');
+		} else if (!targetElement.closest('.new-job') || targetElement.closest('.new-job__close')) {
+			document.documentElement.classList.remove('new-job-open');
+		}
+
+		if (
+			(targetElement.closest('.controlls__items--time') || targetElement.closest('.controlls__items--type')) &&
+			targetElement.closest('.select__options')
+		) {
+			if (
+				targetElement.closest('[data-layout-controll="day"]') ||
+				targetElement.closest('[data-layout-controll="staff"]')
+			) {
+				document.querySelector('.calendar-layout').classList.add('day');
+			} else {
+				document.querySelector('.calendar-layout').classList.remove('day');
+			}
+		}
+
+		if (targetElement.closest('.controlls__items--time') && targetElement.closest('.select__options')) {
+			if (targetElement.closest('[data-layout-controll="day"]')) {
+				document.querySelector('.controlls__items--type').style.display = '';
+			} else {
+				document.querySelector('.controlls__items--type').style.display = 'none';
+			}
+		}
+
+		if (targetElement.closest('.slider-board__button-skip')) {
+			flsModules.popup.close();
+		}
+
+		if (targetElement.closest('.slider-board__button-done')) {
+			let sliderContainer = document.querySelector('.slider-board');
+			if (sliderContainer.classList.contains('slider-ends')) {
+				flsModules.popup.close();
+			}
+		}
+
+		if (targetElement.closest('.date__text')) {
+			targetElement.closest('.date__text').querySelector('button').click();
+		}
+
+		if (targetElement.closest('.select')) {
+			targetElement.closest('.select').classList.toggle('select-open');
+		}
+	});
+
+	window.addEventListener('resize', (resizeEvent) => {
+		clockIconPositionCorrect();
+	});
+
+	layerScrollInit();
+});
+
+function dayEventAddRandom() {
+	while (true) {
+		const leftPos = +Math.random().toFixed(3);
+		const width = +Math.random().toFixed(3);
+
+		if (leftPos + width < 1 && width >= 0.15) {
+			dayEventAdd(false, leftPos, width, '9:30 am – 3 pm', 'Ermington', 'Riverside Church');
+			break;
+		}
+	}
+}
+
+function layerScrollTemplateInit(scrollBlock, allowScrollX, allowScrollY, dependentBlocks = null) {
+	let wrapperContainer = document.querySelector('.wrapper-container');
+	let layoutCalendar = document.querySelector('.layout__calendar');
+	let paddingRight = parseInt(getComputedStyle(wrapperContainer, true).paddingRight);
+
+	let leftStart = 0;
+	let leftEnd = 0;
+	let scrollX = 0;
+	let scrollableX = allowScrollX
+		? scrollBlock.clientWidth - (window.innerWidth - scrollBlock.getBoundingClientRect().x - paddingRight)
+		: 0;
+
+	let topStart = 0;
+	let topEnd = 0;
+	let scrollY = 0;
+	let scrollableY = allowScrollY
+		? scrollBlock.clientHeight - (wrapperContainer.clientHeight - scrollBlock.getBoundingClientRect().y)
+		: 0;
+
+	if (layoutCalendar.clientHeight > scrollBlock.clientHeight) {
+		scrollableY = 0;
+	}
+
+	let drag = false;
+
+	window.addEventListener('resize', (resizeEvent) => {
+		scrollableX = allowScrollX
+			? scrollBlock.clientWidth - (window.innerWidth - scrollBlock.getBoundingClientRect().x - paddingRight)
+			: 0;
+
+		scrollableY = allowScrollY
+			? scrollBlock.clientHeight - (wrapperContainer.clientHeight - scrollBlock.getBoundingClientRect().y)
+			: 0;
+	});
+
+	scrollBlock.addEventListener('mouseup', function (e) {
+		drag = false;
+
+		if (allowScrollX) {
+			leftEnd += e.pageX - leftStart;
+			if (leftEnd > 0) {
+				leftEnd = 0;
+			} else if (leftEnd <= -scrollableX) {
+				leftEnd = -scrollableX;
+			}
+		}
+
+		if (allowScrollY) {
+			topEnd += e.pageY - topStart;
+			if (topEnd > 0) {
+				topEnd = 0;
+			} else if (topEnd <= -scrollableY) {
+				topEnd = -scrollableY;
+			}
+		}
+	});
+
+	scrollBlock.addEventListener('mousemove', function (e) {
+		if (drag) {
+			if (allowScrollX) {
+				let diffX = -(leftEnd + e.pageX - leftStart);
+
+				if (diffX <= 0) {
+					scrollX = 0;
+				} else if (diffX > scrollableX) {
+					scrollX = -scrollableX;
+				} else {
+					scrollX = -diffX;
+				}
+			}
+
+			if (allowScrollY) {
+				let diffY = -(topEnd + e.pageY - topStart);
+
+				if (diffY <= 0) {
+					scrollY = 0;
+				} else if (diffY > scrollableY) {
+					scrollY = -scrollableY;
+				} else {
+					scrollY = -diffY;
+				}
+			}
+
+			scrollBlock.style.cssText += `
+				transition-duration: 0ms;
+				transition-delay: 0ms;
+				transform: translate3d(${allowScrollX ? scrollX : 0}px, ${allowScrollY ? scrollY : 0}px, 0px);
+			`;
+
+			dependentBlocks?.forEach((block) => {
+				block.elem.style.cssText += `
+					transition-duration: 0ms;
+					transition-delay: 0ms;
+					transform: translate3d(${block.allowScrollX ? scrollX : 0}px, ${block.allowScrollY ? scrollY : 0}px, 0px);
+				`;
+			});
+		}
+	});
+
+	scrollBlock.addEventListener('mousedown', function (e) {
+		drag = true;
+		leftStart = e.pageX;
+		topStart = e.pageY;
+	});
+}
+
+function layerSwipeTemplateInit(swipeBlock, allowSwipeX, allowSwipeY, dependentBlocks = null) {
+	let wrapperContainer = document.querySelector('.wrapper-container');
+	let paddingRight = parseInt(getComputedStyle(wrapperContainer, true).paddingRight);
+
+	let leftStart = 0;
+	let leftEnd = 0;
+	let swipeX = 0;
+	let swipeableX = allowSwipeX
+		? swipeBlock.clientWidth - (window.innerWidth - swipeBlock.getBoundingClientRect().x - paddingRight)
+		: 0;
+
+	let topStart = 0;
+	let topEnd = 0;
+	let swipeY = 0;
+	let swipeableY = allowSwipeY
+		? swipeBlock.clientHeight - (wrapperContainer.clientHeight - swipeBlock.getBoundingClientRect().y)
+		: 0;
+
+	window.addEventListener('resize', (resizeEvent) => {
+		swipeableX = allowSwipeX
+			? swipeBlock.clientWidth - (window.innerWidth - swipeBlock.getBoundingClientRect().x - paddingRight)
+			: 0;
+
+		swipeableY = allowSwipeY
+			? swipeBlock.clientHeight - (wrapperContainer.clientHeight - swipeBlock.getBoundingClientRect().y)
+			: 0;
+	});
+
+	function getTouches(e) {
+		return e.touches;
+	}
+
+	swipeBlock.addEventListener('touchstart', function (e) {
+		const firstTouch = getTouches(e)[0];
+		leftStart = firstTouch.clientX;
+		topStart = firstTouch.clientY;
+	});
+
+	let swipeXdiff = 0;
+	let swipeYdiff = 0;
+
+	swipeBlock.addEventListener('touchmove', function (e) {
+		const firstTouch = getTouches(e)[0];
+		if (allowSwipeX) {
+			swipeXdiff = firstTouch.clientX;
+			let diffX = -(leftEnd + swipeXdiff - leftStart);
+
+			if (diffX <= 0) {
+				swipeX = 0;
+			} else if (diffX > swipeableX) {
+				swipeX = -swipeableX;
+			} else {
+				swipeX = -diffX;
+			}
+		}
+
+		if (allowSwipeX) {
+			swipeYdiff = firstTouch.clientY;
+			let diffY = -(topEnd + swipeYdiff - topStart);
+
+			if (diffY <= 0) {
+				swipeY = 0;
+			} else if (diffY > swipeableY) {
+				swipeY = -swipeableY;
+			} else {
+				swipeY = -diffY;
+			}
+		}
+
+		swipeBlock.style.cssText += `
+				transition-duration: 0ms;
+				transition-delay: 0ms;
+				transform: translate3d(${allowSwipeX ? swipeX : 0}px, ${allowSwipeY ? swipeY : 0}px, 0px);
+			`;
+
+		dependentBlocks?.forEach((block) => {
+			block.elem.style.cssText += `
+					transition-duration: 0ms;
+					transition-delay: 0ms;
+					transform: translate3d(${block.allowSwipeX ? swipeX : 0}px, ${block.allowSwipeY ? swipeY : 0}px, 0px);
+				`;
+		});
+	});
+
+	swipeBlock.addEventListener('touchend', function (e) {
+		if (allowSwipeX) {
+			leftEnd += swipeXdiff - leftStart;
+			if (leftEnd > 0) {
+				leftEnd = 0;
+			} else if (leftEnd <= -swipeableX) {
+				leftEnd = -swipeableX;
+			}
+		}
+
+		if (allowSwipeX) {
+			topEnd += swipeYdiff - topStart;
+			if (topEnd > 0) {
+				topEnd = 0;
+			} else if (topEnd <= -swipeableY) {
+				topEnd = -swipeableY;
+			}
+		}
+	});
+}
+
+function scrollReset(block) {
+	if (block.style) {
+		block.style.cssText += `
+		transition-duration: 0ms;
+		transition-delay: 0ms;
+		transform: translate3d(0px, 0px, 0px);
+	`;
+	}
+}
+
+function layerScrollInit() {
+	layerScrollTemplateInit(document.querySelector('.cells-layout--day'), true, true, [
+		{
+			elem: document.querySelector('.time-stamp__inner'),
+			allowScrollX: true,
+			allowScrollY: false,
+		},
+		{
+			elem: document.querySelector('.user-layout'),
+			allowScrollX: false,
+			allowScrollY: true,
+		},
+		,
+	]);
+
+	layerSwipeTemplateInit(document.querySelector('.cells-layout--day'), true, true, [
+		{
+			elem: document.querySelector('.time-stamp__inner'),
+			allowSwipeX: true,
+			allowSwipeY: false,
+		},
+		{
+			elem: document.querySelector('.user-layout'),
+			allowSwipeX: false,
+			allowSwipeY: true,
+		},
+		,
+	]);
+}
+
+function userDayAdd(imageUrl, name) {
+	const userLayout = document.querySelector('.user-layout--day .user-layout__inner');
+	const userTag = document.createElement('div');
+	userTag.classList.add('user-layout__user');
+	userTag.innerHTML = `
+							<img
+								class="user-layout__user-avatar"
+								src="${imageUrl}"
+								alt="user-avatar" />
+							<span class="user-layout__user-name">
+								${name}
+							</span>
+	`;
+	userLayout.append(userTag);
+}
+
+function userWeekAdd(imageUrl, name) {
+	const userLayout = document.querySelector('.user-layout--week .user-layout__inner');
+	const userTag = document.createElement('div');
+	userTag.classList.add('user-layout__user');
+	userTag.innerHTML = `
+							<img
+								class="user-layout__user-avatar"
+								src="${imageUrl}"
+								alt="user-avatar" />
+							<span class="user-layout__user-name">
+								${name}
+							</span>
+	`;
+	userLayout.append(userTag);
+}
+
+function dayEventAdd(isAlert, leftPos, width, time, place, description) {
+	const calendarLayout = document.querySelector('.cells-layout.cells-layout--day .cells-layout__events');
+	const eventTag = document.createElement('div');
+	eventTag.classList.add('event-day');
+	eventTag.style.marginLeft = `${leftPos * 100}%`;
+	eventTag.style.width = `${width * 100}%`;
+
+	if (isAlert) {
+		eventTag.innerHTML = `
+								<div class="event-day__icon-wrapper">
+									<svg>
+										<use
+											xlink:href="img/icons/icons.svg#attention"></use>
+									</svg>
+								</div>
+		`;
+	} else {
+		eventTag.innerHTML = `
+								<div class="event-day__top">
+									<div class="event-day__time">${time}</div>
+									<div class="event-day__sep"></div>
+									<div class="event-day__place">${place}</div>
+								</div>
+								<div class="event-day__name">${description}</div>
+		`;
+	}
+
+	calendarLayout.append(eventTag);
+}
+
+function taskEventAdd(time, address, task, description, usersImageUrl) {
+	taskEventAddDesktop(time, address, task, description, usersImageUrl);
+	taskEventAddMobile(time, address, task, description);
+
+	function taskEventAddMobile(time, address, task, description) {
+		const layout = document.querySelector('.cells-layout--mobile');
+		const eventBlock = document.createElement('div');
+		eventBlock.classList.add('event-block__mobile', 'event-block--mobile');
+
+		eventBlock.innerHTML = `
+			<div class="event-block__mobile-row event-block__mobile-row--col">
+				<div class="event-block__mobile-left">
+					<div class="event-block__time">${time}</div>
+					<div class="event-block__address">${address}</div>
+				</div>
+				<div class="event-block__mobile-right">
+					<a class="event-block__image-wrapper" href="#">
+						<svg
+							width="50"
+							height="32"
+							viewBox="0 0 50 32"
+							fill="none"
+							xmlns="http://www.w3.org/2000/svg">
+							<circle cx="14" cy="16" r="14" fill="#D9D9D9" />
+							<circle
+								cx="34"
+								cy="16"
+								r="15"
+								fill="#D9D9D9"
+								stroke="white"
+								stroke-width="2" />
+						</svg>
+					</a>
+				</div>
+			</div>
+			<div class="event-block__mobile-row">
+				<div class="event-block__task">${task}</div>
+				<div class="event-block__description">
+					<span class="event-block__description-text">${description}</span>
+				</div>
+			</div>
+		`;
+
+		layout.append(eventBlock);
+	}
+
+	function taskEventAddDesktop(time, address, task, description, usersImageUrl) {
+		const layout = document.querySelector('.cells-layout--desktop');
+		const eventBlock = document.createElement('div');
+		eventBlock.classList.add('event-block', 'event-block--desktop');
+
+		eventBlock.innerHTML = `
+				<div class="event-block__time">${time}</div>
+				<div class="event-block__address">${address}</div>
+				<div class="event-block__task">${task}</div>
+				<div class="event-block__description">
+					<span class="event-block__description-text">${description}</span>
+					<div class="event-block__description-users">
+						${userCollectionInsert(usersImageUrl)}
+					</div>
+				</div>
+		`;
+
+		layout.append(eventBlock);
+
+		function userCollectionInsert(usersImageUrl) {
+			return usersImageUrl.length <= 4
+				? String(
+						usersImageUrl.map(
+							(user) => `
+							<div class="event-block__description-images">
+								<img
+									class="event-block__description-image"
+									src=${user}
+									alt="user-img" />
+							</div>
+							`
+						)
+				  ).replaceAll(',', '')
+				: `
+				<div class="event-block__description-images">
+					${String(
+						usersImageUrl.map((user, index) =>
+							index <= 4
+								? `
+							<div class="event-block__description-images">
+								<img
+									class="event-block__description-image"
+									src=${user}
+									alt="user-img" />
+							</div>
+							`
+								: null
+						)
+					).replaceAll(',', '')}
+				</div>
+				<div class="event-block__description-more">+${usersImageUrl.length - 4}</div>
+				`;
+		}
+	}
+}
+
+function weekEventAdd(col, row, progress, time, tasks) {
+	const caledarLayoutCells = document.querySelectorAll(
+		'.cells-layout.cells-layout--week .cells-layout__cell-week-inner'
+	);
+	const cellLayout = caledarLayoutCells[col + 7 * row];
+
+	const eventTag = document.createElement('div');
+	eventTag.classList.add('event-week');
+
+	let progressNum = progress * 100;
+	if (progressNum >= 0 && progressNum <= 30) {
+		eventTag.classList.add('event-week--red');
+	} else if (progressNum > 30 && progressNum <= 70) {
+		eventTag.classList.add('event-week--brown');
+	} else {
+		eventTag.classList.add('event-week--green');
+	}
+
+	eventTag.innerHTML = `
+							<div class="event-week__inner">
+								<div class="event-week__time-wrapper" style="--progress-width: ${progressNum}%">
+									<div class="event-week__time-value">
+										${time}
+									</div>
+								</div>
+								<div class="event-week__tasks">${tasks} tasks</div>
+							</div>
+	`;
+
+	cellLayout.innerHTML = '';
+	cellLayout.append(eventTag);
+}
+
+function monthEventAdd(col, row, progress, time, tasks, users) {
+	const caledarLayoutCells = document.querySelectorAll('.cells-layout.cells-layout--month .cells-layout__cell-month');
+	console.log(caledarLayoutCells);
+	const cellLayout = caledarLayoutCells[col + 7 * row];
+
+	const eventTag = document.createElement('div');
+	eventTag.classList.add('event-month');
+
+	let progressNum = progress * 100;
+	if (progressNum >= 0 && progressNum <= 30) {
+		eventTag.classList.add('event-month--red');
+	} else if (progressNum > 30 && progressNum <= 70) {
+		eventTag.classList.add('event-month--brown');
+	} else {
+		eventTag.classList.add('event-month--green');
+	}
+
+	eventTag.innerHTML = `
+							<div class="event-month__inner">
+								<div class="event-month__users">
+									<span>${users}</span>
+									<svg>
+										<use
+											xlink:href="img/icons/icons.svg#user"></use>
+									</svg>
+								</div>
+								<div class="event-month__tasks">
+									${tasks}<span> tasks</span>
+								</div>
+								<div class="event-month__time-wrapper" style="--progress-width: ${progressNum}%">
+									<div class="event-month__time-value">
+										<span>${time}</span>
+									</div>
+								</div>
+							</div>
+	`;
+
+	cellLayout.append(eventTag);
+}
+
+function clockPosition(position) {
+	const calendarLayout = document.querySelector('.cells-layout.cells-layout--day');
+	calendarLayout.style.setProperty('--clock-position', `${position * 100}%`);
+	clockIconPositionCorrect();
+}
+
+function clockIconPositionCorrect() {
+	const pageContainer = document.querySelector('.app-root');
+	const calendarContainer = document.querySelector('.wrapper-inner');
+
+	const clockIcon = document.querySelector('.time-stamp__clock-icon');
+	const clockLine = document.querySelector('.cells-layout__clock-line');
+	let position = getRelativePositionLeft(calendarContainer, clockLine);
+
+	clockIcon.style.left = `${position}px`;
+
+	function getRelativePositionLeft(container, elem) {
+		return elem.getBoundingClientRect().x - container.getBoundingClientRect().x;
+	}
+}

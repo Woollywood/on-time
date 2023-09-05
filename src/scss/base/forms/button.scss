@@ -1,0 +1,48 @@
+//<BUTTONS (a.btn+tab)>
+// Сниппет (HTML): btn
+
+.button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+
+	padding: rem(12) rem(16);
+	border-radius: rem(8);
+	background: cl('accent');
+
+	color: cl('white');
+	font-size: rem(14);
+	line-height: rem(20);
+
+	&._fw {
+		width: 100%;
+	}
+
+	&:not(.swiper-button-disabled) {
+		&:disabled {
+			color: cl('grey', 0.3);
+			border: 1px solid cl('grey', 0.3);
+			background-color: transparent;
+		}
+	}
+
+	transition: all 0.3s ease;
+	@media (any-hover: hover) {
+		&:hover {
+			background: cl('accent');
+		}
+	}
+
+	&--outstroke {
+		color: cl('black');
+		background-color: transparent;
+		border: rem(1) solid rgba(0, 82, 128, 0.3);
+
+		@media (any-hover: hover) {
+			&:hover {
+				color: cl('accent');
+				background: transparent;
+			}
+		}
+	}
+}

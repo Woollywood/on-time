@@ -1,0 +1,291 @@
+.select {
+	position: relative;
+
+	@media (any-hover: hover) {
+		&:hover {
+			.select__placeholder {
+				color: #0D6293;
+			}
+		}
+	}
+
+	&--empty {
+	}
+
+	&--multy {
+		.select__placeholder-wrapper {
+			padding: rem(4) rem(16) rem(4) rem(4);
+		}
+	}
+
+	&--adapt {
+		@media (max-width: $mobile) {
+			width: rem(100);
+		}
+
+		.select__title {
+			@media (min-width: $mobile) {
+				display: none;
+			}
+		}
+
+		.select__options {
+			@media (min-width: $mobile) {
+				position: static;
+				display: block;
+				border: 1px solid rgba(26, 127, 185, 0.2);
+				background-color: transparent;
+				box-shadow: unset;
+			}
+		}
+
+		.option-select {
+			padding: 0;
+		}
+
+		.option-select__items {
+			@media (min-width: $mobile) {
+				display: flex;
+				gap: rem(4);
+				align-items: center;
+				padding: rem(4);
+			}
+		}
+	}
+
+	&__title {
+		cursor: pointer;
+	}
+
+	&__placeholder-wrapper {
+		display: flex;
+		gap: rem(8);
+		align-items: center;
+		justify-content: space-between;
+
+		padding: rem(12) rem(16);
+		border-radius: rem(8);
+		border: 1px solid rgba(26, 127, 185, 0.2);
+
+		&--tokens {
+			align-items: flex-start;
+
+			> svg {
+				margin-top: rem(12);
+			}
+		}
+
+		> svg {
+			flex: 0 0 rem(12);
+			width: rem(12);
+			height: rem(12);
+			fill: cl('accent');
+			transition: all 0.3s ease;
+		}
+
+		.select-open & {
+			> svg {
+				transform: rotate(180deg);
+			}
+		}
+	}
+
+	&__placeholder {
+		color: #6e6e6e;
+		font-size: rem(14);
+		font-style: normal;
+		font-weight: 400;
+		line-height: 142%;
+		transition: all 0.3s ease;
+	}
+
+	&__options {
+		display: none;
+
+		.select-open & {
+			display: block;
+		}
+
+		position: absolute;
+		z-index: 10;
+		top: calc(100% + rem(4));
+		left: 0;
+		width: 100%;
+
+		border-radius: rem(8);
+		background: cl('white');
+		box-shadow: 0px 4px 14px 0px rgba(0, 82, 128, 0.04), 0px 8px 16px 0px rgba(0, 82, 128, 0.06),
+			0px 20px 28px 0px rgba(0, 82, 128, 0.05);
+
+		max-height: rem(348);
+		overflow: auto;
+	}
+
+	&__option {
+	}
+
+	&__tag-tokens {
+		display: flex;
+		gap: rem(4);
+		flex-wrap: wrap;
+	}
+
+	&__tag-token {
+	}
+}
+
+.option-select {
+	cursor: pointer;
+	padding: rem(10) rem(16);
+
+	&:not(.select--adapt &) {
+		transition: all 0.3s ease;
+		&:hover {
+			background-color: cl('background');
+
+			.option-select__title {
+				color: cl('accent-2');
+			}
+		}
+	}
+
+	&--search {
+		padding: rem(16) rem(16) rem(8);
+
+		&:hover {
+			background-color: cl('white');
+		}
+	}
+
+	&--staff {
+		padding: 0;
+
+		&:not(:last-child) {
+			margin-bottom: rem(16);
+		}
+
+		&:hover {
+			background-color: cl('white');
+		}
+	}
+
+	&__items {
+		&--staff {
+			padding: rem(8) rem(16);
+		}
+	}
+
+	&__top {
+		display: flex;
+		align-items: center;
+		gap: rem(12);
+
+		&:not(:last-child) {
+			margin-bottom: rem(4);
+		}
+	}
+
+	&__search {
+		@extend .input;
+		width: 100%;
+	}
+
+	&__found {
+		font-weight: 900;
+	}
+
+	&__title {
+		color: #111;
+		font-size: rem(14);
+		font-weight: 400;
+		line-height: 142%;
+		transition: all 0.3s ease;
+	}
+
+	&__title-sep {
+		width: rem(2);
+		height: rem(2);
+		background-color: cl('black');
+		border-radius: 50%;
+	}
+
+	&__bottom {
+		display: flex;
+		align-items: center;
+		gap: rem(12);
+	}
+
+	&__sub-title {
+		color: #6e6e6e;
+		font-size: rem(12);
+		font-weight: 400;
+		line-height: 133%;
+	}
+
+	&__sub-title-sep {
+		width: rem(2);
+		height: rem(2);
+		background-color: cl('grey');
+		border-radius: 50%;
+	}
+
+	&__staff {
+	}
+
+	&__checkbox {
+	}
+
+	&__checkbox-input {
+	}
+
+	&__checkbox-label {
+		display: flex;
+		gap: rem(12);
+		align-items: center;
+	}
+
+	&__avatar {
+		width: rem(28);
+		height: rem(28);
+		border-radius: 50%;
+		overflow: hidden;
+	}
+
+	&__person-name {
+		color: #111;
+		font-size: rem(14);
+		font-weight: 400;
+		line-height: 142%;
+	}
+}
+
+.tag-token {
+	display: flex;
+	align-items: center;
+	gap: rem(4);
+	padding: rem(8) rem(12);
+	border-radius: rem(6);
+	background: cl('accent-3');
+
+	&__text {
+		color: cl('black');
+		font-size: rem(14);
+		font-weight: 400;
+		line-height: 142%;
+		white-space: nowrap;
+
+		i {
+			color: cl('black');
+			font-size: rem(14);
+			font-weight: 900;
+			line-height: 142%;
+			padding-right: rem(4);
+		}
+	}
+
+	svg {
+		width: rem(10);
+		height: rem(10);
+		fill: cl('accent');
+	}
+}
