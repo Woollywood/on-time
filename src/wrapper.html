@@ -1307,9 +1307,39 @@
 					<div class="task-details__label">Task</div>
 					<div class="task-details__value">MTC Australia Chatswood</div>
 				</div>
-				<div class="task-details__row">
-					<div class="task-details__label">Time</div>
+				<div class="task-details__row task-details__row--time">
+					<div class="task-details__label task-details__label--editable">
+						<i class="fa-solid fa-pen task-details__fa"></i>
+						<i class="fa-solid fa-circle-xmark task-details__fa--editable"></i> Time
+					</div>
 					<div class="task-details__value">6:00 am – All Day</div>
+					<div class="task-details__edit-wrapper">
+						<div class="new-job__row">
+							<div class="new-job__label">Start Time</div>
+							<div class="new-job__value">
+								<input class="new-job__value-placeholder input" value="23:00, 2 Aug, 2023" />
+							</div>
+						</div>
+						<div class="new-job__row">
+							<div class="new-job__label">End Time</div>
+							<div class="new-job__value new-job__value--check">
+								<input class="new-job__value-placeholder input" value="23:30, 2 Aug, 2023" disabled />
+								<div class="checkbox">
+									<input
+										id="all-day-checkbox"
+										checked
+										data-error="Ошибка"
+										class="checkbox__input"
+										type="checkbox"
+										value="1"
+										name="form[]" />
+									<label for="all-day-checkbox" class="checkbox__label"
+										><span class="checkbox__text">All Day</span></label
+									>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 			<div class="task-details__row">
@@ -1340,14 +1370,21 @@
 					</div>
 				</div>
 			</div>
-			<div class="task-details__row">
-				<div class="task-details__label">Description</div>
+			<div class="task-details__row task-details__row--description">
+				<div class="task-details__label task-details__label--editable">
+					<i class="fa-solid fa-pen task-details__fa"></i>
+					<i class="fa-solid fa-circle-xmark task-details__fa--editable"></i> Description
+				</div>
 				<div class="task-details__value">
 					6AM start. Last day on site for ceiling tile installation, final cleaning and rubbish removal
 				</div>
+				<textarea class="task-details__text-area input" value="Add description text here"></textarea>
 			</div>
-			<div class="task-details__row">
-				<div class="task-details__label">Staff</div>
+			<div class="task-details__row task-details__row--staff">
+				<div class="task-details__label task-details__label--editable">
+					<i class="fa-solid fa-pen task-details__fa"></i>
+					<i class="fa-solid fa-circle-xmark task-details__fa--editable"></i> Staff
+				</div>
 				<div class="task-details__value">
 					<div class="task-details__staff-wrapper">
 						<a class="task-details__staff" href="#">
@@ -1371,6 +1408,262 @@
 								alt="user-img" />
 							<span>Sergey Zadrutsky</span>
 						</a>
+					</div>
+				</div>
+				<div class="select select--multy select--empty">
+					<div class="select__title">
+						<div class="select__placeholder-wrapper select__placeholder-wrapper--tokens">
+							<!-- <span class="select__placeholder">Select</span> -->
+							<div class="select__tag-tokens">
+								<div class="select__tag-token tag-token">
+									<div class="tag-token__text">Alyona Kolontaevskaya</div>
+									<svg>
+										<use xlink:href="@img/icons/icons.svg#close"></use>
+									</svg>
+								</div>
+								<div class="select__tag-token tag-token">
+									<div class="tag-token__text">Pavel Buyanov</div>
+									<svg>
+										<use xlink:href="@img/icons/icons.svg#close"></use>
+									</svg>
+								</div>
+								<div class="select__tag-token tag-token">
+									<div class="tag-token__text">Sergey Zadrutsky</div>
+									<svg>
+										<use xlink:href="@img/icons/icons.svg#close"></use>
+									</svg>
+								</div>
+							</div>
+							<svg>
+								<use xlink:href="@img/icons/icons.svg#arrow-down"></use>
+							</svg>
+						</div>
+					</div>
+					<div class="select__options">
+						<div class="select__option option-select option-select--search">
+							<input class="option-select__search" type="text" placeholder="Quick Search" />
+						</div>
+						<div class="option-select__items option-select__items--staff">
+							<div class="select__option option-select option-select--staff">
+								<div class="option-select__staff">
+									<div class="option-select__checkbox checkbox">
+										<input
+											class="option-select__checkbox-input checkbox__input"
+											id="person-01"
+											type="checkbox"
+											value="1" />
+										<label class="option-select__checkbox-label checkbox__label" for="person-01">
+											<img
+												class="option-select__avatar"
+												src="@img/content/new-job/person-01.jpg"
+												alt="avatar" />
+											<span class="option-select__person-name">Alyona Kolontaevskaya</span>
+										</label>
+									</div>
+								</div>
+							</div>
+							<div class="select__option option-select option-select--staff">
+								<div class="option-select__staff">
+									<div class="option-select__checkbox checkbox">
+										<input
+											class="option-select__checkbox-input checkbox__input"
+											id="person-02"
+											type="checkbox"
+											value="2"
+											checked />
+										<label class="option-select__checkbox-label checkbox__label" for="person-02">
+											<img
+												class="option-select__avatar"
+												src="@img/content/new-job/person-02.jpg"
+												alt="avatar" />
+											<span class="option-select__person-name">Alyona Kolontaevskaya</span>
+										</label>
+									</div>
+								</div>
+							</div>
+							<div class="select__option option-select option-select--staff">
+								<div class="option-select__staff">
+									<div class="option-select__checkbox checkbox">
+										<input
+											class="option-select__checkbox-input checkbox__input"
+											id="person-03"
+											type="checkbox"
+											value="3"
+											checked />
+										<label class="option-select__checkbox-label checkbox__label" for="person-03">
+											<img
+												class="option-select__avatar"
+												src="@img/content/new-job/person-03.jpg"
+												alt="avatar" />
+											<span class="option-select__person-name">Alyona Kolontaevskaya</span>
+										</label>
+									</div>
+								</div>
+							</div>
+							<div class="select__option option-select option-select--staff">
+								<div class="option-select__staff">
+									<div class="option-select__checkbox checkbox">
+										<input
+											class="option-select__checkbox-input checkbox__input"
+											id="person-04"
+											type="checkbox"
+											value="4"
+											checked />
+										<label class="option-select__checkbox-label checkbox__label" for="person-04">
+											<img
+												class="option-select__avatar"
+												src="@img/content/new-job/person-04.jpg"
+												alt="avatar" />
+											<span class="option-select__person-name">Alyona Kolontaevskaya</span>
+										</label>
+									</div>
+								</div>
+							</div>
+							<div class="select__option option-select option-select--staff">
+								<div class="option-select__staff">
+									<div class="option-select__checkbox checkbox">
+										<input
+											class="option-select__checkbox-input checkbox__input"
+											id="person-05"
+											type="checkbox"
+											value="5" />
+										<label class="option-select__checkbox-label checkbox__label" for="person-05">
+											<img
+												class="option-select__avatar"
+												src="@img/content/new-job/person-05.jpg"
+												alt="avatar" />
+											<span class="option-select__person-name">Alyona Kolontaevskaya</span>
+										</label>
+									</div>
+								</div>
+							</div>
+							<div class="select__option option-select option-select--staff">
+								<div class="option-select__staff">
+									<div class="option-select__checkbox checkbox">
+										<input
+											class="option-select__checkbox-input checkbox__input"
+											id="person-06"
+											type="checkbox"
+											value="6" />
+										<label class="option-select__checkbox-label checkbox__label" for="person-06">
+											<img
+												class="option-select__avatar"
+												src="@img/content/new-job/person-06.jpg"
+												alt="avatar" />
+											<span class="option-select__person-name">Alyona Kolontaevskaya</span>
+										</label>
+									</div>
+								</div>
+							</div>
+							<div class="select__option option-select option-select--staff">
+								<div class="option-select__staff">
+									<div class="option-select__checkbox checkbox">
+										<input
+											class="option-select__checkbox-input checkbox__input"
+											id="person-07"
+											type="checkbox"
+											value="7" />
+										<label class="option-select__checkbox-label checkbox__label" for="person-07">
+											<img
+												class="option-select__avatar"
+												src="@img/content/new-job/person-01.jpg"
+												alt="avatar" />
+											<span class="option-select__person-name">Alyona Kolontaevskaya</span>
+										</label>
+									</div>
+								</div>
+							</div>
+							<div class="select__option option-select option-select--staff">
+								<div class="option-select__staff">
+									<div class="option-select__checkbox checkbox">
+										<input
+											class="option-select__checkbox-input checkbox__input"
+											id="person-08"
+											type="checkbox"
+											value="8" />
+										<label class="option-select__checkbox-label checkbox__label" for="person-08">
+											<img
+												class="option-select__avatar"
+												src="@img/content/new-job/person-02.jpg"
+												alt="avatar" />
+											<span class="option-select__person-name">Alyona Kolontaevskaya</span>
+										</label>
+									</div>
+								</div>
+							</div>
+							<div class="select__option option-select option-select--staff">
+								<div class="option-select__staff">
+									<div class="option-select__checkbox checkbox">
+										<input
+											class="option-select__checkbox-input checkbox__input"
+											id="person-09"
+											type="checkbox"
+											value="9" />
+										<label class="option-select__checkbox-label checkbox__label" for="person-09">
+											<img
+												class="option-select__avatar"
+												src="@img/content/new-job/person-03.jpg"
+												alt="avatar" />
+											<span class="option-select__person-name">Alyona Kolontaevskaya</span>
+										</label>
+									</div>
+								</div>
+							</div>
+							<div class="select__option option-select option-select--staff">
+								<div class="option-select__staff">
+									<div class="option-select__checkbox checkbox">
+										<input
+											class="option-select__checkbox-input checkbox__input"
+											id="person-10"
+											type="checkbox"
+											value="10" />
+										<label class="option-select__checkbox-label checkbox__label" for="person-10">
+											<img
+												class="option-select__avatar"
+												src="@img/content/new-job/person-04.jpg"
+												alt="avatar" />
+											<span class="option-select__person-name">Alyona Kolontaevskaya</span>
+										</label>
+									</div>
+								</div>
+							</div>
+							<div class="select__option option-select option-select--staff">
+								<div class="option-select__staff">
+									<div class="option-select__checkbox checkbox">
+										<input
+											class="option-select__checkbox-input checkbox__input"
+											id="person-11"
+											type="checkbox"
+											value="11" />
+										<label class="option-select__checkbox-label checkbox__label" for="person-11">
+											<img
+												class="option-select__avatar"
+												src="@img/content/new-job/person-05.jpg"
+												alt="avatar" />
+											<span class="option-select__person-name">Alyona Kolontaevskaya</span>
+										</label>
+									</div>
+								</div>
+							</div>
+							<div class="select__option option-select option-select--staff">
+								<div class="option-select__staff">
+									<div class="option-select__checkbox checkbox">
+										<input
+											class="option-select__checkbox-input checkbox__input"
+											id="person-12"
+											type="checkbox"
+											value="12" />
+										<label class="option-select__checkbox-label checkbox__label" for="person-12">
+											<img
+												class="option-select__avatar"
+												src="@img/content/new-job/person-06.jpg"
+												alt="avatar" />
+											<span class="option-select__person-name">Alyona Kolontaevskaya</span>
+										</label>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>

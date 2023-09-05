@@ -159,6 +159,18 @@ window.addEventListener('load', (windowEvent) => {
 		});
 	}
 
+	let taskEditableFieldList = document.querySelectorAll('.task-details__label--editable');
+	taskEditableFieldList.forEach((field) => {
+		field.addEventListener('click', (e) => {
+			field.classList.toggle('_edit');
+			e.target.closest('.task-details__row').classList.toggle('_edit');
+
+			if (e.target.closest('.task-details__row--span-2')) {
+				e.target.closest('.task-details__row--span-2').classList.toggle('_edit');
+			}
+		});
+	});
+
 	document.addEventListener('click', (clickEvent) => {
 		const targetElement = clickEvent.target;
 
