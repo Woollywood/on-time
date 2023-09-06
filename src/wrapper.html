@@ -1317,23 +1317,27 @@
 						<div class="new-job__row">
 							<div class="new-job__label">Start Time</div>
 							<div class="new-job__value">
-								<input class="new-job__value-placeholder input" value="23:00, 2 Aug, 2023" />
+								<div class="new-job__value-placeholder-wrapper">
+									<input class="new-job__value-placeholder input" value="23:00, 2 Aug, 2023" />
+								</div>
 							</div>
 						</div>
 						<div class="new-job__row">
 							<div class="new-job__label">End Time</div>
 							<div class="new-job__value new-job__value--check">
-								<input class="new-job__value-placeholder input" value="23:30, 2 Aug, 2023" disabled />
+								<div class="new-job__value-placeholder-wrapper">
+									<input class="new-job__value-placeholder input" value="23:30, 2 Aug, 2023" disabled />
+								</div>
 								<div class="checkbox">
 									<input
-										id="all-day-checkbox"
+										id="all-day-checkbox--1"
 										checked
 										data-error="Ошибка"
 										class="checkbox__input"
 										type="checkbox"
 										value="1"
 										name="form[]" />
-									<label for="all-day-checkbox" class="checkbox__label"
+									<label for="all-day-checkbox--1" class="checkbox__label"
 										><span class="checkbox__text">All Day</span></label
 									>
 								</div>
@@ -1378,7 +1382,9 @@
 				<div class="task-details__value">
 					6AM start. Last day on site for ceiling tile installation, final cleaning and rubbish removal
 				</div>
-				<textarea class="task-details__text-area input" value="Add description text here"></textarea>
+				<div class="task-details__text-area input-wrapper">
+					<textarea class="input" value="Add description text here"></textarea>
+				</div>
 			</div>
 			<div class="task-details__row task-details__row--staff">
 				<div class="task-details__label task-details__label--editable">
@@ -1672,7 +1678,9 @@
 			<div class="task-details__row">
 				<div class="task-details__label task-details__label--gutter-top">Notes</div>
 				<div class="task-details__value task-details__value--notes">
-					<textarea class="task-details__text-area input" placeholder="Add notes here"></textarea>
+					<div class="task-details__text-area input-wrapper">
+						<textarea class="input" placeholder="Add notes here"></textarea>
+					</div>
 					<div class="task-details__notes-wrapper">
 						<div class="task-details__note note-detail">
 							<div class="note-detail__title">
@@ -2264,23 +2272,27 @@
 				<div class="new-job__row">
 					<div class="new-job__label">Start Time</div>
 					<div class="new-job__value">
-						<input class="new-job__value-placeholder input" value="23:00, 2 Aug, 2023" />
+						<div class="new-job__value-placeholder-wrapper">
+							<input class="new-job__value-placeholder input" value="23:00, 2 Aug, 2023" />
+						</div>
 					</div>
 				</div>
 				<div class="new-job__row">
 					<div class="new-job__label">End Time</div>
 					<div class="new-job__value new-job__value--check">
-						<input class="new-job__value-placeholder input" value="23:30, 2 Aug, 2023" disabled />
+						<div class="new-job__value-placeholder-wrapper">
+							<input class="new-job__value-placeholder input" value="23:30, 2 Aug, 2023" disabled />
+						</div>
 						<div class="checkbox">
 							<input
-								id="all-day-checkbox"
+								id="all-day-checkbox--2"
 								checked
 								data-error="Ошибка"
 								class="checkbox__input"
 								type="checkbox"
 								value="1"
 								name="form[]" />
-							<label for="all-day-checkbox" class="checkbox__label"
+							<label for="all-day-checkbox--2" class="checkbox__label"
 								><span class="checkbox__text">All Day</span></label
 							>
 						</div>
@@ -2602,7 +2614,9 @@
 				<div class="new-job__row new-job__row--pt">
 					<div class="new-job__label">Description</div>
 					<div class="new-job__value">
-						<textarea class="new-job__textarea input" placeholder="Add description here"></textarea>
+						<div class="new-job__textarea input-wrapper">
+							<textarea class="input" placeholder="Add description here"></textarea>
+						</div>
 					</div>
 				</div>
 			</div>

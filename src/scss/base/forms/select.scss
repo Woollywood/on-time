@@ -93,6 +93,16 @@
 				transform: rotate(180deg);
 			}
 		}
+
+		&._found {
+			span {
+				color: cl('accent-2');
+			}
+
+			> svg {
+				fill: cl('accent-2');
+			}
+		}
 	}
 
 	&__placeholder {
