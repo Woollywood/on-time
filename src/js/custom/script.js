@@ -240,9 +240,15 @@ window.addEventListener('load', (windowEvent) => {
 			targetElement.closest('.date__text').querySelector('button').click();
 		}
 
-		if (targetElement.closest('.select')) {
+		if (targetElement.closest('.select') && !targetElement.closest('.select__options')) {
 			targetElement.closest('.select').classList.toggle('select-open');
 		}
+
+		// if (targetElement.closest('.select')) {
+		// 	targetElement.closest('.select').classList.add('select-open');
+		// } else if (targetElement.closest('.select') && !targetElement.closest('.option-select__search')) {
+		// 	targetElement.closest('.select').classList.remove('select-open');
+		// }
 	});
 
 	window.addEventListener('resize', (resizeEvent) => {

@@ -14,7 +14,7 @@ textarea {
 	padding: rem(12) rem(16);
 	border-radius: rem(4);
 	border-radius: 8px;
-	border: rem(1) solid rgba(26, 127, 185, 0.3);
+	border: rem(1) solid cl('accent', 0.3);
 
 	&._form-focus {
 	}

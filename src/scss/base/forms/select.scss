@@ -4,7 +4,7 @@
 	@media (any-hover: hover) {
 		&:hover {
 			.select__placeholder {
-				color: #0D6293;
+				color: cl('accent-2');
 			}
 		}
 	}
@@ -33,7 +33,7 @@
 			@media (min-width: $mobile) {
 				position: static;
 				display: block;
-				border: 1px solid rgba(26, 127, 185, 0.2);
+				border: 1px solid cl('accent', 0.2);
 				background-color: transparent;
 				box-shadow: unset;
 			}
@@ -65,7 +65,12 @@
 
 		padding: rem(12) rem(16);
 		border-radius: rem(8);
-		border: 1px solid rgba(26, 127, 185, 0.2);
+		border: rem(1) solid cl('accent', 0.2);
+		transition: all 0.3s ease;
+
+		.select-open & {
+			border: rem(1) solid cl('accent-5');
+		}
 
 		&--tokens {
 			align-items: flex-start;
@@ -185,9 +190,41 @@
 		}
 	}
 
+	&__search-wrapper {
+		position: relative;
+
+		&::before {
+			content: "";
+			display: block;
+			position: absolute;
+			top: rem(1);
+			left: rem(1);
+			width: calc(100% - rem(2));
+			height: calc(100% - rem(2));
+			background-color: transparent;
+			border-radius: rem(8);
+			border: rem(2) solid cl('accent', 0.3);
+
+			opacity: 0;
+			visibility: hidden;
+			transition: all 0.3s ease;
+		}
+
+		&._form-focus {
+			&::before {
+				opacity: 1;
+				visibility: visible;
+			}
+		}
+	}
+
 	&__search {
 		@extend .input;
 		width: 100%;
+
+		&:focus {
+			border: rem(1) solid cl('accent-5');
+		}
 	}
 
 	&__found {
