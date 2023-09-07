@@ -194,13 +194,14 @@
 		@media (max-width: em(1920)) {
 			.calendar-layout__inner {
 				width: calc(
-					var(--ui-calendar-layout-users-panel-width) + (var(--ui-calendar-layout-grid-cell-width) * 24)
+					var(--ui-calendar-layout-users-panel-width) +
+						(var(--ui-calendar-layout-grid-cell-width) * var(--cell-count))
 				);
 
 				@media (max-width: $mobile) {
 					width: calc(
 						var(--ui-calendar-layout-users-panel-width-adapt) +
-							(var(--ui-calendar-layout-grid-cell-width-adapt) * 24)
+							(var(--ui-calendar-layout-grid-cell-width-adapt) * var(--cell-count))
 					);
 				}
 			}
@@ -227,7 +228,7 @@
 		z-index: 2;
 		top: 0;
 		left: 0;
-		background-color: cl(background);
+		background-color: cl('background');
 		padding-bottom: rem(12);
 	}
 
@@ -245,7 +246,21 @@
 	&--day {
 		.time-stamp__inner {
 			display: grid;
-			grid-template-columns: repeat(24, 1fr);
+			grid-template-columns: repeat(var(--cell-count), 1fr);
+			padding-left: calc(var(--ui-calendar-layout-users-panel-width) + var(--ui-calendar-layout-gutter));
+			width: calc(
+				(var(--ui-calendar-layout-users-panel-width) + var(--ui-calendar-layout-gutter)) +
+					(var(--cell-width) * var(--cell-count))
+			);
+			@media (max-width: $mobile) {
+				padding-left: calc(
+					var(--ui-calendar-layout-users-panel-width-adapt) + var(--ui-calendar-layout-gutter)
+				);
+				width: calc(
+					(var(--ui-calendar-layout-users-panel-width-adapt) + var(--ui-calendar-layout-gutter)) +
+						(var(--cell-width) * var(--cell-count))
+				);
+			}
 		}
 	}
 
@@ -341,13 +356,23 @@
 		font-size: rem(12);
 		line-height: 116%;
 		padding-bottom: rem(2);
+		width: var(--cell-width);
 	}
 
 	&__clock-icon {
 		position: absolute;
 		bottom: calc(var(--ui-calendar-clock-radius) * -1);
-		transform: translateX(-30%);
-		left: 0;
+		transform: translateX(-40%);
+		left: calc(
+			(var(--ui-calendar-layout-users-panel-width) + var(--ui-calendar-layout-gutter)) +
+				(var(--clock-position) * var(--cell-width))
+		);
+		@media (max-width: $mobile) {
+			left: calc(
+				(var(--ui-calendar-layout-users-panel-width-adapt) + var(--ui-calendar-layout-gutter)) +
+					(var(--clock-position) * var(--cell-width))
+			);
+		}
 
 		width: calc(var(--ui-calendar-clock-radius) * 2);
 		height: calc(var(--ui-calendar-clock-radius) * 2);
@@ -480,7 +505,7 @@
 			height: 100%;
 
 			display: grid;
-			grid-template-columns: repeat(24, 1fr);
+			grid-template-columns: repeat(var(--cell-count), 1fr);
 		}
 
 		.cells-layout__events {
@@ -548,6 +573,13 @@
 					margin-bottom: rem(8);
 				}
 			}
+		}
+	}
+
+	&__cell-day {
+		min-width: var(--ui-calendar-layout-grid-cell-width);
+		@media (max-width: $mobile) {
+			min-width: var(--ui-calendar-layout-grid-cell-width-adapt);
 		}
 	}
 
@@ -625,7 +657,7 @@
 	&__clock-line {
 		position: absolute;
 		top: 0;
-		left: 0;
+		left: calc(var(--clock-position) * var(--cell-width));
 		transform: translateX(-50%);
 		height: 100%;
 		width: 0;
@@ -652,35 +684,38 @@
 		}
 	}
 
-	&--1 {
-		width: rem(373);
-		margin-left: rem(171);
-	}
+	// &--1 {
+	// 	width: rem(373);
+	// 	margin-left: rem(171);
+	// }
 
-	&--2 {
-		width: rem(339);
-		margin-left: 0;
-	}
+	// &--2 {
+	// 	width: rem(339);
+	// 	margin-left: 0;
+	// }
 
-	&--3 {
-		width: 100%;
-		margin-left: 0;
-	}
+	// &--3 {
+	// 	width: 100%;
+	// 	margin-left: 0;
+	// }
 
-	&--4 {
-		width: rem(350);
-		margin-left: rem(646);
-	}
+	// &--4 {
+	// 	width: rem(350);
+	// 	margin-left: rem(646);
+	// }
 
-	&--5 {
-		width: rem(67);
-		margin-left: rem(69);
-	}
+	// &--5 {
+	// 	width: rem(67);
+	// 	margin-left: rem(69);
+	// }
 
-	&--6 {
-		width: rem(33);
-		margin-left: rem(69);
-	}
+	// &--6 {
+	// 	width: rem(33);
+	// 	margin-left: rem(69);
+	// }
+
+	margin-left: calc(var(--left-pos-cell) * var(--cell-width));
+	width: calc(var(--width-cell) * var(--cell-width));
 
 	height: var(--ui-events-height);
 	@media (max-width: $mobile) {

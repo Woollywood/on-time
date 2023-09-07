@@ -7,12 +7,21 @@ import { flsModules } from './modules.js';
 window.addEventListener('load', (windowEvent) => {
 	// flsModules.popup.open('#on-board--pl');
 
-	clockPosition(0.2);
+	let arrayDays = ['6 am', '7 am', '8 am', '9 am', '10 am', '11 am', '12 am', '1 pm', '2 pm'];
+	setDayLayoutRange(6, 14, arrayDays);
 
-	const MAX_ELEM_ADD = 30;
+	dayLayoutObserver();
+	setTimeout(() => {
+		dayLayoutObserver();
+	}, 0);
+	window.addEventListener('resize', dayLayoutObserver);
+
+	clockPosition(4.8);
+
+	const MAX_ELEM_ADD = 14;
 	for (let i = 0; i < MAX_ELEM_ADD; i++) {
 		userDayAdd('img/content/calendar-layout/users/01.jpg', 'Alyona <br /> Kolontaevskaya');
-		dayEventAddRandom();
+		dayEventAddRandom(0, arrayDays.length);
 	}
 
 	for (let i = 0; i < MAX_ELEM_ADD / 3; i++) {
@@ -20,7 +29,7 @@ window.addEventListener('load', (windowEvent) => {
 	}
 
 	userDayAdd('img/content/calendar-layout/users/01.jpg', 'eqweqe <br /> Kolontaevskaewwe');
-	dayEventAddRandom();
+	dayEventAddRandom(0, arrayDays.length);
 
 	taskEventAdd('6:00 am – All Day', 'Ermington', 'Riverside Church', 'Must attend today', [
 		'img/content/calendar-layout/event-block/02/user-01.jpg',
@@ -251,19 +260,20 @@ window.addEventListener('load', (windowEvent) => {
 		// }
 	});
 
-	window.addEventListener('resize', (resizeEvent) => {
-		clockIconPositionCorrect();
-	});
-
 	layerScrollInit();
 });
 
-function dayEventAddRandom() {
-	while (true) {
-		const leftPos = +Math.random().toFixed(3);
-		const width = +Math.random().toFixed(3);
+function randomInteger(min, max) {
+	let rand = min + Math.random() * (max + 1 - min);
+	return Math.floor(rand);
+}
 
-		if (leftPos + width < 1 && width >= 0.15) {
+function dayEventAddRandom(min, max) {
+	while (true) {
+		const leftPos = randomInteger(min, max);
+		const width = randomInteger(min, max);
+
+		if (width >= 3) {
 			dayEventAdd(false, leftPos, width, '9:30 am – 3 pm', 'Ermington', 'Riverside Church');
 			break;
 		}
@@ -553,12 +563,84 @@ function userWeekAdd(imageUrl, name) {
 	userLayout.append(userTag);
 }
 
+function setDayLayoutRange(startValue, endValue, arrayValue) {
+	let range = endValue - startValue + 1;
+
+	let calendarLayoutWrapper = document.querySelector('.calendar-layout__wrapper');
+	let calendarLayoutInner = document.querySelector('.calendar-layout__inner');
+	calendarLayoutInner.style.cssText += `--cell-count: ${range}`;
+
+	let cellLayoutInner = document.querySelector('.cells-layout__inner');
+	let cellList = [];
+	for (let i = 0; i < range; i++) {
+		let cell = document.createElement('div');
+		cell.classList.add('cells-layout__cell-day');
+		cellList.push(cell);
+	}
+
+	cellList.forEach((cell) => {
+		cellLayoutInner.append(cell);
+	});
+
+	let timeStampLayout = document.querySelector('.time-stamp.time-stamp--day');
+	let timeStampInner = document.querySelector('.time-stamp.time-stamp--day .time-stamp__inner');
+	let timeStampCellList = [];
+	for (let i = 0; i < range; i++) {
+		let cell = document.createElement('div');
+		cell.classList.add('time-stamp__value');
+		cell.innerHTML = arrayValue[i];
+		timeStampCellList.push(cell);
+	}
+	timeStampCellList.forEach((el) => {
+		timeStampInner.append(el);
+	});
+
+	DayLayoutRangeCorrect();
+	window.addEventListener('resize', DayLayoutRangeCorrect);
+}
+
+function DayLayoutRangeCorrect() {
+	let calendarLayoutWrapper = document.querySelector('.calendar-layout__wrapper');
+	let calendarLayoutInner = document.querySelector('.calendar-layout__inner');
+	let userLayout = document.querySelector('.user-layout.user-layout--day');
+	let cellList = document.querySelectorAll('.cells-layout__cell-day');
+
+	let fullWidthWrapper = calendarLayoutWrapper.offsetWidth;
+	let fullWidthWrapperCalculate =
+		userLayout.offsetWidth +
+		Array.from(cellList).reduce(
+			(sum, el) => sum + Number.parseInt(window.getComputedStyle(el).getPropertyValue('min-width')),
+			0
+		);
+
+	if (fullWidthWrapperCalculate < fullWidthWrapper) {
+		calendarLayoutInner.style.width = '100%';
+	} else {
+		calendarLayoutInner.style.width = '';
+	}
+}
+
+function dayLayoutObserver() {
+	let cellLayoutDay = document.querySelector('.cells-layout.cells-layout--day');
+	let timeStampLayoutDay = document.querySelector('.time-stamp.time-stamp--day');
+	let dayCell = document.querySelector('.cells-layout__cell-day');
+	let cellWidth = dayCell.getBoundingClientRect().width;
+
+	cellLayoutDay.style.cssText += `--cell-width: ${cellWidth}px`;
+	timeStampLayoutDay.style.cssText += `--cell-width: ${cellWidth}px`;
+}
+
 function dayEventAdd(isAlert, leftPos, width, time, place, description) {
 	const calendarLayout = document.querySelector('.cells-layout.cells-layout--day .cells-layout__events');
 	const eventTag = document.createElement('div');
 	eventTag.classList.add('event-day');
-	eventTag.style.marginLeft = `${leftPos * 100}%`;
-	eventTag.style.width = `${width * 100}%`;
+	// eventTag.style.marginLeft = `${leftPos * 100}%`;
+	// eventTag.style.width = `${width * 100}%`;
+
+	eventTag.style.cssText += `
+		--left-pos-cell: ${leftPos};
+		--width-cell: ${width};
+	`;
 
 	if (isAlert) {
 		eventTag.innerHTML = `
@@ -760,21 +842,7 @@ function monthEventAdd(col, row, progress, time, tasks, users) {
 
 function clockPosition(position) {
 	const calendarLayout = document.querySelector('.cells-layout.cells-layout--day');
-	calendarLayout.style.setProperty('--clock-position', `${position * 100}%`);
-	clockIconPositionCorrect();
-}
-
-function clockIconPositionCorrect() {
-	const pageContainer = document.querySelector('.app-root');
-	const calendarContainer = document.querySelector('.wrapper-inner');
-
-	const clockIcon = document.querySelector('.time-stamp__clock-icon');
-	const clockLine = document.querySelector('.cells-layout__clock-line');
-	let position = getRelativePositionLeft(calendarContainer, clockLine);
-
-	clockIcon.style.left = `${position}px`;
-
-	function getRelativePositionLeft(container, elem) {
-		return elem.getBoundingClientRect().x - container.getBoundingClientRect().x;
-	}
+	const timeStampLayout = document.querySelector('.time-stamp.time-stamp--day');
+	calendarLayout.style.cssText += `--clock-position: ${position}`;
+	timeStampLayout.style.cssText += `--clock-position: ${position}`;
 }
