@@ -7,8 +7,8 @@ import { flsModules } from './modules.js';
 window.addEventListener('load', (windowEvent) => {
 	// flsModules.popup.open('#on-board--pl');
 
-	let arrayDays = ['6 am', '7 am', '8 am', '9 am', '10 am', '11 am', '12 am', '1 pm', '2 pm'];
-	setDayLayoutRange(6, 14, arrayDays);
+	let arrayDays = ['6 am', '7 am', '8 am', '9 am', '10 am', '11 am', '12 am', '1 pm', '2 pm', '3 pm', '4 pm', '5 pm'];
+	setDayLayoutRange(arrayDays);
 
 	dayLayoutObserver();
 	setTimeout(() => {
@@ -563,8 +563,8 @@ function userWeekAdd(imageUrl, name) {
 	userLayout.append(userTag);
 }
 
-function setDayLayoutRange(startValue, endValue, arrayValue) {
-	let range = endValue - startValue + 1;
+function setDayLayoutRange(arrayValue) {
+	let range = arrayValue.length;
 
 	let calendarLayoutWrapper = document.querySelector('.calendar-layout__wrapper');
 	let calendarLayoutInner = document.querySelector('.calendar-layout__inner');
