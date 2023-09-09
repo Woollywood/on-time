@@ -7,14 +7,33 @@ import { flsModules } from './modules.js';
 window.addEventListener('load', (windowEvent) => {
 	// flsModules.popup.open('#on-board--pl');
 
-	let arrayDays = ['6 am', '7 am', '8 am', '9 am', '10 am', '11 am', '12 am', '1 pm', '2 pm', '3 pm', '4 pm', '5 pm'];
+	let arrayDays = [
+		'7 am',
+		'8 am',
+		'9 am',
+		'10 am',
+		'11 am',
+		'12 am',
+		'1 pm',
+		'2 pm',
+		'3 pm',
+		'4 pm',
+		'5 pm',
+		'6 pm',
+		'7 pm',
+		'8 pm',
+		'9 pm',
+		'10 pm',
+		'11 pm',
+		'12 pm',
+		'1 am',
+		'2 am',
+		'3 am',
+		'4 am',
+		'5 am',
+		'6 am',
+	];
 	setDayLayoutRange(arrayDays);
-
-	dayLayoutObserver();
-	setTimeout(() => {
-		dayLayoutObserver();
-	}, 0);
-	window.addEventListener('resize', dayLayoutObserver);
 
 	clockPosition(4.8);
 
@@ -30,6 +49,14 @@ window.addEventListener('load', (windowEvent) => {
 
 	userDayAdd('img/content/calendar-layout/users/01.jpg', 'eqweqe <br /> Kolontaevskaewwe');
 	dayEventAddRandom(0, arrayDays.length);
+
+	dayLayoutObserver();
+	setTimeout(() => {
+		dayLayoutObserver();
+	}, 0);
+	window.addEventListener('resize', dayLayoutObserver);
+	dayHeightLayoutObserver();
+	window.addEventListener('resize', dayHeightLayoutObserver);
 
 	taskEventAdd('6:00 am – All Day', 'Ermington', 'Riverside Church', 'Must attend today', [
 		'img/content/calendar-layout/event-block/02/user-01.jpg',
@@ -285,6 +312,12 @@ function layerScrollTemplateInit(scrollBlock, allowScrollX, allowScrollY, depend
 	let layoutCalendar = document.querySelector('.layout__calendar');
 	let paddingRight = parseInt(getComputedStyle(wrapperContainer, true).paddingRight);
 
+	if (scrollBlock.hasAttribute('data-scroll-y-stop')) {
+		allowScrollY = false;
+	} else {
+		allowScrollY = true;
+	}
+
 	let leftStart = 0;
 	let leftEnd = 0;
 	let scrollX = 0;
@@ -389,6 +422,12 @@ function layerScrollTemplateInit(scrollBlock, allowScrollX, allowScrollY, depend
 function layerSwipeTemplateInit(swipeBlock, allowSwipeX, allowSwipeY, dependentBlocks = null) {
 	let wrapperContainer = document.querySelector('.wrapper-container');
 	let paddingRight = parseInt(getComputedStyle(wrapperContainer, true).paddingRight);
+
+	if (swipeBlock.hasAttribute('data-swipe-y-stop')) {
+		allowSwipeY = false;
+	} else {
+		allowSwipeY = true;
+	}
 
 	let leftStart = 0;
 	let leftEnd = 0;
@@ -630,12 +669,32 @@ function dayLayoutObserver() {
 	timeStampLayoutDay.style.cssText += `--cell-width: ${cellWidth}px`;
 }
 
+function dayHeightLayoutObserver() {
+	let windowHeight = window.innerHeight;
+	let headerHeight = document.querySelector('.app-header').clientHeight;
+	let layerTopHeight = document.querySelector('.layout__top').clientHeight;
+	let cellsLayoutHeight = document.querySelector('.day .calendar-layout__cells-layout').clientHeight;
+	let contentHeight = headerHeight + layerTopHeight + cellsLayoutHeight;
+	if ((contentHeight + 100) < windowHeight) {
+		console.log('reset');
+		document.querySelector('.wrapper-calendar').style.height = '100%';
+		document.querySelector('.calendar-layout__inner').style.height = '100%';
+		document.querySelector('.calendar-layout__cells-layout').style.height = '100%';
+		document.querySelector('.cells-layout.cells-layout--day').setAttribute('data-scroll-y-stop', '');
+		document.querySelector('.cells-layout.cells-layout--day').setAttribute('data-swipe-y-stop', '');
+	} else {
+		document.querySelector('.wrapper-calendar').style.height = '';
+		document.querySelector('.calendar-layout__inner').style.height = '';
+		document.querySelector('.calendar-layout__cells-layout').style.height = '';
+		document.querySelector('.cells-layout.cells-layout--day').removeAttribute('data-scroll-y-stop');
+		document.querySelector('.cells-layout.cells-layout--day').removeAttribute('data-swipe-y-stop');
+	}
+}
+
 function dayEventAdd(isAlert, leftPos, width, time, place, description) {
 	const calendarLayout = document.querySelector('.cells-layout.cells-layout--day .cells-layout__events');
 	const eventTag = document.createElement('div');
 	eventTag.classList.add('event-day');
-	// eventTag.style.marginLeft = `${leftPos * 100}%`;
-	// eventTag.style.width = `${width * 100}%`;
 
 	eventTag.style.cssText += `
 		--left-pos-cell: ${leftPos};
