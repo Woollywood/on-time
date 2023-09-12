@@ -5,7 +5,7 @@ import { isMobile } from './functions.js';
 import { flsModules } from './modules.js';
 
 window.addEventListener('load', (windowEvent) => {
-	// flsModules.popup.open('#on-board--pl');
+	flsModules.popup.open('#on-board--pl');
 
 	let arrayDays = [
 		'7 am',
