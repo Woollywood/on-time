@@ -26,6 +26,7 @@
 		"css-loader": "latest",
 		"del": "latest",
 		"file-include-webpack-plugin-replace": "latest",
+		"gh-pages": "^6.0.0",
 		"gsap": "^3.12.1",
 		"gsap-trial": "^3.12.1",
 		"gulp": "latest",
