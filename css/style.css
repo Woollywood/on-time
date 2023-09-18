@@ -24,6 +24,14 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: SuisseIntl;
+  font-display: swap;
+  src: url("../fonts/SuisseIntl-Regular.woff2") format("woff2"), url("../fonts/SuisseIntl-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
 * {
   padding: 0px;
   margin: 0px;
@@ -978,7 +986,7 @@ body::after {
 }
 
 .on-board__content {
-  overflow: auto;
+  overflow: hidden;
   width: 60.75rem;
   height: 37.5rem;
   border-radius: 1rem;
@@ -1806,8 +1814,9 @@ body::after {
 }
 
 .cells-layout__cell-month > span {
+  font-family: SuisseIntl, sans-serif;
   position: absolute;
-  top: 0;
+  top: 0.1875em;
   left: 1rem;
   display: block;
   color: var(--ui-color-black);
@@ -1815,7 +1824,7 @@ body::after {
   line-height: 80%;
 }
 
-.cells-layout__cell-month--next-month > span {
+.cells-layout__cell-month--grey > span {
   color: var(--ui-color-grey-5);
 }
 
@@ -1831,23 +1840,29 @@ body::after {
   border: 0.125rem dashed #4687ac;
 }
 
+.event-day-row {
+  position: relative;
+  height: var(--ui-events-height);
+}
+
+.event-day-row:not(:last-child) {
+  margin-bottom: 0.75rem;
+}
+
 .event-day {
   cursor: pointer;
   -webkit-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
-  margin-left: calc(var(--left-pos-cell) * var(--cell-width));
+  position: absolute;
+  top: 0;
+  left: calc(var(--left-pos-cell) * var(--cell-width));
   width: calc(var(--width-cell) * var(--cell-width));
-  height: var(--ui-events-height);
   padding: 0.5rem 0.75rem;
   background-color: var(--ui-color-white);
   border-radius: 0.5rem;
   -webkit-box-shadow: 0px 4px 14px 0px rgba(0, 82, 128, 0.04);
           box-shadow: 0px 4px 14px 0px rgba(0, 82, 128, 0.04);
-}
-
-.event-day:not(:last-child) {
-  margin-bottom: 0.75rem;
 }
 
 .event-day__top {
@@ -3826,11 +3841,15 @@ body::after {
     padding: 0.75rem 0.0625rem 0;
   }
 
-  .event-day:not(:last-child) {
+  .cells-layout__cell-month > span {
+    left: 0.25rem;
+  }
+
+  .event-day-row:not(:last-child) {
     margin-bottom: 0.5rem;
   }
 
-  .event-day {
+  .event-day-row {
     height: var(--ui-events-height-adapt);
   }
 

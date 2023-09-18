@@ -4170,15 +4170,19 @@
         }
         const da = new DynamicAdapt("max");
         da.init();
+        let dayEventAdd = dayEventAdder();
         window.addEventListener("load", (windowEvent => {
-            modules_flsModules.popup.open("#on-board--pl");
             let arrayDays = [ "7 am", "8 am", "9 am", "10 am", "11 am", "12 am", "1 pm", "2 pm", "3 pm", "4 pm", "5 pm", "6 pm", "7 pm", "8 pm", "9 pm", "10 pm", "11 pm", "12 pm", "1 am", "2 am", "3 am", "4 am", "5 am", "6 am" ];
             setDayLayoutRange(arrayDays);
             clockPosition(4.8);
             const MAX_ELEM_ADD = 14;
             for (let i = 0; i < MAX_ELEM_ADD; i++) {
                 userDayAdd("img/content/calendar-layout/users/01.jpg", "Alyona <br /> Kolontaevskaya");
-                dayEventAddRandom(0, arrayDays.length);
+                let randomInt = randomInteger(1, 5);
+                if (randomInt) {
+                    dayEventAddRandom(0, arrayDays.length);
+                    for (let j = 1; j < randomInt; j++) dayEventAddRandom(0, arrayDays.length, i);
+                }
             }
             for (let i = 0; i < MAX_ELEM_ADD / 3; i++) userWeekAdd("img/content/calendar-layout/users/01.jpg", "Alyona <br /> Kolontaevskaya");
             userDayAdd("img/content/calendar-layout/users/01.jpg", "eqweqe <br /> Kolontaevskaewwe");
@@ -4234,6 +4238,13 @@
                 iterator[1].calendarCellsLayout.style.display = "";
                 let usersLayoutTag = document.querySelector(iterator[1].usersLayoutRelativeTag);
                 if (usersLayoutTag) usersLayoutTag.style.display = "";
+                if (iterator[0].dataset.layoutControll === "day") {
+                    dayHeightLayoutObserver();
+                    dayLayoutObserver();
+                    setTimeout((() => {
+                        dayLayoutObserver();
+                    }), 1e3);
+                }
                 for (const iteratorInner of layoutControlls) {
                     if (iteratorInner[1].calendarCellsLayout.hasAttribute("data-scroll")) {
                         scrollReset(iteratorInner[1].calendarCellsLayout);
@@ -4297,12 +4308,12 @@
             let rand = min + Math.random() * (max + 1 - min);
             return Math.floor(rand);
         }
-        function dayEventAddRandom(min, max) {
+        function dayEventAddRandom(min, max, index) {
             while (true) {
                 const leftPos = randomInteger(min, max);
-                const width = randomInteger(min, max);
+                const width = randomInteger(4, 6);
                 if (width >= 3) {
-                    dayEventAdd(false, leftPos, width, "9:30 am – 3 pm", "Ermington", "Riverside Church");
+                    dayEventAdd(false, leftPos, width, "9:30 am – 3 pm", "Ermington", "Riverside Church", index);
                     break;
                 }
             }
@@ -4501,30 +4512,52 @@
             let windowHeight = window.innerHeight;
             let headerHeight = document.querySelector(".app-header").clientHeight;
             let layerTopHeight = document.querySelector(".layout__top").clientHeight;
-            let cellsLayoutHeight = document.querySelector(".day .calendar-layout__cells-layout").clientHeight;
-            let contentHeight = headerHeight + layerTopHeight + cellsLayoutHeight;
-            if (contentHeight + 100 < windowHeight) {
-                console.log("reset");
-                document.querySelector(".wrapper-calendar").style.height = "100%";
-                document.querySelector(".calendar-layout__inner").style.height = "100%";
-                document.querySelector(".calendar-layout__cells-layout").style.height = "100%";
-                document.querySelector(".cells-layout.cells-layout--day").setAttribute("data-scroll-y-stop", "");
-                document.querySelector(".cells-layout.cells-layout--day").setAttribute("data-swipe-y-stop", "");
-            } else {
-                document.querySelector(".wrapper-calendar").style.height = "";
-                document.querySelector(".calendar-layout__inner").style.height = "";
-                document.querySelector(".calendar-layout__cells-layout").style.height = "";
-                document.querySelector(".cells-layout.cells-layout--day").removeAttribute("data-scroll-y-stop");
-                document.querySelector(".cells-layout.cells-layout--day").removeAttribute("data-swipe-y-stop");
+            let cellsLayout = document.querySelector(".day .calendar-layout__cells-layout");
+            if (cellsLayout) {
+                let cellsLayoutHeight = cellsLayout.clientHeight;
+                let contentHeight = headerHeight + layerTopHeight + cellsLayoutHeight;
+                if (contentHeight + 100 < windowHeight) {
+                    console.log("reset");
+                    document.querySelector(".wrapper-calendar").style.height = "100%";
+                    document.querySelector(".calendar-layout__inner").style.height = "100%";
+                    document.querySelector(".calendar-layout__cells-layout").style.height = "100%";
+                    document.querySelector(".cells-layout.cells-layout--day").setAttribute("data-scroll-y-stop", "");
+                    document.querySelector(".cells-layout.cells-layout--day").setAttribute("data-swipe-y-stop", "");
+                } else {
+                    document.querySelector(".wrapper-calendar").style.height = "";
+                    document.querySelector(".calendar-layout__inner").style.height = "";
+                    document.querySelector(".calendar-layout__cells-layout").style.height = "";
+                    document.querySelector(".cells-layout.cells-layout--day").removeAttribute("data-scroll-y-stop");
+                    document.querySelector(".cells-layout.cells-layout--day").removeAttribute("data-swipe-y-stop");
+                }
             }
         }
-        function dayEventAdd(isAlert, leftPos, width, time, place, description) {
+        function dayEventAdder() {
             const calendarLayout = document.querySelector(".cells-layout.cells-layout--day .cells-layout__events");
-            const eventTag = document.createElement("div");
-            eventTag.classList.add("event-day");
-            eventTag.style.cssText += `\n\t\t--left-pos-cell: ${leftPos};\n\t\t--width-cell: ${width};\n\t`;
-            if (isAlert) eventTag.innerHTML = `\n\t\t\t\t\t\t\t\t<div class="event-day__icon-wrapper">\n\t\t\t\t\t\t\t\t\t<svg>\n\t\t\t\t\t\t\t\t\t\t<use\n\t\t\t\t\t\t\t\t\t\t\txlink:href="img/icons/icons.svg#attention"></use>\n\t\t\t\t\t\t\t\t\t</svg>\n\t\t\t\t\t\t\t\t</div>\n\t\t`; else eventTag.innerHTML = `\n\t\t\t\t\t\t\t\t<div class="event-day__top">\n\t\t\t\t\t\t\t\t\t<div class="event-day__time">${time}</div>\n\t\t\t\t\t\t\t\t\t<div class="event-day__sep"></div>\n\t\t\t\t\t\t\t\t\t<div class="event-day__place">${place}</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class="event-day__name">${description}</div>\n\t\t`;
-            calendarLayout.append(eventTag);
+            let evenIndextList = [];
+            let lastIndex = 0;
+            return function(isAlert, leftPos, width, time, place, description, index) {
+                const eventTag = document.createElement("div");
+                if (index >= 0) {
+                    if (!evenIndextList.includes(index)) {
+                        console.log("undefined row");
+                        return;
+                    }
+                    const row = calendarLayout.querySelector(`[data-row-id="${index}"]`);
+                    eventTag.classList.add("event-day");
+                    eventTag.style.cssText += `\n\t\t\t\t--left-pos-cell: ${leftPos};\n\t\t\t\t--width-cell: ${width};\n\t\t\t`;
+                    if (isAlert) eventTag.innerHTML = `\n\t\t\t\t\t\t\t\t\t<div class="event-day__icon-wrapper">\n\t\t\t\t\t\t\t\t\t\t<svg>\n\t\t\t\t\t\t\t\t\t\t\t<use\n\t\t\t\t\t\t\t\t\t\t\t\txlink:href="img/icons/icons.svg#attention"></use>\n\t\t\t\t\t\t\t\t\t\t</svg>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t`; else eventTag.innerHTML = `\n\t\t\t\t\t\t\t\t\t<div class="event-day__top">\n\t\t\t\t\t\t\t\t\t\t<div class="event-day__time">${time}</div>\n\t\t\t\t\t\t\t\t\t\t<div class="event-day__sep"></div>\n\t\t\t\t\t\t\t\t\t\t<div class="event-day__place">${place}</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class="event-day__name">${description}</div>\n\t\t\t`;
+                    row.append(eventTag);
+                } else {
+                    eventTag.classList.add("event-day-row");
+                    eventTag.dataset.rowId = index ?? lastIndex;
+                    if (isAlert) eventTag.innerHTML = `\n\t\t\t\t\t\t\t\t\t<div class="event-day" style="--left-pos-cell: ${leftPos}; --width-cell: ${width};">\n\t\t\t\t\t\t\t\t\t\t<div class="event-day__icon-wrapper">\n\t\t\t\t\t\t\t\t\t\t\t<svg>\n\t\t\t\t\t\t\t\t\t\t\t\t<use\n\t\t\t\t\t\t\t\t\t\t\t\t\txlink:href="img/icons/icons.svg#attention"></use>\n\t\t\t\t\t\t\t\t\t\t\t</svg>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t`; else {
+                        eventTag.innerHTML = `\n\t\t\t\t\t\t\t\t\t<div class="event-day" style="--left-pos-cell: ${leftPos}; --width-cell: ${width};">\n\t\t\t\t\t\t\t\t\t\t<div class="event-day__top">\n\t\t\t\t\t\t\t\t\t\t\t<div class="event-day__time">${time}</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class="event-day__sep"></div>\n\t\t\t\t\t\t\t\t\t\t\t<div class="event-day__place">${place}</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class="event-day__name">${description}</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t`;
+                        calendarLayout.append(eventTag);
+                    }
+                    evenIndextList.push(index ?? lastIndex++);
+                }
+            };
         }
         function taskEventAdd(time, address, task, description, usersImageUrl) {
             taskEventAddDesktop(time, address, task, description, usersImageUrl);
