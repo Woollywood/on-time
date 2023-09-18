@@ -670,9 +670,8 @@
 	}
 }
 
-.event-day {
-	cursor: pointer;
-
+.event-day-row {
+	position: relative;
 	&:not(:last-child) {
 		margin-bottom: rem(12);
 
@@ -680,6 +679,15 @@
 			margin-bottom: rem(8);
 		}
 	}
+
+	height: var(--ui-events-height);
+	@media (max-width: $mobile) {
+		height: var(--ui-events-height-adapt);
+	}
+}
+
+.event-day {
+	cursor: pointer;
 
 	transition: all 0.3s ease;
 	@media (any-hover: hover) {
@@ -689,43 +697,10 @@
 		}
 	}
 
-	// &--1 {
-	// 	width: rem(373);
-	// 	margin-left: rem(171);
-	// }
-
-	// &--2 {
-	// 	width: rem(339);
-	// 	margin-left: 0;
-	// }
-
-	// &--3 {
-	// 	width: 100%;
-	// 	margin-left: 0;
-	// }
-
-	// &--4 {
-	// 	width: rem(350);
-	// 	margin-left: rem(646);
-	// }
-
-	// &--5 {
-	// 	width: rem(67);
-	// 	margin-left: rem(69);
-	// }
-
-	// &--6 {
-	// 	width: rem(33);
-	// 	margin-left: rem(69);
-	// }
-
-	margin-left: calc(var(--left-pos-cell) * var(--cell-width));
+	position: absolute;
+	top: 0;
+	left: calc(var(--left-pos-cell) * var(--cell-width));
 	width: calc(var(--width-cell) * var(--cell-width));
-
-	height: var(--ui-events-height);
-	@media (max-width: $mobile) {
-		height: var(--ui-events-height-adapt);
-	}
 
 	padding: rem(8) rem(12);
 	@media (max-width: $mobile) {

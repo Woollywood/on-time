@@ -4,8 +4,10 @@ import { isMobile } from './functions.js';
 // Подключение списка активных модулей
 import { flsModules } from './modules.js';
 
+let dayEventAdd = dayEventAdder();
+
 window.addEventListener('load', (windowEvent) => {
-	flsModules.popup.open('#on-board--pl');
+	// flsModules.popup.open('#on-board--pl');
 
 	let arrayDays = [
 		'7 am',
@@ -40,7 +42,14 @@ window.addEventListener('load', (windowEvent) => {
 	const MAX_ELEM_ADD = 14;
 	for (let i = 0; i < MAX_ELEM_ADD; i++) {
 		userDayAdd('img/content/calendar-layout/users/01.jpg', 'Alyona <br /> Kolontaevskaya');
-		dayEventAddRandom(0, arrayDays.length);
+
+		let randomInt = randomInteger(1, 5);
+		if (randomInt) {
+			dayEventAddRandom(0, arrayDays.length);
+			for (let j = 1; j < randomInt; j++) {
+				dayEventAddRandom(0, arrayDays.length, i);
+			}
+		}
 	}
 
 	for (let i = 0; i < MAX_ELEM_ADD / 3; i++) {
@@ -304,13 +313,13 @@ function randomInteger(min, max) {
 	return Math.floor(rand);
 }
 
-function dayEventAddRandom(min, max) {
+function dayEventAddRandom(min, max, index) {
 	while (true) {
 		const leftPos = randomInteger(min, max);
-		const width = randomInteger(min, max);
+		const width = randomInteger(4, 6);
 
 		if (width >= 3) {
-			dayEventAdd(false, leftPos, width, '9:30 am – 3 pm', 'Ermington', 'Riverside Church');
+			dayEventAdd(false, leftPos, width, '9:30 am – 3 pm', 'Ermington', 'Riverside Church', index);
 			break;
 		}
 	}
@@ -703,37 +712,81 @@ function dayHeightLayoutObserver() {
 	}
 }
 
-function dayEventAdd(isAlert, leftPos, width, time, place, description) {
+function dayEventAdder() {
 	const calendarLayout = document.querySelector('.cells-layout.cells-layout--day .cells-layout__events');
-	const eventTag = document.createElement('div');
-	eventTag.classList.add('event-day');
+	let evenIndextList = [];
+	let lastIndex = 0;
 
-	eventTag.style.cssText += `
-		--left-pos-cell: ${leftPos};
-		--width-cell: ${width};
-	`;
+	return function (isAlert, leftPos, width, time, place, description, index) {
+		const eventTag = document.createElement('div');
 
-	if (isAlert) {
-		eventTag.innerHTML = `
-								<div class="event-day__icon-wrapper">
-									<svg>
-										<use
-											xlink:href="img/icons/icons.svg#attention"></use>
-									</svg>
-								</div>
-		`;
-	} else {
-		eventTag.innerHTML = `
-								<div class="event-day__top">
-									<div class="event-day__time">${time}</div>
-									<div class="event-day__sep"></div>
-									<div class="event-day__place">${place}</div>
-								</div>
-								<div class="event-day__name">${description}</div>
-		`;
-	}
+		if (index >= 0) {
+			if (!evenIndextList.includes(index)) {
+				console.log('undefined row');
+				return;
+			}
 
-	calendarLayout.append(eventTag);
+			const row = calendarLayout.querySelector(`[data-row-id="${index}"]`);
+			eventTag.classList.add('event-day');
+			eventTag.style.cssText += `
+				--left-pos-cell: ${leftPos};
+				--width-cell: ${width};
+			`;
+
+			if (isAlert) {
+				eventTag.innerHTML = `
+									<div class="event-day__icon-wrapper">
+										<svg>
+											<use
+												xlink:href="img/icons/icons.svg#attention"></use>
+										</svg>
+									</div>
+			`;
+			} else {
+				eventTag.innerHTML = `
+									<div class="event-day__top">
+										<div class="event-day__time">${time}</div>
+										<div class="event-day__sep"></div>
+										<div class="event-day__place">${place}</div>
+									</div>
+									<div class="event-day__name">${description}</div>
+			`;
+			}
+
+			row.append(eventTag);
+		} else {
+			eventTag.classList.add('event-day-row');
+			eventTag.dataset.rowId = index ?? lastIndex;
+
+			if (isAlert) {
+				eventTag.innerHTML = `
+									<div class="event-day" style="--left-pos-cell: ${leftPos}; --width-cell: ${width};">
+										<div class="event-day__icon-wrapper">
+											<svg>
+												<use
+													xlink:href="img/icons/icons.svg#attention"></use>
+											</svg>
+										</div>
+									</div>
+			`;
+			} else {
+				eventTag.innerHTML = `
+									<div class="event-day" style="--left-pos-cell: ${leftPos}; --width-cell: ${width};">
+										<div class="event-day__top">
+											<div class="event-day__time">${time}</div>
+											<div class="event-day__sep"></div>
+											<div class="event-day__place">${place}</div>
+										</div>
+										<div class="event-day__name">${description}</div>
+									</div>
+			`;
+
+				calendarLayout.append(eventTag);
+			}
+
+			evenIndextList.push(index ?? lastIndex++);
+		}
+	};
 }
 
 function taskEventAdd(time, address, task, description, usersImageUrl) {
