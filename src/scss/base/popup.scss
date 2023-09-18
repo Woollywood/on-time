@@ -75,7 +75,7 @@ body::after {
 
 .on-board {
 	&__content {
-		overflow: auto;
+		overflow: hidden;
 		width: rem(972);
 		height: rem(600);
 

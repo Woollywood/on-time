@@ -151,6 +151,15 @@ window.addEventListener('load', (windowEvent) => {
 				usersLayoutTag.style.display = '';
 			}
 
+			if (iterator[0].dataset.layoutControll === 'day') {
+				dayHeightLayoutObserver();
+
+				dayLayoutObserver();
+				setTimeout(() => {
+					dayLayoutObserver();
+				}, 1000);
+			}
+
 			for (const iteratorInner of layoutControlls) {
 				if (iteratorInner[1].calendarCellsLayout.hasAttribute('data-scroll')) {
 					scrollReset(iteratorInner[1].calendarCellsLayout);
@@ -673,21 +682,24 @@ function dayHeightLayoutObserver() {
 	let windowHeight = window.innerHeight;
 	let headerHeight = document.querySelector('.app-header').clientHeight;
 	let layerTopHeight = document.querySelector('.layout__top').clientHeight;
-	let cellsLayoutHeight = document.querySelector('.day .calendar-layout__cells-layout').clientHeight;
-	let contentHeight = headerHeight + layerTopHeight + cellsLayoutHeight;
-	if ((contentHeight + 100) < windowHeight) {
-		console.log('reset');
-		document.querySelector('.wrapper-calendar').style.height = '100%';
-		document.querySelector('.calendar-layout__inner').style.height = '100%';
-		document.querySelector('.calendar-layout__cells-layout').style.height = '100%';
-		document.querySelector('.cells-layout.cells-layout--day').setAttribute('data-scroll-y-stop', '');
-		document.querySelector('.cells-layout.cells-layout--day').setAttribute('data-swipe-y-stop', '');
-	} else {
-		document.querySelector('.wrapper-calendar').style.height = '';
-		document.querySelector('.calendar-layout__inner').style.height = '';
-		document.querySelector('.calendar-layout__cells-layout').style.height = '';
-		document.querySelector('.cells-layout.cells-layout--day').removeAttribute('data-scroll-y-stop');
-		document.querySelector('.cells-layout.cells-layout--day').removeAttribute('data-swipe-y-stop');
+	let cellsLayout = document.querySelector('.day .calendar-layout__cells-layout');
+	if (cellsLayout) {
+		let cellsLayoutHeight = cellsLayout.clientHeight;
+		let contentHeight = headerHeight + layerTopHeight + cellsLayoutHeight;
+		if (contentHeight + 100 < windowHeight) {
+			console.log('reset');
+			document.querySelector('.wrapper-calendar').style.height = '100%';
+			document.querySelector('.calendar-layout__inner').style.height = '100%';
+			document.querySelector('.calendar-layout__cells-layout').style.height = '100%';
+			document.querySelector('.cells-layout.cells-layout--day').setAttribute('data-scroll-y-stop', '');
+			document.querySelector('.cells-layout.cells-layout--day').setAttribute('data-swipe-y-stop', '');
+		} else {
+			document.querySelector('.wrapper-calendar').style.height = '';
+			document.querySelector('.calendar-layout__inner').style.height = '';
+			document.querySelector('.calendar-layout__cells-layout').style.height = '';
+			document.querySelector('.cells-layout.cells-layout--day').removeAttribute('data-scroll-y-stop');
+			document.querySelector('.cells-layout.cells-layout--day').removeAttribute('data-swipe-y-stop');
+		}
 	}
 }
 
