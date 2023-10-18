@@ -9,6 +9,14 @@ let dayEventAdd = dayEventAdder();
 window.addEventListener('load', (windowEvent) => {
 	// flsModules.popup.open('#on-board--pl');
 
+	getHeaderHeight();
+	window.addEventListener('resize', getHeaderHeight);
+
+	function getHeaderHeight() {
+		const header = document.querySelector('[data-header]');
+		document.documentElement.style.cssText += `--header-height: ${header.getBoundingClientRect().height}px`;
+	}
+
 	let arrayDays = [
 		'7 am',
 		'8 am',
@@ -39,7 +47,7 @@ window.addEventListener('load', (windowEvent) => {
 
 	clockPosition(4.8);
 
-	const MAX_ELEM_ADD = 14;
+	const MAX_ELEM_ADD = 11;
 	for (let i = 0; i < MAX_ELEM_ADD; i++) {
 		userDayAdd('img/content/calendar-layout/users/01.jpg', 'Alyona <br /> Kolontaevskaya');
 
@@ -194,6 +202,8 @@ window.addEventListener('load', (windowEvent) => {
 						allowScrollY: JSON.parse(document.querySelector(block).dataset.scrollableY),
 					}));
 				}
+
+				console.log('scroll init');
 
 				layerScrollTemplateInit(iterator[1].calendarCellsLayout, true, true, scrollRelativeBlocks);
 			}
@@ -350,7 +360,12 @@ function layerScrollTemplateInit(scrollBlock, allowScrollX, allowScrollY, depend
 		? scrollBlock.clientHeight - (wrapperContainer.clientHeight - scrollBlock.getBoundingClientRect().y)
 		: 0;
 
-	if (layoutCalendar.clientHeight > scrollBlock.clientHeight) {
+	const topLayerHeight =
+		getElementHeight(document.querySelector('[data-header]')) +
+		getElementHeight(document.querySelector('.layout__top')) +
+		getElementHeight(layoutCalendar.querySelector('.time-stamp__inner'));
+
+	if (topLayerHeight > scrollBlock.clientHeight) {
 		scrollableY = 0;
 	}
 
@@ -435,6 +450,10 @@ function layerScrollTemplateInit(scrollBlock, allowScrollX, allowScrollY, depend
 		leftStart = e.pageX;
 		topStart = e.pageY;
 	});
+}
+
+function getElementHeight(element) {
+	return element.getBoundingClientRect().height;
 }
 
 function layerSwipeTemplateInit(swipeBlock, allowSwipeX, allowSwipeY, dependentBlocks = null) {

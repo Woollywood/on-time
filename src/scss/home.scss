@@ -1532,11 +1532,36 @@
 	}
 
 	&__text-area {
+		position: relative;
 		width: 100%;
 		height: rem(104);
 
 		&:not(:last-child) {
 			margin-bottom: rem(12);
+		}
+	}
+
+	&__send {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		padding: rem(12);
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		&:hover {
+			svg {
+				transform: scale(1.2);
+			}
+		}
+
+		svg {
+			width: rem(16);
+			height: rem(16);
+			fill: cl('accent');
+			transition: all 0.3s ease;
 		}
 	}
 
