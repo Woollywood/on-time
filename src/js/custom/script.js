@@ -746,6 +746,7 @@ function dayEventAdder() {
 				eventTag.innerHTML = `
 									<div class="event-day__top">
 										<div class="event-day__time">${time}</div>
+										<div class="event-day__time-short">${time.slice(0, time.indexOf(' '))}</div>
 										<div class="event-day__sep"></div>
 										<div class="event-day__place">${place}</div>
 									</div>
@@ -774,6 +775,7 @@ function dayEventAdder() {
 									<div class="event-day" style="--left-pos-cell: ${leftPos}; --width-cell: ${width};">
 										<div class="event-day__top">
 											<div class="event-day__time">${time}</div>
+											<div class="event-day__time-short">${time.slice(0, time.indexOf(' '))}</div>
 											<div class="event-day__sep"></div>
 											<div class="event-day__place">${place}</div>
 										</div>

@@ -557,6 +557,8 @@
 	}
 
 	&--tasks {
+		--min-mobile-width: 728px;
+		min-width: var(--min-mobile-width);
 	}
 
 	&--mobile,
@@ -726,9 +728,19 @@
 	}
 
 	&__time {
+		@media (max-width: $mobile) {
+			display: none;
+		}
+	}
+
+	&__time-short {
+		@media (min-width: $mobile) {
+			display: none;
+		}
 	}
 
 	&__sep {
+		flex: 0 0 rem(4);
 		width: rem(4);
 		height: rem(4);
 		border-radius: 50%;
@@ -736,6 +748,9 @@
 	}
 
 	&__place {
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
 	}
 
 	&__name {
@@ -1065,8 +1080,10 @@
 	cursor: pointer;
 
 	&__mobile {
+		display: none;
+
 		cursor: pointer;
-		display: block;
+		// display: block;
 		@media (min-width: $mobileSmall) {
 			display: none;
 		}
@@ -1117,8 +1134,8 @@
 	}
 
 	&--desktop {
-		@media (max-width: $mobileSmall) {
-			display: none;
+		@media (max-width: $mobile) {
+			align-items: center;
 		}
 	}
 
@@ -1127,9 +1144,8 @@
 	box-shadow: 0px 4px 14px 0px rgba(0, 82, 128, 0.04);
 	padding: rem(8) rem(12);
 
-	display: grid;
+	display: flex;
 	gap: rem(8);
-	grid-template-columns: 17.8% 17.8% 17.8% 1fr;
 	align-items: flex-start;
 
 	transition: all 0.3s ease;
@@ -1156,8 +1172,12 @@
 	}
 
 	&__time {
+		width: max(17.8%, calc(100% / var(--min-mobile-width) * 0.178));
+		flex: 0 0 max(17.8%, rem(72));
+
 		@media (max-width: $mobile) {
 			font-size: rem(10);
+			height: 100%;
 		}
 
 		@media (max-width: $mobileSmall) {
@@ -1167,8 +1187,15 @@
 	}
 
 	&__address {
+		width: max(17.8%, calc(100% / var(--min-mobile-width) * 0.178));
+		flex: 0 0 max(17.8%, rem(72));
+
 		@media (max-width: $mobile) and (min-width: $mobileSmall) {
 			font-size: rem(10);
+		}
+
+		@media (max-width: $mobile) {
+			height: 100%;
 		}
 
 		@media (max-width: $mobileSmall) {
@@ -1178,12 +1205,22 @@
 	}
 
 	&__task {
+		width: max(17.8%, calc(100% / var(--min-mobile-width) * 0.178));
+		flex: 0 0 max(17.8%, rem(92));
+
+		@media (max-width: $mobile) {
+			height: 100%;
+		}
+
 		@media (max-width: $mobile) and (min-width: $mobileSmall) {
 			font-size: rem(10);
 		}
 	}
 
 	&__description {
+		width: max(17.8%, auto);
+		flex: 1 1 auto;
+
 		display: flex;
 		gap: rem(32);
 
