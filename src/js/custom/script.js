@@ -9,14 +9,6 @@ let dayEventAdd = dayEventAdder();
 window.addEventListener('load', (windowEvent) => {
 	// flsModules.popup.open('#on-board--pl');
 
-	getHeaderHeight();
-	window.addEventListener('resize', getHeaderHeight);
-
-	function getHeaderHeight() {
-		const header = document.querySelector('[data-header]');
-		document.documentElement.style.cssText += `--header-height: ${header.getBoundingClientRect().height}px`;
-	}
-
 	let arrayDays = [
 		'7 am',
 		'8 am',
