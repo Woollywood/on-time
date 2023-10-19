@@ -1761,6 +1761,11 @@ body::after {
   grid-auto-rows: var(--ui-calendar-layout-grid-cell-month-height);
 }
 
+.cells-layout--tasks {
+  --min-mobile-width: 728px;
+  min-width: var(--min-mobile-width);
+}
+
 .cells-layout__cell-day {
   min-width: var(--ui-calendar-layout-grid-cell-width);
 }
@@ -1883,10 +1888,20 @@ body::after {
 }
 
 .event-day__sep {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 0.25rem;
+          flex: 0 0 0.25rem;
   width: 0.25rem;
   height: 0.25rem;
   border-radius: 50%;
   background-color: var(--ui-color-grey-2);
+}
+
+.event-day__place {
+  white-space: nowrap;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+     text-overflow: ellipsis;
 }
 
 .event-day__name {
@@ -2162,11 +2177,10 @@ body::after {
   -webkit-box-shadow: 0px 4px 14px 0px rgba(0, 82, 128, 0.04);
           box-shadow: 0px 4px 14px 0px rgba(0, 82, 128, 0.04);
   padding: 0.5rem 0.75rem;
-  display: -ms-grid;
-  display: grid;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   gap: 0.5rem;
-  -ms-grid-columns: 17.8% 17.8% 17.8% 1fr;
-  grid-template-columns: 17.8% 17.8% 17.8% 1fr;
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
@@ -2176,8 +2190,8 @@ body::after {
 }
 
 .event-block__mobile {
+  display: none;
   cursor: pointer;
-  display: block;
   padding: 1rem;
   border-radius: 0.5rem;
   background: var(--ui-color-white);
@@ -2233,7 +2247,32 @@ body::after {
   border-left: 0.0625rem solid #e0e0e0;
 }
 
+.event-block__time {
+  width: max(17.8%, 100% / var(--min-mobile-width) * 0.178);
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 max(17.8%, 4.5rem);
+          flex: 0 0 max(17.8%, 4.5rem);
+}
+
+.event-block__address {
+  width: max(17.8%, 100% / var(--min-mobile-width) * 0.178);
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 max(17.8%, 4.5rem);
+          flex: 0 0 max(17.8%, 4.5rem);
+}
+
+.event-block__task {
+  width: max(17.8%, 100% / var(--min-mobile-width) * 0.178);
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 max(17.8%, 5.75rem);
+          flex: 0 0 max(17.8%, 5.75rem);
+}
+
 .event-block__description {
+  width: max(17.8%, auto);
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2479,12 +2518,44 @@ body::after {
 }
 
 .task-details__text-area {
+  position: relative;
   width: 100%;
   height: 6.5rem;
 }
 
 .task-details__text-area:not(:last-child) {
   margin-bottom: 0.75rem;
+}
+
+.task-details__send {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 0.75rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.task-details__send:hover svg {
+  -webkit-transform: scale(1.2);
+      -ms-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+.task-details__send svg {
+  width: 1rem;
+  height: 1rem;
+  fill: var(--ui-color-accent);
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .task-details__files-input-wrapper:not(:last-child) {
@@ -3576,6 +3647,10 @@ body::after {
     width: 6.25rem;
   }
 
+  .event-day__time-short {
+    display: none;
+  }
+
   .task-details__row {
     display: -ms-grid;
     display: grid;
@@ -3857,6 +3932,10 @@ body::after {
     padding: 0.25rem 0.5rem;
   }
 
+  .event-day__time {
+    display: none;
+  }
+
   .event-week {
     padding: 0.25rem 0;
   }
@@ -3881,8 +3960,23 @@ body::after {
     font-size: 0.625rem;
   }
 
+  .event-block--desktop {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+
   .event-block__time {
     font-size: 0.625rem;
+    height: 100%;
+  }
+
+  .event-block__address {
+    height: 100%;
+  }
+
+  .event-block__task {
+    height: 100%;
   }
 
   .task-details {
@@ -4100,10 +4194,6 @@ body::after {
   }
 
   .event-month__time-value span {
-    display: none;
-  }
-
-  .event-block--desktop {
     display: none;
   }
 

@@ -4175,7 +4175,7 @@
             let arrayDays = [ "7 am", "8 am", "9 am", "10 am", "11 am", "12 am", "1 pm", "2 pm", "3 pm", "4 pm", "5 pm", "6 pm", "7 pm", "8 pm", "9 pm", "10 pm", "11 pm", "12 pm", "1 am", "2 am", "3 am", "4 am", "5 am", "6 am" ];
             setDayLayoutRange(arrayDays);
             clockPosition(4.8);
-            const MAX_ELEM_ADD = 14;
+            const MAX_ELEM_ADD = 11;
             for (let i = 0; i < MAX_ELEM_ADD; i++) {
                 userDayAdd("img/content/calendar-layout/users/01.jpg", "Alyona <br /> Kolontaevskaya");
                 let randomInt = randomInteger(1, 5);
@@ -4194,6 +4194,10 @@
             window.addEventListener("resize", dayLayoutObserver);
             dayHeightLayoutObserver();
             window.addEventListener("resize", dayHeightLayoutObserver);
+            taskEventAdd("6:00 am – All Day", "Ermington", "Riverside Church", "Must attend today", [ "img/content/calendar-layout/event-block/02/user-01.jpg", "img/content/calendar-layout/event-block/02/user-01.jpg" ]);
+            taskEventAdd("6:00 am – All Day", "Ermington", "Riverside Church", "Must attend today", [ "img/content/calendar-layout/event-block/02/user-01.jpg", "img/content/calendar-layout/event-block/02/user-01.jpg" ]);
+            taskEventAdd("6:00 am – All Day", "Ermington", "Riverside Church", "Must attend today", [ "img/content/calendar-layout/event-block/02/user-01.jpg", "img/content/calendar-layout/event-block/02/user-01.jpg" ]);
+            taskEventAdd("6:00 am – All Day", "Ermington", "Riverside Church", "Must attend today", [ "img/content/calendar-layout/event-block/02/user-01.jpg", "img/content/calendar-layout/event-block/02/user-01.jpg" ]);
             taskEventAdd("6:00 am – All Day", "Ermington", "Riverside Church", "Must attend today", [ "img/content/calendar-layout/event-block/02/user-01.jpg", "img/content/calendar-layout/event-block/02/user-01.jpg" ]);
             taskEventAdd("6:00 am – All Day", "Ermington", "Riverside Church", "Must attend today", [ "img/content/calendar-layout/event-block/02/user-01.jpg", "img/content/calendar-layout/event-block/02/user-01.jpg", "img/content/calendar-layout/event-block/02/user-01.jpg", "img/content/calendar-layout/event-block/02/user-01.jpg", "img/content/calendar-layout/event-block/02/user-01.jpg", "img/content/calendar-layout/event-block/02/user-01.jpg", "img/content/calendar-layout/event-block/02/user-01.jpg", "img/content/calendar-layout/event-block/02/user-01.jpg" ]);
             const layoutControlls = new Map;
@@ -4262,6 +4266,7 @@
                         allowScrollX: JSON.parse(document.querySelector(block).dataset.scrollableX),
                         allowScrollY: JSON.parse(document.querySelector(block).dataset.scrollableY)
                     })));
+                    console.log("scroll init");
                     layerScrollTemplateInit(iterator[1].calendarCellsLayout, true, true, scrollRelativeBlocks);
                 }
                 if (iterator[1].calendarCellsLayout.hasAttribute("data-swipe")) {
@@ -4309,18 +4314,13 @@
             return Math.floor(rand);
         }
         function dayEventAddRandom(min, max, index) {
-            while (true) {
-                const leftPos = randomInteger(min, max);
-                const width = randomInteger(4, 6);
-                if (width >= 3) {
-                    dayEventAdd(false, leftPos, width, "9:30 am – 3 pm", "Ermington", "Riverside Church", index);
-                    break;
-                }
-            }
+            const leftPos = randomInteger(min, max);
+            const width = randomInteger(2, 4);
+            dayEventAdd(false, leftPos, width, "9:30 am – 3 pm", "Ermington", "Riverside Church", index);
         }
         function layerScrollTemplateInit(scrollBlock, allowScrollX, allowScrollY, dependentBlocks = null) {
             let wrapperContainer = document.querySelector(".wrapper-container");
-            let layoutCalendar = document.querySelector(".layout__calendar");
+            document.querySelector(".layout__calendar");
             let paddingRight = parseInt(getComputedStyle(wrapperContainer, true).paddingRight);
             if (scrollBlock.hasAttribute("data-scroll-y-stop")) allowScrollY = false; else allowScrollY = true;
             let leftStart = 0;
@@ -4331,7 +4331,7 @@
             let topEnd = 0;
             let scrollY = 0;
             let scrollableY = allowScrollY ? scrollBlock.clientHeight - (wrapperContainer.clientHeight - scrollBlock.getBoundingClientRect().y) : 0;
-            if (layoutCalendar.clientHeight > scrollBlock.clientHeight) scrollableY = 0;
+            if (scrollableY < 0) scrollableY = 0;
             let drag = false;
             window.addEventListener("resize", (resizeEvent => {
                 scrollableX = allowScrollX ? scrollBlock.clientWidth - (window.innerWidth - scrollBlock.getBoundingClientRect().x - paddingRight) : 0;
@@ -4546,13 +4546,13 @@
                     const row = calendarLayout.querySelector(`[data-row-id="${index}"]`);
                     eventTag.classList.add("event-day");
                     eventTag.style.cssText += `\n\t\t\t\t--left-pos-cell: ${leftPos};\n\t\t\t\t--width-cell: ${width};\n\t\t\t`;
-                    if (isAlert) eventTag.innerHTML = `\n\t\t\t\t\t\t\t\t\t<div class="event-day__icon-wrapper">\n\t\t\t\t\t\t\t\t\t\t<svg>\n\t\t\t\t\t\t\t\t\t\t\t<use\n\t\t\t\t\t\t\t\t\t\t\t\txlink:href="img/icons/icons.svg#attention"></use>\n\t\t\t\t\t\t\t\t\t\t</svg>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t`; else eventTag.innerHTML = `\n\t\t\t\t\t\t\t\t\t<div class="event-day__top">\n\t\t\t\t\t\t\t\t\t\t<div class="event-day__time">${time}</div>\n\t\t\t\t\t\t\t\t\t\t<div class="event-day__sep"></div>\n\t\t\t\t\t\t\t\t\t\t<div class="event-day__place">${place}</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class="event-day__name">${description}</div>\n\t\t\t`;
+                    if (isAlert) eventTag.innerHTML = `\n\t\t\t\t\t\t\t\t\t<div class="event-day__icon-wrapper">\n\t\t\t\t\t\t\t\t\t\t<svg>\n\t\t\t\t\t\t\t\t\t\t\t<use\n\t\t\t\t\t\t\t\t\t\t\t\txlink:href="img/icons/icons.svg#attention"></use>\n\t\t\t\t\t\t\t\t\t\t</svg>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t`; else eventTag.innerHTML = `\n\t\t\t\t\t\t\t\t\t<div class="event-day__top">\n\t\t\t\t\t\t\t\t\t\t<div class="event-day__time">${time}</div>\n\t\t\t\t\t\t\t\t\t\t<div class="event-day__time-short">${time.slice(0, time.indexOf(" "))}</div>\n\t\t\t\t\t\t\t\t\t\t<div class="event-day__sep"></div>\n\t\t\t\t\t\t\t\t\t\t<div class="event-day__place">${place}</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class="event-day__name">${description}</div>\n\t\t\t`;
                     row.append(eventTag);
                 } else {
                     eventTag.classList.add("event-day-row");
                     eventTag.dataset.rowId = index ?? lastIndex;
                     if (isAlert) eventTag.innerHTML = `\n\t\t\t\t\t\t\t\t\t<div class="event-day" style="--left-pos-cell: ${leftPos}; --width-cell: ${width};">\n\t\t\t\t\t\t\t\t\t\t<div class="event-day__icon-wrapper">\n\t\t\t\t\t\t\t\t\t\t\t<svg>\n\t\t\t\t\t\t\t\t\t\t\t\t<use\n\t\t\t\t\t\t\t\t\t\t\t\t\txlink:href="img/icons/icons.svg#attention"></use>\n\t\t\t\t\t\t\t\t\t\t\t</svg>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t`; else {
-                        eventTag.innerHTML = `\n\t\t\t\t\t\t\t\t\t<div class="event-day" style="--left-pos-cell: ${leftPos}; --width-cell: ${width};">\n\t\t\t\t\t\t\t\t\t\t<div class="event-day__top">\n\t\t\t\t\t\t\t\t\t\t\t<div class="event-day__time">${time}</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class="event-day__sep"></div>\n\t\t\t\t\t\t\t\t\t\t\t<div class="event-day__place">${place}</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class="event-day__name">${description}</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t`;
+                        eventTag.innerHTML = `\n\t\t\t\t\t\t\t\t\t<div class="event-day" style="--left-pos-cell: ${leftPos}; --width-cell: ${width};">\n\t\t\t\t\t\t\t\t\t\t<div class="event-day__top">\n\t\t\t\t\t\t\t\t\t\t\t<div class="event-day__time">${time}</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class="event-day__time-short">${time.slice(0, time.indexOf(" "))}</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class="event-day__sep"></div>\n\t\t\t\t\t\t\t\t\t\t\t<div class="event-day__place">${place}</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class="event-day__name">${description}</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t`;
                         calendarLayout.append(eventTag);
                     }
                     evenIndextList.push(index ?? lastIndex++);
