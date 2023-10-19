@@ -71,6 +71,22 @@ window.addEventListener('load', (windowEvent) => {
 		'img/content/calendar-layout/event-block/02/user-01.jpg',
 		'img/content/calendar-layout/event-block/02/user-01.jpg',
 	]);
+	taskEventAdd('6:00 am – All Day', 'Ermington', 'Riverside Church', 'Must attend today', [
+		'img/content/calendar-layout/event-block/02/user-01.jpg',
+		'img/content/calendar-layout/event-block/02/user-01.jpg',
+	]);
+	taskEventAdd('6:00 am – All Day', 'Ermington', 'Riverside Church', 'Must attend today', [
+		'img/content/calendar-layout/event-block/02/user-01.jpg',
+		'img/content/calendar-layout/event-block/02/user-01.jpg',
+	]);
+	taskEventAdd('6:00 am – All Day', 'Ermington', 'Riverside Church', 'Must attend today', [
+		'img/content/calendar-layout/event-block/02/user-01.jpg',
+		'img/content/calendar-layout/event-block/02/user-01.jpg',
+	]);
+	taskEventAdd('6:00 am – All Day', 'Ermington', 'Riverside Church', 'Must attend today', [
+		'img/content/calendar-layout/event-block/02/user-01.jpg',
+		'img/content/calendar-layout/event-block/02/user-01.jpg',
+	]);
 
 	taskEventAdd('6:00 am – All Day', 'Ermington', 'Riverside Church', 'Must attend today', [
 		'img/content/calendar-layout/event-block/02/user-01.jpg',
@@ -316,15 +332,10 @@ function randomInteger(min, max) {
 }
 
 function dayEventAddRandom(min, max, index) {
-	while (true) {
-		const leftPos = randomInteger(min, max);
-		const width = randomInteger(4, 6);
+	const leftPos = randomInteger(min, max);
+	const width = randomInteger(2, 4);
 
-		if (width >= 3) {
-			dayEventAdd(false, leftPos, width, '9:30 am – 3 pm', 'Ermington', 'Riverside Church', index);
-			break;
-		}
-	}
+	dayEventAdd(false, leftPos, width, '9:30 am – 3 pm', 'Ermington', 'Riverside Church', index);
 }
 
 function layerScrollTemplateInit(scrollBlock, allowScrollX, allowScrollY, dependentBlocks = null) {
@@ -352,12 +363,7 @@ function layerScrollTemplateInit(scrollBlock, allowScrollX, allowScrollY, depend
 		? scrollBlock.clientHeight - (wrapperContainer.clientHeight - scrollBlock.getBoundingClientRect().y)
 		: 0;
 
-	const topLayerHeight =
-		getElementHeight(document.querySelector('[data-header]')) +
-		getElementHeight(document.querySelector('.layout__top')) +
-		getElementHeight(layoutCalendar.querySelector('.time-stamp__inner'));
-
-	if (topLayerHeight > scrollBlock.clientHeight) {
+	if (scrollableY < 0) {
 		scrollableY = 0;
 	}
 
