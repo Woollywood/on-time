@@ -1627,32 +1627,79 @@
 								Drag files here or click to upload
 							</button>
 						</div>
-						<div class="task-details__files-img-row">
-							<div class="task-details__files-img-wrapper">
-								<img src="@img/content/task-details/photo-01.jpg" alt="photo" />
-								<span
-									>Aug 2, 8:00 AM, <br />
-									Sergey Zadrutsky</span
-								>
-							</div>
-							<div class="task-details__files-img-wrapper">
-								<img src="@img/content/task-details/photo-02.jpg" alt="photo" />
-								<span
-									>Aug 3, 8:00 AM, <br />
-									Sergey Zadrutsky</span
-								>
-							</div>
-							<div class="task-details__files-img-wrapper task-details__files-img-wrapper--own">
-								<img src="@img/content/task-details/photo-03.jpg" alt="photo" />
-								<span
-									>Aug 3, 8:00 AM, <br />
-									Sergey Zadrutsky</span
-								>
-								<button class="task-details__files-img-close">
-									<svg>
-										<use xlink:href="@img/icons/icons.svg#close"></use>
-									</svg>
-								</button>
+						<div class="task-details__files-img-row task-details__files-img-row--tabs">
+							<div data-tabs class="task-details__tab">
+								<nav data-tabs-titles class="task-details__tab-nav">
+									<button type="button" class="task-details__tab-title _tab-active">List</button>
+									<button type="button" class="task-details__tab-title">Grid</button>
+								</nav>
+								<div data-tabs-body class="task-details__tab__content">
+									<div class="task-details__tab-body task-details__tab-body--list">
+										<div class="task-details__note note-detail">
+											<div class="note-detail__title">
+												<span>IMG_999999.JPG</span>
+											</div>
+											<div class="note-detail__text">
+												Aug 2, 8:00 AM, <a class="note-detail__user-link" href="#">Pavel Buyanov</a>
+											</div>
+										</div>
+										<div class="task-details__note note-detail note-detail--own">
+											<div class="note-detail__title">
+												<span>FileNameShort.doc</span>
+												<button class="note-detail__remove">
+													<svg>
+														<use xlink:href="@img/icons/icons.svg#close"></use>
+													</svg>
+												</button>
+											</div>
+											<div class="note-detail__text">
+												Aug 3, 8:00 AM, <a class="note-detail__user-link" href="#">Sergey Zadrutsky</a>
+											</div>
+										</div>
+										<div class="task-details__note note-detail note-detail--own">
+											<div class="note-detail__title">
+												<span>FileNameLong_with2_rows_with... end_of.pdf</span>
+												<button class="note-detail__remove">
+													<svg>
+														<use xlink:href="@img/icons/icons.svg#close"></use>
+													</svg>
+												</button>
+											</div>
+											<div class="note-detail__text">
+												Aug 3, 8:00 AM, <a class="note-detail__user-link" href="#">Sergey Zadrutsky</a>
+											</div>
+										</div>
+									</div>
+									<div class="task-details__tab-body task-details__tab-body--grid">
+										<div class="task-details__files-img-wrapper">
+											<img src="@img/content/task-details/photo-01.jpg" alt="photo" />
+											<span
+												>Aug 2, 8:00 AM, <br />
+												Sergey Zadrutsky</span
+											>
+										</div>
+										<div class="task-details__files-img-wrapper">
+											<img src="@img/content/task-details/photo-02.jpg" alt="photo" />
+											<span
+												>Aug 3, 8:00 AM, <br />
+												Sergey Zadrutsky</span
+											>
+										</div>
+										<div
+											class="task-details__files-img-wrapper task-details__files-img-wrapper--own">
+											<img src="@img/content/task-details/photo-03.jpg" alt="photo" />
+											<span
+												>Aug 3, 8:00 AM, <br />
+												Sergey Zadrutsky</span
+											>
+											<button class="task-details__files-img-close">
+												<svg>
+													<use xlink:href="@img/icons/icons.svg#close"></use>
+												</svg>
+											</button>
+										</div>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>

@@ -1597,6 +1597,55 @@
 		display: grid;
 		gap: rem(20);
 		grid-template-columns: repeat(2, rem(128));
+
+		&--tab {
+			display: block;
+		}
+	}
+
+	&__tab {
+	}
+
+	&__tab-nav {
+		display: flex;
+		border-radius: rem(8);
+		border: 1px solid cl('accent', 0.2);
+		padding: rem(4);
+
+		&:not(:last-child) {
+			margin-bottom: rem(20);
+		}
+	}
+
+	&__tab-title {
+		flex: 1 1 auto;
+
+		padding: rem(8) rem(9);
+		border-radius: rem(8);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		color: cl('black');
+		font-family: SuisseIntl, sans-serif;
+		font-size: rem(14);
+		line-height: 142%;
+		transition: all 0.3s ease;
+
+		&._tab-active {
+			background-color: cl('accent-3');
+		}
+	}
+
+	&__tab-body {
+		&--list {
+		}
+
+		&--grid {
+			display: grid;
+			gap: rem(20);
+			grid-template-columns: repeat(2, rem(128));
+		}
 	}
 
 	&__files-img-wrapper {

@@ -11,6 +11,7 @@
 		"build": "gulp build --build",
 		"sprite": "gulp sprite",
 		"fonts": "gulp fonts --rewrite",
+		"deployFTP": "gulp deployFTP --build",
 		"predeploy": "npm run build",
 		"deploy": "gh-pages -d dist",
 		"zip": "gulp deployZIP --build",
