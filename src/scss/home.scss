@@ -563,19 +563,9 @@
 
 	&--mobile,
 	&--desktop {
-		@media (min-width: $mobileSmall) {
-			display: flex;
-			flex-direction: column;
-			gap: rem(1);
-		}
-
-		@media (max-width: $mobileSmall) {
-			> * {
-				&:not(:last-child) {
-					margin-bottom: rem(8);
-				}
-			}
-		}
+		display: flex;
+		flex-direction: column;
+		gap: rem(1);
 	}
 
 	&__cell-day {
@@ -1598,7 +1588,7 @@
 		gap: rem(20);
 		grid-template-columns: repeat(2, rem(128));
 
-		&--tab {
+		&--tabs {
 			display: block;
 		}
 	}
