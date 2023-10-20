@@ -1766,6 +1766,18 @@ body::after {
   min-width: var(--min-mobile-width);
 }
 
+.cells-layout--mobile,
+.cells-layout--desktop {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 0.0625rem;
+}
+
 .cells-layout__cell-day {
   min-width: var(--ui-calendar-layout-grid-cell-width);
 }
@@ -2576,6 +2588,59 @@ body::after {
 }
 
 .task-details__files-img-row {
+  display: -ms-grid;
+  display: grid;
+  gap: 1.25rem;
+  -ms-grid-columns: (8rem)[2];
+  grid-template-columns: repeat(2, 8rem);
+}
+
+.task-details__files-img-row--tabs {
+  display: block;
+}
+
+.task-details__tab-nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-radius: 0.5rem;
+  border: 1px solid RGBA(var(--ui-color-accent--rgb), 0.2);
+  padding: 0.25rem;
+}
+
+.task-details__tab-nav:not(:last-child) {
+  margin-bottom: 1.25rem;
+}
+
+.task-details__tab-title {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  padding: 0.5rem 0.5625rem;
+  border-radius: 0.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: var(--ui-color-black);
+  font-family: SuisseIntl, sans-serif;
+  font-size: 0.875rem;
+  line-height: 142%;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.task-details__tab-title._tab-active {
+  background-color: var(--ui-color-accent-3);
+}
+
+.task-details__tab-body--grid {
   display: -ms-grid;
   display: grid;
   gap: 1.25rem;
@@ -3574,18 +3639,6 @@ body::after {
 }
 
 @media (min-width: 29.99875em) {
-  .cells-layout--mobile,
-  .cells-layout--desktop {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    gap: 0.0625rem;
-  }
-
   .event-month__time-wrapper {
     -webkit-box-flex: 1;
         -ms-flex: 1 1 100%;
@@ -4164,11 +4217,6 @@ body::after {
 
   .cells-layout--month {
     grid-auto-rows: 4.5rem;
-  }
-
-  .cells-layout--mobile > *:not(:last-child),
-  .cells-layout--desktop > *:not(:last-child) {
-    margin-bottom: 0.5rem;
   }
 
   .event-month__inner {
