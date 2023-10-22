@@ -366,7 +366,7 @@ function layerScrollTemplateInit(scrollBlock, allowScrollX, allowScrollY, depend
 	if (scrollableY < 0) {
 		scrollableY = 0;
 	}
-
+ 
 	let drag = false;
 
 	window.addEventListener('resize', (resizeEvent) => {
