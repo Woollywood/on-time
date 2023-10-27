@@ -34,6 +34,30 @@ window.addEventListener('load', (windowEvent) => {
 		'4 am',
 		'5 am',
 		'6 am',
+		'7 am',
+		'8 am',
+		'9 am',
+		'10 am',
+		'11 am',
+		'12 am',
+		'1 pm',
+		'2 pm',
+		'3 pm',
+		'4 pm',
+		'5 pm',
+		'6 pm',
+		'7 pm',
+		'8 pm',
+		'9 pm',
+		'10 pm',
+		'11 pm',
+		'12 pm',
+		'1 am',
+		'2 am',
+		'3 am',
+		'4 am',
+		'5 am',
+		'6 am',
 	];
 	setDayLayoutRange(arrayDays);
 
@@ -366,7 +390,7 @@ function layerScrollTemplateInit(scrollBlock, allowScrollX, allowScrollY, depend
 	if (scrollableY < 0) {
 		scrollableY = 0;
 	}
- 
+
 	let drag = false;
 
 	window.addEventListener('resize', (resizeEvent) => {
@@ -379,7 +403,7 @@ function layerScrollTemplateInit(scrollBlock, allowScrollX, allowScrollY, depend
 			: 0;
 	});
 
-	scrollBlock.addEventListener('mouseup', function (e) {
+	function mouseUp(e) {
 		drag = false;
 
 		if (allowScrollX) {
@@ -399,9 +423,34 @@ function layerScrollTemplateInit(scrollBlock, allowScrollX, allowScrollY, depend
 				topEnd = -scrollableY;
 			}
 		}
-	});
 
-	scrollBlock.addEventListener('mousemove', function (e) {
+		setInterval(() => {
+			inertScroll(scrollBlock, allowScrollX, false);
+			dependentBlocks?.forEach((block) => {
+				inertScroll(block.elem, block.allowScrollX, false);
+			});
+		}, 30);
+	}
+
+	function inertScroll(scrollBlock, allowScrollX, allowScrollY) {
+		if (allowScrollX) scrollX -= 10;
+		if (allowScrollY) scrollY -= 10;
+
+		if (-scrollX > scrollableX) scrollX = -scrollableX;
+		if (-scrollY > scrollableY) scrollY = -scrollableY;
+
+		moveBlock(scrollBlock, allowScrollX, scrollX, allowScrollY, scrollY);
+	}
+
+	function moveBlock(scrollBlock, allowScrollX, scrollX, allowScrollY, scrollY) {
+		scrollBlock.style.cssText += `
+				transition-duration: 0ms;
+				transition-delay: 0ms;
+				transform: translate3d(${allowScrollX ? scrollX : 0}px, ${allowScrollY ? scrollY : 0}px, 0px);
+			`;
+	}
+
+	function mouseMove(e) {
 		if (drag) {
 			if (allowScrollX) {
 				let diffX = -(leftEnd + e.pageX - leftStart);
@@ -427,27 +476,22 @@ function layerScrollTemplateInit(scrollBlock, allowScrollX, allowScrollY, depend
 				}
 			}
 
-			scrollBlock.style.cssText += `
-				transition-duration: 0ms;
-				transition-delay: 0ms;
-				transform: translate3d(${allowScrollX ? scrollX : 0}px, ${allowScrollY ? scrollY : 0}px, 0px);
-			`;
-
+			moveBlock(scrollBlock, allowScrollX, scrollX, allowScrollY, scrollY);
 			dependentBlocks?.forEach((block) => {
-				block.elem.style.cssText += `
-					transition-duration: 0ms;
-					transition-delay: 0ms;
-					transform: translate3d(${block.allowScrollX ? scrollX : 0}px, ${block.allowScrollY ? scrollY : 0}px, 0px);
-				`;
+				moveBlock(block.elem, block.allowScrollX, scrollX, block.allowScrollY, scrollY);
 			});
 		}
-	});
+	}
 
-	scrollBlock.addEventListener('mousedown', function (e) {
+	function mouseDown(e) {
 		drag = true;
 		leftStart = e.pageX;
 		topStart = e.pageY;
-	});
+	}
+
+	scrollBlock.addEventListener('mouseup', mouseUp);
+	scrollBlock.addEventListener('mousemove', mouseMove);
+	scrollBlock.addEventListener('mousedown', mouseDown);
 }
 
 function getElementHeight(element) {
