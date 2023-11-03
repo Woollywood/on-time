@@ -6,242 +6,262 @@ import { flsModules } from './modules.js';
 
 let dayEventAdd = dayEventAdder();
 
-window.addEventListener('load', (windowEvent) => {
-	// flsModules.popup.open('#on-board--pl');
+document.addEventListener('DOMContentLoaded', (event) => {
+	if (!document.querySelector('.layout__calendar')) {
+		const wrapperType = document.querySelector('[data-wrapper]').dataset.wrapper;
+		switch (wrapperType) {
+			case 'projects':
+				projectsInit();
+			default:
+				break;
+		}
 
-	let arrayDays = [
-		'7 am',
-		'8 am',
-		'9 am',
-		'10 am',
-		'11 am',
-		'12 am',
-		'1 pm',
-		'2 pm',
-		'3 pm',
-		'4 pm',
-		'5 pm',
-		'6 pm',
-		'7 pm',
-		'8 pm',
-		'9 pm',
-		'10 pm',
-		'11 pm',
-		'12 pm',
-		'1 am',
-		'2 am',
-		'3 am',
-		'4 am',
-		'5 am',
-		'6 am',
-	];
-	setDayLayoutRange(arrayDays);
+		function projectsInit() {
+			layerScrollTemplateInit(document.querySelector('[data-scroll-block]'), true, true);
+			layerSwipeTemplateInit(document.querySelector('[data-scroll-block]'), true, true);
 
-	clockPosition(4.8);
-
-	const MAX_ELEM_ADD = 11;
-	for (let i = 0; i < MAX_ELEM_ADD; i++) {
-		userDayAdd('img/content/calendar-layout/users/01.jpg', 'Alyona <br /> Kolontaevskaya');
-
-		let randomInt = randomInteger(1, 5);
-		if (randomInt) {
-			dayEventAddRandom(0, arrayDays.length);
-			for (let j = 1; j < randomInt; j++) {
-				dayEventAddRandom(0, arrayDays.length, i);
+			for (let i = 0; i < 6; i++) {
+				projectItemCreate(
+					i,
+					{ iconPath: 'img/icons/icons.svg#required', text: 'Action Required' },
+					'Some Long Name of The Company Project',
+					'Dmitri <br class="br--tablet"/> Kolontaevskii',
+					'Department of Communities and Justice',
+					'Sydney <br class="br--tablet"/>Suite 201/54, Neridah St., Chatswood <br class="br--tablet"/>NSW 2067'
+				);
 			}
 		}
 	}
+});
 
-	for (let i = 0; i < MAX_ELEM_ADD / 3; i++) {
-		userWeekAdd('img/content/calendar-layout/users/01.jpg', 'Alyona <br /> Kolontaevskaya');
-	}
+window.addEventListener('load', (windowEvent) => {
+	// flsModules.popup.open('#on-board--pl');
 
-	userDayAdd('img/content/calendar-layout/users/01.jpg', 'eqweqe <br /> Kolontaevskaewwe');
-	dayEventAddRandom(0, arrayDays.length);
+	if (document.querySelector('.layout__calendar')) {
+		let arrayDays = [
+			'7 am',
+			'8 am',
+			'9 am',
+			'10 am',
+			'11 am',
+			'12 am',
+			'1 pm',
+			'2 pm',
+			'3 pm',
+			'4 pm',
+			'5 pm',
+			'6 pm',
+			'7 pm',
+			'8 pm',
+			'9 pm',
+			'10 pm',
+			'11 pm',
+			'12 pm',
+			'1 am',
+			'2 am',
+			'3 am',
+			'4 am',
+			'5 am',
+			'6 am',
+		];
 
-	dayLayoutObserver();
-	setTimeout(() => {
+		setDayLayoutRange(arrayDays);
+		clockPosition(4.8);
+
+		const MAX_ELEM_ADD = 11;
+		for (let i = 0; i < MAX_ELEM_ADD; i++) {
+			userDayAdd('img/content/calendar-layout/users/01.jpg', 'Alyona <br /> Kolontaevskaya');
+
+			let randomInt = randomInteger(1, 5);
+			if (randomInt) {
+				dayEventAddRandom(0, arrayDays.length);
+				for (let j = 1; j < randomInt; j++) {
+					dayEventAddRandom(0, arrayDays.length, i);
+				}
+			}
+		}
+
+		for (let i = 0; i < MAX_ELEM_ADD / 3; i++) {
+			userWeekAdd('img/content/calendar-layout/users/01.jpg', 'Alyona <br /> Kolontaevskaya');
+		}
+
+		userDayAdd('img/content/calendar-layout/users/01.jpg', 'eqweqe <br /> Kolontaevskaewwe');
+		dayEventAddRandom(0, arrayDays.length);
+
 		dayLayoutObserver();
-	}, 0);
-	window.addEventListener('resize', dayLayoutObserver);
-	dayHeightLayoutObserver();
-	window.addEventListener('resize', dayHeightLayoutObserver);
+		setTimeout(() => {
+			dayLayoutObserver();
+		}, 0);
+		window.addEventListener('resize', dayLayoutObserver);
+		dayHeightLayoutObserver();
+		window.addEventListener('resize', dayHeightLayoutObserver);
 
-	taskEventAdd('6:00 am – All Day', 'Ermington', 'Riverside Church', 'Must attend today', [
-		'img/content/calendar-layout/event-block/02/user-01.jpg',
-		'img/content/calendar-layout/event-block/02/user-01.jpg',
-	]);
-	taskEventAdd('6:00 am – All Day', 'Ermington', 'Riverside Church', 'Must attend today', [
-		'img/content/calendar-layout/event-block/02/user-01.jpg',
-		'img/content/calendar-layout/event-block/02/user-01.jpg',
-	]);
-	taskEventAdd('6:00 am – All Day', 'Ermington', 'Riverside Church', 'Must attend today', [
-		'img/content/calendar-layout/event-block/02/user-01.jpg',
-		'img/content/calendar-layout/event-block/02/user-01.jpg',
-	]);
-	taskEventAdd('6:00 am – All Day', 'Ermington', 'Riverside Church', 'Must attend today', [
-		'img/content/calendar-layout/event-block/02/user-01.jpg',
-		'img/content/calendar-layout/event-block/02/user-01.jpg',
-	]);
-	taskEventAdd('6:00 am – All Day', 'Ermington', 'Riverside Church', 'Must attend today', [
-		'img/content/calendar-layout/event-block/02/user-01.jpg',
-		'img/content/calendar-layout/event-block/02/user-01.jpg',
-	]);
+		taskEventAdd('6:00 am – All Day', 'Ermington', 'Riverside Church', 'Must attend today', [
+			'img/content/calendar-layout/event-block/02/user-01.jpg',
+			'img/content/calendar-layout/event-block/02/user-01.jpg',
+		]);
+		taskEventAdd('6:00 am – All Day', 'Ermington', 'Riverside Church', 'Must attend today', [
+			'img/content/calendar-layout/event-block/02/user-01.jpg',
+			'img/content/calendar-layout/event-block/02/user-01.jpg',
+		]);
+		taskEventAdd('6:00 am – All Day', 'Ermington', 'Riverside Church', 'Must attend today', [
+			'img/content/calendar-layout/event-block/02/user-01.jpg',
+			'img/content/calendar-layout/event-block/02/user-01.jpg',
+		]);
+		taskEventAdd('6:00 am – All Day', 'Ermington', 'Riverside Church', 'Must attend today', [
+			'img/content/calendar-layout/event-block/02/user-01.jpg',
+			'img/content/calendar-layout/event-block/02/user-01.jpg',
+		]);
+		taskEventAdd('6:00 am – All Day', 'Ermington', 'Riverside Church', 'Must attend today', [
+			'img/content/calendar-layout/event-block/02/user-01.jpg',
+			'img/content/calendar-layout/event-block/02/user-01.jpg',
+		]);
 
-	taskEventAdd('6:00 am – All Day', 'Ermington', 'Riverside Church', 'Must attend today', [
-		'img/content/calendar-layout/event-block/02/user-01.jpg',
-		'img/content/calendar-layout/event-block/02/user-01.jpg',
-		'img/content/calendar-layout/event-block/02/user-01.jpg',
-		'img/content/calendar-layout/event-block/02/user-01.jpg',
-		'img/content/calendar-layout/event-block/02/user-01.jpg',
-		'img/content/calendar-layout/event-block/02/user-01.jpg',
-		'img/content/calendar-layout/event-block/02/user-01.jpg',
-		'img/content/calendar-layout/event-block/02/user-01.jpg',
-	]);
+		taskEventAdd('6:00 am – All Day', 'Ermington', 'Riverside Church', 'Must attend today', [
+			'img/content/calendar-layout/event-block/02/user-01.jpg',
+			'img/content/calendar-layout/event-block/02/user-01.jpg',
+			'img/content/calendar-layout/event-block/02/user-01.jpg',
+			'img/content/calendar-layout/event-block/02/user-01.jpg',
+			'img/content/calendar-layout/event-block/02/user-01.jpg',
+			'img/content/calendar-layout/event-block/02/user-01.jpg',
+			'img/content/calendar-layout/event-block/02/user-01.jpg',
+			'img/content/calendar-layout/event-block/02/user-01.jpg',
+		]);
 
-	const layoutControlls = new Map();
+		const layoutControlls = new Map();
 
-	const buttonsControllTimeTags = document.querySelectorAll('[data-layout="time"]');
+		const buttonsControllTimeTags = document.querySelectorAll('[data-layout="time"]');
 
-	const timeStampsLayoutTimeTags = document.querySelectorAll('[data-layout-time-display]');
-	const calendarLayoutTimeTags = document.querySelectorAll('[data-layout-cells-display]');
-	const usersLayoutTags = document.querySelectorAll('[data-users-layout]');
+		const timeStampsLayoutTimeTags = document.querySelectorAll('[data-layout-time-display]');
+		const calendarLayoutTimeTags = document.querySelectorAll('[data-layout-cells-display]');
+		const usersLayoutTags = document.querySelectorAll('[data-users-layout]');
 
-	buttonsControllTimeTags.forEach((button) => {
-		const dataLayoutControll = button.dataset.layoutControll;
-		layoutControlls.set(button, {
+		buttonsControllTimeTags.forEach((button) => {
+			const dataLayoutControll = button.dataset.layoutControll;
+			layoutControlls.set(button, {
+				layouts: Array.from(timeStampsLayoutTimeTags).concat(
+					Array.from(calendarLayoutTimeTags),
+					Array.from(usersLayoutTags)
+				),
+				timeStampLayout: Array.from(timeStampsLayoutTimeTags).find((elem) =>
+					elem.dataset.layoutTimeDisplay == button.dataset.layoutControll ? true : false
+				),
+				calendarCellsLayout: Array.from(calendarLayoutTimeTags).find((elem) =>
+					elem.dataset.layoutCellsDisplay == button.dataset.layoutControll ? true : false
+				),
+				scrollRelativeBlocks: Array.from(calendarLayoutTimeTags)
+					.find((elem) => (elem.dataset.layoutCellsDisplay == button.dataset.layoutControll ? true : false))
+					.dataset.scrollRelative?.split(',')
+					.map((elem) => elem.trim()),
+				swipeRelativeBlocks: Array.from(calendarLayoutTimeTags)
+					.find((elem) => (elem.dataset.layoutCellsDisplay == button.dataset.layoutControll ? true : false))
+					.dataset.swipeRelative?.split(',')
+					.map((elem) => elem.trim()),
+				usersLayoutTags,
+				usersLayoutRelativeTag: button.dataset.usersLayoutTag,
+			});
+		});
+
+		const tasksButton = document.querySelector('[data-layout-controll="tasks"]');
+		const staffButton = document.querySelector('[data-layout-controll="staff"]');
+
+		layoutControlls.set(tasksButton, {
 			layouts: Array.from(timeStampsLayoutTimeTags).concat(
 				Array.from(calendarLayoutTimeTags),
 				Array.from(usersLayoutTags)
 			),
-			timeStampLayout: Array.from(timeStampsLayoutTimeTags).find((elem) =>
-				elem.dataset.layoutTimeDisplay == button.dataset.layoutControll ? true : false
-			),
-			calendarCellsLayout: Array.from(calendarLayoutTimeTags).find((elem) =>
-				elem.dataset.layoutCellsDisplay == button.dataset.layoutControll ? true : false
-			),
-			scrollRelativeBlocks: Array.from(calendarLayoutTimeTags)
-				.find((elem) => (elem.dataset.layoutCellsDisplay == button.dataset.layoutControll ? true : false))
-				.dataset.scrollRelative?.split(',')
-				.map((elem) => elem.trim()),
-			swipeRelativeBlocks: Array.from(calendarLayoutTimeTags)
-				.find((elem) => (elem.dataset.layoutCellsDisplay == button.dataset.layoutControll ? true : false))
-				.dataset.swipeRelative?.split(',')
-				.map((elem) => elem.trim()),
+			timeStampLayout: document.querySelector('[data-layout-time-display="tasks"]'),
+			calendarCellsLayout: document.querySelector('[data-layout-cells-display="tasks"]'),
 			usersLayoutTags,
-			usersLayoutRelativeTag: button.dataset.usersLayoutTag,
+			usersLayoutRelativeTag: tasksButton.dataset.usersLayoutTag,
 		});
-	});
 
-	const tasksButton = document.querySelector('[data-layout-controll="tasks"]');
-	const staffButton = document.querySelector('[data-layout-controll="staff"]');
+		layoutControlls.set(staffButton, {
+			layouts: Array.from(timeStampsLayoutTimeTags).concat(
+				Array.from(calendarLayoutTimeTags),
+				Array.from(usersLayoutTags)
+			),
+			timeStampLayout: document.querySelector('[data-layout-time-display="day"]'),
+			calendarCellsLayout: document.querySelector('[data-layout-cells-display="day"]'),
+			usersLayoutTags,
+			usersLayoutRelativeTag: staffButton.dataset.usersLayoutTag,
+		});
 
-	layoutControlls.set(tasksButton, {
-		layouts: Array.from(timeStampsLayoutTimeTags).concat(
-			Array.from(calendarLayoutTimeTags),
-			Array.from(usersLayoutTags)
-		),
-		timeStampLayout: document.querySelector('[data-layout-time-display="tasks"]'),
-		calendarCellsLayout: document.querySelector('[data-layout-cells-display="tasks"]'),
-		usersLayoutTags,
-		usersLayoutRelativeTag: tasksButton.dataset.usersLayoutTag,
-	});
+		for (const iterator of layoutControlls) {
+			iterator[0].addEventListener('click', (e) => {
+				if (e.pointerId !== -1) {
+					return;
+				}
 
-	layoutControlls.set(staffButton, {
-		layouts: Array.from(timeStampsLayoutTimeTags).concat(
-			Array.from(calendarLayoutTimeTags),
-			Array.from(usersLayoutTags)
-		),
-		timeStampLayout: document.querySelector('[data-layout-time-display="day"]'),
-		calendarCellsLayout: document.querySelector('[data-layout-cells-display="day"]'),
-		usersLayoutTags,
-		usersLayoutRelativeTag: staffButton.dataset.usersLayoutTag,
-	});
+				iterator[1].layouts.forEach((layout) => {
+					layout.style.display = 'none';
+				});
 
-	for (const iterator of layoutControlls) {
-		iterator[0].addEventListener('click', (e) => {
-			if (e.pointerId !== -1) {
-				return;
-			}
+				iterator[1].timeStampLayout.style.display = '';
+				iterator[1].calendarCellsLayout.style.display = '';
 
-			iterator[1].layouts.forEach((layout) => {
-				layout.style.display = 'none';
-			});
+				let usersLayoutTag = document.querySelector(iterator[1].usersLayoutRelativeTag);
+				if (usersLayoutTag) {
+					usersLayoutTag.style.display = '';
+				}
 
-			iterator[1].timeStampLayout.style.display = '';
-			iterator[1].calendarCellsLayout.style.display = '';
+				if (iterator[0].dataset.layoutControll === 'day') {
+					dayHeightLayoutObserver();
 
-			let usersLayoutTag = document.querySelector(iterator[1].usersLayoutRelativeTag);
-			if (usersLayoutTag) {
-				usersLayoutTag.style.display = '';
-			}
-
-			if (iterator[0].dataset.layoutControll === 'day') {
-				dayHeightLayoutObserver();
-
-				dayLayoutObserver();
-				setTimeout(() => {
 					dayLayoutObserver();
-				}, 1000);
-			}
-
-			for (const iteratorInner of layoutControlls) {
-				if (iteratorInner[1].calendarCellsLayout.hasAttribute('data-scroll')) {
-					scrollReset(iteratorInner[1].calendarCellsLayout);
-					iteratorInner[1].scrollRelativeBlocks?.forEach((block) =>
-						scrollReset(document.querySelector(block))
-					);
+					setTimeout(() => {
+						dayLayoutObserver();
+					}, 1000);
 				}
 
-				if (iteratorInner[1].calendarCellsLayout.hasAttribute('data-swipe')) {
-					scrollReset(iteratorInner[1].calendarCellsLayout);
-					iteratorInner[1].swipeRelativeBlocks?.forEach((block) =>
-						scrollReset(document.querySelector(block))
-					);
-				}
-			}
+				for (const iteratorInner of layoutControlls) {
+					if (iteratorInner[1].calendarCellsLayout.hasAttribute('data-scroll')) {
+						scrollReset(iteratorInner[1].calendarCellsLayout);
+						iteratorInner[1].scrollRelativeBlocks?.forEach((block) =>
+							scrollReset(document.querySelector(block))
+						);
+					}
 
-			if (iterator[1].calendarCellsLayout.hasAttribute('data-scroll')) {
-				let scrollRelativeBlocks = null;
-				if (iterator[1].scrollRelativeBlocks) {
-					scrollRelativeBlocks = iterator[1].scrollRelativeBlocks.map((block) => ({
-						elem: document.querySelector(block),
-						allowScrollX: JSON.parse(document.querySelector(block).dataset.scrollableX),
-						allowScrollY: JSON.parse(document.querySelector(block).dataset.scrollableY),
-					}));
+					if (iteratorInner[1].calendarCellsLayout.hasAttribute('data-swipe')) {
+						scrollReset(iteratorInner[1].calendarCellsLayout);
+						iteratorInner[1].swipeRelativeBlocks?.forEach((block) =>
+							scrollReset(document.querySelector(block))
+						);
+					}
 				}
 
-				console.log('scroll init');
+				if (iterator[1].calendarCellsLayout.hasAttribute('data-scroll')) {
+					let scrollRelativeBlocks = null;
+					if (iterator[1].scrollRelativeBlocks) {
+						scrollRelativeBlocks = iterator[1].scrollRelativeBlocks.map((block) => ({
+							elem: document.querySelector(block),
+							allowScrollX: JSON.parse(document.querySelector(block).dataset.scrollableX),
+							allowScrollY: JSON.parse(document.querySelector(block).dataset.scrollableY),
+						}));
+					}
 
-				layerScrollTemplateInit(iterator[1].calendarCellsLayout, true, true, scrollRelativeBlocks);
-			}
+					console.log('scroll init');
 
-			if (iterator[1].calendarCellsLayout.hasAttribute('data-swipe')) {
-				let swipeRelativeBlocks = null;
-				if (iterator[1].swipeRelativeBlocks) {
-					swipeRelativeBlocks = iterator[1].swipeRelativeBlocks.map((block) => ({
-						elem: document.querySelector(block),
-						allowSwipeX: JSON.parse(document.querySelector(block).dataset.swipeableX),
-						allowSwipeY: JSON.parse(document.querySelector(block).dataset.swipeableY),
-					}));
+					layerScrollTemplateInit(iterator[1].calendarCellsLayout, true, true, scrollRelativeBlocks);
 				}
 
-				layerSwipeTemplateInit(iterator[1].calendarCellsLayout, true, true, swipeRelativeBlocks);
-			}
-		});
+				if (iterator[1].calendarCellsLayout.hasAttribute('data-swipe')) {
+					let swipeRelativeBlocks = null;
+					if (iterator[1].swipeRelativeBlocks) {
+						swipeRelativeBlocks = iterator[1].swipeRelativeBlocks.map((block) => ({
+							elem: document.querySelector(block),
+							allowSwipeX: JSON.parse(document.querySelector(block).dataset.swipeableX),
+							allowSwipeY: JSON.parse(document.querySelector(block).dataset.swipeableY),
+						}));
+					}
+
+					layerSwipeTemplateInit(iterator[1].calendarCellsLayout, true, true, swipeRelativeBlocks);
+				}
+			});
+		}
+
+		layerScrollInit();
 	}
-
-	let taskEditableFieldList = document.querySelectorAll('.task-details__label--editable');
-	taskEditableFieldList.forEach((field) => {
-		field.addEventListener('click', (e) => {
-			field.classList.toggle('_edit');
-			e.target.closest('.task-details__row').classList.toggle('_edit');
-
-			if (e.target.closest('.task-details__row--span-2')) {
-				e.target.closest('.task-details__row--span-2').classList.toggle('_edit');
-			}
-		});
-	});
 
 	document.addEventListener('click', (clickEvent) => {
 		const targetElement = clickEvent.target;
@@ -315,15 +335,19 @@ window.addEventListener('load', (windowEvent) => {
 		if (targetElement.closest('.select') && !targetElement.closest('.select__options')) {
 			targetElement.closest('.select').classList.toggle('select-open');
 		}
-
-		// if (targetElement.closest('.select')) {
-		// 	targetElement.closest('.select').classList.add('select-open');
-		// } else if (targetElement.closest('.select') && !targetElement.closest('.option-select__search')) {
-		// 	targetElement.closest('.select').classList.remove('select-open');
-		// }
 	});
 
-	layerScrollInit();
+	let taskEditableFieldList = document.querySelectorAll('.task-details__label--editable');
+	taskEditableFieldList.forEach((field) => {
+		field.addEventListener('click', (e) => {
+			field.classList.toggle('_edit');
+			e.target.closest('.task-details__row').classList.toggle('_edit');
+
+			if (e.target.closest('.task-details__row--span-2')) {
+				e.target.closest('.task-details__row--span-2').classList.toggle('_edit');
+			}
+		});
+	});
 });
 
 function randomInteger(min, max) {
@@ -366,7 +390,7 @@ function layerScrollTemplateInit(scrollBlock, allowScrollX, allowScrollY, depend
 	if (scrollableY < 0) {
 		scrollableY = 0;
 	}
- 
+
 	let drag = false;
 
 	window.addEventListener('resize', (resizeEvent) => {
@@ -988,4 +1012,51 @@ function clockPosition(position) {
 	const timeStampLayout = document.querySelector('.time-stamp.time-stamp--day');
 	calendarLayout.style.cssText += `--clock-position: ${position}`;
 	timeStampLayout.style.cssText += `--clock-position: ${position}`;
+}
+
+
+
+function projectItemCreate(id, status, project, supervisor, customerName, address) {
+	console.log('project create start...');
+
+	const projectItem = document.createElement('div');
+	projectItem.classList.add('project-item');
+	projectItem.id = `project-item-${id}`;
+	projectItem.innerHTML = `
+		<div class="project-item__inner">
+			<div class="project-item__status">
+				<div class="project-item__status-mobile-wrapper">
+					<div class="project-item__status-icon color-green">
+						<svg>
+							<use xlink:href="${status.iconPath}"></use>
+						</svg>
+					</div>
+					<span class="project-item__status-text color-green">${status.text}</span>
+				</div>
+			</div>
+			<div class="project-item__project" data-da="#project-item-${id} .project-item__center, 479.98">
+				<div class="project-item__project-mobile-wrapper color-green"></div>
+				<span data-da="#project-item-${id} .project-item__project-mobile-wrapper, 479.98">${project}</span>
+			</div>
+			<div class="project-item__supervisor">
+				<div class="project-item__supervisor-icon">
+					<svg>
+						<use xlink:href="img/icons/icons.svg#user"></use>
+					</svg>
+				</div>
+				<div class="project-item__supervisor-name">${supervisor}</div>
+			</div>
+			<div
+				class="project-item__customer-name"
+				data-da="#project-item-${id} .project-item__status, 479.98">
+				${customerName}
+			</div>
+			<div class="project-item__address" data-da="#project-item-${id} .project-item__center, 479.98, last">
+				${address}
+			</div>
+		</div>
+		<div class="project-item__center" data-da="#project-item-${id} .project-item__inner, 479.98, 1"></div>
+	`;
+
+	document.querySelector('.projects-layout__content-body').append(projectItem);
 }

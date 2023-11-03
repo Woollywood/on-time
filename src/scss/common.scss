@@ -1,1 +1,36 @@
 //Заголовки, общие БЭМ блоки и т.д.
+
+.color-brown {
+	color: cl('text-brown') !important;
+	fill: cl('text-brown') !important;
+}
+
+.color-green {
+	color: cl('text-green') !important;
+	fill: cl('text-green') !important;
+}
+
+.color-blue {
+	color: cl('text-blue') !important;
+	fill: cl('text-blue') !important;
+}
+
+.color-red {
+	color: cl('text-red') !important;
+	fill: cl('text-red') !important;
+}
+
+.color-pink {
+	color: cl('text-pink') !important;
+	fill: cl('text-pink') !important;
+}
+
+.color-cold {
+	color: cl('text-cold') !important;
+	fill: cl('text-cold') !important;
+}
+
+.color-grey {
+	color: cl('text-grey') !important;
+	fill: cl('text-grey') !important;
+}

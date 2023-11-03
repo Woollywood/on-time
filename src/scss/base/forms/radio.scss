@@ -1,7 +1,7 @@
 .options {
 	display: flex;
 	// .options__item
-	
+
 	&__item {
 		position: relative;
 		cursor: pointer;
@@ -14,51 +14,64 @@
 				display: flex;
 				align-items: center;
 				justify-content: space-between;
-	
+
 				padding: rem(12) rem(16);
 				border-radius: rem(6);
 				background-color: transparent;
-	
+
 				@media (min-width: $mobile) {
 					padding: rem(8) rem(9);
 				}
-	
+
 				span {
-					color: #0D6293;
+					color: #0d6293;
 					font-size: rem(14);
 					font-weight: 400;
 					line-height: 142%;
 				}
-	
+
 				svg {
-					display: none;
+					opacity: 0;
+					visibility: hidden;
 					width: rem(14);
 					height: rem(14);
 					fill: #12a960;
 				}
-	
+
 				&::before {
 					content: unset;
 				}
 			}
-	
+
 			.options__input {
-				@media (min-width: $mobile) {
-					&:checked + .options__label {
-						background-color: #D0E4F0 !important;
-						color: #111;
+				&:not(.select--adapt-desktop &) {
+					@media (min-width: $mobile) {
+						&:checked + .options__label {
+							background-color: #d0e4f0 !important;
+							color: #111;
+						}
+					}
+
+					@media (max-width: $mobile) {
+						&:checked + .options__label {
+							svg {
+								opacity: 1;
+								visibility: visible;
+							}
+						}
 					}
 				}
-	
-				@media (max-width: $mobile) {
+
+				.select--adapt-desktop & {
 					&:checked + .options__label {
 						svg {
-							display: block;
+							opacity: 1;
+							visibility: visible;
 						}
 					}
 				}
 			}
-	
+
 			.options__text {
 				color: #0d6293;
 				font-size: rem(14);
@@ -98,6 +111,24 @@
 		border-radius: rem(4);
 		background-color: #fff;
 		padding: rem(4) rem(8);
+	}
+
+	&__text-wrapper {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: rem(12);
+
+		.options__text {
+			white-space: nowrap;
+		}
+
+		> svg {
+			opacity: 1 !important;
+			visibility: visible !important;
+			flex: 0 0 rem(16);
+			height: rem(20);
+		}
 	}
 
 	// .options__text
