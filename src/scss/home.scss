@@ -2328,7 +2328,7 @@
 		display: flex;
 		padding: 0 var(--body-padding-x);
 		padding-bottom: rem(12);
-		border-bottom: rem(0.01) solid cl('grey');
+		border-bottom: rem(1) solid cl('grey', 0.2);
 
 		@media (max-width: $mobileSmall) {
 			display: none;
@@ -2663,6 +2663,7 @@
 		line-height: 142%;
 
 		&.active {
+			color: cl('white');
 			background-color: cl('accent');
 		}
 	}

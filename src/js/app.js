@@ -94,7 +94,7 @@ flsFunctions.tabs();
 Документация: https://template.fls.guru/template-docs/funkcional-popup.html
 Сниппет (HTML): pl, pop
 */
-import './custom/popup.js'
+import './custom/popup.js';
 /*
 Модуль параллакса мышью
 Документация: https://template.fls.guru/template-docs/modul-animacii-parallaks-obektov-pri-dvizhenii-myshi.html
@@ -109,7 +109,7 @@ import * as flsForms from './custom/forms.js';
 
 flsForms.formFieldsInit({
 	viewPass: false,
-	autoHeight: false
+	autoHeight: false,
 });
 
 /* Отправка формы*/
@@ -122,7 +122,7 @@ flsForms.formFieldsInit({
 /* Модуль работы с select.*/
 // import './custom/select.js'
 /* Модуль работы с календарем*/
-import './libs/datepicker.js'
+import './libs/datepicker.js';
 /* (в работе) Модуль работы с масками.*/
 /*
 Подключение и настройка выполняется в файле js/files/forms/inputmask.js
@@ -154,7 +154,9 @@ import './libs/datepicker.js'
 Документация плагина: https://swiperjs.com/
 Сниппет(HTML): swiper
 */
-import "./libs/sliders.js";
+import './libs/sliders.js';
+
+import './libs/metronic-datepicker.js';
 
 /*
 Настройка подключения плагина imask выполняется в файле js/libs/imask.js
@@ -240,7 +242,7 @@ import './custom/script.js';
 
 /* Динамический адаптив*/
 // Документация: https://template.fls.guru/template-docs/dinamicheskij-adaptiv.html
-import "./custom/dynamic_adapt.js";
+import './custom/dynamic_adapt.js';
 // ========================================================================================================================================================================================================================================================
 // Другое =================================================================================================================================================================================================================================================
 // ========================================================================================================================================================================================================================================================

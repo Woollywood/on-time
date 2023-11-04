@@ -27,6 +27,7 @@
 		"css-loader": "latest",
 		"del": "latest",
 		"file-include-webpack-plugin-replace": "latest",
+		"flatpickr": "^4.6.13",
 		"gsap": "^3.12.1",
 		"gsap-trial": "^3.12.1",
 		"gulp": "latest",
