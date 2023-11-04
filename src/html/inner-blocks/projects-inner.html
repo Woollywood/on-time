@@ -1,10 +1,10 @@
-<div class="wrapper-calendar" data-wrapper="projects">
-	<div class="wrapper-container">
-		<div class="wrapper-inner">
-			<div class="layout layout--overflow-hidden">
-				<div class="layout__top">
-					<div class="controlls">
-						<input class="controlls__search input" type="text" placeholder="Quick Search" />
+<div class="layout-wrapper" data-wrapper="projects">
+	<div class="layout-wrapper__container">
+		<div class="layout-wrapper__body">
+			<div class="layout-wrapper__top">
+				<div class="layout-wrapper__controlls">
+					<input class="layout-wrapper__search input" type="text" placeholder="Quick Search" />
+					<div class="layout-wrapper__selects">
 						<div class="select select--adapt select--adapt-desktop select--empty">
 							<div class="select__title">
 								<div class="select__placeholder-wrapper">
@@ -278,41 +278,39 @@
 							</div>
 						</div>
 					</div>
-					<div class="layout__top-right">
-						<button class="layout__button button" type="button">New Project</button>
-					</div>
 				</div>
-				<div class="layout__projects projects-layout">
-					<div class="projects-layout__inner" data-scroll-block onmousedown="return false">
-						<div class="projects-layout__title-body">
-							<div class="projects-layout__title-item">Status</div>
-							<div class="projects-layout__title-item">Project</div>
-							<div class="projects-layout__title-item">Supervisor</div>
-							<div class="projects-layout__title-item">Customer Name</div>
-							<div class="projects-layout__title-item">Address</div>
-						</div>
-						<div class="projects-layout__content-body"></div>
+				<button class="layout__button button" type="button">New Project</button>
+			</div>
+			<div class="layout-wrapper__projects projects-layout" scroll-block-wrapper>
+				<div class="projects-layout__inner" scroll-block onmousedown="return false">
+					<div class="projects-layout__title-body">
+						<div class="projects-layout__title-item">Status</div>
+						<div class="projects-layout__title-item">Project</div>
+						<div class="projects-layout__title-item">Supervisor</div>
+						<div class="projects-layout__title-item">Customer Name</div>
+						<div class="projects-layout__title-item">Address</div>
 					</div>
-					<div class="projects-layout__pagination pagination">
-						<button class="pagination__arrow pagination__arrow--left">
-							<svg>
-								<use xlink:href="@img/icons/icons.svg#arrow"></use>
-							</svg>
-						</button>
-						<div class="pagination__buttons">
-							<button class="pagination__button">1</button>
-							<button class="pagination__button active">2</button>
-							<button class="pagination__button">3</button>
-							<button class="pagination__button">...</button>
-							<button class="pagination__button">23</button>
-							<button class="pagination__button">24</button>
-						</div>
-						<button class="pagination__arrow pagination__arrow--right">
-							<svg>
-								<use xlink:href="@img/icons/icons.svg#arrow"></use>
-							</svg>
-						</button>
+					<div class="projects-layout__content-body"></div>
+				</div>
+				<div class="projects-layout__pagination pagination">
+					<button class="pagination__arrow pagination__arrow--left">
+						<svg>
+							<use xlink:href="@img/icons/icons.svg#arrow"></use>
+						</svg>
+					</button>
+					<div class="pagination__buttons">
+						<button class="pagination__button">1</button>
+						<button class="pagination__button active">2</button>
+						<button class="pagination__button">3</button>
+						<button class="pagination__button">...</button>
+						<button class="pagination__button">23</button>
+						<button class="pagination__button">24</button>
 					</div>
+					<button class="pagination__arrow pagination__arrow--right">
+						<svg>
+							<use xlink:href="@img/icons/icons.svg#arrow"></use>
+						</svg>
+					</button>
 				</div>
 			</div>
 		</div>
