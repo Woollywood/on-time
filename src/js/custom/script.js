@@ -8,13 +8,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 	layoutGapObserver();
 	window.addEventListener('resize', layoutGapObserver);
 
-	const wrapperType = document.querySelector('[data-wrapper]').dataset.wrapper;
-	switch (wrapperType) {
-		case 'projects':
-			projectsInit();
-		default:
-			break;
-	}
+	projectsInit();
 
 	function projectsInit() {
 		projectItemCreate(
