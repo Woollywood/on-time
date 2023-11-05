@@ -2436,7 +2436,7 @@
 
 .project-item {
 	&__inner {
-		display: flex;
+		display: grid;
 		border-radius: rem(8);
 		background-color: cl('white');
 		box-shadow: 0px rem(4) rem(14) 0px cl('accent-5', 0.05);
@@ -2444,54 +2444,21 @@
 
 		@media (max-width: $mobileSmall) {
 			padding: rem(16);
+			display: flex;
 			flex-direction: column;
 		}
 
+		@media (min-width: $tablet) {
+			grid-template-columns: var(--first-col-percent) var(--second-col-percent) var(--third-col-percent) var(
+					--fourth-col-percent
+				) var(--fifth-col-percent);
+		}
+
+		@media (max-width: $tablet) and (min-width: $mobileSmall) {
+			grid-template-columns: var(--first-col) var(--second-col) var(--third-col) var(--fourth-col) var(--fifth-col);
+		}
+
 		> * {
-			@media (min-width: $tablet) {
-				&:nth-child(1) {
-					flex: 0 0 var(--first-col-percent);
-				}
-
-				&:nth-child(2) {
-					flex: 0 0 var(--second-col-percent);
-				}
-
-				&:nth-child(3) {
-					flex: 0 0 var(--third-col-percent);
-				}
-
-				&:nth-child(4) {
-					flex: 0 0 var(--fourth-col-percent);
-				}
-
-				&:nth-child(5) {
-					flex: 0 0 var(--fifth-col-percent);
-				}
-			}
-
-			@media (max-width: $tablet) and (min-width: $mobileSmall) {
-				&:nth-child(1) {
-					flex: 0 0 var(--first-col);
-				}
-
-				&:nth-child(2) {
-					flex: 0 0 var(--second-col);
-				}
-
-				&:nth-child(3) {
-					flex: 0 0 var(--third-col);
-				}
-
-				&:nth-child(4) {
-					flex: 0 0 var(--fourth-col);
-				}
-
-				&:nth-child(5) {
-					flex: 0 0 var(--fifth-col);
-				}
-			}
-
 			@media (min-width: $mobileSmall) {
 				&:not(:last-child) {
 					padding-right: rem(20);
@@ -2535,7 +2502,8 @@
 
 	&__status-mobile-wrapper {
 		display: flex;
-		gap: rem(12);
+		column-gap: rem(12);
+		row-gap: rem(6);
 
 		@media (max-width: $mobileSmall) {
 			align-items: center;
@@ -2575,6 +2543,9 @@
 	}
 
 	&__status-text {
+		overflow: hidden;
+		text-overflow: ellipsis;
+
 		@media (max-width: $mobileSmall) {
 			font-size: rem(12);
 			white-space: nowrap;
