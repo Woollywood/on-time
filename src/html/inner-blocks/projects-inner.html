@@ -281,16 +281,20 @@
 				</div>
 				<button class="layout__button button" type="button">New Project</button>
 			</div>
-			<div class="layout-wrapper__projects projects-layout" scroll-block-wrapper>
-				<div class="projects-layout__inner" scroll-block onmousedown="return false">
-					<div class="projects-layout__title-body">
-						<div class="projects-layout__title-item">Status</div>
-						<div class="projects-layout__title-item">Project</div>
-						<div class="projects-layout__title-item">Supervisor</div>
-						<div class="projects-layout__title-item">Customer Name</div>
-						<div class="projects-layout__title-item">Address</div>
+			<div class="layout-wrapper__projects projects-layout">
+				<div class="projects-layout__inner" onmousedown="return false">
+					<div class="projects-layout__title-body-wrapper scroll-block-wrapper">
+						<div class="projects-layout__title-body">
+							<div class="projects-layout__title-item">Status</div>
+							<div class="projects-layout__title-item">Project</div>
+							<div class="projects-layout__title-item">Supervisor</div>
+							<div class="projects-layout__title-item">Customer Name</div>
+							<div class="projects-layout__title-item">Address</div>
+						</div>
 					</div>
-					<div class="projects-layout__content-body"></div>
+					<div class="projects-layout__content-body-wrapper scroll-block-wrapper" scroll-block-wrapper scroll-sync=".projects-layout__title-body-wrapper">
+						<div class="projects-layout__content-body"></div>
+					</div>
 				</div>
 				<div class="projects-layout__pagination pagination">
 					<button class="pagination__arrow pagination__arrow--left">

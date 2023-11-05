@@ -2312,34 +2312,46 @@
 	--body-padding-x: 0.75rem;
 
 	&__inner {
-		display: flex;
-		flex-direction: column;
+		display: grid;
+		grid-template-rows: auto 1fr;
 		gap: rem(12);
+		height: 100%;
+	}
 
-		@media (max-width: $tablet) and (min-width: $mobileSmall) {
-			width: calc(
-				(var(--body-padding-x) * 2) + var(--first-col) + var(--second-col) + var(--third-col) + var(--fourth-col) +
-					var(--fifth-col)
-			);
+	&__title-body-wrapper {
+		@media (max-width: $mobileSmall) {
+			display: none;
 		}
 	}
 
 	&__title-body {
 		display: flex;
 		padding: 0 var(--body-padding-x);
-		padding-bottom: rem(12);
-		border-bottom: rem(1) solid cl('grey', 0.2);
 
-		@media (max-width: $mobileSmall) {
-			display: none;
+		@media (max-width: $tablet) and (min-width: $mobileSmall) {
+			width: calc(
+				(var(--body-padding-x) * 2) + var(--first-col) + var(--second-col) + var(--third-col) +
+					var(--fourth-col) + var(--fifth-col)
+			);
 		}
 	}
 
 	&__title-item {
+		position: relative;
 		color: cl('grey');
 		font-size: rem(12);
 		line-height: 116%;
-		padding-bottom: rem(2);
+		padding-bottom: rem(14);
+
+		&::after {
+			content: "";
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			height: rem(1);
+			background-color: cl('grey', 0.2);
+		}
 
 		@media (min-width: $tablet) {
 			&:nth-child(1) {
@@ -2390,6 +2402,9 @@
 		}
 	}
 
+	&__content-body-wrapper {
+	}
+
 	&__content-body {
 		cursor: grab;
 		display: flex;
@@ -2398,6 +2413,13 @@
 
 		@media (max-width: $mobileSmall) {
 			gap: rem(8);
+		}
+
+		@media (max-width: $tablet) and (min-width: $mobileSmall) {
+			width: calc(
+				(var(--body-padding-x) * 2) + var(--first-col) + var(--second-col) + var(--third-col) +
+					var(--fourth-col) + var(--fifth-col)
+			);
 		}
 	}
 
@@ -2740,6 +2762,10 @@
 	&__projects {
 		overflow: hidden;
 	}
+}
+
+.scroll-block-wrapper {
+	overflow: hidden;
 }
 
 //====================================================================================================
