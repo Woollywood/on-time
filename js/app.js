@@ -4418,6 +4418,7 @@
                 e.target.setPointerCapture(e.pointerId);
             }
             function pointerMove(e) {
+                console.log("move");
                 if (drag) {
                     let diffX = -(leftEnd + e.pageX - leftStart);
                     if (diffX <= 0) scrollX = 0; else if (!(diffX > scrollableX)) scrollX = -diffX;
@@ -4468,7 +4469,7 @@
             projectItem.classList.add("project-item");
             projectItem.id = `project-item-${id}`;
             projectItem.innerHTML = `\n\t\t<div class="project-item__inner">\n\t\t\t<div class="project-item__status">\n\t\t\t\t<div class="project-item__status-mobile-wrapper">\n\t\t\t\t\t<div class="project-item__status-icon color-${status.color}">\n\t\t\t\t\t\t<svg>\n\t\t\t\t\t\t\t<use xlink:href="${status.iconPath}"></use>\n\t\t\t\t\t\t</svg>\n\t\t\t\t\t</div>\n\t\t\t\t\t<span class="project-item__status-text color-${status.color}">${status.text}</span>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class="project-item__project" data-da="#project-item-${id} .project-item__center, 479.98">\n\t\t\t\t<div class="project-item__project-mobile-wrapper color-green"></div>\n\t\t\t\t<span data-da="#project-item-${id} .project-item__project-mobile-wrapper, 479.98">${project}</span>\n\t\t\t</div>\n\t\t\t<div class="project-item__supervisor">\n\t\t\t\t${supervisor.avatarPath === void 0 ? `<div class="project-item__supervisor-icon">\n\t\t\t\t\t\t\t\t<svg>\n\t\t\t\t\t\t\t\t\t<use xlink:href="img/icons/icons.svg#user"></use>\n\t\t\t\t\t\t\t\t</svg>\n\t\t\t\t\t\t\t</div>` : `<div class="project-item__supervisor-avatar">\n\t\t\t\t\t\t\t\t<img src="${supervisor.avatarPath}" alt="avatar" />\n\t\t\t\t\t\t\t</div>`}\n\t\t\t\t<div class="project-item__supervisor-name">${supervisor.name}</div>\n\t\t\t</div>\n\t\t\t<div\n\t\t\t\tclass="project-item__customer-name"\n\t\t\t\tdata-da="#project-item-${id} .project-item__status, 479.98">\n\t\t\t\t${customerName}\n\t\t\t</div>\n\t\t\t<div class="project-item__address" data-da="#project-item-${id} .project-item__center, 479.98, last">\n\t\t\t\t${address}\n\t\t\t</div>\n\t\t</div>\n\t\t<div class="project-item__center" data-da="#project-item-${id} .project-item__inner, 479.98, 1"></div>\n\t`;
-            document.querySelector(".projects-layout__content-body").append(projectItem);
+            document.querySelector("[data-projects-content]")?.append(projectItem);
         }
         class DynamicAdapt {
             constructor(type) {
