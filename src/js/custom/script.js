@@ -17,17 +17,66 @@ document.addEventListener('DOMContentLoaded', (event) => {
 	}
 
 	function projectsInit() {
-		// layerScrollTemplateInit(
-		// 	document.querySelector('[scroll-block-wrapper]'),
-		// 	document.querySelector('[scroll-block]')
-		// );
+		projectItemCreate(
+			0,
+			{ iconPath: 'img/icons/icons.svg#required', text: 'Action Required', color: 'green' },
+			'Some Long Name of The Company Project',
+			{ name: 'Dmitri <br class="br--tablet"/> Kolontaevskii' },
+			'Department of Communities and Justice',
+			'Sydney <br class="br--tablet"/>Suite 201/54, Neridah St., Chatswood <br class="br--tablet"/>NSW 2067'
+		);
 
-		for (let i = 0; i < 16; i++) {
+		projectItemCreate(
+			1,
+			{ iconPath: 'img/icons/icons.svg#invoiced', text: 'Invoiced', color: 'brown' },
+			'Some Long Name of The Company Project',
+			{ avatarPath: 'img/avatars/avatar-01.jpg', name: 'Sandra <br class="br--tablet"/> Wilson' },
+			'Department of Communities and Justice',
+			'Sydney <br class="br--tablet"/>Suite 201/54, Neridah St., Chatswood <br class="br--tablet"/>NSW 2067'
+		);
+
+		projectItemCreate(
+			2,
+			{ iconPath: 'img/icons/icons.svg#active', text: 'Active', color: 'blue' },
+			'Some Long Name of The Company Project',
+			{ name: 'Dmitri <br class="br--tablet"/> Kolontaevskii' },
+			'Department of Communities and Justice',
+			'Sydney <br class="br--tablet"/>Suite 201/54, Neridah St., Chatswood <br class="br--tablet"/>NSW 2067'
+		);
+
+		projectItemCreate(
+			3,
+			{ iconPath: 'img/icons/icons.svg#cancelled', text: 'Cancelled', color: 'red' },
+			'Some Long Name of The Company Project',
+			{ name: 'Dmitri <br class="br--tablet"/> Kolontaevskii' },
+			'Department of Communities and Justice',
+			'Sydney <br class="br--tablet"/>Suite 201/54, Neridah St., Chatswood <br class="br--tablet"/>NSW 2067'
+		);
+
+		projectItemCreate(
+			4,
+			{ iconPath: 'img/icons/icons.svg#archived', text: 'Archived', color: 'pink' },
+			'Some Long Name of The Company Project',
+			{ name: 'Dmitri <br class="br--tablet"/> Kolontaevskii' },
+			'Department of Communities and Justice',
+			'Sydney <br class="br--tablet"/>Suite 201/54, Neridah St., Chatswood <br class="br--tablet"/>NSW 2067'
+		);
+
+		projectItemCreate(
+			5,
+			{ iconPath: 'img/icons/icons.svg#on-hold', text: 'On Hold', color: 'cold' },
+			'Some Long Name of The Company Project',
+			{ name: 'Dmitri <br class="br--tablet"/> Kolontaevskii' },
+			'Department of Communities and Justice',
+			'Sydney <br class="br--tablet"/>Suite 201/54, Neridah St., Chatswood <br class="br--tablet"/>NSW 2067'
+		);
+
+		for (let i = 7; i < 11; i++) {
 			projectItemCreate(
 				i,
-				{ iconPath: 'img/icons/icons.svg#required', text: 'Action Required' },
+				{ iconPath: 'img/icons/icons.svg#required', text: 'Action Required', color: 'brown' },
 				'Some Long Name of The Company Project',
-				'Dmitri <br class="br--tablet"/> Kolontaevskii',
+				{ avatarPath: 'img/avatars/avatar-01.jpg', name: 'Sandra <br class="br--tablet"/> Wilson' },
 				'Department of Communities and Justice',
 				'Sydney <br class="br--tablet"/>Suite 201/54, Neridah St., Chatswood <br class="br--tablet"/>NSW 2067'
 			);
@@ -105,19 +154,17 @@ function layerScrollTemplateInit(scrollBlockWrapper) {
 		drag = true;
 		leftStart = e.pageX;
 		topStart = e.pageY;
+
+		e.target.setPointerCapture(e.pointerId);
 	}
 
 	function pointerMove(e) {
-		console.log(drag);
-
 		if (drag) {
 			let diffX = -(leftEnd + e.pageX - leftStart);
 
 			if (diffX <= 0) {
 				scrollX = 0;
-			} else if (diffX > scrollableX) {
-				scrollX = -scrollableX;
-			} else {
+			} else if (!(diffX > scrollableX)) {
 				scrollX = -diffX;
 			}
 
@@ -125,9 +172,7 @@ function layerScrollTemplateInit(scrollBlockWrapper) {
 
 			if (diffY <= 0) {
 				scrollY = 0;
-			} else if (diffY > scrollableY) {
-				scrollY = -scrollableY;
-			} else {
+			} else if (!(diffY > scrollableY)) {
 				scrollY = -diffY;
 			}
 
@@ -209,8 +254,6 @@ function layoutGapObserver() {
 }
 
 function projectItemCreate(id, status, project, supervisor, customerName, address) {
-	console.log('project create start...');
-
 	const projectItem = document.createElement('div');
 	projectItem.classList.add('project-item');
 	projectItem.id = `project-item-${id}`;
@@ -218,12 +261,12 @@ function projectItemCreate(id, status, project, supervisor, customerName, addres
 		<div class="project-item__inner">
 			<div class="project-item__status">
 				<div class="project-item__status-mobile-wrapper">
-					<div class="project-item__status-icon color-green">
+					<div class="project-item__status-icon color-${status.color}">
 						<svg>
 							<use xlink:href="${status.iconPath}"></use>
 						</svg>
 					</div>
-					<span class="project-item__status-text color-green">${status.text}</span>
+					<span class="project-item__status-text color-${status.color}">${status.text}</span>
 				</div>
 			</div>
 			<div class="project-item__project" data-da="#project-item-${id} .project-item__center, 479.98">
@@ -231,12 +274,18 @@ function projectItemCreate(id, status, project, supervisor, customerName, addres
 				<span data-da="#project-item-${id} .project-item__project-mobile-wrapper, 479.98">${project}</span>
 			</div>
 			<div class="project-item__supervisor">
-				<div class="project-item__supervisor-icon">
-					<svg>
-						<use xlink:href="img/icons/icons.svg#user"></use>
-					</svg>
-				</div>
-				<div class="project-item__supervisor-name">${supervisor}</div>
+				${
+					supervisor.avatarPath === undefined
+						? `<div class="project-item__supervisor-icon">
+								<svg>
+									<use xlink:href="img/icons/icons.svg#user"></use>
+								</svg>
+							</div>`
+						: `<div class="project-item__supervisor-avatar">
+								<img src="${supervisor.avatarPath}" alt="avatar" />
+							</div>`
+				}
+				<div class="project-item__supervisor-name">${supervisor.name}</div>
 			</div>
 			<div
 				class="project-item__customer-name"
