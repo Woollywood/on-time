@@ -2432,6 +2432,31 @@
 			display: none !important;
 		}
 	}
+
+	&__not-found-wrapper {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: rem(24);
+	}
+
+	&__not-found-icon {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		svg {
+			width: rem(46);
+			height: rem(62);
+			fill: cl('grey-7');
+		}
+	}
+
+	&__not-found-text {
+		color: cl('grey');
+		font-size: rem(14);
+		line-height: 142%;
+	}
 }
 
 .project-item {
@@ -2449,13 +2474,15 @@
 		}
 
 		@media (min-width: $tablet) {
-			grid-template-columns: var(--first-col-percent) var(--second-col-percent) var(--third-col-percent) var(
-					--fourth-col-percent
-				) var(--fifth-col-percent);
+			grid-template-columns:
+				var(--first-col-percent) var(--second-col-percent) var(--third-col-percent) var(--fourth-col-percent)
+				var(--fifth-col-percent);
 		}
 
 		@media (max-width: $tablet) and (min-width: $mobileSmall) {
-			grid-template-columns: var(--first-col) var(--second-col) var(--third-col) var(--fourth-col) var(--fifth-col);
+			grid-template-columns: var(--first-col) var(--second-col) var(--third-col) var(--fourth-col) var(
+					--fifth-col
+				);
 		}
 
 		> * {
@@ -2694,6 +2721,51 @@
 
 .layout-wrapper {
 	height: calc(100vh - var(--top-gap));
+
+	&--not-found {
+		.projects-layout__inner {
+			@media (max-width: $mobile) {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+			}
+		}
+
+		.projects-layout__content-body {
+			height: 100%;
+			cursor: auto;
+
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: auto;
+		}
+
+		.projects-layout__title-body {
+			width: auto;
+		}
+
+		.projects-layout__title-body-wrapper {
+			@media (max-width: $mobile) {
+				display: none;
+			}
+		}
+
+		.projects-layout__title-item {
+			@media (max-width: $tablet) and (min-width: $mobileSmall) {
+				flex: 1 1 auto !important;
+			}
+		}
+	}
+
+	&--empty {
+		.layout-wrapper__body {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+	}
 
 	&__container {
 		height: 100%;

@@ -159,6 +159,8 @@ function layerScrollTemplateInit(scrollBlockWrapper) {
 	}
 
 	function pointerMove(e) {
+		console.log('move');
+
 		if (drag) {
 			let diffX = -(leftEnd + e.pageX - leftStart);
 
@@ -299,5 +301,5 @@ function projectItemCreate(id, status, project, supervisor, customerName, addres
 		<div class="project-item__center" data-da="#project-item-${id} .project-item__inner, 479.98, 1"></div>
 	`;
 
-	document.querySelector('.projects-layout__content-body').append(projectItem);
+	document.querySelector('[data-projects-content]')?.append(projectItem);
 }

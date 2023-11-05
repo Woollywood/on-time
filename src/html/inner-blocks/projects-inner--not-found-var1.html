@@ -1,4 +1,4 @@
-<div class="layout-wrapper" data-wrapper="projects">
+<div class="layout-wrapper layout-wrapper--not-found" data-wrapper="projects">
 	<div class="layout-wrapper__container">
 		<div class="layout-wrapper__body">
 			<div class="layout-wrapper__top">
@@ -281,9 +281,9 @@
 				</div>
 				<button class="layout__button button" type="button">New Project</button>
 			</div>
-			<div class="layout-wrapper__projects projects-layout">
+			<div class="layout-wrapper__projects projects-layout projects-layout--not-found-var1">
 				<div class="projects-layout__inner">
-					<div class="projects-layout__title-body-wrapper scroll-block-wrapper">
+					<div class="projects-layout__title-body-wrapper">
 						<div class="projects-layout__title-body">
 							<div class="projects-layout__title-item">Status</div>
 							<div class="projects-layout__title-item">Project</div>
@@ -292,29 +292,18 @@
 							<div class="projects-layout__title-item">Address</div>
 						</div>
 					</div>
-					<div class="projects-layout__content-body-wrapper scroll-block-wrapper" scroll-block-wrapper scroll-sync=".projects-layout__title-body-wrapper" onmousedown="return false">
-						<div class="projects-layout__content-body" data-projects-content></div>
+					<div class="projects-layout__content-body-wrapper">
+						<div class="projects-layout__content-body">
+							<div class="projects-layout__not-found-wrapper">
+								<div class="projects-layout__not-found-icon">
+									<svg>
+										<use xlink:href="@img/icons/icons.svg#not-found"></use>
+									</svg>
+								</div>
+								<div class="projects-layout__not-found-text">No projects matching your search criteria</div>
+							</div>
+						</div>
 					</div>
-				</div>
-				<div class="projects-layout__pagination pagination">
-					<button class="pagination__arrow pagination__arrow--left">
-						<svg>
-							<use xlink:href="@img/icons/icons.svg#arrow"></use>
-						</svg>
-					</button>
-					<div class="pagination__buttons">
-						<button class="pagination__button">1</button>
-						<button class="pagination__button active">2</button>
-						<button class="pagination__button">3</button>
-						<button class="pagination__button">...</button>
-						<button class="pagination__button">23</button>
-						<button class="pagination__button">24</button>
-					</div>
-					<button class="pagination__arrow pagination__arrow--right">
-						<svg>
-							<use xlink:href="@img/icons/icons.svg#arrow"></use>
-						</svg>
-					</button>
 				</div>
 			</div>
 		</div>
