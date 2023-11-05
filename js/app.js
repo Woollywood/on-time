@@ -4313,10 +4313,57 @@
                 break;
             }
             function projectsInit() {
-                for (let i = 0; i < 16; i++) projectItemCreate(i, {
+                projectItemCreate(0, {
                     iconPath: "img/icons/icons.svg#required",
-                    text: "Action Required"
-                }, "Some Long Name of The Company Project", 'Dmitri <br class="br--tablet"/> Kolontaevskii', "Department of Communities and Justice", 'Sydney <br class="br--tablet"/>Suite 201/54, Neridah St., Chatswood <br class="br--tablet"/>NSW 2067');
+                    text: "Action Required",
+                    color: "green"
+                }, "Some Long Name of The Company Project", {
+                    name: 'Dmitri <br class="br--tablet"/> Kolontaevskii'
+                }, "Department of Communities and Justice", 'Sydney <br class="br--tablet"/>Suite 201/54, Neridah St., Chatswood <br class="br--tablet"/>NSW 2067');
+                projectItemCreate(1, {
+                    iconPath: "img/icons/icons.svg#invoiced",
+                    text: "Invoiced",
+                    color: "brown"
+                }, "Some Long Name of The Company Project", {
+                    avatarPath: "img/avatars/avatar-01.jpg",
+                    name: 'Sandra <br class="br--tablet"/> Wilson'
+                }, "Department of Communities and Justice", 'Sydney <br class="br--tablet"/>Suite 201/54, Neridah St., Chatswood <br class="br--tablet"/>NSW 2067');
+                projectItemCreate(2, {
+                    iconPath: "img/icons/icons.svg#active",
+                    text: "Active",
+                    color: "blue"
+                }, "Some Long Name of The Company Project", {
+                    name: 'Dmitri <br class="br--tablet"/> Kolontaevskii'
+                }, "Department of Communities and Justice", 'Sydney <br class="br--tablet"/>Suite 201/54, Neridah St., Chatswood <br class="br--tablet"/>NSW 2067');
+                projectItemCreate(3, {
+                    iconPath: "img/icons/icons.svg#cancelled",
+                    text: "Cancelled",
+                    color: "red"
+                }, "Some Long Name of The Company Project", {
+                    name: 'Dmitri <br class="br--tablet"/> Kolontaevskii'
+                }, "Department of Communities and Justice", 'Sydney <br class="br--tablet"/>Suite 201/54, Neridah St., Chatswood <br class="br--tablet"/>NSW 2067');
+                projectItemCreate(4, {
+                    iconPath: "img/icons/icons.svg#archived",
+                    text: "Archived",
+                    color: "pink"
+                }, "Some Long Name of The Company Project", {
+                    name: 'Dmitri <br class="br--tablet"/> Kolontaevskii'
+                }, "Department of Communities and Justice", 'Sydney <br class="br--tablet"/>Suite 201/54, Neridah St., Chatswood <br class="br--tablet"/>NSW 2067');
+                projectItemCreate(5, {
+                    iconPath: "img/icons/icons.svg#on-hold",
+                    text: "On Hold",
+                    color: "cold"
+                }, "Some Long Name of The Company Project", {
+                    name: 'Dmitri <br class="br--tablet"/> Kolontaevskii'
+                }, "Department of Communities and Justice", 'Sydney <br class="br--tablet"/>Suite 201/54, Neridah St., Chatswood <br class="br--tablet"/>NSW 2067');
+                for (let i = 7; i < 11; i++) projectItemCreate(i, {
+                    iconPath: "img/icons/icons.svg#required",
+                    text: "Action Required",
+                    color: "brown"
+                }, "Some Long Name of The Company Project", {
+                    avatarPath: "img/avatars/avatar-01.jpg",
+                    name: 'Sandra <br class="br--tablet"/> Wilson'
+                }, "Department of Communities and Justice", 'Sydney <br class="br--tablet"/>Suite 201/54, Neridah St., Chatswood <br class="br--tablet"/>NSW 2067');
             }
         }));
         window.addEventListener("load", (windowEvent => {
@@ -4368,14 +4415,14 @@
                 drag = true;
                 leftStart = e.pageX;
                 topStart = e.pageY;
+                e.target.setPointerCapture(e.pointerId);
             }
             function pointerMove(e) {
-                console.log(drag);
                 if (drag) {
                     let diffX = -(leftEnd + e.pageX - leftStart);
-                    if (diffX <= 0) scrollX = 0; else if (diffX > scrollableX) scrollX = -scrollableX; else scrollX = -diffX;
+                    if (diffX <= 0) scrollX = 0; else if (!(diffX > scrollableX)) scrollX = -diffX;
                     let diffY = -(topEnd + e.pageY - topStart);
-                    if (diffY <= 0) scrollY = 0; else if (diffY > scrollableY) scrollY = -scrollableY; else scrollY = -diffY;
+                    if (diffY <= 0) scrollY = 0; else if (!(diffY > scrollableY)) scrollY = -diffY;
                     scrollEvent.detail.scrollLeft = scrollX;
                     scrollEvent.detail.scrollTop = scrollY;
                     scrollBlockWrapper.dispatchEvent(scrollEvent);
@@ -4417,11 +4464,10 @@
             wrapper.style.cssText += `--top-gap: ${wrapper.getBoundingClientRect().top}px`;
         }
         function projectItemCreate(id, status, project, supervisor, customerName, address) {
-            console.log("project create start...");
             const projectItem = document.createElement("div");
             projectItem.classList.add("project-item");
             projectItem.id = `project-item-${id}`;
-            projectItem.innerHTML = `\n\t\t<div class="project-item__inner">\n\t\t\t<div class="project-item__status">\n\t\t\t\t<div class="project-item__status-mobile-wrapper">\n\t\t\t\t\t<div class="project-item__status-icon color-green">\n\t\t\t\t\t\t<svg>\n\t\t\t\t\t\t\t<use xlink:href="${status.iconPath}"></use>\n\t\t\t\t\t\t</svg>\n\t\t\t\t\t</div>\n\t\t\t\t\t<span class="project-item__status-text color-green">${status.text}</span>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class="project-item__project" data-da="#project-item-${id} .project-item__center, 479.98">\n\t\t\t\t<div class="project-item__project-mobile-wrapper color-green"></div>\n\t\t\t\t<span data-da="#project-item-${id} .project-item__project-mobile-wrapper, 479.98">${project}</span>\n\t\t\t</div>\n\t\t\t<div class="project-item__supervisor">\n\t\t\t\t<div class="project-item__supervisor-icon">\n\t\t\t\t\t<svg>\n\t\t\t\t\t\t<use xlink:href="img/icons/icons.svg#user"></use>\n\t\t\t\t\t</svg>\n\t\t\t\t</div>\n\t\t\t\t<div class="project-item__supervisor-name">${supervisor}</div>\n\t\t\t</div>\n\t\t\t<div\n\t\t\t\tclass="project-item__customer-name"\n\t\t\t\tdata-da="#project-item-${id} .project-item__status, 479.98">\n\t\t\t\t${customerName}\n\t\t\t</div>\n\t\t\t<div class="project-item__address" data-da="#project-item-${id} .project-item__center, 479.98, last">\n\t\t\t\t${address}\n\t\t\t</div>\n\t\t</div>\n\t\t<div class="project-item__center" data-da="#project-item-${id} .project-item__inner, 479.98, 1"></div>\n\t`;
+            projectItem.innerHTML = `\n\t\t<div class="project-item__inner">\n\t\t\t<div class="project-item__status">\n\t\t\t\t<div class="project-item__status-mobile-wrapper">\n\t\t\t\t\t<div class="project-item__status-icon color-${status.color}">\n\t\t\t\t\t\t<svg>\n\t\t\t\t\t\t\t<use xlink:href="${status.iconPath}"></use>\n\t\t\t\t\t\t</svg>\n\t\t\t\t\t</div>\n\t\t\t\t\t<span class="project-item__status-text color-${status.color}">${status.text}</span>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class="project-item__project" data-da="#project-item-${id} .project-item__center, 479.98">\n\t\t\t\t<div class="project-item__project-mobile-wrapper color-green"></div>\n\t\t\t\t<span data-da="#project-item-${id} .project-item__project-mobile-wrapper, 479.98">${project}</span>\n\t\t\t</div>\n\t\t\t<div class="project-item__supervisor">\n\t\t\t\t${supervisor.avatarPath === void 0 ? `<div class="project-item__supervisor-icon">\n\t\t\t\t\t\t\t\t<svg>\n\t\t\t\t\t\t\t\t\t<use xlink:href="img/icons/icons.svg#user"></use>\n\t\t\t\t\t\t\t\t</svg>\n\t\t\t\t\t\t\t</div>` : `<div class="project-item__supervisor-avatar">\n\t\t\t\t\t\t\t\t<img src="${supervisor.avatarPath}" alt="avatar" />\n\t\t\t\t\t\t\t</div>`}\n\t\t\t\t<div class="project-item__supervisor-name">${supervisor.name}</div>\n\t\t\t</div>\n\t\t\t<div\n\t\t\t\tclass="project-item__customer-name"\n\t\t\t\tdata-da="#project-item-${id} .project-item__status, 479.98">\n\t\t\t\t${customerName}\n\t\t\t</div>\n\t\t\t<div class="project-item__address" data-da="#project-item-${id} .project-item__center, 479.98, last">\n\t\t\t\t${address}\n\t\t\t</div>\n\t\t</div>\n\t\t<div class="project-item__center" data-da="#project-item-${id} .project-item__inner, 479.98, 1"></div>\n\t`;
             document.querySelector(".projects-layout__content-body").append(projectItem);
         }
         class DynamicAdapt {
