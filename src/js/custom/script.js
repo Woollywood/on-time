@@ -16,7 +16,13 @@ document.addEventListener('DOMContentLoaded', (event) => {
 	layoutGapObserver();
 	window.addEventListener('resize', layoutGapObserver);
 
+	getSaveProjectButtonHeight();
+	window.addEventListener('resize', getSaveProjectButtonHeight);
+
 	projectsInit();
+
+
+	projectsFilesInit();
 
 	function projectsInit() {
 		projectItemCreate(
@@ -137,6 +143,14 @@ document.addEventListener('DOMContentLoaded', (event) => {
 window.addEventListener('load', (e) => {
 	scrollInit();
 });
+
+function getSaveProjectButtonHeight() {
+	const buttonWrapper = document.querySelector('[data-save-project]');
+	const offsetHeight = buttonWrapper.offsetHeight;
+	const projectTabs = document
+		.querySelectorAll('[data-project-tab]')
+		.forEach((tab) => (tab.style.cssText += `--button-height: ${offsetHeight}px`));
+}
 
 function scrollInit() {
 	const scrollBlocks = document.querySelectorAll('[scroll-block-wrapper]');
@@ -342,4 +356,445 @@ function projectItemCreate(id, status, project, supervisor, customerName, addres
 	`;
 
 	document.querySelector('[data-projects-content]')?.append(projectItem);
+}
+
+
+function projectsFilesInit() {
+	projectFileLoadingCreate({
+		type: 'normal',
+		id: 0,
+		fileName: 'IMG_999999.JPG',
+		imagePath: 'img/managers-files/image-01.jpg',
+		iconExtPath: 'img/icons/icons.svg#x',
+		description: 'Aug 2, 8:00 AM, Sergey Zadrutsky',
+		descriptionCrossed: false,
+		dialogType: 'empty',
+	});
+
+	projectFileCreate({
+		type: 'mime-type',
+		id: 1,
+		fileName: 'FileNameShort',
+		iconExtPath: 'img/icons/icons.svg#w',
+		description: 'Aug 3, 8:00 AM, Sergey Zadrutsky',
+		descriptionCrossed: false,
+		dialogType: 'fill',
+	});
+
+	projectFileCreate({
+		type: 'normal',
+		id: 2,
+		fileName: 'IMG_999_99_999999.JPG',
+		imagePath: 'img/managers-files/image-01.jpg',
+		iconExtPath: 'img/icons/icons.svg#image',
+		description: 'Aug 3, 8:00 AM, Sergey Zadrutsky',
+		descriptionCrossed: false,
+		dialogType: 'empty',
+	});
+
+	projectFileCreate({
+		type: 'mime-type',
+		id: 3,
+		fileName: 'FileNameLong_with2_rows_with_with2_rows_with_with2_rows... end_of.pdf',
+		iconExtPath: 'img/icons/icons.svg#pdf',
+		description: 'Aug 3, 8:00 AM, Sergey Zadrutsky',
+		descriptionCrossed: true,
+		dialogType: 'empty',
+	});
+
+	projectFileCreate({
+		type: 'mime-type',
+		id: 4,
+		fileName: 'FileNameLong_with2_rows_with_with2_rows_with_with2_rows... end_of.pdf',
+		iconExtPath: 'img/icons/icons.svg#pdf',
+		description: 'Aug 3, 8:00 AM, Sergey Zadrutsky',
+		descriptionCrossed: true,
+		dialogType: 'empty',
+	});
+
+	projectFileCreate({
+		type: 'mime-type',
+		id: 5,
+		fileName: 'FileNameLong_with2_rows_with_with2_rows_with_with2_rows... end_of.pdf',
+		iconExtPath: 'img/icons/icons.svg#pdf',
+		description: 'Aug 3, 8:00 AM, Sergey Zadrutsky',
+		descriptionCrossed: true,
+		dialogType: 'empty',
+	});
+
+	projectFileCreate({
+		type: 'mime-type',
+		id: 6,
+		fileName: 'FileNameLong_with2_rows_with_with2_rows_with_with2_rows... end_of.pdf',
+		iconExtPath: 'img/icons/icons.svg#pdf',
+		description: 'Aug 3, 8:00 AM, Sergey Zadrutsky',
+		descriptionCrossed: true,
+		dialogType: 'empty',
+	});
+
+	projectFileCreate({
+		type: 'mime-type',
+		id: 7,
+		fileName: 'FileNameLong_with2_rows_with_with2_rows_with_with2_rows... end_of.pdf',
+		iconExtPath: 'img/icons/icons.svg#pdf',
+		description: 'Aug 3, 8:00 AM, Sergey Zadrutsky',
+		descriptionCrossed: true,
+		dialogType: 'empty',
+	});
+
+	projectFileCreate({
+		type: 'mime-type',
+		id: 8,
+		fileName: 'FileNameLong_with2_rows_with_with2_rows_with_with2_rows... end_of.pdf',
+		iconExtPath: 'img/icons/icons.svg#pdf',
+		description: 'Aug 3, 8:00 AM, Sergey Zadrutsky',
+		descriptionCrossed: true,
+		dialogType: 'empty',
+	});
+
+	projectFileCreate({
+		type: 'mime-type',
+		id: 9,
+		fileName: 'FileNameLong_with2_rows_with_with2_rows_with_with2_rows... end_of.pdf',
+		iconExtPath: 'img/icons/icons.svg#pdf',
+		description: 'Aug 3, 8:00 AM, Sergey Zadrutsky',
+		descriptionCrossed: true,
+		dialogType: 'empty',
+	});
+
+	projectFileCreate({
+		type: 'mime-type',
+		id: 10,
+		fileName: 'FileNameLong_with2_rows_with_with2_rows_with_with2_rows... end_of.pdf',
+		iconExtPath: 'img/icons/icons.svg#pdf',
+		description: 'Aug 3, 8:00 AM, Sergey Zadrutsky',
+		descriptionCrossed: true,
+		dialogType: 'empty',
+	});
+}
+
+
+
+function projectFileLoadingCreate({ type, ...other }) {
+	console.log('project file create');
+
+	switch (type) {
+		case 'normal':
+			projectFileLoadingNormalCreateGrid(other);
+			break;
+		case 'mime-type':
+			projectFileLoadingMimeTypeCreateGrid(other);
+			break;
+	}
+
+	projectFileLoadingCreateList(other);
+}
+
+function projectFileLoadingNormalCreateGrid(options) {
+	const fileWrapper = document.createElement('div');
+	fileWrapper.classList.add('managers-files-item');
+	fileWrapper.classList.add('managers-files-item--grid');
+	fileWrapper.dataset.fileItemId = options.id;
+	fileWrapper.innerHTML = `
+		<div class="managers-files-item__body">
+			<div class="managers-files-item__controlls">
+				<button
+					class="managers-files-item__controll-item"
+					data-tippy-content>
+					<img
+						src="${options.dialogType === 'empty' ? `img/icons/dialog--empty.svg` : `img/icons/dialog--empty.svg`}"
+						alt="icon" />
+				</button>
+				<button
+					class="managers-files-item__controll-item"
+					data-delete-file
+					data-popup="#delete-file--pl">
+					<img src="img/icons/delete.svg" alt="icon" />
+				</button>
+			</div>
+			<div class="managers-files-item__background-ibg">
+				<img
+					src="${options.imagePath}"
+					alt="background" />
+			</div>
+		</div>
+		<footer class="managers-files-item__footer">
+			<div class="managers-files-item__load-progress">
+				<div
+					class="managers-files-item__load-progress-line">
+					<div
+						class="managers-files-item__load-progress-line-inner"
+						style="width: 0%"></div>
+				</div>
+				<div
+					class="managers-files-item__load-progress-text">
+					0%
+				</div>
+			</div>
+		</footer>
+	`;
+
+	document.querySelector('.managers-files__tab.managers-files__tab--grid').append(fileWrapper);
+}
+
+function projectFileLoadingMimeTypeCreateGrid(options) {
+	const fileWrapper = document.createElement('div');
+	fileWrapper.classList.add('managers-files-item');
+	fileWrapper.classList.add('managers-files-item--grid');
+	fileWrapper.dataset.fileItemId = options.id;
+	fileWrapper.innerHTML = `
+		<div class="managers-files-item__body">
+			<div class="managers-files-item__controlls">
+				<button
+					class="managers-files-item__controll-item"
+					data-tippy-content>
+					<img src="${
+						options.dialogType === 'empty' ? `img/icons/dialog--empty.svg` : `img/icons/dialog--empty.svg`
+					}" alt="icon" />
+				</button>
+				<button
+					class="managers-files-item__controll-item"
+					data-delete-file
+					data-popup="#delete-file--pl">
+					<img src="img/icons/delete.svg" alt="icon" />
+				</button>
+			</div>
+			<div class="managers-files-item__mime-type">
+				<div class="managers-files-item__mime-type-icon">
+					<svg>
+						<use
+							xlink:href="${options.iconExtPath}"></use>
+					</svg>
+				</div>
+				<div class="managers-files-item__mime-type-name">
+					${options.fileName}
+				</div>
+			</div>
+		</div>
+		<footer class="managers-files-item__footer">
+			<div class="managers-files-item__load-progress">
+				<div
+					class="managers-files-item__load-progress-line">
+					<div
+						class="managers-files-item__load-progress-line-inner"
+						style="width: 0%"></div>
+				</div>
+				<div
+					class="managers-files-item__load-progress-text">
+					0%
+				</div>
+			</div>
+		</footer>
+	`;
+
+	document.querySelector('.managers-files__tab.managers-files__tab--grid').append(fileWrapper);
+}
+
+function projectFileLoadingCreateList(options) {
+	console.log(options);
+
+	const fileWrapper = document.createElement('div');
+	fileWrapper.classList.add('managers-files-item');
+	fileWrapper.classList.add('managers-files-item--list');
+	fileWrapper.dataset.fileItemId = options.id;
+	fileWrapper.innerHTML = `
+		<div class="managers-files-item__body">
+			<div class="managers-files-item__body--mobile-wrapper"></div>
+			<div class="managers-files-item__file-info" data-da="[data-file-item-id='${
+				options.id
+			}'] .managers-files-item__body--mobile-wrapper, 589.98">
+				<div class="managers-files-item__file-ext-icon">
+					<svg>
+						<use
+							xlink:href="${options.iconExtPath}"></use>
+					</svg>
+				</div>
+				<div class="managers-files-item__file-name">
+					${options.fileName}
+				</div>
+			</div>
+			<div class="managers-files-item__loading-wrapper">
+				<div
+					class="managers-files-item__loading-line-wrapper">
+					<div
+						class="managers-files-item__loading-line-progress"
+						style="width: 0%"></div>
+				</div>
+				<div class="managers-files-item__loading-value">
+					0%
+				</div>
+			</div>
+			<div class="managers-files-item__controlls" data-da="[data-file-item-id='${
+				options.id
+			}'] .managers-files-item__body--mobile-wrapper, 589.98">
+				<button
+					class="managers-files-item__controll-item"
+					data-tippy-content>
+					<img
+						src="${options.dialogType === 'empty' ? `img/icons/dialog--empty.svg` : `img/icons/dialog.svg`}"
+						alt="icon" />
+				</button>
+				<button
+					class="managers-files-item__controll-item"
+					data-delete-file
+					data-popup="#delete-file--pl">
+					<img
+						src="img/icons/delete.svg"
+						alt="icon" />
+				</button>
+			</div>
+		</div>
+	`;
+
+	document.querySelector('.managers-files__tab-body.managers-files__tab-body--list').append(fileWrapper);
+}
+
+
+
+function projectFileCreate({ type, ...other }) {
+	switch (type) {
+		case 'normal':
+			projectFileNormalCreateGrid(other);
+			break;
+		case 'mime-type':
+			projectFileMimeTypeCreateGrid(other);
+			break;
+	}
+
+	projectFileCreateList(other);
+}
+
+function projectFileNormalCreateGrid(options) {
+	const fileWrapper = document.createElement('div');
+	fileWrapper.classList.add('managers-files-item');
+	fileWrapper.classList.add('managers-files-item--grid');
+	fileWrapper.dataset.fileItemId = options.id;
+	fileWrapper.innerHTML = `
+		<div class="managers-files-item__body">
+			<div class="managers-files-item__controlls">
+				<button
+					class="managers-files-item__controll-item"
+					data-tippy-content>
+					<img
+						src="${options.dialogType === 'empty' ? `img/icons/dialog--empty.svg` : `img/icons/dialog--empty.svg`}"
+						alt="icon" />
+				</button>
+				<button
+					class="managers-files-item__controll-item"
+					data-delete-file
+					data-popup="#delete-file--pl">
+					<img src="img/icons/delete.svg" alt="icon" />
+				</button>
+			</div>
+			<div class="managers-files-item__background-ibg">
+				<img
+					src="${options.imagePath}"
+					alt="background" />
+			</div>
+		</div>
+		<footer class="managers-files-item__footer">
+			<div class="managers-files-item__description">
+				${options.description}
+			</div>
+		</footer>
+	`;
+
+	document.querySelector('.managers-files__tab.managers-files__tab--grid').append(fileWrapper);
+}
+
+function projectFileMimeTypeCreateGrid(options) {
+	const fileWrapper = document.createElement('div');
+	fileWrapper.classList.add('managers-files-item');
+	fileWrapper.classList.add('managers-files-item--grid');
+	fileWrapper.dataset.fileItemId = options.id;
+	fileWrapper.innerHTML = `
+		<div class="managers-files-item__body">
+			<div class="managers-files-item__controlls">
+				<button
+					class="managers-files-item__controll-item"
+					data-tippy-content>
+					<img src="${
+						options.dialogType === 'empty' ? `img/icons/dialog--empty.svg` : `img/icons/dialog--empty.svg`
+					}" alt="icon" />
+				</button>
+				<button
+					class="managers-files-item__controll-item"
+					data-delete-file
+					data-popup="#delete-file--pl">
+					<img src="img/icons/delete.svg" alt="icon" />
+				</button>
+			</div>
+			<div class="managers-files-item__mime-type">
+				<div class="managers-files-item__mime-type-icon">
+					<svg>
+						<use
+							xlink:href="${options.iconExtPath}"></use>
+					</svg>
+				</div>
+				<div class="managers-files-item__mime-type-name">
+					${options.fileName}
+				</div>
+			</div>
+		</div>
+		<footer class="managers-files-item__footer">
+			<div class="managers-files-item__description">
+				${options.description}
+			</div>
+		</footer>
+	`;
+
+	document.querySelector('.managers-files__tab.managers-files__tab--grid').append(fileWrapper);
+}
+
+function projectFileCreateList(options) {
+	console.log(options);
+
+	const fileWrapper = document.createElement('div');
+	fileWrapper.classList.add('managers-files-item');
+	fileWrapper.classList.add('managers-files-item--list');
+	fileWrapper.dataset.fileItemId = options.id;
+	fileWrapper.innerHTML = `
+		<div class="managers-files-item__body">
+			<div class="managers-files-item__body--mobile-wrapper"></div>
+			<div class="managers-files-item__file-info" data-da="[data-file-item-id='${
+				options.id
+			}'] .managers-files-item__body--mobile-wrapper, 589.98">
+				<div class="managers-files-item__file-ext-icon">
+					<svg>
+						<use
+							xlink:href="${options.iconExtPath}"></use>
+					</svg>
+				</div>
+				<div class="managers-files-item__file-name">
+					${options.fileName}
+				</div>
+			</div>
+			<div class="managers-files-item__author-info ${
+				options.descriptionCrossed ? `managers-files-item__author-info--line-through` : ``
+			}">
+				${options.description}
+			</div>
+			<div class="managers-files-item__controlls" data-da="[data-file-item-id='${
+				options.id
+			}'] .managers-files-item__body--mobile-wrapper, 589.98">
+				<button
+					class="managers-files-item__controll-item"
+					data-tippy-content>
+					<img
+						src="${options.dialogType === 'empty' ? `img/icons/dialog--empty.svg` : `img/icons/dialog.svg`}"
+						alt="icon" />
+				</button>
+				<button
+					class="managers-files-item__controll-item"
+					data-delete-file
+					data-popup="#delete-file--pl">
+					<img
+						src="img/icons/delete.svg"
+						alt="icon" />
+				</button>
+			</div>
+		</div>
+	`;
+
+	document.querySelector('.managers-files__tab-body.managers-files__tab-body--list').append(fileWrapper);
 }

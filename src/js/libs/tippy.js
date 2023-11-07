@@ -117,43 +117,45 @@ function renderUsersCommentWrapper(usersList) {
 }
 
 document.addEventListener('DOMContentLoaded', (event) => {
-	flsModules.tippy = tippy('[data-tippy-content]', {
-		content: (reference) => {
-			const itemBody = reference.closest('.managers-files-item');
-			const itemBodyId = itemBody.dataset.fileItemId;
-			return render(itemBodyId);
-		},
-		allowHTML: true,
-		appendTo: (parent) => parent.closest('[data-tippy-root-block]'),
-		placement: 'right',
-		arrow: false,
-		trigger: 'click',
-		interactive: true,
+	setTimeout(() => {
+		flsModules.tippy = tippy('[data-tippy-content]', {
+			content: (reference) => {
+				const itemBody = reference.closest('.managers-files-item');
+				const itemBodyId = itemBody.dataset.fileItemId;
+				return render(itemBodyId);
+			},
+			allowHTML: true,
+			appendTo: (parent) => parent.closest('[data-tippy-root-block]'),
+			placement: 'right',
+			arrow: false,
+			trigger: 'click',
+			interactive: true,
 
-		onCreate: (event) => {
-			const popper = event.popper;
-			const itemBody = event.reference.closest('.managers-files-item');
-			const sendButton = popper.querySelector('[data-button-send]');
-			const inputMessage = popper.querySelector('[data-comment-input]');
+			onCreate: (event) => {
+				const popper = event.popper;
+				const itemBody = event.reference.closest('.managers-files-item');
+				const sendButton = popper.querySelector('[data-button-send]');
+				const inputMessage = popper.querySelector('[data-comment-input]');
 
-			const createTippyEvent = new CustomEvent('createTippy', { detail: { instance: popper } });
-			setTimeout(() => {
-				itemBody.dispatchEvent(createTippyEvent);
-			}, 0);
+				const createTippyEvent = new CustomEvent('createTippy', { detail: { instance: popper } });
+				setTimeout(() => {
+					itemBody.dispatchEvent(createTippyEvent);
+				}, 0);
 
-			const sendMessageEvent = new CustomEvent('sendMessage', { detail: { message: null } });
-			sendButton.addEventListener('click', (event) => {
-				sendMessageEvent.detail.message = inputMessage.value;
-				inputMessage.value = '';
-				itemBody.dispatchEvent(sendMessageEvent);
-			});
-		},
-	});
+				const sendMessageEvent = new CustomEvent('sendMessage', { detail: { message: null } });
+				sendButton.addEventListener('click', (event) => {
+					sendMessageEvent.detail.message = inputMessage.value;
+					inputMessage.value = '';
+					itemBody.dispatchEvent(sendMessageEvent);
+				});
+			},
+		});
 
-	document.querySelectorAll('[data-tippy-content]').forEach((item) => {
-		const instance = item._tippy;
-		const popper = instance.popper;
-		const buttonClose = popper.querySelector('[data-button-close]');
-		buttonClose?.addEventListener('click', (event) => instance.hide());
-	});
+		document.querySelectorAll('[data-tippy-content]').forEach((item) => {
+			const instance = item._tippy;
+			const popper = instance.popper;
+			const buttonClose = popper.querySelector('[data-button-close]');
+			buttonClose?.addEventListener('click', (event) => instance.hide());
+		});
+	}, 0);
 });

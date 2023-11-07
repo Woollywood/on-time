@@ -134,6 +134,7 @@ class DynamicAdapt {
 }
 
 document.addEventListener('DOMContentLoaded', event => {
+	console.log('da init');
 	const da = new DynamicAdapt("max");
 	da.init();
 })

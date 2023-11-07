@@ -351,7 +351,7 @@
 						</nav>
 						<div class="new-project-tabs__content" data-tabs-body>
 							<div class="new-project-tabs__body new-project-tab">
-								<div class="new-project-tab__container layout-container">
+								<div class="new-project-tab__container layout-container" data-project-tab>
 									<div class="new-project-tab__body">
 										<div class="project-info">
 											<div class="project-info__body">
@@ -367,7 +367,7 @@
 																		</div>
 																		<div class="form-info__field-input-wrapper">
 																			<input
-																				class="form-info__field-input input"
+																				class="form-info__field-input form-info__field-input--number input"
 																				type="number" />
 																		</div>
 																	</div>
@@ -1232,6 +1232,22 @@
 																				type="text" />
 																		</div>
 																	</div>
+																	<div class="form-info__field">
+																		<div class="form-info__field-name">State</div>
+																		<div class="form-info__field-input-wrapper">
+																			<input
+																				class="form-info__field-input input"
+																				type="text" />
+																		</div>
+																	</div>
+																	<div class="form-info__field">
+																		<div class="form-info__field-name">State</div>
+																		<div class="form-info__field-input-wrapper">
+																			<input
+																				class="form-info__field-input input"
+																				type="text" />
+																		</div>
+																	</div>
 																</div>
 															</div>
 														</form>
@@ -1296,12 +1312,12 @@
 								</div>
 							</div>
 							<div class="new-project-tabs__body new-project-tab">
-								<div class="new-project-tab__container layout-container">
+								<div class="new-project-tab__container layout-container" data-project-tab>
 									<div class="new-project-tab__body"></div>
 								</div>
 							</div>
 							<div class="new-project-tabs__body new-project-tab">
-								<div class="new-project-tab__container layout-container">
+								<div class="new-project-tab__container layout-container" data-project-tab>
 									<div class="new-project-tab__body">
 										<div class="managers-files">
 											<div class="managers-files__body" data-tabs>
@@ -1332,11 +1348,12 @@
 														<div
 															class="managers-files__tab-body managers-files__tab-body--list"
 															data-tippy-root-block>
-															<div
+															<!-- <div
 																class="managers-files-item managers-files-item--list"
 																data-file-item-id="0">
 																<div class="managers-files-item__body">
-																	<div class="managers-files-item__file-info">
+																	<div class="managers-files-item__body--mobile-wrapper"></div>
+																	<div class="managers-files-item__file-info" data-da="[data-file-item-id='0'] .managers-files-item__body--mobile-wrapper, 589.98">
 																		<div class="managers-files-item__file-ext-icon">
 																			<svg>
 																				<use
@@ -1350,7 +1367,7 @@
 																	<div class="managers-files-item__author-info">
 																		Aug 2, 8:00 AM, Sergey Zadrutsky
 																	</div>
-																	<div class="managers-files-item__controlls">
+																	<div class="managers-files-item__controlls" data-da="[data-file-item-id='0'] .managers-files-item__body--mobile-wrapper, 589.98">
 																		<button
 																			class="managers-files-item__controll-item"
 																			data-tippy-content>
@@ -1373,7 +1390,8 @@
 																class="managers-files-item managers-files-item--list"
 																data-file-item-id="1">
 																<div class="managers-files-item__body">
-																	<div class="managers-files-item__file-info">
+																	<div class="managers-files-item__body--mobile-wrapper"></div>
+																	<div class="managers-files-item__file-info" data-da="[data-file-item-id='1'] .managers-files-item__body--mobile-wrapper, 589.98">
 																		<div class="managers-files-item__file-ext-icon">
 																			<svg>
 																				<use
@@ -1387,7 +1405,7 @@
 																	<div class="managers-files-item__author-info">
 																		Aug 3, 8:00 AM, Sergey Zadrutsky
 																	</div>
-																	<div class="managers-files-item__controlls">
+																	<div class="managers-files-item__controlls" data-da="[data-file-item-id='1'] .managers-files-item__body--mobile-wrapper, 589.98">
 																		<button
 																			class="managers-files-item__controll-item"
 																			data-tippy-content>
@@ -1410,7 +1428,8 @@
 																class="managers-files-item managers-files-item--list"
 																data-file-item-id="2">
 																<div class="managers-files-item__body">
-																	<div class="managers-files-item__file-info">
+																	<div class="managers-files-item__body--mobile-wrapper"></div>
+																	<div class="managers-files-item__file-info" data-da="[data-file-item-id='2'] .managers-files-item__body--mobile-wrapper, 589.98">
 																		<div class="managers-files-item__file-ext-icon">
 																			<svg>
 																				<use
@@ -1424,7 +1443,7 @@
 																	<div class="managers-files-item__author-info">
 																		Aug 3, 8:00 AM, Sergey Zadrutsky
 																	</div>
-																	<div class="managers-files-item__controlls">
+																	<div class="managers-files-item__controlls" data-da="[data-file-item-id='2'] .managers-files-item__body--mobile-wrapper, 589.98">
 																		<button
 																			class="managers-files-item__controll-item"
 																			data-tippy-content>
@@ -1447,7 +1466,8 @@
 																class="managers-files-item managers-files-item--list"
 																data-file-item-id="3">
 																<div class="managers-files-item__body">
-																	<div class="managers-files-item__file-info">
+																	<div class="managers-files-item__body--mobile-wrapper"></div>
+																	<div class="managers-files-item__file-info" data-da="[data-file-item-id='3'] .managers-files-item__body--mobile-wrapper, 589.98">
 																		<div class="managers-files-item__file-ext-icon">
 																			<svg>
 																				<use
@@ -1459,10 +1479,10 @@
 																			end_of.pdf
 																		</div>
 																	</div>
-																	<div class="managers-files-item__author-info">
+																	<div class="managers-files-item__author-info managers-files-item__author-info--line-through">
 																		Aug 4, 8:00 AM, Sergey Zadrutsky
 																	</div>
-																	<div class="managers-files-item__controlls">
+																	<div class="managers-files-item__controlls" data-da="[data-file-item-id='3'] .managers-files-item__body--mobile-wrapper, 589.98">
 																		<button
 																			class="managers-files-item__controll-item"
 																			data-tippy-content>
@@ -1480,13 +1500,13 @@
 																		</button>
 																	</div>
 																</div>
-															</div>
+															</div> -->
 														</div>
 													</div>
 													<div
 														class="managers-files__tab managers-files__tab--grid"
 														data-tippy-root-block>
-														<div
+														<!-- <div
 															class="managers-files-item managers-files-item--grid"
 															data-file-item-id="0">
 															<div class="managers-files-item__body">
@@ -1627,7 +1647,7 @@
 																	Aug 3, 8:00 AM, Sergey Zadrutsky
 																</div>
 															</footer>
-														</div>
+														</div> -->
 													</div>
 												</div>
 											</div>
@@ -1637,7 +1657,9 @@
 							</div>
 						</div>
 					</div>
-					<button class="new-project-drawer__save button">Save Project</button>
+					<div class="new-project-drawer__save-wrapper" data-save-project>
+						<button class="new-project-drawer__save button">Save Project</button>
+					</div>
 				</main>
 			</div>
 			<div class="file-drop__wrapper">
