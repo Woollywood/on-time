@@ -5,6 +5,14 @@ import { isMobile } from './functions.js';
 import { flsModules } from './modules.js';
 
 document.addEventListener('DOMContentLoaded', (event) => {
+	document.addEventListener('click', (clickEvent) => {
+		const targetElement = clickEvent.target;
+
+		if (targetElement.closest('.select') && !targetElement.closest('.select__options')) {
+			targetElement.closest('.select').classList.toggle('select-open');
+		}
+	});
+
 	layoutGapObserver();
 	window.addEventListener('resize', layoutGapObserver);
 
@@ -76,15 +84,53 @@ document.addEventListener('DOMContentLoaded', (event) => {
 			);
 		}
 	}
-});
 
-window.addEventListener('load', (windowEvent) => {
-	document.addEventListener('click', (clickEvent) => {
-		const targetElement = clickEvent.target;
+	document.querySelectorAll('.managers-files-item').forEach((item) =>
+		item.addEventListener('sendMessage', (event) => {
+			console.log(event);
+		})
+	);
 
-		if (targetElement.closest('.select') && !targetElement.closest('.select__options')) {
-			targetElement.closest('.select').classList.toggle('select-open');
+	document.querySelectorAll('.managers-files-item').forEach((item) =>
+		item.addEventListener('createTippy', (event) => {
+			console.log(event.detail.instance);
+		})
+	);
+
+	const dragZone = document.querySelector('[drag-zone]');
+
+	dragZone.addEventListener('dragenter', (event) => {
+		event.preventDefault();
+
+		const relatedTarget = event.relatedTarget;
+		if (relatedTarget == null || !dragZone.contains(relatedTarget)) {
+			const dragZone = event.target.closest('[drag-zone]');
+			dragZone.classList.add('file-drop');
 		}
+	});
+
+	dragZone.addEventListener('dragleave', (event) => {
+		event.preventDefault();
+
+		const relatedTarget = event.relatedTarget;
+		if (!dragZone.contains(relatedTarget)) {
+			const dragZone = event.target.closest('[drag-zone]');
+			dragZone.classList.remove('file-drop');
+		}
+	});
+
+	dragZone.addEventListener('drop', (event) => {
+		event.preventDefault();
+	});
+
+	document.querySelector('[data-new-project-open]').addEventListener('click', (event) => {
+		const wrapper = event.target.closest('[data-wrapper]');
+		wrapper.classList.add('new-project-drawer-open');
+	});
+
+	document.querySelector('[data-new-project-close]').addEventListener('click', (event) => {
+		const wrapper = event.target.closest('[data-wrapper]');
+		wrapper.classList.remove('new-project-drawer-open');
 	});
 });
 
