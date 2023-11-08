@@ -3,7 +3,9 @@
 		<div class="layout-wrapper__body">
 			<div class="layout-wrapper__top">
 				<div class="layout-wrapper__controlls">
-					<input class="layout-wrapper__search input" type="text" placeholder="Quick Search" />
+					<div class="layout-wrapper__search input-wrapper">
+						<input class="input" type="text" placeholder="Quick Search" />
+					</div>
 					<div class="layout-wrapper__selects">
 						<div class="select select--adapt select--adapt-desktop select--empty">
 							<div class="select__title">
@@ -341,11 +343,11 @@
 						<nav class="new-project-tabs__navigation">
 							<div class="new-project-tabs__navigation-container layout-container">
 								<div class="new-project-tabs__navigation-body" data-tabs-titles>
-									<button class="new-project-tabs__title _tab-active" type="button">Project Info</button>
-									<button class="new-project-tabs__title" type="button">Project Files</button>
-									<button class="new-project-tabs__title" type="button">
-										Managers Files
+									<button class="new-project-tabs__title _tab-active" type="button">
+										Project Info
 									</button>
+									<button class="new-project-tabs__title" type="button">Project Files</button>
+									<button class="new-project-tabs__title" type="button">Managers Files</button>
 									<button class="new-project-tabs__title" type="button">Tasks</button>
 								</div>
 							</div>
@@ -366,10 +368,11 @@
 																		<div class="form-info__field-name">
 																			Job Number
 																		</div>
-																		<div class="form-info__field-input-wrapper">
+																		<div
+																			class="form-info__field-input-wrapper form-info__field-input-wrapper--number input-wrapper">
 																			<input
-																				class="form-info__field-input form-info__field-input--number input"
-																				type="number" />
+																				class="form-info__field-input input"
+																				type="text" />
 																		</div>
 																	</div>
 																	<div class="form-info__field">
@@ -1193,7 +1196,8 @@
 																		<div class="form-info__field-name">
 																			Suite/Level/Apt
 																		</div>
-																		<div class="form-info__field-input-wrapper">
+																		<div
+																			class="form-info__field-input-wrapper input-wrapper">
 																			<input
 																				class="form-info__field-input input"
 																				type="text" />
@@ -1201,7 +1205,8 @@
 																	</div>
 																	<div class="form-info__field">
 																		<div class="form-info__field-name">Street</div>
-																		<div class="form-info__field-input-wrapper">
+																		<div
+																			class="form-info__field-input-wrapper input-wrapper">
 																			<input
 																				class="form-info__field-input input"
 																				type="text" />
@@ -1211,7 +1216,8 @@
 																		<div class="form-info__field-name">
 																			Post Code
 																		</div>
-																		<div class="form-info__field-input-wrapper">
+																		<div
+																			class="form-info__field-input-wrapper input-wrapper">
 																			<input
 																				class="form-info__field-input input"
 																				type="text" />
@@ -1219,7 +1225,8 @@
 																	</div>
 																	<div class="form-info__field">
 																		<div class="form-info__field-name">Suburb</div>
-																		<div class="form-info__field-input-wrapper">
+																		<div
+																			class="form-info__field-input-wrapper input-wrapper">
 																			<input
 																				class="form-info__field-input input"
 																				type="text" />
@@ -1227,7 +1234,8 @@
 																	</div>
 																	<div class="form-info__field">
 																		<div class="form-info__field-name">State</div>
-																		<div class="form-info__field-input-wrapper">
+																		<div
+																			class="form-info__field-input-wrapper input-wrapper">
 																			<input
 																				class="form-info__field-input input"
 																				type="text" />
@@ -1235,7 +1243,8 @@
 																	</div>
 																	<div class="form-info__field">
 																		<div class="form-info__field-name">State</div>
-																		<div class="form-info__field-input-wrapper">
+																		<div
+																			class="form-info__field-input-wrapper input-wrapper">
 																			<input
 																				class="form-info__field-input input"
 																				type="text" />
@@ -1243,7 +1252,8 @@
 																	</div>
 																	<div class="form-info__field">
 																		<div class="form-info__field-name">State</div>
-																		<div class="form-info__field-input-wrapper">
+																		<div
+																			class="form-info__field-input-wrapper input-wrapper">
 																			<input
 																				class="form-info__field-input input"
 																				type="text" />
@@ -1262,7 +1272,8 @@
 																		<div class="form-info__field-name">
 																			Suite/Level/Apt
 																		</div>
-																		<div class="form-info__field-input-wrapper">
+																		<div
+																			class="form-info__field-input-wrapper input-wrapper">
 																			<input
 																				class="form-info__field-input input"
 																				type="text" />
@@ -1270,7 +1281,8 @@
 																	</div>
 																	<div class="form-info__field">
 																		<div class="form-info__field-name">Street</div>
-																		<div class="form-info__field-input-wrapper">
+																		<div
+																			class="form-info__field-input-wrapper input-wrapper">
 																			<input
 																				class="form-info__field-input input"
 																				type="text" />
@@ -1280,7 +1292,8 @@
 																		<div class="form-info__field-name">
 																			Post Code
 																		</div>
-																		<div class="form-info__field-input-wrapper">
+																		<div
+																			class="form-info__field-input-wrapper input-wrapper">
 																			<input
 																				class="form-info__field-input input"
 																				type="text" />
@@ -1288,7 +1301,8 @@
 																	</div>
 																	<div class="form-info__field">
 																		<div class="form-info__field-name">Suburb</div>
-																		<div class="form-info__field-input-wrapper">
+																		<div
+																			class="form-info__field-input-wrapper input-wrapper">
 																			<input
 																				class="form-info__field-input input"
 																				type="text" />
@@ -1296,7 +1310,8 @@
 																	</div>
 																	<div class="form-info__field">
 																		<div class="form-info__field-name">State</div>
-																		<div class="form-info__field-input-wrapper">
+																		<div
+																			class="form-info__field-input-wrapper input-wrapper">
 																			<input
 																				class="form-info__field-input input"
 																				type="text" />
@@ -1323,10 +1338,12 @@
 										<div class="managers-files">
 											<div class="managers-files__body" data-tabs>
 												<header class="managers-files__header">
-													<input
-														class="managers-files__search-input input"
-														type="text"
-														placeholder="Quick Search" />
+													<div class="managers-files__header-search-wrapper input-wrapper">
+														<input
+															class="managers-files__search-input input"
+															type="text"
+															placeholder="Quick Search" />
+													</div>
 													<div class="managers-files__grid-type" data-tabs-titles>
 														<button
 															type="button"

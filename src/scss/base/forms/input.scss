@@ -10,16 +10,14 @@ textarea {
 }
 
 .input {
+	position: relative;
 	display: inline-flex;
 	padding: rem(12) rem(16);
 	border-radius: rem(4);
 	border-radius: 8px;
 	border: rem(1) solid cl('accent', 0.3);
-
-	&._form-focus {
-	}
-	&._form-error {
-	}
+	transition: all 0.3s ease;
+	outline: rem(1) solid transparent;
 }
 
 .input-wrapper {
