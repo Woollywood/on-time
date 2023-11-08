@@ -2721,8 +2721,12 @@
 
 .layout-wrapper {
 	position: relative;
-	height: calc(100vh - var(--top-gap));
+	height: calc(100dvh - var(--top-gap));
 	overflow: hidden;
+
+	&.new-project-drawer-open {
+		overflow: visible;
+	}
 
 	&--not-found {
 		.projects-layout__inner {
@@ -2862,6 +2866,7 @@
 		height: 100%;
 		display: grid;
 		grid-template-rows: auto 1fr;
+		gap: rem(12);
 	}
 
 	&__header {
