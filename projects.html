@@ -20,21 +20,21 @@
 	<link rel="canonical" href="https://preview.keenthemes.com/metronic8" />
 	<link rel="shortcut icon" href="./files/favicon.ico" />
 	<!--begin::Fonts(mandatory for all pages)-->
-	<link rel="stylesheet" href="./files/css?_v=20231108074651" />
+	<link rel="stylesheet" href="./files/css?_v=20231108214451" />
 	<!--end::Fonts-->
 	<!--begin::Vendor Stylesheets(used for this page only)-->
-	<link href="./files/datatables.bundle.css?_v=20231108074651" rel="stylesheet" type="text/css" />
+	<link href="./files/datatables.bundle.css?_v=20231108214451" rel="stylesheet" type="text/css" />
 	<!--end::Vendor Stylesheets-->
 	<!--begin::Global Stylesheets Bundle(mandatory for all pages)-->
-	<link href="./files/plugins.bundle.css?_v=20231108074651" rel="stylesheet" type="text/css" />
-	<link href="./files/style.bundle.css?_v=20231108074651" rel="stylesheet" type="text/css" />
+	<link href="./files/plugins.bundle.css?_v=20231108214451" rel="stylesheet" type="text/css" />
+	<link href="./files/style.bundle.css?_v=20231108214451" rel="stylesheet" type="text/css" />
 
 	<head>
 		<title>HomePage</title>
 		<meta charset="UTF-8" />
 		<meta name="format-detection" content="telephone=no" />
 		<!-- <style>body{opacity: 0;}</style> -->
-		<link rel="stylesheet" href="css/style.min.css?_v=20231108074651" />
+		<link rel="stylesheet" href="css/style.min.css?_v=20231108214451" />
 		<link rel="shortcut icon" href="favicon.ico" />
 		<!-- <meta name="robots" content="noindex, nofollow"> -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -2070,7 +2070,9 @@
 						<div class="layout-wrapper__body">
 							<div class="layout-wrapper__top">
 								<div class="layout-wrapper__controlls">
-									<input class="layout-wrapper__search input" type="text" placeholder="Quick Search" />
+									<div class="layout-wrapper__search input-wrapper">
+										<input class="input" type="text" placeholder="Quick Search" />
+									</div>
 									<div class="layout-wrapper__selects">
 										<div class="select select--adapt select--adapt-desktop select--empty">
 											<div class="select__title">
@@ -2343,11 +2345,11 @@
 										<nav class="new-project-tabs__navigation">
 											<div class="new-project-tabs__navigation-container layout-container">
 												<div class="new-project-tabs__navigation-body" data-tabs-titles>
-													<button class="new-project-tabs__title _tab-active" type="button">Project Info</button>
-													<button class="new-project-tabs__title" type="button">Project Files</button>
-													<button class="new-project-tabs__title" type="button">
-														Managers Files
+													<button class="new-project-tabs__title _tab-active" type="button">
+														Project Info
 													</button>
+													<button class="new-project-tabs__title" type="button">Project Files</button>
+													<button class="new-project-tabs__title" type="button">Managers Files</button>
 													<button class="new-project-tabs__title" type="button">Tasks</button>
 												</div>
 											</div>
@@ -2368,8 +2370,8 @@
 																						<div class="form-info__field-name">
 																							Job Number
 																						</div>
-																						<div class="form-info__field-input-wrapper">
-																							<input class="form-info__field-input form-info__field-input--number input" type="number" />
+																						<div class="form-info__field-input-wrapper form-info__field-input-wrapper--number input-wrapper">
+																							<input class="form-info__field-input input" type="text" />
 																						</div>
 																					</div>
 																					<div class="form-info__field">
@@ -2801,13 +2803,13 @@
 																						<div class="form-info__field-name">
 																							Suite/Level/Apt
 																						</div>
-																						<div class="form-info__field-input-wrapper">
+																						<div class="form-info__field-input-wrapper input-wrapper">
 																							<input class="form-info__field-input input" type="text" />
 																						</div>
 																					</div>
 																					<div class="form-info__field">
 																						<div class="form-info__field-name">Street</div>
-																						<div class="form-info__field-input-wrapper">
+																						<div class="form-info__field-input-wrapper input-wrapper">
 																							<input class="form-info__field-input input" type="text" />
 																						</div>
 																					</div>
@@ -2815,31 +2817,31 @@
 																						<div class="form-info__field-name">
 																							Post Code
 																						</div>
-																						<div class="form-info__field-input-wrapper">
+																						<div class="form-info__field-input-wrapper input-wrapper">
 																							<input class="form-info__field-input input" type="text" />
 																						</div>
 																					</div>
 																					<div class="form-info__field">
 																						<div class="form-info__field-name">Suburb</div>
-																						<div class="form-info__field-input-wrapper">
+																						<div class="form-info__field-input-wrapper input-wrapper">
 																							<input class="form-info__field-input input" type="text" />
 																						</div>
 																					</div>
 																					<div class="form-info__field">
 																						<div class="form-info__field-name">State</div>
-																						<div class="form-info__field-input-wrapper">
+																						<div class="form-info__field-input-wrapper input-wrapper">
 																							<input class="form-info__field-input input" type="text" />
 																						</div>
 																					</div>
 																					<div class="form-info__field">
 																						<div class="form-info__field-name">State</div>
-																						<div class="form-info__field-input-wrapper">
+																						<div class="form-info__field-input-wrapper input-wrapper">
 																							<input class="form-info__field-input input" type="text" />
 																						</div>
 																					</div>
 																					<div class="form-info__field">
 																						<div class="form-info__field-name">State</div>
-																						<div class="form-info__field-input-wrapper">
+																						<div class="form-info__field-input-wrapper input-wrapper">
 																							<input class="form-info__field-input input" type="text" />
 																						</div>
 																					</div>
@@ -2856,13 +2858,13 @@
 																						<div class="form-info__field-name">
 																							Suite/Level/Apt
 																						</div>
-																						<div class="form-info__field-input-wrapper">
+																						<div class="form-info__field-input-wrapper input-wrapper">
 																							<input class="form-info__field-input input" type="text" />
 																						</div>
 																					</div>
 																					<div class="form-info__field">
 																						<div class="form-info__field-name">Street</div>
-																						<div class="form-info__field-input-wrapper">
+																						<div class="form-info__field-input-wrapper input-wrapper">
 																							<input class="form-info__field-input input" type="text" />
 																						</div>
 																					</div>
@@ -2870,19 +2872,19 @@
 																						<div class="form-info__field-name">
 																							Post Code
 																						</div>
-																						<div class="form-info__field-input-wrapper">
+																						<div class="form-info__field-input-wrapper input-wrapper">
 																							<input class="form-info__field-input input" type="text" />
 																						</div>
 																					</div>
 																					<div class="form-info__field">
 																						<div class="form-info__field-name">Suburb</div>
-																						<div class="form-info__field-input-wrapper">
+																						<div class="form-info__field-input-wrapper input-wrapper">
 																							<input class="form-info__field-input input" type="text" />
 																						</div>
 																					</div>
 																					<div class="form-info__field">
 																						<div class="form-info__field-name">State</div>
-																						<div class="form-info__field-input-wrapper">
+																						<div class="form-info__field-input-wrapper input-wrapper">
 																							<input class="form-info__field-input input" type="text" />
 																						</div>
 																					</div>
@@ -2907,7 +2909,9 @@
 														<div class="managers-files">
 															<div class="managers-files__body" data-tabs>
 																<header class="managers-files__header">
-																	<input class="managers-files__search-input input" type="text" placeholder="Quick Search" />
+																	<div class="managers-files__header-search-wrapper input-wrapper">
+																		<input class="managers-files__search-input input" type="text" placeholder="Quick Search" />
+																	</div>
 																	<div class="managers-files__grid-type" data-tabs-titles>
 																		<button type="button" class="managers-files__grid-title _tab-active">
 																			List
@@ -7493,22 +7497,22 @@
 		var hostUrl = 'assets/';
 	</script>
 	<!--begin::Global Javascript Bundle(mandatory for all pages)-->
-	<script src="./files/plugins.bundle.js.download?_v=20231108074651"></script>
-	<script src="./files/scripts.bundle.js.download?_v=20231108074651"></script>
+	<script src="./files/plugins.bundle.js.download?_v=20231108214451"></script>
+	<script src="./files/scripts.bundle.js.download?_v=20231108214451"></script>
 	<!--end::Global Javascript Bundle-->
 
 	<!--begin::Vendors Javascript(used for this page only)-->
-	<script src="./files/datatables.bundle.js.download?_v=20231108074651"></script>
+	<script src="./files/datatables.bundle.js.download?_v=20231108214451"></script>
 	<!--end::Vendors Javascript-->
 	<!--begin::Custom Javascript(used for this page only)-->
-	<script src="./files/table.js.download?_v=20231108074651"></script>
-	<script src="./files/widgets.bundle.js.download?_v=20231108074651"></script>
-	<script src="./files/widgets.js.download?_v=20231108074651"></script>
-	<script src="./files/chat.js.download?_v=20231108074651"></script>
-	<script src="./files/upgrade-plan.js.download?_v=20231108074651"></script>
-	<script src="./files/create-app.js.download?_v=20231108074651"></script>
-	<script src="./files/users-search.js.download?_v=20231108074651"></script>
-	<script src="https://kit.fontawesome.com/0445eaadf3.js?_v=20231108074651" crossorigin="anonymous"></script>
+	<script src="./files/table.js.download?_v=20231108214451"></script>
+	<script src="./files/widgets.bundle.js.download?_v=20231108214451"></script>
+	<script src="./files/widgets.js.download?_v=20231108214451"></script>
+	<script src="./files/chat.js.download?_v=20231108214451"></script>
+	<script src="./files/upgrade-plan.js.download?_v=20231108214451"></script>
+	<script src="./files/create-app.js.download?_v=20231108214451"></script>
+	<script src="./files/users-search.js.download?_v=20231108214451"></script>
+	<script src="https://kit.fontawesome.com/0445eaadf3.js?_v=20231108214451" crossorigin="anonymous"></script>
 	<!--end::Custom Javascript-->
 	<!--end::Javascript-->
 
@@ -7517,7 +7521,7 @@
 		<polyline id="SvgjsPolyline1003" points="0,0"></polyline>
 		<path id="SvgjsPath1004" d="M0 0 "></path>
 	</svg>
-	<script src="js/app.min.js?_v=20231108074651"></script>
+	<script src="js/app.min.js?_v=20231108214451"></script>
 
 </body>
 <!--end::Body-->
