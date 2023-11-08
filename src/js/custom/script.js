@@ -624,7 +624,7 @@ function projectFileLoadingNormalCreateGrid(options) {
 		</footer>
 	`;
 
-	document.querySelector('.managers-files__tab.managers-files__tab--grid').append(fileWrapper);
+	document.querySelector('.managers-files__tab.managers-files__tab--grid')?.append(fileWrapper);
 }
 
 function projectFileLoadingMimeTypeCreateGrid(options) {
@@ -677,7 +677,7 @@ function projectFileLoadingMimeTypeCreateGrid(options) {
 		</footer>
 	`;
 
-	document.querySelector('.managers-files__tab.managers-files__tab--grid').append(fileWrapper);
+	document.querySelector('.managers-files__tab.managers-files__tab--grid')?.append(fileWrapper);
 }
 
 function projectFileLoadingCreateList(options) {
@@ -734,7 +734,7 @@ function projectFileLoadingCreateList(options) {
 		</div>
 	`;
 
-	document.querySelector('.managers-files__tab-body.managers-files__tab-body--list').append(fileWrapper);
+	document.querySelector('.managers-files__tab-body.managers-files__tab-body--list')?.append(fileWrapper);
 }
 
 function projectFileCreate({ type, previewPath, thumbPath, ...other }) {
@@ -786,7 +786,7 @@ function projectFileNormalCreateGrid(options) {
 		</footer>
 	`;
 
-	document.querySelector('.managers-files__tab.managers-files__tab--grid').append(fileWrapper);
+	document.querySelector('.managers-files__tab.managers-files__tab--grid')?.append(fileWrapper);
 }
 
 function projectFileMimeTypeCreateGrid(options) {
@@ -830,7 +830,7 @@ function projectFileMimeTypeCreateGrid(options) {
 		</footer>
 	`;
 
-	document.querySelector('.managers-files__tab.managers-files__tab--grid').append(fileWrapper);
+	document.querySelector('.managers-files__tab.managers-files__tab--grid')?.append(fileWrapper);
 }
 
 function projectFileCreateList(options) {
@@ -881,7 +881,7 @@ function projectFileCreateList(options) {
 		</div>
 	`;
 
-	document.querySelector('.managers-files__tab-body.managers-files__tab-body--list').append(fileWrapper);
+	document.querySelector('.managers-files__tab-body.managers-files__tab-body--list')?.append(fileWrapper);
 }
 
 function addFileToSlide(pathObject) {

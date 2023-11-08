@@ -2999,11 +2999,11 @@
 		&::-webkit-scrollbar {
 			width: 0;
 		}
-		
+
 		&::-webkit-scrollbar-track {
 			background: transparent;
 		}
-		
+
 		&::-webkit-scrollbar-thumb {
 			background-color: transparent;
 			border-radius: 0;
@@ -3090,6 +3090,12 @@
 
 			.managers-files {
 				overflow: hidden;
+
+				&--files-not-found {
+					.managers-files__body {
+						display: block;
+					}
+				}
 			}
 
 			.managers-files__content {
@@ -3109,6 +3115,59 @@
 
 			.managers-files__tab-body {
 				overflow: auto;
+			}
+
+			.managers-files__not-found-wrapper {
+				height: 100%;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+			}
+
+			.managers-files__not-found-icon {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+
+				svg {
+					width: rem(46);
+					height: rem(62);
+					fill: cl('grey-7');
+				}
+
+				&:not(:last-child) {
+					margin-bottom: rem(24);
+				}
+			}
+
+			.managers-files__not-found-title {
+				text-align: center;
+				color: cl('grey');
+				font-size: rem(14);
+				line-height: 142%;
+
+				@media (max-width: $mobileSmall) {
+					max-width: 60%;
+				}
+				
+				&:not(:last-child) {
+					margin-bottom: rem(24);
+				}
+			}
+
+			.managers-files__not-found-input {
+				span {
+					color: cl('accent-2');
+				}
+
+				input {
+					display: none;
+				}
+			}
+
+			.managers-files__not-found-input-inner {
+
 			}
 		}
 	}
