@@ -3280,68 +3280,110 @@
             userName: "Sergey Zadrutsky",
             messageDate: "Nov 3, 11:30 PM",
             messageBody: "Плюс удалить и закрыть кнопки"
-        } ] ];
+        }, {
+            userAvatarPath: "img/avatars/avatar-01.jpg",
+            userName: "Alyona Kolontaevskaya",
+            messageDate: "Aug 3, 8:00 AM",
+            messageBody: "Нужно показать стейт редактирования. Должно быть возможно удалить коммент и закрыть попап с комментом"
+        }, {
+            userAvatarPath: "img/avatars/avatar-02.jpg",
+            userName: "Sergey Zadrutsky",
+            messageDate: "Nov 3, 11:30 PM",
+            messageBody: "Плюс удалить и закрыть кнопки"
+        }, {
+            userAvatarPath: "img/avatars/avatar-01.jpg",
+            userName: "Alyona Kolontaevskaya",
+            messageDate: "Aug 3, 8:00 AM",
+            messageBody: "Нужно показать стейт редактирования. Должно быть возможно удалить коммент и закрыть попап с комментом"
+        }, {
+            userAvatarPath: "img/avatars/avatar-02.jpg",
+            userName: "Sergey Zadrutsky",
+            messageDate: "Nov 3, 11:30 PM",
+            messageBody: "Плюс удалить и закрыть кнопки"
+        }, {
+            userAvatarPath: "img/avatars/avatar-01.jpg",
+            userName: "Alyona Kolontaevskaya",
+            messageDate: "Aug 3, 8:00 AM",
+            messageBody: "Нужно показать стейт редактирования. Должно быть возможно удалить коммент и закрыть попап с комментом"
+        }, {
+            userAvatarPath: "img/avatars/avatar-02.jpg",
+            userName: "Sergey Zadrutsky",
+            messageDate: "Nov 3, 11:30 PM",
+            messageBody: "Плюс удалить и закрыть кнопки"
+        }, {
+            userAvatarPath: "img/avatars/avatar-01.jpg",
+            userName: "Alyona Kolontaevskaya",
+            messageDate: "Aug 3, 8:00 AM",
+            messageBody: "Нужно показать стейт редактирования. Должно быть возможно удалить коммент и закрыть попап с комментом"
+        }, {
+            userAvatarPath: "img/avatars/avatar-02.jpg",
+            userName: "Sergey Zadrutsky",
+            messageDate: "Nov 3, 11:30 PM",
+            messageBody: "Плюс удалить и закрыть кнопки"
+        } ], [], [], [], [], [], [], [], [], [], [], [], [], [] ];
         function tippy_render(fileId) {
             const id = +fileId;
             if (files[id].length) return renderUsersCommentWrapper(files[id]); else return renderEmptyCommentWrapper();
         }
         function renderEmptyCommentWrapper() {
-            return `\n\t\t<div class="tooltip-comment" onclick="event.target.querySelector('input')?.focus()">\n\t\t\t<div class="tooltip-comment__input-wrapper input">\n\t\t\t\t<input\n\t\t\t\t\tclass="tooltip-comment__input"\n\t\t\t\t\ttype="text"\n\t\t\t\t\tplaceholder="Add a Comment"\n\t\t\t\t\tdata-comment-input />\n\t\t\t\t<button class="tooltip-comment__send" data-button-send>\n\t\t\t\t\t<svg>\n\t\t\t\t\t\t<use xlink:href="img/icons/icons.svg#send"></use>\n\t\t\t\t\t</svg>\n\t\t\t\t</button>\n\t\t\t</div>\n\t\t</div>\n\t`;
+            return `\n\t\t<div\n\t\t\tclass="tooltip-comment tooltip-comment--empty">\n\t\t\t<header class="tooltip-comment__header">\n\t\t\t\t<div class="tooltip-comment__title">Comments</div>\n\t\t\t\t<div class="tooltip-comment__header-actions">\n\t\t\t\t\t<button class="tooltip-comment__delete" data-button-delete>\n\t\t\t\t\t\t<img src="img/icons/delete.svg" alt="icon" />\n\t\t\t\t\t</button>\n\t\t\t\t\t<button class="tooltip-comment__close" data-button-close>\n\t\t\t\t\t\t<img src="img/icons/close.svg" alt="icon">\n\t\t\t\t\t</button>\n\t\t\t\t</div>\n\t\t\t</header>\n\t\t\t<ul class="tooltip-comment__comment-list"></ul>\n\t\t\t<div class="tooltip-comment__action-send">\n\t\t\t\t<div class="tooltip-comment__input-wrapper input" onclick="this.querySelector('input').focus()">\n\t\t\t\t\t<input\n\t\t\t\t\t\tclass="tooltip-comment__input"\n\t\t\t\t\t\ttype="text"\n\t\t\t\t\t\tplaceholder="Add a Comment"\n\t\t\t\t\t\tdata-comment-input />\n\t\t\t\t\t<button class="tooltip-comment__send" data-button-send>\n\t\t\t\t\t\t<svg>\n\t\t\t\t\t\t\t<use xlink:href="img/icons/icons.svg#send"></use>\n\t\t\t\t\t\t</svg>\n\t\t\t\t\t</button>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t`;
         }
         function renderUsersCommentWrapper(usersList) {
-            return `\n\t\t<div\n\t\t\tclass="tooltip-comment"\n\t\t\tonclick="event.target.querySelector('input')?.focus()">\n\t\t\t<header class="tooltip-comment__header">\n\t\t\t\t<div class="tooltip-comment__title">Comments</div>\n\t\t\t\t<div class="tooltip-comment__header-actions">\n\t\t\t\t\t<button class="tooltip-comment__delete" data-button-delete>\n\t\t\t\t\t\t<img src="img/icons/delete.svg" alt="icon" />\n\t\t\t\t\t</button>\n\t\t\t\t\t<button class="tooltip-comment__close" data-button-close>\n\t\t\t\t\t\t<img src="img/icons/close.svg" alt="icon">\n\t\t\t\t\t</button>\n\t\t\t\t</div>\n\t\t\t</header>\n\t\t\t<ul class="tooltip-comment__comment-list">\n\t\t\t\t${usersList.map((user => `\n\t\t\t\t\t\t<li class="tooltip-comment__comment-item comment-user">\n\t\t\t\t\t\t\t<div class="comment-user__top">\n\t\t\t\t\t\t\t\t<div class="comment-user__avatar">\n\t\t\t\t\t\t\t\t\t<img src="${user.userAvatarPath}" alt="avatar" />\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class="comment-user__info">\n\t\t\t\t\t\t\t\t\t<div class="comment-user__name">${user.userName}</div>\n\t\t\t\t\t\t\t\t\t<div class="comment-user__date">${user.messageDate}</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<button class="comment-user__more">\n\t\t\t\t\t\t\t\t\t<img src="img/icons/more.svg" alt="icon" />\n\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class="comment-user__comment">${user.messageBody}</div>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t`)).join("")}\n\t\t\t</ul>\n\t\t\t<div class="tooltip-comment__input-wrapper input">\n\t\t\t\t<input\n\t\t\t\t\tclass="tooltip-comment__input"\n\t\t\t\t\ttype="text"\n\t\t\t\t\tplaceholder="Add a Comment"\n\t\t\t\t\tdata-comment-input />\n\t\t\t\t<button class="tooltip-comment__send" data-button-send>\n\t\t\t\t\t<svg>\n\t\t\t\t\t\t<use xlink:href="img/icons/icons.svg#send"></use>\n\t\t\t\t\t</svg>\n\t\t\t\t</button>\n\t\t\t</div>\n\t\t</div>\n\t`;
+            return `\n\t\t<div\n\t\t\tclass="tooltip-comment">\n\t\t\t<header class="tooltip-comment__header">\n\t\t\t\t<div class="tooltip-comment__title">Comments</div>\n\t\t\t\t<div class="tooltip-comment__header-actions">\n\t\t\t\t\t<button class="tooltip-comment__delete" data-button-delete>\n\t\t\t\t\t\t<img src="img/icons/delete.svg" alt="icon" />\n\t\t\t\t\t</button>\n\t\t\t\t\t<button class="tooltip-comment__close" data-button-close>\n\t\t\t\t\t\t<img src="img/icons/close.svg" alt="icon">\n\t\t\t\t\t</button>\n\t\t\t\t</div>\n\t\t\t</header>\n\t\t\t<ul class="tooltip-comment__comment-list">\n\t\t\t\t${usersList.map((user => `\n\t\t\t\t\t\t<li class="tooltip-comment__comment-item comment-user">\n\t\t\t\t\t\t\t<div class="comment-user__top">\n\t\t\t\t\t\t\t\t<div class="comment-user__avatar">\n\t\t\t\t\t\t\t\t\t<img src="${user.userAvatarPath}" alt="avatar" />\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class="comment-user__info">\n\t\t\t\t\t\t\t\t\t<div class="comment-user__name">${user.userName}</div>\n\t\t\t\t\t\t\t\t\t<div class="comment-user__date">${user.messageDate}</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<button class="comment-user__more">\n\t\t\t\t\t\t\t\t\t<img src="img/icons/more.svg" alt="icon" />\n\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class="comment-user__comment">${user.messageBody}</div>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t`)).join("")}\n\t\t\t</ul>\n\t\t\t<div class="tooltip-comment__action-send">\n\t\t\t\t<div class="tooltip-comment__input-wrapper input" onclick="this.querySelector('input').focus()">\n\t\t\t\t\t<input\n\t\t\t\t\t\tclass="tooltip-comment__input"\n\t\t\t\t\t\ttype="text"\n\t\t\t\t\t\tplaceholder="Add a Comment"\n\t\t\t\t\t\tdata-comment-input />\n\t\t\t\t\t<button class="tooltip-comment__send" data-button-send>\n\t\t\t\t\t\t<svg>\n\t\t\t\t\t\t\t<use xlink:href="img/icons/icons.svg#send"></use>\n\t\t\t\t\t\t</svg>\n\t\t\t\t\t</button>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t`;
         }
         document.addEventListener("DOMContentLoaded", (event => {
-            modules_flsModules.tippy = tippy_esm("[data-tippy-content]", {
-                content: reference => {
-                    const itemBody = reference.closest(".managers-files-item");
-                    const itemBodyId = itemBody.dataset.fileItemId;
-                    return tippy_render(itemBodyId);
-                },
-                allowHTML: true,
-                appendTo: parent => parent.closest("[data-tippy-root-block]"),
-                placement: "right",
-                arrow: false,
-                trigger: "click",
-                interactive: true,
-                onCreate: event => {
-                    const popper = event.popper;
-                    const itemBody = event.reference.closest(".managers-files-item");
-                    const sendButton = popper.querySelector("[data-button-send]");
-                    const inputMessage = popper.querySelector("[data-comment-input]");
-                    const createTippyEvent = new CustomEvent("createTippy", {
-                        detail: {
-                            instance: popper
-                        }
-                    });
-                    setTimeout((() => {
-                        itemBody.dispatchEvent(createTippyEvent);
-                    }), 0);
-                    const sendMessageEvent = new CustomEvent("sendMessage", {
-                        detail: {
-                            message: null
-                        }
-                    });
-                    sendButton.addEventListener("click", (event => {
-                        sendMessageEvent.detail.message = inputMessage.value;
-                        inputMessage.value = "";
-                        itemBody.dispatchEvent(sendMessageEvent);
-                    }));
-                }
-            });
-            document.querySelectorAll("[data-tippy-content]").forEach((item => {
-                const instance = item._tippy;
-                const popper = instance.popper;
-                const buttonClose = popper.querySelector("[data-button-close]");
-                buttonClose?.addEventListener("click", (event => instance.hide()));
-            }));
+            setTimeout((() => {
+                modules_flsModules.tippy = tippy_esm("[data-tippy-content]", {
+                    content: reference => {
+                        const itemBody = reference.closest(".managers-files-item");
+                        const itemBodyId = itemBody.dataset.fileItemId;
+                        return tippy_render(itemBodyId);
+                    },
+                    allowHTML: true,
+                    appendTo: parent => parent.closest(".new-project-drawer"),
+                    placement: "auto",
+                    arrow: false,
+                    trigger: "click",
+                    interactive: true,
+                    onCreate: event => {
+                        const popper = event.popper;
+                        const itemBody = event.reference.closest(".managers-files-item");
+                        const sendButton = popper.querySelector("[data-button-send]");
+                        const inputMessage = popper.querySelector("[data-comment-input]");
+                        const createTippyEvent = new CustomEvent("createTippy", {
+                            detail: {
+                                instance: popper
+                            }
+                        });
+                        setTimeout((() => {
+                            itemBody.dispatchEvent(createTippyEvent);
+                        }), 0);
+                        const sendMessageEvent = new CustomEvent("sendMessage", {
+                            detail: {
+                                message: null
+                            }
+                        });
+                        sendButton.addEventListener("click", (event => {
+                            sendMessageEvent.detail.message = inputMessage.value;
+                            inputMessage.value = "";
+                            itemBody.dispatchEvent(sendMessageEvent);
+                        }));
+                    }
+                });
+                document.querySelectorAll("[data-tippy-content]").forEach((item => {
+                    const instance = item._tippy;
+                    const popper = instance.popper;
+                    const buttonClose = popper.querySelector("[data-button-close]");
+                    buttonClose?.addEventListener("click", (event => instance.hide()));
+                }));
+            }), 0);
         }));
-        function ssr_window_esm_isObject(obj) {
+        function isObject(obj) {
             return obj !== null && typeof obj === "object" && "constructor" in obj && obj.constructor === Object;
         }
         function extend(target = {}, src = {}) {
             Object.keys(src).forEach((key => {
-                if (typeof target[key] === "undefined") target[key] = src[key]; else if (ssr_window_esm_isObject(src[key]) && ssr_window_esm_isObject(target[key]) && Object.keys(src[key]).length > 0) extend(target[key], src[key]);
+                if (typeof target[key] === "undefined") target[key] = src[key]; else if (isObject(src[key]) && isObject(target[key]) && Object.keys(src[key]).length > 0) extend(target[key], src[key]);
             }));
         }
         const ssrDocument = {
@@ -6456,6 +6498,148 @@
                 destroy
             });
         }
+        function Thumb({swiper, extendParams, on}) {
+            extendParams({
+                thumbs: {
+                    swiper: null,
+                    multipleActiveThumbs: true,
+                    autoScrollOffset: 0,
+                    slideThumbActiveClass: "swiper-slide-thumb-active",
+                    thumbsContainerClass: "swiper-thumbs"
+                }
+            });
+            let initialized = false;
+            let swiperCreated = false;
+            swiper.thumbs = {
+                swiper: null
+            };
+            function onThumbClick() {
+                const thumbsSwiper = swiper.thumbs.swiper;
+                if (!thumbsSwiper || thumbsSwiper.destroyed) return;
+                const clickedIndex = thumbsSwiper.clickedIndex;
+                const clickedSlide = thumbsSwiper.clickedSlide;
+                if (clickedSlide && clickedSlide.classList.contains(swiper.params.thumbs.slideThumbActiveClass)) return;
+                if (typeof clickedIndex === "undefined" || clickedIndex === null) return;
+                let slideToIndex;
+                if (thumbsSwiper.params.loop) slideToIndex = parseInt(thumbsSwiper.clickedSlide.getAttribute("data-swiper-slide-index"), 10); else slideToIndex = clickedIndex;
+                if (swiper.params.loop) swiper.slideToLoop(slideToIndex); else swiper.slideTo(slideToIndex);
+            }
+            function init() {
+                const {thumbs: thumbsParams} = swiper.params;
+                if (initialized) return false;
+                initialized = true;
+                const SwiperClass = swiper.constructor;
+                if (thumbsParams.swiper instanceof SwiperClass) {
+                    swiper.thumbs.swiper = thumbsParams.swiper;
+                    Object.assign(swiper.thumbs.swiper.originalParams, {
+                        watchSlidesProgress: true,
+                        slideToClickedSlide: false
+                    });
+                    Object.assign(swiper.thumbs.swiper.params, {
+                        watchSlidesProgress: true,
+                        slideToClickedSlide: false
+                    });
+                    swiper.thumbs.swiper.update();
+                } else if (utils_isObject(thumbsParams.swiper)) {
+                    const thumbsSwiperParams = Object.assign({}, thumbsParams.swiper);
+                    Object.assign(thumbsSwiperParams, {
+                        watchSlidesProgress: true,
+                        slideToClickedSlide: false
+                    });
+                    swiper.thumbs.swiper = new SwiperClass(thumbsSwiperParams);
+                    swiperCreated = true;
+                }
+                swiper.thumbs.swiper.el.classList.add(swiper.params.thumbs.thumbsContainerClass);
+                swiper.thumbs.swiper.on("tap", onThumbClick);
+                return true;
+            }
+            function update(initial) {
+                const thumbsSwiper = swiper.thumbs.swiper;
+                if (!thumbsSwiper || thumbsSwiper.destroyed) return;
+                const slidesPerView = thumbsSwiper.params.slidesPerView === "auto" ? thumbsSwiper.slidesPerViewDynamic() : thumbsSwiper.params.slidesPerView;
+                let thumbsToActivate = 1;
+                const thumbActiveClass = swiper.params.thumbs.slideThumbActiveClass;
+                if (swiper.params.slidesPerView > 1 && !swiper.params.centeredSlides) thumbsToActivate = swiper.params.slidesPerView;
+                if (!swiper.params.thumbs.multipleActiveThumbs) thumbsToActivate = 1;
+                thumbsToActivate = Math.floor(thumbsToActivate);
+                thumbsSwiper.slides.forEach((slideEl => slideEl.classList.remove(thumbActiveClass)));
+                if (thumbsSwiper.params.loop || thumbsSwiper.params.virtual && thumbsSwiper.params.virtual.enabled) for (let i = 0; i < thumbsToActivate; i += 1) utils_elementChildren(thumbsSwiper.slidesEl, `[data-swiper-slide-index="${swiper.realIndex + i}"]`).forEach((slideEl => {
+                    slideEl.classList.add(thumbActiveClass);
+                })); else for (let i = 0; i < thumbsToActivate; i += 1) if (thumbsSwiper.slides[swiper.realIndex + i]) thumbsSwiper.slides[swiper.realIndex + i].classList.add(thumbActiveClass);
+                const autoScrollOffset = swiper.params.thumbs.autoScrollOffset;
+                const useOffset = autoScrollOffset && !thumbsSwiper.params.loop;
+                if (swiper.realIndex !== thumbsSwiper.realIndex || useOffset) {
+                    const currentThumbsIndex = thumbsSwiper.activeIndex;
+                    let newThumbsIndex;
+                    let direction;
+                    if (thumbsSwiper.params.loop) {
+                        const newThumbsSlide = thumbsSwiper.slides.filter((slideEl => slideEl.getAttribute("data-swiper-slide-index") === `${swiper.realIndex}`))[0];
+                        newThumbsIndex = thumbsSwiper.slides.indexOf(newThumbsSlide);
+                        direction = swiper.activeIndex > swiper.previousIndex ? "next" : "prev";
+                    } else {
+                        newThumbsIndex = swiper.realIndex;
+                        direction = newThumbsIndex > swiper.previousIndex ? "next" : "prev";
+                    }
+                    if (useOffset) newThumbsIndex += direction === "next" ? autoScrollOffset : -1 * autoScrollOffset;
+                    if (thumbsSwiper.visibleSlidesIndexes && thumbsSwiper.visibleSlidesIndexes.indexOf(newThumbsIndex) < 0) {
+                        if (thumbsSwiper.params.centeredSlides) if (newThumbsIndex > currentThumbsIndex) newThumbsIndex = newThumbsIndex - Math.floor(slidesPerView / 2) + 1; else newThumbsIndex = newThumbsIndex + Math.floor(slidesPerView / 2) - 1; else if (newThumbsIndex > currentThumbsIndex && thumbsSwiper.params.slidesPerGroup === 1) ;
+                        thumbsSwiper.slideTo(newThumbsIndex, initial ? 0 : void 0);
+                    }
+                }
+            }
+            on("beforeInit", (() => {
+                const {thumbs} = swiper.params;
+                if (!thumbs || !thumbs.swiper) return;
+                if (typeof thumbs.swiper === "string" || thumbs.swiper instanceof HTMLElement) {
+                    const document = ssr_window_esm_getDocument();
+                    const getThumbsElementAndInit = () => {
+                        const thumbsElement = typeof thumbs.swiper === "string" ? document.querySelector(thumbs.swiper) : thumbs.swiper;
+                        if (thumbsElement && thumbsElement.swiper) {
+                            thumbs.swiper = thumbsElement.swiper;
+                            init();
+                            update(true);
+                        } else if (thumbsElement) {
+                            const onThumbsSwiper = e => {
+                                thumbs.swiper = e.detail[0];
+                                thumbsElement.removeEventListener("init", onThumbsSwiper);
+                                init();
+                                update(true);
+                                thumbs.swiper.update();
+                                swiper.update();
+                            };
+                            thumbsElement.addEventListener("init", onThumbsSwiper);
+                        }
+                        return thumbsElement;
+                    };
+                    const watchForThumbsToAppear = () => {
+                        if (swiper.destroyed) return;
+                        const thumbsElement = getThumbsElementAndInit();
+                        if (!thumbsElement) requestAnimationFrame(watchForThumbsToAppear);
+                    };
+                    requestAnimationFrame(watchForThumbsToAppear);
+                } else {
+                    init();
+                    update(true);
+                }
+            }));
+            on("slideChange update resize observerUpdate", (() => {
+                update();
+            }));
+            on("setTransition", ((_s, duration) => {
+                const thumbsSwiper = swiper.thumbs.swiper;
+                if (!thumbsSwiper || thumbsSwiper.destroyed) return;
+                thumbsSwiper.setTransition(duration);
+            }));
+            on("beforeDestroy", (() => {
+                const thumbsSwiper = swiper.thumbs.swiper;
+                if (!thumbsSwiper || thumbsSwiper.destroyed) return;
+                if (swiperCreated) thumbsSwiper.destroy();
+            }));
+            Object.assign(swiper.thumbs, {
+                init,
+                update
+            });
+        }
         function buildSliders() {
             let sliders = document.querySelectorAll('[class*="__swiper"]:not(.swiper-wrapper)');
             if (sliders) sliders.forEach((slider => {
@@ -6491,6 +6675,42 @@
                     }
                 });
             }
+            if (document.querySelector(".slider-gallery")) {
+                const slideThumb = new core(".slider-thumb-gallery", {
+                    modules: [ Navigation ],
+                    observer: true,
+                    observeParents: true,
+                    spaceBetween: 12,
+                    navigation: {
+                        prevEl: ".slider-thumb-gallery__arrow-prev",
+                        nextEl: ".slider-thumb-gallery__arrow-next"
+                    },
+                    breakpoints: {
+                        320: {
+                            direction: "horizontal",
+                            spaceBetween: 16,
+                            slidesPerView: 4.8
+                        },
+                        991.98: {
+                            slidesPerView: 6,
+                            direction: "vertical"
+                        }
+                    }
+                });
+                new core(".slider-gallery", {
+                    modules: [ Navigation, Thumb ],
+                    observer: true,
+                    observeParents: true,
+                    slidesPerView: 1,
+                    thumbs: {
+                        swiper: slideThumb
+                    },
+                    navigation: {
+                        prevEl: ".slider-gallery__arrow-prev",
+                        nextEl: ".slider-gallery__arrow-next"
+                    }
+                });
+            }
         }
         window.addEventListener("load", (function(e) {
             buildSliders();
@@ -6514,7 +6734,10 @@
             }));
             layoutGapObserver();
             window.addEventListener("resize", layoutGapObserver);
+            getSaveProjectButtonHeight();
+            window.addEventListener("resize", getSaveProjectButtonHeight);
             projectsInit();
+            projectsFilesInit();
             function projectsInit() {
                 projectItemCreate(0, {
                     iconPath: "img/icons/icons.svg#required",
@@ -6606,6 +6829,11 @@
         window.addEventListener("load", (e => {
             scrollInit();
         }));
+        function getSaveProjectButtonHeight() {
+            const buttonWrapper = document.querySelector("[data-save-project]");
+            const offsetHeight = buttonWrapper.offsetHeight;
+            document.querySelectorAll("[data-project-tab]").forEach((tab => tab.style.cssText += `--button-height: ${offsetHeight}px`));
+        }
         function scrollInit() {
             const scrollBlocks = document.querySelectorAll("[scroll-block-wrapper]");
             scrollBlocks.forEach((scrollBlock => {
@@ -6701,6 +6929,276 @@
             projectItem.id = `project-item-${id}`;
             projectItem.innerHTML = `\n\t\t<div class="project-item__inner">\n\t\t\t<div class="project-item__status">\n\t\t\t\t<div class="project-item__status-mobile-wrapper">\n\t\t\t\t\t<div class="project-item__status-icon color-${status.color}">\n\t\t\t\t\t\t<svg>\n\t\t\t\t\t\t\t<use xlink:href="${status.iconPath}"></use>\n\t\t\t\t\t\t</svg>\n\t\t\t\t\t</div>\n\t\t\t\t\t<span class="project-item__status-text color-${status.color}">${status.text}</span>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class="project-item__project" data-da="#project-item-${id} .project-item__center, 479.98">\n\t\t\t\t<div class="project-item__project-mobile-wrapper color-green"></div>\n\t\t\t\t<span data-da="#project-item-${id} .project-item__project-mobile-wrapper, 479.98">${project}</span>\n\t\t\t</div>\n\t\t\t<div class="project-item__supervisor">\n\t\t\t\t${supervisor.avatarPath === void 0 ? `<div class="project-item__supervisor-icon">\n\t\t\t\t\t\t\t\t<svg>\n\t\t\t\t\t\t\t\t\t<use xlink:href="img/icons/icons.svg#user"></use>\n\t\t\t\t\t\t\t\t</svg>\n\t\t\t\t\t\t\t</div>` : `<div class="project-item__supervisor-avatar">\n\t\t\t\t\t\t\t\t<img src="${supervisor.avatarPath}" alt="avatar" />\n\t\t\t\t\t\t\t</div>`}\n\t\t\t\t<div class="project-item__supervisor-name">${supervisor.name}</div>\n\t\t\t</div>\n\t\t\t<div\n\t\t\t\tclass="project-item__customer-name"\n\t\t\t\tdata-da="#project-item-${id} .project-item__status, 479.98">\n\t\t\t\t${customerName}\n\t\t\t</div>\n\t\t\t<div class="project-item__address" data-da="#project-item-${id} .project-item__center, 479.98, last">\n\t\t\t\t${address}\n\t\t\t</div>\n\t\t</div>\n\t\t<div class="project-item__center" data-da="#project-item-${id} .project-item__inner, 479.98, 1"></div>\n\t`;
             document.querySelector("[data-projects-content]")?.append(projectItem);
+        }
+        function projectsFilesInit() {
+            projectFileLoadingCreate({
+                type: "normal",
+                id: 0,
+                fileName: "IMG_999999.JPG",
+                imagePath: "img/managers-files/image-01.jpg",
+                iconExtPath: "img/icons/icons.svg#x",
+                description: "Aug 2, 8:00 AM, Sergey Zadrutsky",
+                descriptionCrossed: false,
+                dialogType: "empty"
+            });
+            projectFileCreate({
+                type: "mime-type",
+                id: 1,
+                fileName: "FileNameShort",
+                iconExtPath: "img/icons/icons.svg#w",
+                description: "Aug 3, 8:00 AM, Sergey Zadrutsky",
+                descriptionCrossed: false,
+                dialogType: "fill"
+            });
+            projectFileCreate({
+                type: "normal",
+                id: 2,
+                fileName: "IMG_999_99_999999.JPG",
+                imagePath: "img/managers-files/image-01.jpg",
+                previewPath: "img/managers-files/slider-preview.jpg",
+                thumbPath: "img/managers-files/image-01.jpg",
+                iconExtPath: "img/icons/icons.svg#image",
+                description: "Aug 3, 8:00 AM, Sergey Zadrutsky",
+                descriptionCrossed: false,
+                dialogType: "empty"
+            });
+            projectFileCreate({
+                type: "normal",
+                id: 3,
+                fileName: "IMG_999_99_999999.JPG",
+                imagePath: "img/managers-files/image-01.jpg",
+                previewPath: "img/managers-files/slider-preview.jpg",
+                thumbPath: "img/managers-files/image-02.jpg",
+                iconExtPath: "img/icons/icons.svg#image",
+                description: "Aug 3, 8:00 AM, Sergey Zadrutsky",
+                descriptionCrossed: false,
+                dialogType: "empty"
+            });
+            projectFileCreate({
+                type: "normal",
+                id: 4,
+                fileName: "IMG_999_99_999999.JPG",
+                imagePath: "img/managers-files/image-01.jpg",
+                previewPath: "img/managers-files/slider-preview.jpg",
+                thumbPath: "img/managers-files/image-01.jpg",
+                iconExtPath: "img/icons/icons.svg#image",
+                description: "Aug 3, 8:00 AM, Sergey Zadrutsky",
+                descriptionCrossed: false,
+                dialogType: "empty"
+            });
+            projectFileCreate({
+                type: "normal",
+                id: 5,
+                fileName: "IMG_999_99_999999.JPG",
+                imagePath: "img/managers-files/image-01.jpg",
+                previewPath: "img/managers-files/slider-preview.jpg",
+                thumbPath: "img/managers-files/image-02.jpg",
+                iconExtPath: "img/icons/icons.svg#image",
+                description: "Aug 3, 8:00 AM, Sergey Zadrutsky",
+                descriptionCrossed: false,
+                dialogType: "empty"
+            });
+            projectFileCreate({
+                type: "normal",
+                id: 6,
+                fileName: "IMG_999_99_999999.JPG",
+                imagePath: "img/managers-files/image-01.jpg",
+                previewPath: "img/managers-files/slider-preview.jpg",
+                thumbPath: "img/managers-files/image-01.jpg",
+                iconExtPath: "img/icons/icons.svg#image",
+                description: "Aug 3, 8:00 AM, Sergey Zadrutsky",
+                descriptionCrossed: false,
+                dialogType: "empty"
+            });
+            projectFileCreate({
+                type: "normal",
+                id: 7,
+                fileName: "IMG_999_99_999999.JPG",
+                imagePath: "img/managers-files/image-01.jpg",
+                previewPath: "img/managers-files/slider-preview.jpg",
+                thumbPath: "img/managers-files/image-02.jpg",
+                iconExtPath: "img/icons/icons.svg#image",
+                description: "Aug 3, 8:00 AM, Sergey Zadrutsky",
+                descriptionCrossed: false,
+                dialogType: "empty"
+            });
+            projectFileCreate({
+                type: "normal",
+                id: 8,
+                fileName: "IMG_999_99_999999.JPG",
+                imagePath: "img/managers-files/image-01.jpg",
+                previewPath: "img/managers-files/slider-preview.jpg",
+                thumbPath: "img/managers-files/image-01.jpg",
+                iconExtPath: "img/icons/icons.svg#image",
+                description: "Aug 3, 8:00 AM, Sergey Zadrutsky",
+                descriptionCrossed: false,
+                dialogType: "empty"
+            });
+            projectFileCreate({
+                type: "mime-type",
+                id: 9,
+                fileName: "FileNameLong_with2_rows_with_with2_rows_with_with2_rows... end_of.pdf",
+                iconExtPath: "img/icons/icons.svg#pdf",
+                description: "Aug 3, 8:00 AM, Sergey Zadrutsky",
+                descriptionCrossed: true,
+                dialogType: "empty"
+            });
+            projectFileCreate({
+                type: "mime-type",
+                id: 10,
+                fileName: "FileNameLong_with2_rows_with_with2_rows_with_with2_rows... end_of.pdf",
+                iconExtPath: "img/icons/icons.svg#pdf",
+                description: "Aug 3, 8:00 AM, Sergey Zadrutsky",
+                descriptionCrossed: true,
+                dialogType: "empty"
+            });
+            projectFileCreate({
+                type: "mime-type",
+                id: 11,
+                fileName: "FileNameLong_with2_rows_with_with2_rows_with_with2_rows... end_of.pdf",
+                iconExtPath: "img/icons/icons.svg#pdf",
+                description: "Aug 3, 8:00 AM, Sergey Zadrutsky",
+                descriptionCrossed: true,
+                dialogType: "empty"
+            });
+            projectFileCreate({
+                type: "mime-type",
+                id: 12,
+                fileName: "FileNameLong_with2_rows_with_with2_rows_with_with2_rows... end_of.pdf",
+                iconExtPath: "img/icons/icons.svg#pdf",
+                description: "Aug 3, 8:00 AM, Sergey Zadrutsky",
+                descriptionCrossed: true,
+                dialogType: "empty"
+            });
+            projectFileCreate({
+                type: "mime-type",
+                id: 13,
+                fileName: "FileNameLong_with2_rows_with_with2_rows_with_with2_rows... end_of.pdf",
+                iconExtPath: "img/icons/icons.svg#pdf",
+                description: "Aug 3, 8:00 AM, Sergey Zadrutsky",
+                descriptionCrossed: true,
+                dialogType: "empty"
+            });
+            projectFileCreate({
+                type: "mime-type",
+                id: 14,
+                fileName: "FileNameLong_with2_rows_with_with2_rows_with_with2_rows... end_of.pdf",
+                iconExtPath: "img/icons/icons.svg#pdf",
+                description: "Aug 3, 8:00 AM, Sergey Zadrutsky",
+                descriptionCrossed: true,
+                dialogType: "empty"
+            });
+            projectFileCreate({
+                type: "mime-type",
+                id: 15,
+                fileName: "FileNameLong_with2_rows_with_with2_rows_with_with2_rows... end_of.pdf",
+                iconExtPath: "img/icons/icons.svg#pdf",
+                description: "Aug 3, 8:00 AM, Sergey Zadrutsky",
+                descriptionCrossed: true,
+                dialogType: "empty"
+            });
+            projectFileCreate({
+                type: "mime-type",
+                id: 16,
+                fileName: "FileNameLong_with2_rows_with_with2_rows_with_with2_rows... end_of.pdf",
+                iconExtPath: "img/icons/icons.svg#pdf",
+                description: "Aug 3, 8:00 AM, Sergey Zadrutsky",
+                descriptionCrossed: true,
+                dialogType: "empty"
+            });
+        }
+        function projectFileLoadingCreate({type, ...other}) {
+            console.log("project file create");
+            switch (type) {
+              case "normal":
+                projectFileLoadingNormalCreateGrid(other);
+                break;
+
+              case "mime-type":
+                projectFileLoadingMimeTypeCreateGrid(other);
+                break;
+            }
+            projectFileLoadingCreateList(other);
+        }
+        function projectFileLoadingNormalCreateGrid(options) {
+            const fileWrapper = document.createElement("div");
+            fileWrapper.classList.add("managers-files-item");
+            fileWrapper.classList.add("managers-files-item--grid");
+            fileWrapper.dataset.fileItemId = options.id;
+            fileWrapper.innerHTML = `\n\t\t<div class="managers-files-item__body">\n\t\t\t<div class="managers-files-item__controlls">\n\t\t\t\t<button\n\t\t\t\t\tclass="managers-files-item__controll-item"\n\t\t\t\t\tdata-tippy-content>\n\t\t\t\t\t<img\n\t\t\t\t\t\tsrc="${options.dialogType === "empty" ? `img/icons/dialog--empty.svg` : `img/icons/dialog--empty.svg`}"\n\t\t\t\t\t\talt="icon" />\n\t\t\t\t</button>\n\t\t\t\t<button\n\t\t\t\t\tclass="managers-files-item__controll-item"\n\t\t\t\t\tdata-delete-file\n\t\t\t\t\tdata-popup="#delete-file--pl">\n\t\t\t\t\t<img src="img/icons/delete.svg" alt="icon" />\n\t\t\t\t</button>\n\t\t\t</div>\n\t\t\t<div class="managers-files-item__background-ibg">\n\t\t\t\t<img\n\t\t\t\t\tsrc="${options.imagePath}"\n\t\t\t\t\talt="background" />\n\t\t\t</div>\n\t\t</div>\n\t\t<footer class="managers-files-item__footer">\n\t\t\t<div class="managers-files-item__load-progress">\n\t\t\t\t<div\n\t\t\t\t\tclass="managers-files-item__load-progress-line">\n\t\t\t\t\t<div\n\t\t\t\t\t\tclass="managers-files-item__load-progress-line-inner"\n\t\t\t\t\t\tstyle="width: 0%"></div>\n\t\t\t\t</div>\n\t\t\t\t<div\n\t\t\t\t\tclass="managers-files-item__load-progress-text">\n\t\t\t\t\t0%\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</footer>\n\t`;
+            document.querySelector(".managers-files__tab.managers-files__tab--grid").append(fileWrapper);
+        }
+        function projectFileLoadingMimeTypeCreateGrid(options) {
+            const fileWrapper = document.createElement("div");
+            fileWrapper.classList.add("managers-files-item");
+            fileWrapper.classList.add("managers-files-item--grid");
+            fileWrapper.dataset.fileItemId = options.id;
+            fileWrapper.innerHTML = `\n\t\t<div class="managers-files-item__body">\n\t\t\t<div class="managers-files-item__controlls">\n\t\t\t\t<button\n\t\t\t\t\tclass="managers-files-item__controll-item"\n\t\t\t\t\tdata-tippy-content>\n\t\t\t\t\t<img src="${options.dialogType === "empty" ? `img/icons/dialog--empty.svg` : `img/icons/dialog--empty.svg`}" alt="icon" />\n\t\t\t\t</button>\n\t\t\t\t<button\n\t\t\t\t\tclass="managers-files-item__controll-item"\n\t\t\t\t\tdata-delete-file\n\t\t\t\t\tdata-popup="#delete-file--pl">\n\t\t\t\t\t<img src="img/icons/delete.svg" alt="icon" />\n\t\t\t\t</button>\n\t\t\t</div>\n\t\t\t<div class="managers-files-item__mime-type">\n\t\t\t\t<div class="managers-files-item__mime-type-icon">\n\t\t\t\t\t<svg>\n\t\t\t\t\t\t<use\n\t\t\t\t\t\t\txlink:href="${options.iconExtPath}"></use>\n\t\t\t\t\t</svg>\n\t\t\t\t</div>\n\t\t\t\t<div class="managers-files-item__mime-type-name">\n\t\t\t\t\t${options.fileName}\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\t<footer class="managers-files-item__footer">\n\t\t\t<div class="managers-files-item__load-progress">\n\t\t\t\t<div\n\t\t\t\t\tclass="managers-files-item__load-progress-line">\n\t\t\t\t\t<div\n\t\t\t\t\t\tclass="managers-files-item__load-progress-line-inner"\n\t\t\t\t\t\tstyle="width: 0%"></div>\n\t\t\t\t</div>\n\t\t\t\t<div\n\t\t\t\t\tclass="managers-files-item__load-progress-text">\n\t\t\t\t\t0%\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</footer>\n\t`;
+            document.querySelector(".managers-files__tab.managers-files__tab--grid").append(fileWrapper);
+        }
+        function projectFileLoadingCreateList(options) {
+            const fileWrapper = document.createElement("div");
+            fileWrapper.classList.add("managers-files-item");
+            fileWrapper.classList.add("managers-files-item--list");
+            fileWrapper.dataset.fileItemId = options.id;
+            fileWrapper.innerHTML = `\n\t\t<div class="managers-files-item__body">\n\t\t\t<div class="managers-files-item__body--mobile-wrapper"></div>\n\t\t\t<div class="managers-files-item__file-info" data-da="[data-file-item-id='${options.id}'] .managers-files-item__body--mobile-wrapper, 589.98">\n\t\t\t\t<div class="managers-files-item__file-ext-icon">\n\t\t\t\t\t<svg>\n\t\t\t\t\t\t<use\n\t\t\t\t\t\t\txlink:href="${options.iconExtPath}"></use>\n\t\t\t\t\t</svg>\n\t\t\t\t</div>\n\t\t\t\t<div class="managers-files-item__file-name">\n\t\t\t\t\t${options.fileName}\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class="managers-files-item__loading-wrapper">\n\t\t\t\t<div\n\t\t\t\t\tclass="managers-files-item__loading-line-wrapper">\n\t\t\t\t\t<div\n\t\t\t\t\t\tclass="managers-files-item__loading-line-progress"\n\t\t\t\t\t\tstyle="width: 0%"></div>\n\t\t\t\t</div>\n\t\t\t\t<div class="managers-files-item__loading-value">\n\t\t\t\t\t0%\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class="managers-files-item__controlls" data-da="[data-file-item-id='${options.id}'] .managers-files-item__body--mobile-wrapper, 589.98">\n\t\t\t\t<button\n\t\t\t\t\tclass="managers-files-item__controll-item"\n\t\t\t\t\tdata-tippy-content>\n\t\t\t\t\t<img\n\t\t\t\t\t\tsrc="${options.dialogType === "empty" ? `img/icons/dialog--empty.svg` : `img/icons/dialog.svg`}"\n\t\t\t\t\t\talt="icon" />\n\t\t\t\t</button>\n\t\t\t\t<button\n\t\t\t\t\tclass="managers-files-item__controll-item"\n\t\t\t\t\tdata-delete-file\n\t\t\t\t\tdata-popup="#delete-file--pl">\n\t\t\t\t\t<img\n\t\t\t\t\t\tsrc="img/icons/delete.svg"\n\t\t\t\t\t\talt="icon" />\n\t\t\t\t</button>\n\t\t\t</div>\n\t\t</div>\n\t`;
+            document.querySelector(".managers-files__tab-body.managers-files__tab-body--list").append(fileWrapper);
+        }
+        function projectFileCreate({type, previewPath, thumbPath, ...other}) {
+            switch (type) {
+              case "normal":
+                projectFileNormalCreateGrid(other);
+                addFileToSlide({
+                    previewPath,
+                    thumbPath
+                });
+                break;
+
+              case "mime-type":
+                projectFileMimeTypeCreateGrid(other);
+                break;
+            }
+            projectFileCreateList(other);
+        }
+        function projectFileNormalCreateGrid(options) {
+            const fileWrapper = document.createElement("div");
+            fileWrapper.classList.add("managers-files-item");
+            fileWrapper.classList.add("managers-files-item--grid");
+            fileWrapper.dataset.fileItemId = options.id;
+            fileWrapper.innerHTML = `\n\t\t<div class="managers-files-item__body">\n\t\t\t<div class="managers-files-item__controlls">\n\t\t\t\t<button\n\t\t\t\t\tclass="managers-files-item__controll-item"\n\t\t\t\t\tdata-tippy-content>\n\t\t\t\t\t<img\n\t\t\t\t\t\tsrc="${options.dialogType === "empty" ? `img/icons/dialog--empty.svg` : `img/icons/dialog--empty.svg`}"\n\t\t\t\t\t\talt="icon" />\n\t\t\t\t</button>\n\t\t\t\t<button\n\t\t\t\t\tclass="managers-files-item__controll-item"\n\t\t\t\t\tdata-delete-file\n\t\t\t\t\tdata-popup="#delete-file--pl">\n\t\t\t\t\t<img src="img/icons/delete.svg" alt="icon" />\n\t\t\t\t</button>\n\t\t\t</div>\n\t\t\t<a class="managers-files-item__background-ibg" href="#" data-popup="#files-gallery--pl">\n\t\t\t\t<img\n\t\t\t\t\tsrc="${options.imagePath}"\n\t\t\t\t\talt="background" />\n\t\t\t</a>\n\t\t</div>\n\t\t<footer class="managers-files-item__footer">\n\t\t\t<div class="managers-files-item__description">\n\t\t\t\t${options.description}\n\t\t\t</div>\n\t\t</footer>\n\t`;
+            document.querySelector(".managers-files__tab.managers-files__tab--grid").append(fileWrapper);
+        }
+        function projectFileMimeTypeCreateGrid(options) {
+            const fileWrapper = document.createElement("div");
+            fileWrapper.classList.add("managers-files-item");
+            fileWrapper.classList.add("managers-files-item--grid");
+            fileWrapper.dataset.fileItemId = options.id;
+            fileWrapper.innerHTML = `\n\t\t<div class="managers-files-item__body">\n\t\t\t<div class="managers-files-item__controlls">\n\t\t\t\t<button\n\t\t\t\t\tclass="managers-files-item__controll-item"\n\t\t\t\t\tdata-tippy-content>\n\t\t\t\t\t<img src="${options.dialogType === "empty" ? `img/icons/dialog--empty.svg` : `img/icons/dialog--empty.svg`}" alt="icon" />\n\t\t\t\t</button>\n\t\t\t\t<button\n\t\t\t\t\tclass="managers-files-item__controll-item"\n\t\t\t\t\tdata-delete-file\n\t\t\t\t\tdata-popup="#delete-file--pl">\n\t\t\t\t\t<img src="img/icons/delete.svg" alt="icon" />\n\t\t\t\t</button>\n\t\t\t</div>\n\t\t\t<div class="managers-files-item__mime-type">\n\t\t\t\t<div class="managers-files-item__mime-type-icon">\n\t\t\t\t\t<svg>\n\t\t\t\t\t\t<use\n\t\t\t\t\t\t\txlink:href="${options.iconExtPath}"></use>\n\t\t\t\t\t</svg>\n\t\t\t\t</div>\n\t\t\t\t<div class="managers-files-item__mime-type-name">\n\t\t\t\t\t${options.fileName}\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\t<footer class="managers-files-item__footer">\n\t\t\t<div class="managers-files-item__description">\n\t\t\t\t${options.description}\n\t\t\t</div>\n\t\t</footer>\n\t`;
+            document.querySelector(".managers-files__tab.managers-files__tab--grid").append(fileWrapper);
+        }
+        function projectFileCreateList(options) {
+            const fileWrapper = document.createElement("div");
+            fileWrapper.classList.add("managers-files-item");
+            fileWrapper.classList.add("managers-files-item--list");
+            fileWrapper.dataset.fileItemId = options.id;
+            fileWrapper.innerHTML = `\n\t\t<div class="managers-files-item__body">\n\t\t\t<div class="managers-files-item__body--mobile-wrapper"></div>\n\t\t\t<div class="managers-files-item__file-info" data-da="[data-file-item-id='${options.id}'] .managers-files-item__body--mobile-wrapper, 589.98">\n\t\t\t\t<div class="managers-files-item__file-ext-icon">\n\t\t\t\t\t<svg>\n\t\t\t\t\t\t<use\n\t\t\t\t\t\t\txlink:href="${options.iconExtPath}"></use>\n\t\t\t\t\t</svg>\n\t\t\t\t</div>\n\t\t\t\t<div class="managers-files-item__file-name">\n\t\t\t\t\t${options.fileName}\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class="managers-files-item__author-info ${options.descriptionCrossed ? `managers-files-item__author-info--line-through` : ``}">\n\t\t\t\t${options.description}\n\t\t\t</div>\n\t\t\t<div class="managers-files-item__controlls" data-da="[data-file-item-id='${options.id}'] .managers-files-item__body--mobile-wrapper, 589.98">\n\t\t\t\t<button\n\t\t\t\t\tclass="managers-files-item__controll-item"\n\t\t\t\t\tdata-tippy-content>\n\t\t\t\t\t<img\n\t\t\t\t\t\tsrc="${options.dialogType === "empty" ? `img/icons/dialog--empty.svg` : `img/icons/dialog.svg`}"\n\t\t\t\t\t\talt="icon" />\n\t\t\t\t</button>\n\t\t\t\t<button\n\t\t\t\t\tclass="managers-files-item__controll-item"\n\t\t\t\t\tdata-delete-file\n\t\t\t\t\tdata-popup="#delete-file--pl">\n\t\t\t\t\t<img\n\t\t\t\t\t\tsrc="img/icons/delete.svg"\n\t\t\t\t\t\talt="icon" />\n\t\t\t\t</button>\n\t\t\t</div>\n\t\t</div>\n\t`;
+            document.querySelector(".managers-files__tab-body.managers-files__tab-body--list").append(fileWrapper);
+        }
+        function addFileToSlide(pathObject) {
+            addFileToSlidePreview(pathObject.previewPath);
+            addFileToSlideThumb(pathObject.thumbPath);
+        }
+        function addFileToSlidePreview(imgPath) {
+            const slider = document.createElement("div");
+            slider.classList.add("slider-gallery__slide");
+            slider.innerHTML = `\n\t\t<div class="slider-gallery__slide-wrapper">\n\t\t\t<img src="${imgPath}" alt="slider-preview" />\n\t\t</div>\n\t`;
+            document.querySelector("[data-slider-preview]").append(slider);
+        }
+        function addFileToSlideThumb(imgPath) {
+            const slider = document.createElement("div");
+            slider.classList.add("slider-thumb-gallery__slide");
+            slider.innerHTML = `\n\t\t<div class="slider-thumb-gallery__slide-wrapper">\n\t\t\t<img src="${imgPath}" alt="slider-preview" />\n\t\t</div>\n\t`;
+            document.querySelector("[data-slider-thumb]").append(slider);
         }
         class DynamicAdapt {
             constructor(type) {
