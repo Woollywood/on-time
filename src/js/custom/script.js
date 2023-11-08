@@ -21,7 +21,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 	projectsInit();
 
-
 	projectsFilesInit();
 
 	function projectsInit() {
@@ -358,7 +357,6 @@ function projectItemCreate(id, status, project, supervisor, customerName, addres
 	document.querySelector('[data-projects-content]')?.append(projectItem);
 }
 
-
 function projectsFilesInit() {
 	projectFileLoadingCreate({
 		type: 'normal',
@@ -386,6 +384,10 @@ function projectsFilesInit() {
 		id: 2,
 		fileName: 'IMG_999_99_999999.JPG',
 		imagePath: 'img/managers-files/image-01.jpg',
+
+		previewPath: 'img/managers-files/slider-preview.jpg',
+		thumbPath: 'img/managers-files/image-01.jpg',
+
 		iconExtPath: 'img/icons/icons.svg#image',
 		description: 'Aug 3, 8:00 AM, Sergey Zadrutsky',
 		descriptionCrossed: false,
@@ -393,62 +395,92 @@ function projectsFilesInit() {
 	});
 
 	projectFileCreate({
-		type: 'mime-type',
+		type: 'normal',
 		id: 3,
-		fileName: 'FileNameLong_with2_rows_with_with2_rows_with_with2_rows... end_of.pdf',
-		iconExtPath: 'img/icons/icons.svg#pdf',
+		fileName: 'IMG_999_99_999999.JPG',
+		imagePath: 'img/managers-files/image-01.jpg',
+
+		previewPath: 'img/managers-files/slider-preview.jpg',
+		thumbPath: 'img/managers-files/image-02.jpg',
+
+		iconExtPath: 'img/icons/icons.svg#image',
 		description: 'Aug 3, 8:00 AM, Sergey Zadrutsky',
-		descriptionCrossed: true,
+		descriptionCrossed: false,
 		dialogType: 'empty',
 	});
 
 	projectFileCreate({
-		type: 'mime-type',
+		type: 'normal',
 		id: 4,
-		fileName: 'FileNameLong_with2_rows_with_with2_rows_with_with2_rows... end_of.pdf',
-		iconExtPath: 'img/icons/icons.svg#pdf',
+		fileName: 'IMG_999_99_999999.JPG',
+		imagePath: 'img/managers-files/image-01.jpg',
+
+		previewPath: 'img/managers-files/slider-preview.jpg',
+		thumbPath: 'img/managers-files/image-01.jpg',
+
+		iconExtPath: 'img/icons/icons.svg#image',
 		description: 'Aug 3, 8:00 AM, Sergey Zadrutsky',
-		descriptionCrossed: true,
+		descriptionCrossed: false,
 		dialogType: 'empty',
 	});
 
 	projectFileCreate({
-		type: 'mime-type',
+		type: 'normal',
 		id: 5,
-		fileName: 'FileNameLong_with2_rows_with_with2_rows_with_with2_rows... end_of.pdf',
-		iconExtPath: 'img/icons/icons.svg#pdf',
+		fileName: 'IMG_999_99_999999.JPG',
+		imagePath: 'img/managers-files/image-01.jpg',
+
+		previewPath: 'img/managers-files/slider-preview.jpg',
+		thumbPath: 'img/managers-files/image-02.jpg',
+
+		iconExtPath: 'img/icons/icons.svg#image',
 		description: 'Aug 3, 8:00 AM, Sergey Zadrutsky',
-		descriptionCrossed: true,
+		descriptionCrossed: false,
 		dialogType: 'empty',
 	});
 
 	projectFileCreate({
-		type: 'mime-type',
+		type: 'normal',
 		id: 6,
-		fileName: 'FileNameLong_with2_rows_with_with2_rows_with_with2_rows... end_of.pdf',
-		iconExtPath: 'img/icons/icons.svg#pdf',
+		fileName: 'IMG_999_99_999999.JPG',
+		imagePath: 'img/managers-files/image-01.jpg',
+
+		previewPath: 'img/managers-files/slider-preview.jpg',
+		thumbPath: 'img/managers-files/image-01.jpg',
+
+		iconExtPath: 'img/icons/icons.svg#image',
 		description: 'Aug 3, 8:00 AM, Sergey Zadrutsky',
-		descriptionCrossed: true,
+		descriptionCrossed: false,
 		dialogType: 'empty',
 	});
 
 	projectFileCreate({
-		type: 'mime-type',
+		type: 'normal',
 		id: 7,
-		fileName: 'FileNameLong_with2_rows_with_with2_rows_with_with2_rows... end_of.pdf',
-		iconExtPath: 'img/icons/icons.svg#pdf',
+		fileName: 'IMG_999_99_999999.JPG',
+		imagePath: 'img/managers-files/image-01.jpg',
+
+		previewPath: 'img/managers-files/slider-preview.jpg',
+		thumbPath: 'img/managers-files/image-02.jpg',
+
+		iconExtPath: 'img/icons/icons.svg#image',
 		description: 'Aug 3, 8:00 AM, Sergey Zadrutsky',
-		descriptionCrossed: true,
+		descriptionCrossed: false,
 		dialogType: 'empty',
 	});
 
 	projectFileCreate({
-		type: 'mime-type',
+		type: 'normal',
 		id: 8,
-		fileName: 'FileNameLong_with2_rows_with_with2_rows_with_with2_rows... end_of.pdf',
-		iconExtPath: 'img/icons/icons.svg#pdf',
+		fileName: 'IMG_999_99_999999.JPG',
+		imagePath: 'img/managers-files/image-01.jpg',
+
+		previewPath: 'img/managers-files/slider-preview.jpg',
+		thumbPath: 'img/managers-files/image-01.jpg',
+
+		iconExtPath: 'img/icons/icons.svg#image',
 		description: 'Aug 3, 8:00 AM, Sergey Zadrutsky',
-		descriptionCrossed: true,
+		descriptionCrossed: false,
 		dialogType: 'empty',
 	});
 
@@ -471,9 +503,67 @@ function projectsFilesInit() {
 		descriptionCrossed: true,
 		dialogType: 'empty',
 	});
+
+	projectFileCreate({
+		type: 'mime-type',
+		id: 11,
+		fileName: 'FileNameLong_with2_rows_with_with2_rows_with_with2_rows... end_of.pdf',
+		iconExtPath: 'img/icons/icons.svg#pdf',
+		description: 'Aug 3, 8:00 AM, Sergey Zadrutsky',
+		descriptionCrossed: true,
+		dialogType: 'empty',
+	});
+
+	projectFileCreate({
+		type: 'mime-type',
+		id: 12,
+		fileName: 'FileNameLong_with2_rows_with_with2_rows_with_with2_rows... end_of.pdf',
+		iconExtPath: 'img/icons/icons.svg#pdf',
+		description: 'Aug 3, 8:00 AM, Sergey Zadrutsky',
+		descriptionCrossed: true,
+		dialogType: 'empty',
+	});
+
+	projectFileCreate({
+		type: 'mime-type',
+		id: 13,
+		fileName: 'FileNameLong_with2_rows_with_with2_rows_with_with2_rows... end_of.pdf',
+		iconExtPath: 'img/icons/icons.svg#pdf',
+		description: 'Aug 3, 8:00 AM, Sergey Zadrutsky',
+		descriptionCrossed: true,
+		dialogType: 'empty',
+	});
+
+	projectFileCreate({
+		type: 'mime-type',
+		id: 14,
+		fileName: 'FileNameLong_with2_rows_with_with2_rows_with_with2_rows... end_of.pdf',
+		iconExtPath: 'img/icons/icons.svg#pdf',
+		description: 'Aug 3, 8:00 AM, Sergey Zadrutsky',
+		descriptionCrossed: true,
+		dialogType: 'empty',
+	});
+
+	projectFileCreate({
+		type: 'mime-type',
+		id: 15,
+		fileName: 'FileNameLong_with2_rows_with_with2_rows_with_with2_rows... end_of.pdf',
+		iconExtPath: 'img/icons/icons.svg#pdf',
+		description: 'Aug 3, 8:00 AM, Sergey Zadrutsky',
+		descriptionCrossed: true,
+		dialogType: 'empty',
+	});
+
+	projectFileCreate({
+		type: 'mime-type',
+		id: 16,
+		fileName: 'FileNameLong_with2_rows_with_with2_rows_with_with2_rows... end_of.pdf',
+		iconExtPath: 'img/icons/icons.svg#pdf',
+		description: 'Aug 3, 8:00 AM, Sergey Zadrutsky',
+		descriptionCrossed: true,
+		dialogType: 'empty',
+	});
 }
-
-
 
 function projectFileLoadingCreate({ type, ...other }) {
 	console.log('project file create');
@@ -647,12 +737,11 @@ function projectFileLoadingCreateList(options) {
 	document.querySelector('.managers-files__tab-body.managers-files__tab-body--list').append(fileWrapper);
 }
 
-
-
-function projectFileCreate({ type, ...other }) {
+function projectFileCreate({ type, previewPath, thumbPath, ...other }) {
 	switch (type) {
 		case 'normal':
 			projectFileNormalCreateGrid(other);
+			addFileToSlide({ previewPath, thumbPath });
 			break;
 		case 'mime-type':
 			projectFileMimeTypeCreateGrid(other);
@@ -684,11 +773,11 @@ function projectFileNormalCreateGrid(options) {
 					<img src="img/icons/delete.svg" alt="icon" />
 				</button>
 			</div>
-			<div class="managers-files-item__background-ibg">
+			<a class="managers-files-item__background-ibg" href="#" data-popup="#files-gallery--pl">
 				<img
 					src="${options.imagePath}"
 					alt="background" />
-			</div>
+			</a>
 		</div>
 		<footer class="managers-files-item__footer">
 			<div class="managers-files-item__description">
@@ -793,4 +882,31 @@ function projectFileCreateList(options) {
 	`;
 
 	document.querySelector('.managers-files__tab-body.managers-files__tab-body--list').append(fileWrapper);
+}
+
+function addFileToSlide(pathObject) {
+	addFileToSlidePreview(pathObject.previewPath);
+	addFileToSlideThumb(pathObject.thumbPath);
+}
+
+function addFileToSlidePreview(imgPath) {
+	const slider = document.createElement('div');
+	slider.classList.add('slider-gallery__slide');
+	slider.innerHTML = `
+		<div class="slider-gallery__slide-wrapper">
+			<img src="${imgPath}" alt="slider-preview" />
+		</div>
+	`;
+	document.querySelector('[data-slider-preview]').append(slider);
+}
+
+function addFileToSlideThumb(imgPath) {
+	const slider = document.createElement('div');
+	slider.classList.add('slider-thumb-gallery__slide');
+	slider.innerHTML = `
+		<div class="slider-thumb-gallery__slide-wrapper">
+			<img src="${imgPath}" alt="slider-preview" />
+		</div>
+	`;
+	document.querySelector('[data-slider-thumb]').append(slider);
 }

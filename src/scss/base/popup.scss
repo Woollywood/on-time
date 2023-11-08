@@ -483,3 +483,266 @@ body::after {
 		flex: 1 1 auto;
 	}
 }
+
+#files-gallery--pl {
+	padding: 0 !important;
+}
+
+.files-gallery {
+	&__content {
+		position: relative;
+		width: 100vw;
+		height: 100vh;
+		overflow: hidden;
+
+		min-width: 0;
+		min-height: 0;
+
+		* {
+			min-width: 0;
+			min-height: 0;
+		}
+	}
+
+	&__close {
+		position: absolute;
+		z-index: 2;
+		top: rem(28);
+		right: rem(28);
+
+		@media (max-width: $tablet) {
+			top: rem(16);
+			right: rem(16);
+		}
+	}
+
+	&__slider-wrapper {
+		height: 100%;
+
+		display: grid;
+
+		@media (min-width: $tablet) {
+			padding: rem(28);
+			gap: rem(16);
+			grid-template-columns: auto 1fr;
+		}
+
+		@media (max-width: $tablet) {
+			grid-template-rows: 1fr auto;
+		}
+	}
+
+	&__slider-preview-wrapper {
+		position: relative;
+
+		@media (min-width: $tablet) {
+			margin-right: rem(40);
+			border: rem(1) solid cl('natural-black');
+			@include adaptiveValue('padding-left', 166, 48, 0, 1280, 992);
+			@include adaptiveValue('padding-right', 166, 48, 0, 1280, 992);
+		}
+
+		@media (max-width: $tablet) {
+			margin-top: rem(32);
+			padding: rem(16);
+		}
+	}
+
+	&__slider-thumb-wrapper {
+		position: relative;
+		padding: rem(32) 0;
+
+		@media (max-width: $tablet) {
+			padding: rem(8) rem(16);
+			border-top: rem(1) solid cl('accent-4');
+		}
+	}
+
+	&__slider-track {
+	}
+}
+
+.slider-gallery {
+	height: 100%;
+
+	@media (max-width: $mobile) {
+		padding: 24% 0;
+	}
+
+	@media (max-width: $mobileSmall) {
+		padding: 48% 0;
+	}
+
+	&__slider-wrapper {
+		pointer-events: auto;
+	}
+
+	&__swiper {
+	}
+
+	&__slide {
+		pointer-events: auto;
+	}
+
+	&__slide-wrapper {
+		position: relative;
+		width: 100%;
+		height: 100%;
+
+		img {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+
+	&__controlls-wrapper {
+		pointer-events: none;
+		position: absolute;
+		top: 50%;
+		left: 0;
+		width: 100%;
+		transform: translateY(-50%);
+		@include adaptiveValue('padding-left', 112, 12, 0, 1280, 992);
+		@include adaptiveValue('padding-right', 112, 12, 0, 1280, 992);
+	}
+
+	&__controlls {
+		display: flex;
+		gap: rem(36);
+		justify-content: space-between;
+		align-items: center;
+
+		@media (max-width: $tablet) {
+			display: none;
+		}
+	}
+
+	&__arrow-prev,
+	&__arrow-next {
+		pointer-events: auto;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		&:disabled {
+			svg {
+				stroke: cl('grey-8');
+			}
+		}
+
+		svg {
+			width: rem(24);
+			height: rem(24);
+			stroke: cl('accent');
+			transition: stroke 0.3s ease;
+		}
+	}
+
+	&__arrow-prev {
+		transform: rotate(180deg);
+	}
+}
+
+.slider-thumb-gallery {
+	width: 100%;
+	height: 100%;
+
+	@media (max-width: $tablet) {
+		overflow: visible !important;
+	}
+
+	&__slider-wrapper {
+		pointer-events: auto;
+	}
+
+	&__swiper {
+	}
+
+	&__slide {
+		cursor: pointer;
+		pointer-events: auto;
+		overflow: hidden;
+		border-radius: rem(8);
+		overflow: hidden;
+
+		&.swiper-slide-thumb-active {
+			border: rem(2) solid cl('black');
+			padding: rem(2);
+
+			@media (max-width: $mobile) {
+				border: rem(1) solid cl('black');
+				padding: rem(1);
+			}
+		}
+	}
+
+	&__slide-wrapper {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		aspect-ratio: 1;
+		border-radius: rem(8);
+		overflow: hidden;
+
+		img {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+
+	&__controlls {
+		pointer-events: none;
+		position: absolute;
+		top: 0;
+		height: 100%;
+		left: 50%;
+		transform: translateX(-50%);
+
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: center;
+		gap: rem(36);
+
+		@media (max-width: $tablet) {
+			display: none;
+		}
+	}
+
+	&__arrow-prev,
+	&__arrow-next {
+		pointer-events: auto;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		&:disabled {
+			svg {
+				stroke: cl('grey-8');
+			}
+		}
+
+		svg {
+			width: rem(24);
+			height: rem(24);
+			stroke: cl('accent');
+			transition: stroke 0.3s ease;
+		}
+	}
+
+	&__arrow-prev {
+		transform: rotate(-90deg);
+	}
+
+	&__arrow-next {
+		transform: rotate(90deg);
+	}
+}

@@ -2722,6 +2722,7 @@
 .layout-wrapper {
 	position: relative;
 	height: calc(100vh - var(--top-gap));
+	overflow: hidden;
 
 	&--not-found {
 		.projects-layout__inner {
@@ -2847,7 +2848,7 @@
 	position: absolute;
 	z-index: 100;
 	top: calc(var(--top-gap) * -1);
-	left: 0;
+	left: 100%;
 	width: 100%;
 	height: calc(100% + var(--top-gap));
 	background-color: cl('white');
@@ -2885,7 +2886,7 @@
 		svg {
 			width: rem(24);
 			height: rem(24);
-			fill: cl('accent');
+			stroke: cl('accent');
 		}
 	}
 
@@ -2894,6 +2895,7 @@
 		font-size: rem(24);
 		font-weight: 600;
 		line-height: 133%;
+		margin: 0;
 	}
 
 	&__content-body {
@@ -2976,15 +2978,32 @@
 
 .new-project-tabs {
 	&__navigation {
+		overflow: hidden;
 	}
 
 	&__navigation-container {
+		overflow: hidden;
 	}
 
 	&__navigation-body {
 		display: flex;
 		align-items: center;
 		gap: rem(28);
+		overflow: auto;
+
+		&::-webkit-scrollbar {
+			width: 0;
+		}
+		
+		&::-webkit-scrollbar-track {
+			background: transparent;
+		}
+		
+		&::-webkit-scrollbar-thumb {
+			background-color: transparent;
+			border-radius: 0;
+			border: 0;
+		}
 	}
 
 	&__title {
@@ -2994,6 +3013,7 @@
 		font-size: rem(14);
 		line-height: 142%;
 		padding: rem(8) 0;
+		white-space: nowrap;
 
 		&::after {
 			content: '';

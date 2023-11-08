@@ -9,7 +9,7 @@ import { flsModules } from '../custom/modules.js';
 // Подключаем слайдер Swiper из node_modules
 // При необходимости подключаем дополнительные модули слайдера, указывая их в {} через запятую
 // Пример: { Navigation, Autoplay }
-import Swiper, { Navigation, Pagination } from "swiper";
+import Swiper, { Navigation, Pagination, Thumbs } from 'swiper';
 
 /*
 Основные модули слайдера:
@@ -20,9 +20,9 @@ EffectFade, Lazy, Manipulation
 
 // Стили Swiper
 // Базовые стили
-import "../../scss/base/swiper.scss";
+import '../../scss/base/swiper.scss';
 // Полный набор стилей из scss/libs/swiper.scss
-// import "../../scss/libs/swiper.scss";
+// import '../../scss/libs/swiper.scss';
 // Полный набор стилей из node_modules
 // import 'swiper/css';
 
@@ -33,10 +33,10 @@ function buildSliders() {
 	let sliders = document.querySelectorAll('[class*="__swiper"]:not(.swiper-wrapper)');
 	if (sliders) {
 		sliders.forEach((slider) => {
-			slider.parentElement.classList.add("swiper");
-			slider.classList.add("swiper-wrapper");
+			slider.parentElement.classList.add('swiper');
+			slider.classList.add('swiper-wrapper');
 			for (const slide of slider.children) {
-				slide.classList.add("swiper-slide");
+				slide.classList.add('swiper-slide');
 			}
 		});
 	}
@@ -46,11 +46,11 @@ function buildSliders() {
 function initSliders() {
 	// Список слайдеров
 	// Проверяем, есть ли слайдер на странице
-	if (document.querySelector(".slider-board")) {
+	if (document.querySelector('.slider-board')) {
 		// Указываем класс нужного слайдера
 		// Создаем слайдер
 		let sliderContainer = document.querySelector('.slider-board');
-		new Swiper(".slider-board", {
+		new Swiper('.slider-board', {
 			// Указываем класс нужного слайдера
 			// Подключаем модули слайдера
 			// для конкретного случая
@@ -91,7 +91,7 @@ function initSliders() {
 
 			// Кнопки "влево/вправо"
 			navigation: {
-				nextEl: ".slider-board__button-done",
+				nextEl: '.slider-board__button-done',
 			},
 			/*
 			// Брейкпоинты
@@ -126,19 +126,61 @@ function initSliders() {
 			},
 		});
 	}
+
+	if (document.querySelector('.slider-gallery')) {
+		const slideThumb = new Swiper('.slider-thumb-gallery', {
+			modules: [Navigation],
+			observer: true,
+			observeParents: true,
+			spaceBetween: 12,
+
+			navigation: {
+				prevEl: '.slider-thumb-gallery__arrow-prev',
+				nextEl: '.slider-thumb-gallery__arrow-next',
+			},
+
+			breakpoints: {
+				320: {
+					direction: 'horizontal',
+					spaceBetween: 16,
+					slidesPerView: 4.8,
+				},
+				991.98: {
+					slidesPerView: 6,
+					direction: 'vertical',
+				},
+			},
+		});
+
+		const sliderMain = new Swiper('.slider-gallery', {
+			modules: [Navigation, Thumbs],
+			observer: true,
+			observeParents: true,
+			slidesPerView: 1,
+
+			thumbs: {
+				swiper: slideThumb,
+			},
+
+			navigation: {
+				prevEl: '.slider-gallery__arrow-prev',
+				nextEl: '.slider-gallery__arrow-next',
+			},
+		});
+	}
 }
 // Скролл на базе слайдера (по классу swiper scroll для оболочки слайдера)
 function initSlidersScroll() {
-	let sliderScrollItems = document.querySelectorAll(".swiper_scroll");
+	let sliderScrollItems = document.querySelectorAll('.swiper_scroll');
 	if (sliderScrollItems.length > 0) {
 		for (let index = 0; index < sliderScrollItems.length; index++) {
 			const sliderScrollItem = sliderScrollItems[index];
-			const sliderScrollBar = sliderScrollItem.querySelector(".swiper-scrollbar");
+			const sliderScrollBar = sliderScrollItem.querySelector('.swiper-scrollbar');
 			const sliderScroll = new Swiper(sliderScrollItem, {
 				observer: true,
 				observeParents: true,
-				direction: "vertical",
-				slidesPerView: "auto",
+				direction: 'vertical',
+				slidesPerView: 'auto',
 				freeMode: {
 					enabled: true,
 				},
@@ -156,7 +198,7 @@ function initSlidersScroll() {
 	}
 }
 
-window.addEventListener("load", function (e) {
+window.addEventListener('load', function (e) {
 	// Генерируем оболочку для слайдеров
 	buildSliders();
 	// Запуск инициализации слайдеров
