@@ -591,8 +591,6 @@ function projectFileLoadingMimeTypeCreateGrid(options) {
 }
 
 function projectFileLoadingCreateList(options) {
-	console.log(options);
-
 	const fileWrapper = document.createElement('div');
 	fileWrapper.classList.add('managers-files-item');
 	fileWrapper.classList.add('managers-files-item--list');
@@ -747,8 +745,6 @@ function projectFileMimeTypeCreateGrid(options) {
 }
 
 function projectFileCreateList(options) {
-	console.log(options);
-
 	const fileWrapper = document.createElement('div');
 	fileWrapper.classList.add('managers-files-item');
 	fileWrapper.classList.add('managers-files-item--list');

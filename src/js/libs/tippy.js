@@ -29,7 +29,79 @@ const files = [
 			messageDate: 'Nov 3, 11:30 PM',
 			messageBody: 'Плюс удалить и закрыть кнопки',
 		},
+		{
+			userAvatarPath: 'img/avatars/avatar-01.jpg',
+			userName: 'Alyona Kolontaevskaya',
+
+			messageDate: 'Aug 3, 8:00 AM',
+			messageBody:
+				'Нужно показать стейт редактирования. Должно быть возможно удалить коммент и закрыть попап с комментом',
+		},
+		{
+			userAvatarPath: 'img/avatars/avatar-02.jpg',
+			userName: 'Sergey Zadrutsky',
+
+			messageDate: 'Nov 3, 11:30 PM',
+			messageBody: 'Плюс удалить и закрыть кнопки',
+		},
+		{
+			userAvatarPath: 'img/avatars/avatar-01.jpg',
+			userName: 'Alyona Kolontaevskaya',
+
+			messageDate: 'Aug 3, 8:00 AM',
+			messageBody:
+				'Нужно показать стейт редактирования. Должно быть возможно удалить коммент и закрыть попап с комментом',
+		},
+		{
+			userAvatarPath: 'img/avatars/avatar-02.jpg',
+			userName: 'Sergey Zadrutsky',
+
+			messageDate: 'Nov 3, 11:30 PM',
+			messageBody: 'Плюс удалить и закрыть кнопки',
+		},
+		{
+			userAvatarPath: 'img/avatars/avatar-01.jpg',
+			userName: 'Alyona Kolontaevskaya',
+
+			messageDate: 'Aug 3, 8:00 AM',
+			messageBody:
+				'Нужно показать стейт редактирования. Должно быть возможно удалить коммент и закрыть попап с комментом',
+		},
+		{
+			userAvatarPath: 'img/avatars/avatar-02.jpg',
+			userName: 'Sergey Zadrutsky',
+
+			messageDate: 'Nov 3, 11:30 PM',
+			messageBody: 'Плюс удалить и закрыть кнопки',
+		},
+		{
+			userAvatarPath: 'img/avatars/avatar-01.jpg',
+			userName: 'Alyona Kolontaevskaya',
+
+			messageDate: 'Aug 3, 8:00 AM',
+			messageBody:
+				'Нужно показать стейт редактирования. Должно быть возможно удалить коммент и закрыть попап с комментом',
+		},
+		{
+			userAvatarPath: 'img/avatars/avatar-02.jpg',
+			userName: 'Sergey Zadrutsky',
+
+			messageDate: 'Nov 3, 11:30 PM',
+			messageBody: 'Плюс удалить и закрыть кнопки',
+		},
 	],
+	[],
+	[],
+	[],
+	[],
+	[],
+	[],
+	[],
+	[],
+	[],
+	[],
+	[],
+	[],
 ];
 
 function render(fileId) {
@@ -44,18 +116,33 @@ function render(fileId) {
 
 function renderEmptyCommentWrapper() {
 	return `
-		<div class="tooltip-comment" onclick="event.target.querySelector('input')?.focus()">
-			<div class="tooltip-comment__input-wrapper input">
-				<input
-					class="tooltip-comment__input"
-					type="text"
-					placeholder="Add a Comment"
-					data-comment-input />
-				<button class="tooltip-comment__send" data-button-send>
-					<svg>
-						<use xlink:href="img/icons/icons.svg#send"></use>
-					</svg>
-				</button>
+		<div
+			class="tooltip-comment tooltip-comment--empty">
+			<header class="tooltip-comment__header">
+				<div class="tooltip-comment__title">Comments</div>
+				<div class="tooltip-comment__header-actions">
+					<button class="tooltip-comment__delete" data-button-delete>
+						<img src="img/icons/delete.svg" alt="icon" />
+					</button>
+					<button class="tooltip-comment__close" data-button-close>
+						<img src="img/icons/close.svg" alt="icon">
+					</button>
+				</div>
+			</header>
+			<ul class="tooltip-comment__comment-list"></ul>
+			<div class="tooltip-comment__action-send">
+				<div class="tooltip-comment__input-wrapper input" onclick="this.querySelector('input').focus()">
+					<input
+						class="tooltip-comment__input"
+						type="text"
+						placeholder="Add a Comment"
+						data-comment-input />
+					<button class="tooltip-comment__send" data-button-send>
+						<svg>
+							<use xlink:href="img/icons/icons.svg#send"></use>
+						</svg>
+					</button>
+				</div>
 			</div>
 		</div>
 	`;
@@ -64,8 +151,7 @@ function renderEmptyCommentWrapper() {
 function renderUsersCommentWrapper(usersList) {
 	return `
 		<div
-			class="tooltip-comment"
-			onclick="event.target.querySelector('input')?.focus()">
+			class="tooltip-comment">
 			<header class="tooltip-comment__header">
 				<div class="tooltip-comment__title">Comments</div>
 				<div class="tooltip-comment__header-actions">
@@ -100,17 +186,19 @@ function renderUsersCommentWrapper(usersList) {
 					})
 					.join('')}
 			</ul>
-			<div class="tooltip-comment__input-wrapper input">
-				<input
-					class="tooltip-comment__input"
-					type="text"
-					placeholder="Add a Comment"
-					data-comment-input />
-				<button class="tooltip-comment__send" data-button-send>
-					<svg>
-						<use xlink:href="img/icons/icons.svg#send"></use>
-					</svg>
-				</button>
+			<div class="tooltip-comment__action-send">
+				<div class="tooltip-comment__input-wrapper input" onclick="this.querySelector('input').focus()">
+					<input
+						class="tooltip-comment__input"
+						type="text"
+						placeholder="Add a Comment"
+						data-comment-input />
+					<button class="tooltip-comment__send" data-button-send>
+						<svg>
+							<use xlink:href="img/icons/icons.svg#send"></use>
+						</svg>
+					</button>
+				</div>
 			</div>
 		</div>
 	`;
@@ -125,8 +213,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
 				return render(itemBodyId);
 			},
 			allowHTML: true,
-			appendTo: (parent) => parent.closest('[data-tippy-root-block]'),
-			placement: 'right',
+			appendTo: (parent) => parent.closest('.new-project-drawer'),
+			placement: 'auto',
 			arrow: false,
 			trigger: 'click',
 			interactive: true,
@@ -149,10 +237,34 @@ document.addEventListener('DOMContentLoaded', (event) => {
 					itemBody.dispatchEvent(sendMessageEvent);
 				});
 			},
+
+			// onMount: (event) => {
+			// 	if (window.innerWidth < 479.98) {
+			// 		const popper = event.popper;
+			// 		console.log(popper.style.transform);
+			// 	}
+			// },
+
+			// onShow: (event) => {
+			// 	if (window.innerWidth < 479.98) {
+			// 		const popper = event.popper;
+			// 		console.log(popper.style.transform = '');
+			// 	}
+			// },
+
+			// onShown: (event) => {
+			// 	if (window.innerWidth < 479.98) {
+			// 		const popper = event.popper;
+			// 		console.log(popper.style.transform = '');
+			// 	}
+			// },
 		});
 
 		document.querySelectorAll('[data-tippy-content]').forEach((item) => {
 			const instance = item._tippy;
+			// instance.setProps({
+			// 	placement: 'left',
+			// });
 			const popper = instance.popper;
 			const buttonClose = popper.querySelector('[data-button-close]');
 			buttonClose?.addEventListener('click', (event) => instance.hide());
