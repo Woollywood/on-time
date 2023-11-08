@@ -4311,6 +4311,10 @@ body::after {
   overflow: hidden;
 }
 
+.new-project-tab__body--managers-files .managers-files--files-not-found .managers-files__body {
+  display: block;
+}
+
 .new-project-tab__body--managers-files .managers-files__content {
   overflow: auto;
 }
@@ -4330,6 +4334,64 @@ body::after {
 
 .new-project-tab__body--managers-files .managers-files__tab-body {
   overflow: auto;
+}
+
+.new-project-tab__body--managers-files .managers-files__not-found-wrapper {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.new-project-tab__body--managers-files .managers-files__not-found-icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.new-project-tab__body--managers-files .managers-files__not-found-icon svg {
+  width: 2.875rem;
+  height: 3.875rem;
+  fill: var(--ui-color-grey-7);
+}
+
+.new-project-tab__body--managers-files .managers-files__not-found-icon:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+
+.new-project-tab__body--managers-files .managers-files__not-found-title {
+  text-align: center;
+  color: var(--ui-color-grey);
+  font-size: 0.875rem;
+  line-height: 142%;
+}
+
+.new-project-tab__body--managers-files .managers-files__not-found-title:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+
+.new-project-tab__body--managers-files .managers-files__not-found-input span {
+  color: var(--ui-color-accent-2);
+}
+
+.new-project-tab__body--managers-files .managers-files__not-found-input input {
+  display: none;
 }
 
 .project-info__row {
@@ -6624,6 +6686,10 @@ body::after {
 
   .new-project-tab__container {
     padding-bottom: calc(1rem + var(--button-height));
+  }
+
+  .new-project-tab__body--managers-files .managers-files__not-found-title {
+    max-width: 60%;
   }
 
   .project-info__row {
