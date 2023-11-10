@@ -2759,7 +2759,7 @@
 		position: relative;
 		height: 100%;
 		display: grid;
-		grid-template-rows: auto auto;
+		grid-template-rows: auto 1fr;
 		padding: rem(28) 0 rem(20);
 		overflow: hidden;
 
