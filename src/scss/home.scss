@@ -2697,7 +2697,7 @@
 	height: calc(100dvh - var(--top-gap));
 	overflow: hidden;
 
-	&.new-project-drawer-open {
+	&--new-projects {
 		overflow: visible;
 	}
 
@@ -2821,15 +2821,10 @@
 	position: absolute;
 	z-index: 100;
 	top: calc(var(--top-gap) * -1);
-	left: 100%;
+	left: 0;
 	width: 100%;
 	height: calc(100% + var(--top-gap));
 	background-color: cl('white');
-	transition: left 0.3s ease;
-
-	.new-project-drawer-open & {
-		left: 0;
-	}
 
 	&__body {
 		height: 100%;

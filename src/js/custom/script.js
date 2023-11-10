@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 	const dragZone = document.querySelector('[drag-zone]');
 
-	dragZone.addEventListener('dragenter', (event) => {
+	dragZone?.addEventListener('dragenter', (event) => {
 		event.preventDefault();
 
 		const relatedTarget = event.relatedTarget;
@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 		}
 	});
 
-	dragZone.addEventListener('dragleave', (event) => {
+	dragZone?.addEventListener('dragleave', (event) => {
 		event.preventDefault();
 
 		const relatedTarget = event.relatedTarget;
@@ -124,31 +124,21 @@ document.addEventListener('DOMContentLoaded', (event) => {
 		}
 	});
 
-	dragZone.addEventListener('drop', (event) => {
+	dragZone?.addEventListener('drop', (event) => {
 		event.preventDefault();
 	});
-
-	document.querySelector('[data-new-project-open]').addEventListener('click', (event) => {
-		const wrapper = event.target.closest('[data-wrapper]');
-		wrapper.classList.add('new-project-drawer-open');
-	});
-
-	document.querySelector('[data-new-project-close]').addEventListener('click', (event) => {
-		const wrapper = event.target.closest('[data-wrapper]');
-		wrapper.classList.remove('new-project-drawer-open');
-	});
 });
 
-window.addEventListener('load', (e) => {
-	
-});
+window.addEventListener('load', (e) => {});
 
 function getSaveProjectButtonHeight() {
-	const buttonWrapper = document.querySelector('[data-save-project]');
-	const offsetHeight = buttonWrapper.offsetHeight;
-	const projectTabs = document
-		.querySelectorAll('[data-project-tab]')
-		.forEach((tab) => (tab.style.cssText += `--button-height: ${offsetHeight}px`));
+	if (document.querySelector('[data-save-project]')) {
+		const buttonWrapper = document.querySelector('[data-save-project]');
+		const offsetHeight = buttonWrapper.offsetHeight;
+		const projectTabs = document
+			.querySelectorAll('[data-project-tab]')
+			.forEach((tab) => (tab.style.cssText += `--button-height: ${offsetHeight}px`));
+	}
 }
 
 function layoutGapObserver() {
