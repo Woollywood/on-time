@@ -24,60 +24,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
 	projectsFilesInit();
 
 	function projectsInit() {
-		projectItemCreate(
-			0,
-			{ iconPath: 'img/icons/icons.svg#required', text: 'Action Required', color: 'green' },
-			'Some Long Name of The Company Project',
-			{ name: 'Dmitri <br class="br--tablet"/> Kolontaevskii' },
-			'Department of Communities and Justice',
-			'Sydney <br class="br--tablet"/>Suite 201/54, Neridah St., Chatswood <br class="br--tablet"/>NSW 2067'
-		);
-
-		projectItemCreate(
-			1,
-			{ iconPath: 'img/icons/icons.svg#invoiced', text: 'Invoiced', color: 'brown' },
-			'Some Long Name of The Company Project',
-			{ avatarPath: 'img/avatars/avatar-01.jpg', name: 'Sandra <br class="br--tablet"/> Wilson' },
-			'Department of Communities and Justice',
-			'Sydney <br class="br--tablet"/>Suite 201/54, Neridah St., Chatswood <br class="br--tablet"/>NSW 2067'
-		);
-
-		projectItemCreate(
-			2,
-			{ iconPath: 'img/icons/icons.svg#active', text: 'Active', color: 'blue' },
-			'Some Long Name of The Company Project',
-			{ name: 'Dmitri <br class="br--tablet"/> Kolontaevskii' },
-			'Department of Communities and Justice',
-			'Sydney <br class="br--tablet"/>Suite 201/54, Neridah St., Chatswood <br class="br--tablet"/>NSW 2067'
-		);
-
-		projectItemCreate(
-			3,
-			{ iconPath: 'img/icons/icons.svg#cancelled', text: 'Cancelled', color: 'red' },
-			'Some Long Name of The Company Project',
-			{ name: 'Dmitri <br class="br--tablet"/> Kolontaevskii' },
-			'Department of Communities and Justice',
-			'Sydney <br class="br--tablet"/>Suite 201/54, Neridah St., Chatswood <br class="br--tablet"/>NSW 2067'
-		);
-
-		projectItemCreate(
-			4,
-			{ iconPath: 'img/icons/icons.svg#archived', text: 'Archived', color: 'pink' },
-			'Some Long Name of The Company Project',
-			{ name: 'Dmitri <br class="br--tablet"/> Kolontaevskii' },
-			'Department of Communities and Justice',
-			'Sydney <br class="br--tablet"/>Suite 201/54, Neridah St., Chatswood <br class="br--tablet"/>NSW 2067'
-		);
-
-		projectItemCreate(
-			5,
-			{ iconPath: 'img/icons/icons.svg#on-hold', text: 'On Hold', color: 'cold' },
-			'Some Long Name of The Company Project',
-			{ name: 'Dmitri <br class="br--tablet"/> Kolontaevskii' },
-			'Department of Communities and Justice',
-			'Sydney <br class="br--tablet"/>Suite 201/54, Neridah St., Chatswood <br class="br--tablet"/>NSW 2067'
-		);
-
 		for (let i = 7; i < 15; i++) {
 			projectItemCreate(
 				i,
