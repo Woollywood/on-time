@@ -3320,7 +3320,7 @@
             userName: "Sergey Zadrutsky",
             messageDate: "Nov 3, 11:30 PM",
             messageBody: "Плюс удалить и закрыть кнопки"
-        } ], [], [], [], [], [], [], [], [], [], [], [], [], [] ];
+        } ], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [] ];
         function tippy_render(fileId) {
             const id = +fileId;
             if (files[id].length) return renderUsersCommentWrapper(files[id]); else return renderEmptyCommentWrapper();
@@ -6739,50 +6739,7 @@
             projectsInit();
             projectsFilesInit();
             function projectsInit() {
-                projectItemCreate(0, {
-                    iconPath: "img/icons/icons.svg#required",
-                    text: "Action Required",
-                    color: "green"
-                }, "Some Long Name of The Company Project", {
-                    name: 'Dmitri <br class="br--tablet"/> Kolontaevskii'
-                }, "Department of Communities and Justice", 'Sydney <br class="br--tablet"/>Suite 201/54, Neridah St., Chatswood <br class="br--tablet"/>NSW 2067');
-                projectItemCreate(1, {
-                    iconPath: "img/icons/icons.svg#invoiced",
-                    text: "Invoiced",
-                    color: "brown"
-                }, "Some Long Name of The Company Project", {
-                    avatarPath: "img/avatars/avatar-01.jpg",
-                    name: 'Sandra <br class="br--tablet"/> Wilson'
-                }, "Department of Communities and Justice", 'Sydney <br class="br--tablet"/>Suite 201/54, Neridah St., Chatswood <br class="br--tablet"/>NSW 2067');
-                projectItemCreate(2, {
-                    iconPath: "img/icons/icons.svg#active",
-                    text: "Active",
-                    color: "blue"
-                }, "Some Long Name of The Company Project", {
-                    name: 'Dmitri <br class="br--tablet"/> Kolontaevskii'
-                }, "Department of Communities and Justice", 'Sydney <br class="br--tablet"/>Suite 201/54, Neridah St., Chatswood <br class="br--tablet"/>NSW 2067');
-                projectItemCreate(3, {
-                    iconPath: "img/icons/icons.svg#cancelled",
-                    text: "Cancelled",
-                    color: "red"
-                }, "Some Long Name of The Company Project", {
-                    name: 'Dmitri <br class="br--tablet"/> Kolontaevskii'
-                }, "Department of Communities and Justice", 'Sydney <br class="br--tablet"/>Suite 201/54, Neridah St., Chatswood <br class="br--tablet"/>NSW 2067');
-                projectItemCreate(4, {
-                    iconPath: "img/icons/icons.svg#archived",
-                    text: "Archived",
-                    color: "pink"
-                }, "Some Long Name of The Company Project", {
-                    name: 'Dmitri <br class="br--tablet"/> Kolontaevskii'
-                }, "Department of Communities and Justice", 'Sydney <br class="br--tablet"/>Suite 201/54, Neridah St., Chatswood <br class="br--tablet"/>NSW 2067');
-                projectItemCreate(5, {
-                    iconPath: "img/icons/icons.svg#on-hold",
-                    text: "On Hold",
-                    color: "cold"
-                }, "Some Long Name of The Company Project", {
-                    name: 'Dmitri <br class="br--tablet"/> Kolontaevskii'
-                }, "Department of Communities and Justice", 'Sydney <br class="br--tablet"/>Suite 201/54, Neridah St., Chatswood <br class="br--tablet"/>NSW 2067');
-                for (let i = 7; i < 11; i++) projectItemCreate(i, {
+                for (let i = 7; i < 15; i++) projectItemCreate(i, {
                     iconPath: "img/icons/icons.svg#required",
                     text: "Action Required",
                     color: "brown"
@@ -6798,7 +6755,7 @@
                 console.log(event.detail.instance);
             }))));
             const dragZone = document.querySelector("[drag-zone]");
-            dragZone.addEventListener("dragenter", (event => {
+            dragZone?.addEventListener("dragenter", (event => {
                 event.preventDefault();
                 const relatedTarget = event.relatedTarget;
                 if (relatedTarget == null || !dragZone.contains(relatedTarget)) {
@@ -6806,7 +6763,7 @@
                     dragZone.classList.add("file-drop");
                 }
             }));
-            dragZone.addEventListener("dragleave", (event => {
+            dragZone?.addEventListener("dragleave", (event => {
                 event.preventDefault();
                 const relatedTarget = event.relatedTarget;
                 if (!dragZone.contains(relatedTarget)) {
@@ -6814,110 +6771,17 @@
                     dragZone.classList.remove("file-drop");
                 }
             }));
-            dragZone.addEventListener("drop", (event => {
+            dragZone?.addEventListener("drop", (event => {
                 event.preventDefault();
             }));
-            document.querySelector("[data-new-project-open]").addEventListener("click", (event => {
-                const wrapper = event.target.closest("[data-wrapper]");
-                wrapper.classList.add("new-project-drawer-open");
-            }));
-            document.querySelector("[data-new-project-close]").addEventListener("click", (event => {
-                const wrapper = event.target.closest("[data-wrapper]");
-                wrapper.classList.remove("new-project-drawer-open");
-            }));
         }));
-        window.addEventListener("load", (e => {
-            scrollInit();
-        }));
+        window.addEventListener("load", (e => {}));
         function getSaveProjectButtonHeight() {
-            const buttonWrapper = document.querySelector("[data-save-project]");
-            const offsetHeight = buttonWrapper.offsetHeight;
-            document.querySelectorAll("[data-project-tab]").forEach((tab => tab.style.cssText += `--button-height: ${offsetHeight}px`));
-        }
-        function scrollInit() {
-            const scrollBlocks = document.querySelectorAll("[scroll-block-wrapper]");
-            scrollBlocks.forEach((scrollBlock => {
-                if (scrollBlock.getAttribute("scroll-sync")) {
-                    const syncBlocks = scrollBlock.getAttribute("scroll-sync").split(",").map((string => string.trim())).map((selector => document.querySelector(selector)));
-                    scrollSyncInit(scrollBlock, syncBlocks);
-                }
-                layerScrollTemplateInit(scrollBlock);
-            }));
-        }
-        function scrollSyncInit(scrollBlock, syncBlocks) {
-            scrollBlock.addEventListener("layout-scroll", (scrollEvent => {
-                syncBlocks.forEach((block => moveBlockSync(block, scrollEvent.detail.scrollLeft, scrollEvent.detail.scrollTop)));
-            }));
-        }
-        function layerScrollTemplateInit(scrollBlockWrapper) {
-            const scrollBlock = scrollBlockWrapper.firstElementChild;
-            let leftStart = 0;
-            let leftEnd = 0;
-            let scrollX = 0;
-            let scrollableX = scrollBlock.offsetWidth - scrollBlockWrapper.offsetWidth;
-            let topStart = 0;
-            let topEnd = 0;
-            let scrollY = 0;
-            let scrollableY = scrollBlock.offsetHeight - scrollBlockWrapper.offsetHeight;
-            let drag = false;
-            const scrollEvent = new CustomEvent("layout-scroll", {
-                detail: {
-                    scrollLeft: 0,
-                    scrollTop: 0
-                }
-            });
-            window.addEventListener("resize", (resizeEvent => {
-                scrollableX = scrollBlock.offsetWidth - scrollBlockWrapper.offsetWidth;
-                scrollableY = scrollBlock.offsetHeight - scrollBlockWrapper.offsetHeight;
-            }));
-            function pointerDown(e) {
-                drag = true;
-                leftStart = e.pageX;
-                topStart = e.pageY;
-                e.target.setPointerCapture(e.pointerId);
+            if (document.querySelector("[data-save-project]")) {
+                const buttonWrapper = document.querySelector("[data-save-project]");
+                const offsetHeight = buttonWrapper.offsetHeight;
+                document.querySelectorAll("[data-project-tab]").forEach((tab => tab.style.cssText += `--button-height: ${offsetHeight}px`));
             }
-            function pointerMove(e) {
-                console.log("move");
-                if (drag) {
-                    let diffX = -(leftEnd + e.pageX - leftStart);
-                    if (diffX <= 0) scrollX = 0; else if (!(diffX > scrollableX)) scrollX = -diffX;
-                    let diffY = -(topEnd + e.pageY - topStart);
-                    if (diffY <= 0) scrollY = 0; else if (!(diffY > scrollableY)) scrollY = -diffY;
-                    scrollEvent.detail.scrollLeft = scrollX;
-                    scrollEvent.detail.scrollTop = scrollY;
-                    scrollBlockWrapper.dispatchEvent(scrollEvent);
-                    moveBlock(scrollBlock, scrollX, scrollY);
-                }
-            }
-            function pointerUp(e) {
-                drag = false;
-                leftEnd += e.pageX - leftStart;
-                if (leftEnd > 0) leftEnd = 0; else if (leftEnd <= -scrollableX) leftEnd = -scrollableX;
-                topEnd += e.pageY - topStart;
-                if (topEnd > 0) topEnd = 0; else if (topEnd <= -scrollableY) topEnd = -scrollableY;
-            }
-            scrollBlock.addEventListener("pointerup", pointerUp);
-            scrollBlock.addEventListener("pointermove", pointerMove);
-            scrollBlock.addEventListener("pointerdown", pointerDown);
-        }
-        function moveBlockSync(scrollBlockWrapper, scrollX, scrollY) {
-            const scrollBlock = scrollBlockWrapper.firstElementChild;
-            const scrollXAllowed = getAllowedXScroll(scrollBlock, scrollBlockWrapper, scrollX);
-            const scrollYAllowed = getAllowedYScroll(scrollBlock, scrollBlockWrapper, scrollY);
-            scrollBlock.style.cssText += `\n\t\t\ttransition-duration: 0ms;\n\t\t\ttransition-delay: 0ms;\n\t\t\ttransform: translate3d(${scrollXAllowed}px, ${scrollYAllowed}px, 0px);\n\t\t`;
-        }
-        function getAllowedXScroll(scrollBlock, scrollBlockWrapper, parentScrollValue) {
-            const scrollValue = scrollBlock.offsetWidth - scrollBlockWrapper.offsetWidth;
-            const scrollAllowed = Math.abs(parentScrollValue) > scrollValue ? parentScrollValue - (parentScrollValue + scrollValue) : parentScrollValue;
-            return scrollAllowed;
-        }
-        function getAllowedYScroll(scrollBlock, scrollBlockWrapper, parentScrollValue) {
-            const scrollValue = scrollBlock.offsetHeight - scrollBlockWrapper.offsetHeight;
-            const scrollAllowed = Math.abs(parentScrollValue) > scrollValue ? parentScrollValue - (parentScrollValue + scrollValue) : parentScrollValue;
-            return scrollAllowed;
-        }
-        function moveBlock(scrollBlock, scrollX, scrollY) {
-            scrollBlock.style.cssText += `\n\t\t\ttransition-duration: 0ms;\n\t\t\ttransition-delay: 0ms;\n\t\t\ttransform: translate3d(${scrollX}px, ${scrollY}px, 0px);\n\t\t`;
         }
         function layoutGapObserver() {
             const wrapper = document.querySelector("[data-wrapper]");
@@ -6927,13 +6791,13 @@
             const projectItem = document.createElement("div");
             projectItem.classList.add("project-item");
             projectItem.id = `project-item-${id}`;
-            projectItem.innerHTML = `\n\t\t<div class="project-item__inner">\n\t\t\t<div class="project-item__status">\n\t\t\t\t<div class="project-item__status-mobile-wrapper">\n\t\t\t\t\t<div class="project-item__status-icon color-${status.color}">\n\t\t\t\t\t\t<svg>\n\t\t\t\t\t\t\t<use xlink:href="${status.iconPath}"></use>\n\t\t\t\t\t\t</svg>\n\t\t\t\t\t</div>\n\t\t\t\t\t<span class="project-item__status-text color-${status.color}">${status.text}</span>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class="project-item__project" data-da="#project-item-${id} .project-item__center, 479.98">\n\t\t\t\t<div class="project-item__project-mobile-wrapper color-green"></div>\n\t\t\t\t<span data-da="#project-item-${id} .project-item__project-mobile-wrapper, 479.98">${project}</span>\n\t\t\t</div>\n\t\t\t<div class="project-item__supervisor">\n\t\t\t\t${supervisor.avatarPath === void 0 ? `<div class="project-item__supervisor-icon">\n\t\t\t\t\t\t\t\t<svg>\n\t\t\t\t\t\t\t\t\t<use xlink:href="img/icons/icons.svg#user"></use>\n\t\t\t\t\t\t\t\t</svg>\n\t\t\t\t\t\t\t</div>` : `<div class="project-item__supervisor-avatar">\n\t\t\t\t\t\t\t\t<img src="${supervisor.avatarPath}" alt="avatar" />\n\t\t\t\t\t\t\t</div>`}\n\t\t\t\t<div class="project-item__supervisor-name">${supervisor.name}</div>\n\t\t\t</div>\n\t\t\t<div\n\t\t\t\tclass="project-item__customer-name"\n\t\t\t\tdata-da="#project-item-${id} .project-item__status, 479.98">\n\t\t\t\t${customerName}\n\t\t\t</div>\n\t\t\t<div class="project-item__address" data-da="#project-item-${id} .project-item__center, 479.98, last">\n\t\t\t\t${address}\n\t\t\t</div>\n\t\t</div>\n\t\t<div class="project-item__center" data-da="#project-item-${id} .project-item__inner, 479.98, 1"></div>\n\t`;
+            projectItem.innerHTML = `\n\t\t<div class="project-item__inner">\n\t\t\t<div class="project-item__status">\n\t\t\t\t<div class="project-item__status-mobile-wrapper">\n\t\t\t\t\t<div class="project-item__status-icon color-${status.color}">\n\t\t\t\t\t\t<svg>\n\t\t\t\t\t\t\t<use xlink:href="${status.iconPath}"></use>\n\t\t\t\t\t\t</svg>\n\t\t\t\t\t</div>\n\t\t\t\t\t<span class="project-item__status-text color-${status.color}">${status.text}</span>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class="project-item__project" data-da="#project-item-${id} .project-item__center, 767.98">\n\t\t\t\t<div class="project-item__project-mobile-wrapper color-green"></div>\n\t\t\t\t<span data-da="#project-item-${id} .project-item__project-mobile-wrapper, 767.98">${project}</span>\n\t\t\t</div>\n\t\t\t<div class="project-item__supervisor">\n\t\t\t\t${supervisor.avatarPath === void 0 ? `<div class="project-item__supervisor-icon">\n\t\t\t\t\t\t\t\t<svg>\n\t\t\t\t\t\t\t\t\t<use xlink:href="img/icons/icons.svg#user"></use>\n\t\t\t\t\t\t\t\t</svg>\n\t\t\t\t\t\t\t</div>` : `<div class="project-item__supervisor-avatar">\n\t\t\t\t\t\t\t\t<img src="${supervisor.avatarPath}" alt="avatar" />\n\t\t\t\t\t\t\t</div>`}\n\t\t\t\t<div class="project-item__supervisor-name">${supervisor.name}</div>\n\t\t\t</div>\n\t\t\t<div\n\t\t\t\tclass="project-item__customer-name"\n\t\t\t\tdata-da="#project-item-${id} .project-item__status, 767.98">\n\t\t\t\t${customerName}\n\t\t\t</div>\n\t\t\t<div class="project-item__address" data-da="#project-item-${id} .project-item__center, 767.98, last">\n\t\t\t\t${address}\n\t\t\t</div>\n\t\t</div>\n\t\t<div class="project-item__center" data-da="#project-item-${id} .project-item__inner, 767.98, 1"></div>\n\t`;
             document.querySelector("[data-projects-content]")?.append(projectItem);
         }
         function projectsFilesInit() {
             projectFileLoadingCreate({
                 type: "normal",
-                id: 0,
+                id: 3,
                 fileName: "IMG_999999.JPG",
                 imagePath: "img/managers-files/image-01.jpg",
                 iconExtPath: "img/icons/icons.svg#x",
@@ -6943,7 +6807,7 @@
             });
             projectFileCreate({
                 type: "mime-type",
-                id: 1,
+                id: 4,
                 fileName: "FileNameShort",
                 iconExtPath: "img/icons/icons.svg#w",
                 description: "Aug 3, 8:00 AM, Sergey Zadrutsky",
@@ -6952,47 +6816,11 @@
             });
             projectFileCreate({
                 type: "normal",
-                id: 2,
-                fileName: "IMG_999_99_999999.JPG",
-                imagePath: "img/managers-files/image-01.jpg",
-                previewPath: "img/managers-files/slider-preview.jpg",
-                thumbPath: "img/managers-files/image-01.jpg",
-                iconExtPath: "img/icons/icons.svg#image",
-                description: "Aug 3, 8:00 AM, Sergey Zadrutsky",
-                descriptionCrossed: false,
-                dialogType: "empty"
-            });
-            projectFileCreate({
-                type: "normal",
-                id: 3,
-                fileName: "IMG_999_99_999999.JPG",
-                imagePath: "img/managers-files/image-01.jpg",
-                previewPath: "img/managers-files/slider-preview.jpg",
-                thumbPath: "img/managers-files/image-02.jpg",
-                iconExtPath: "img/icons/icons.svg#image",
-                description: "Aug 3, 8:00 AM, Sergey Zadrutsky",
-                descriptionCrossed: false,
-                dialogType: "empty"
-            });
-            projectFileCreate({
-                type: "normal",
-                id: 4,
-                fileName: "IMG_999_99_999999.JPG",
-                imagePath: "img/managers-files/image-01.jpg",
-                previewPath: "img/managers-files/slider-preview.jpg",
-                thumbPath: "img/managers-files/image-01.jpg",
-                iconExtPath: "img/icons/icons.svg#image",
-                description: "Aug 3, 8:00 AM, Sergey Zadrutsky",
-                descriptionCrossed: false,
-                dialogType: "empty"
-            });
-            projectFileCreate({
-                type: "normal",
                 id: 5,
                 fileName: "IMG_999_99_999999.JPG",
                 imagePath: "img/managers-files/image-01.jpg",
                 previewPath: "img/managers-files/slider-preview.jpg",
-                thumbPath: "img/managers-files/image-02.jpg",
+                thumbPath: "img/managers-files/image-01.jpg",
                 iconExtPath: "img/icons/icons.svg#image",
                 description: "Aug 3, 8:00 AM, Sergey Zadrutsky",
                 descriptionCrossed: false,
@@ -7004,7 +6832,7 @@
                 fileName: "IMG_999_99_999999.JPG",
                 imagePath: "img/managers-files/image-01.jpg",
                 previewPath: "img/managers-files/slider-preview.jpg",
-                thumbPath: "img/managers-files/image-01.jpg",
+                thumbPath: "img/managers-files/image-02.jpg",
                 iconExtPath: "img/icons/icons.svg#image",
                 description: "Aug 3, 8:00 AM, Sergey Zadrutsky",
                 descriptionCrossed: false,
@@ -7016,7 +6844,7 @@
                 fileName: "IMG_999_99_999999.JPG",
                 imagePath: "img/managers-files/image-01.jpg",
                 previewPath: "img/managers-files/slider-preview.jpg",
-                thumbPath: "img/managers-files/image-02.jpg",
+                thumbPath: "img/managers-files/image-01.jpg",
                 iconExtPath: "img/icons/icons.svg#image",
                 description: "Aug 3, 8:00 AM, Sergey Zadrutsky",
                 descriptionCrossed: false,
@@ -7028,6 +6856,18 @@
                 fileName: "IMG_999_99_999999.JPG",
                 imagePath: "img/managers-files/image-01.jpg",
                 previewPath: "img/managers-files/slider-preview.jpg",
+                thumbPath: "img/managers-files/image-02.jpg",
+                iconExtPath: "img/icons/icons.svg#image",
+                description: "Aug 3, 8:00 AM, Sergey Zadrutsky",
+                descriptionCrossed: false,
+                dialogType: "empty"
+            });
+            projectFileCreate({
+                type: "normal",
+                id: 9,
+                fileName: "IMG_999_99_999999.JPG",
+                imagePath: "img/managers-files/image-01.jpg",
+                previewPath: "img/managers-files/slider-preview.jpg",
                 thumbPath: "img/managers-files/image-01.jpg",
                 iconExtPath: "img/icons/icons.svg#image",
                 description: "Aug 3, 8:00 AM, Sergey Zadrutsky",
@@ -7035,30 +6875,27 @@
                 dialogType: "empty"
             });
             projectFileCreate({
-                type: "mime-type",
-                id: 9,
-                fileName: "FileNameLong_with2_rows_with_with2_rows_with_with2_rows... end_of.pdf",
-                iconExtPath: "img/icons/icons.svg#pdf",
-                description: "Aug 3, 8:00 AM, Sergey Zadrutsky",
-                descriptionCrossed: true,
-                dialogType: "empty"
-            });
-            projectFileCreate({
-                type: "mime-type",
+                type: "normal",
                 id: 10,
-                fileName: "FileNameLong_with2_rows_with_with2_rows_with_with2_rows... end_of.pdf",
-                iconExtPath: "img/icons/icons.svg#pdf",
+                fileName: "IMG_999_99_999999.JPG",
+                imagePath: "img/managers-files/image-01.jpg",
+                previewPath: "img/managers-files/slider-preview.jpg",
+                thumbPath: "img/managers-files/image-02.jpg",
+                iconExtPath: "img/icons/icons.svg#image",
                 description: "Aug 3, 8:00 AM, Sergey Zadrutsky",
-                descriptionCrossed: true,
+                descriptionCrossed: false,
                 dialogType: "empty"
             });
             projectFileCreate({
-                type: "mime-type",
+                type: "normal",
                 id: 11,
-                fileName: "FileNameLong_with2_rows_with_with2_rows_with_with2_rows... end_of.pdf",
-                iconExtPath: "img/icons/icons.svg#pdf",
+                fileName: "IMG_999_99_999999.JPG",
+                imagePath: "img/managers-files/image-01.jpg",
+                previewPath: "img/managers-files/slider-preview.jpg",
+                thumbPath: "img/managers-files/image-01.jpg",
+                iconExtPath: "img/icons/icons.svg#image",
                 description: "Aug 3, 8:00 AM, Sergey Zadrutsky",
-                descriptionCrossed: true,
+                descriptionCrossed: false,
                 dialogType: "empty"
             });
             projectFileCreate({
@@ -7106,9 +6943,35 @@
                 descriptionCrossed: true,
                 dialogType: "empty"
             });
+            projectFileCreate({
+                type: "mime-type",
+                id: 17,
+                fileName: "FileNameLong_with2_rows_with_with2_rows_with_with2_rows... end_of.pdf",
+                iconExtPath: "img/icons/icons.svg#pdf",
+                description: "Aug 3, 8:00 AM, Sergey Zadrutsky",
+                descriptionCrossed: true,
+                dialogType: "empty"
+            });
+            projectFileCreate({
+                type: "mime-type",
+                id: 18,
+                fileName: "FileNameLong_with2_rows_with_with2_rows_with_with2_rows... end_of.pdf",
+                iconExtPath: "img/icons/icons.svg#pdf",
+                description: "Aug 3, 8:00 AM, Sergey Zadrutsky",
+                descriptionCrossed: true,
+                dialogType: "empty"
+            });
+            projectFileCreate({
+                type: "mime-type",
+                id: 19,
+                fileName: "FileNameLong_with2_rows_with_with2_rows_with_with2_rows... end_of.pdf",
+                iconExtPath: "img/icons/icons.svg#pdf",
+                description: "Aug 3, 8:00 AM, Sergey Zadrutsky",
+                descriptionCrossed: true,
+                dialogType: "empty"
+            });
         }
         function projectFileLoadingCreate({type, ...other}) {
-            console.log("project file create");
             switch (type) {
               case "normal":
                 projectFileLoadingNormalCreateGrid(other);

@@ -20,21 +20,21 @@
 	<link rel="canonical" href="https://preview.keenthemes.com/metronic8" />
 	<link rel="shortcut icon" href="./files/favicon.ico" />
 	<!--begin::Fonts(mandatory for all pages)-->
-	<link rel="stylesheet" href="./files/css?_v=20231108214451" />
+	<link rel="stylesheet" href="./files/css?_v=20231110081810" />
 	<!--end::Fonts-->
 	<!--begin::Vendor Stylesheets(used for this page only)-->
-	<link href="./files/datatables.bundle.css?_v=20231108214451" rel="stylesheet" type="text/css" />
+	<link href="./files/datatables.bundle.css?_v=20231110081810" rel="stylesheet" type="text/css" />
 	<!--end::Vendor Stylesheets-->
 	<!--begin::Global Stylesheets Bundle(mandatory for all pages)-->
-	<link href="./files/plugins.bundle.css?_v=20231108214451" rel="stylesheet" type="text/css" />
-	<link href="./files/style.bundle.css?_v=20231108214451" rel="stylesheet" type="text/css" />
+	<link href="./files/plugins.bundle.css?_v=20231110081810" rel="stylesheet" type="text/css" />
+	<link href="./files/style.bundle.css?_v=20231110081810" rel="stylesheet" type="text/css" />
 
 	<head>
 		<title>HomePage</title>
 		<meta charset="UTF-8" />
 		<meta name="format-detection" content="telephone=no" />
 		<!-- <style>body{opacity: 0;}</style> -->
-		<link rel="stylesheet" href="css/style.min.css?_v=20231108214451" />
+		<link rel="stylesheet" href="css/style.min.css?_v=20231110081810" />
 		<link rel="shortcut icon" href="favicon.ico" />
 		<!-- <meta name="robots" content="noindex, nofollow"> -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -2287,11 +2287,11 @@
 										</div>
 									</div>
 								</div>
-								<button class="layout__button button" type="button" data-new-project-open>New Project</button>
+								<button class="layout__button button" type="button">New Project</button>
 							</div>
 							<div class="layout-wrapper__projects projects-layout">
 								<div class="projects-layout__inner">
-									<div class="projects-layout__title-body-wrapper scroll-block-wrapper">
+									<div class="projects-layout__title-body-wrapper">
 										<div class="projects-layout__title-body">
 											<div class="projects-layout__title-item">Status</div>
 											<div class="projects-layout__title-item">Project</div>
@@ -2300,658 +2300,257 @@
 											<div class="projects-layout__title-item">Address</div>
 										</div>
 									</div>
-									<div class="projects-layout__content-body-wrapper scroll-block-wrapper" scroll-block-wrapper scroll-sync=".projects-layout__title-body-wrapper" onmousedown="return false">
-										<div class="projects-layout__content-body" data-projects-content></div>
-									</div>
-								</div>
-								<div class="projects-layout__pagination pagination">
-									<button class="pagination__arrow pagination__arrow--left">
-										<svg>
-											<use xlink:href="img/icons/icons.svg#arrow"></use>
-										</svg>
-									</button>
-									<div class="pagination__buttons">
-										<button class="pagination__button">1</button>
-										<button class="pagination__button active">2</button>
-										<button class="pagination__button">3</button>
-										<button class="pagination__button">...</button>
-										<button class="pagination__button">23</button>
-										<button class="pagination__button">24</button>
-									</div>
-									<button class="pagination__arrow pagination__arrow--right">
-										<svg>
-											<use xlink:href="img/icons/icons.svg#arrow"></use>
-										</svg>
-									</button>
-								</div>
-							</div>
-						</div>
-						<div class="new-project-drawer" drag-zone>
-							<div class="new-project-drawer__body">
-								<header class="new-project-drawer__header">
-									<div class="new-project-drawer__header-container layout-container">
-										<div class="new-project-drawer__title-wrapper">
-											<button class="new-project-drawer__back" data-new-project-close>
-												<svg>
-													<use xlink:href="img/icons/icons.svg#arrow-back"></use>
-												</svg>
-											</button>
-											<h2 class="new-project-drawer__title">New Project</h2>
-										</div>
-									</div>
-								</header>
-								<main class="new-project-drawer__content-body">
-									<div data-tabs class="new-project-drawer__tabs new-project-tabs">
-										<nav class="new-project-tabs__navigation">
-											<div class="new-project-tabs__navigation-container layout-container">
-												<div class="new-project-tabs__navigation-body" data-tabs-titles>
-													<button class="new-project-tabs__title _tab-active" type="button">
-														Project Info
-													</button>
-													<button class="new-project-tabs__title" type="button">Project Files</button>
-													<button class="new-project-tabs__title" type="button">Managers Files</button>
-													<button class="new-project-tabs__title" type="button">Tasks</button>
-												</div>
-											</div>
-										</nav>
-										<div class="new-project-tabs__content" data-tabs-body>
-											<div class="new-project-tabs__body new-project-tab">
-												<div class="new-project-tab__container layout-container" data-project-tab>
-													<div class="new-project-tab__body new-project-tab__body--project-info">
-														<div class="project-info">
-															<div class="project-info__body">
-																<div class="project-info__row">
-																	<div class="project-info__col">
-																		<form class="project-info__form form-info">
-																			<div class="form-info__body">
-																				<h3 class="form-info__title">Info</h3>
-																				<div class="form-info__body-inner">
-																					<div class="form-info__field">
-																						<div class="form-info__field-name">
-																							Job Number
-																						</div>
-																						<div class="form-info__field-input-wrapper form-info__field-input-wrapper--number input-wrapper">
-																							<input class="form-info__field-input input" type="text" />
-																						</div>
-																					</div>
-																					<div class="form-info__field">
-																						<div class="form-info__field-name">Status</div>
-																						<div class="form-info__field-input-wrapper">
-																							<div class="select select--adapt select--adapt-desktop select--empty">
-																								<div class="select__title">
-																									<div class="select__placeholder-wrapper">
-																										<span class="select__placeholder">Status</span>
-																										<svg>
-																											<use xlink:href="img/icons/icons.svg#arrow-down"></use>
-																										</svg>
-																									</div>
-																								</div>
-																								<div class="select__options">
-																									<div class="option-select__items">
-																										<div class="select__option option-select">
-																											<div class="options__item options__item--adapt">
-																												<input class="options__input" id="controll-status-1" type="radio" value="1" checked name="controll-time" />
-																												<label class="options__label" for="controll-status-1">
-																													<span class="options__text">Any</span>
-																													<svg>
-																														<use xlink:href="img/icons/icons.svg#tick"></use>
-																													</svg>
-																												</label>
-																											</div>
-																										</div>
-																										<div class="select__option option-select">
-																											<div class="options__item options__item--adapt">
-																												<input class="options__input" id="controll-status-2" type="radio" value="2" name="controll-time" />
-																												<label class="options__label" for="controll-status-2">
-																													<span class="options__text-wrapper">
-																														<svg class="color-brown">
-																															<use xlink:href="img/icons/icons.svg#invoiced"></use>
-																														</svg>
-																														<span class="options__text color-brown">Invoiced</span>
-																													</span>
-																													<svg>
-																														<use xlink:href="img/icons/icons.svg#tick"></use>
-																													</svg>
-																												</label>
-																											</div>
-																										</div>
-																										<div class="select__option option-select">
-																											<div class="options__item options__item--adapt">
-																												<input class="options__input" id="controll-status-3" type="radio" value="2" name="controll-time" />
-																												<label class="options__label" for="controll-status-3">
-																													<span class="options__text-wrapper">
-																														<svg class="color-green">
-																															<use xlink:href="img/icons/icons.svg#required"></use>
-																														</svg>
-																														<span class="options__text color-green">Action
-																															Required</span>
-																													</span>
-																													<svg>
-																														<use xlink:href="img/icons/icons.svg#tick"></use>
-																													</svg>
-																												</label>
-																											</div>
-																										</div>
-																										<div class="select__option option-select">
-																											<div class="options__item options__item--adapt">
-																												<input class="options__input" id="controll-status-4" type="radio" value="2" name="controll-time" />
-																												<label class="options__label" for="controll-status-4">
-																													<span class="options__text-wrapper">
-																														<svg class="color-blue">
-																															<use xlink:href="img/icons/icons.svg#active"></use>
-																														</svg>
-																														<span class="options__text color-blue">Active</span>
-																													</span>
-																													<svg>
-																														<use xlink:href="img/icons/icons.svg#tick"></use>
-																													</svg>
-																												</label>
-																											</div>
-																										</div>
-																										<div class="select__option option-select">
-																											<div class="options__item options__item--adapt">
-																												<input class="options__input" id="controll-status-5" type="radio" value="2" name="controll-time" />
-																												<label class="options__label" for="controll-status-5">
-																													<span class="options__text-wrapper">
-																														<svg class="color-red">
-																															<use xlink:href="img/icons/icons.svg#cancelled"></use>
-																														</svg>
-																														<span class="options__text color-red">Cancelled</span>
-																													</span>
-																													<svg>
-																														<use xlink:href="img/icons/icons.svg#tick"></use>
-																													</svg>
-																												</label>
-																											</div>
-																										</div>
-																										<div class="select__option option-select">
-																											<div class="options__item options__item--adapt">
-																												<input class="options__input" id="controll-status-6" type="radio" value="2" name="controll-time" />
-																												<label class="options__label" for="controll-status-6">
-																													<span class="options__text-wrapper">
-																														<svg class="color-pink">
-																															<use xlink:href="img/icons/icons.svg#archived"></use>
-																														</svg>
-																														<span class="options__text color-pink">Archived</span>
-																													</span>
-																													<svg>
-																														<use xlink:href="img/icons/icons.svg#tick"></use>
-																													</svg>
-																												</label>
-																											</div>
-																										</div>
-																										<div class="select__option option-select">
-																											<div class="options__item options__item--adapt">
-																												<input class="options__input" id="controll-status-7" type="radio" value="2" name="controll-time" />
-																												<label class="options__label" for="controll-status-7">
-																													<span class="options__text-wrapper">
-																														<svg class="color-cold">
-																															<use xlink:href="img/icons/icons.svg#on-hold"></use>
-																														</svg>
-																														<span class="options__text color-cold">On
-																															Hold</span>
-																													</span>
-																													<svg>
-																														<use xlink:href="img/icons/icons.svg#tick"></use>
-																													</svg>
-																												</label>
-																											</div>
-																										</div>
-																										<div class="select__option option-select">
-																											<div class="options__item options__item--adapt">
-																												<input class="options__input" id="controll-status-8" type="radio" value="2" name="controll-time" />
-																												<label class="options__label" for="controll-status-8">
-																													<span class="options__text-wrapper">
-																														<svg class="color-grey">
-																															<use xlink:href="img/icons/icons.svg#request"></use>
-																														</svg>
-																														<span class="options__text color-grey">Request</span>
-																													</span>
-																													<svg>
-																														<use xlink:href="img/icons/icons.svg#tick"></use>
-																													</svg>
-																												</label>
-																											</div>
-																										</div>
-																										<div class="select__option option-select">
-																											<div class="options__item options__item--adapt">
-																												<input class="options__input" id="controll-status-9" type="radio" value="2" name="controll-time" />
-																												<label class="options__label" for="controll-status-9">
-																													<span class="options__text-wrapper">
-																														<svg class="color-grey">
-																															<use xlink:href="img/icons/icons.svg#report"></use>
-																														</svg>
-																														<span class="options__text color-grey">InvoiReportced</span>
-																													</span>
-																													<svg>
-																														<use xlink:href="img/icons/icons.svg#tick"></use>
-																													</svg>
-																												</label>
-																											</div>
-																										</div>
-																										<div class="select__option option-select">
-																											<div class="options__item options__item--adapt">
-																												<input class="options__input" id="controll-status-10" type="radio" value="2" name="controll-time" />
-																												<label class="options__label" for="controll-status-10">
-																													<span class="options__text-wrapper">
-																														<svg class="color-grey">
-																															<use xlink:href="img/icons/icons.svg#quote"></use>
-																														</svg>
-																														<span class="options__text color-grey">Quote</span>
-																													</span>
-																													<svg>
-																														<use xlink:href="img/icons/icons.svg#tick"></use>
-																													</svg>
-																												</label>
-																											</div>
-																										</div>
-																										<div class="select__option option-select">
-																											<div class="options__item options__item--adapt">
-																												<input class="options__input" id="controll-status-11" type="radio" value="2" name="controll-time" />
-																												<label class="options__label" for="controll-status-11">
-																													<span class="options__text-wrapper">
-																														<svg class="color-grey">
-																															<use xlink:href="img/icons/icons.svg#variation"></use>
-																														</svg>
-																														<span class="options__text color-grey">Variation</span>
-																													</span>
-																													<svg>
-																														<use xlink:href="img/icons/icons.svg#tick"></use>
-																													</svg>
-																												</label>
-																											</div>
-																										</div>
-																										<div class="select__option option-select">
-																											<div class="options__item options__item--adapt">
-																												<input class="options__input" id="controll-status-12" type="radio" value="2" name="controll-time" />
-																												<label class="options__label" for="controll-status-12">
-																													<span class="options__text-wrapper">
-																														<svg class="color-grey">
-																															<use xlink:href="img/icons/icons.svg#secure"></use>
-																														</svg>
-																														<span class="options__text color-grey">Secure</span>
-																													</span>
-																													<svg>
-																														<use xlink:href="img/icons/icons.svg#tick"></use>
-																													</svg>
-																												</label>
-																											</div>
-																										</div>
-																									</div>
-																								</div>
-																							</div>
-																						</div>
-																					</div>
-																					<div class="form-info__field">
-																						<div class="form-info__field-name">
-																							Supervisor
-																						</div>
-																						<div class="form-info__field-input-wrapper">
-																							<div class="select select--adapt select--adapt-desktop select--empty">
-																								<div class="select__title">
-																									<div class="select__placeholder-wrapper">
-																										<span class="select__placeholder">Status</span>
-																										<svg>
-																											<use xlink:href="img/icons/icons.svg#arrow-down"></use>
-																										</svg>
-																									</div>
-																								</div>
-																								<div class="select__options">
-																									<div class="option-select__items">
-																										<div class="select__option option-select">
-																											<div class="options__item options__item--adapt">
-																												<input class="options__input" id="controll-status-1" type="radio" value="1" checked name="controll-time" />
-																												<label class="options__label" for="controll-status-1">
-																													<span class="options__text">Any</span>
-																													<svg>
-																														<use xlink:href="img/icons/icons.svg#tick"></use>
-																													</svg>
-																												</label>
-																											</div>
-																										</div>
-																										<div class="select__option option-select">
-																											<div class="options__item options__item--adapt">
-																												<input class="options__input" id="controll-status-2" type="radio" value="2" name="controll-time" />
-																												<label class="options__label" for="controll-status-2">
-																													<span class="options__text-wrapper">
-																														<svg class="color-brown">
-																															<use xlink:href="img/icons/icons.svg#invoiced"></use>
-																														</svg>
-																														<span class="options__text color-brown">Invoiced</span>
-																													</span>
-																													<svg>
-																														<use xlink:href="img/icons/icons.svg#tick"></use>
-																													</svg>
-																												</label>
-																											</div>
-																										</div>
-																										<div class="select__option option-select">
-																											<div class="options__item options__item--adapt">
-																												<input class="options__input" id="controll-status-3" type="radio" value="2" name="controll-time" />
-																												<label class="options__label" for="controll-status-3">
-																													<span class="options__text-wrapper">
-																														<svg class="color-green">
-																															<use xlink:href="img/icons/icons.svg#required"></use>
-																														</svg>
-																														<span class="options__text color-green">Action
-																															Required</span>
-																													</span>
-																													<svg>
-																														<use xlink:href="img/icons/icons.svg#tick"></use>
-																													</svg>
-																												</label>
-																											</div>
-																										</div>
-																										<div class="select__option option-select">
-																											<div class="options__item options__item--adapt">
-																												<input class="options__input" id="controll-status-4" type="radio" value="2" name="controll-time" />
-																												<label class="options__label" for="controll-status-4">
-																													<span class="options__text-wrapper">
-																														<svg class="color-blue">
-																															<use xlink:href="img/icons/icons.svg#active"></use>
-																														</svg>
-																														<span class="options__text color-blue">Active</span>
-																													</span>
-																													<svg>
-																														<use xlink:href="img/icons/icons.svg#tick"></use>
-																													</svg>
-																												</label>
-																											</div>
-																										</div>
-																										<div class="select__option option-select">
-																											<div class="options__item options__item--adapt">
-																												<input class="options__input" id="controll-status-5" type="radio" value="2" name="controll-time" />
-																												<label class="options__label" for="controll-status-5">
-																													<span class="options__text-wrapper">
-																														<svg class="color-red">
-																															<use xlink:href="img/icons/icons.svg#cancelled"></use>
-																														</svg>
-																														<span class="options__text color-red">Cancelled</span>
-																													</span>
-																													<svg>
-																														<use xlink:href="img/icons/icons.svg#tick"></use>
-																													</svg>
-																												</label>
-																											</div>
-																										</div>
-																										<div class="select__option option-select">
-																											<div class="options__item options__item--adapt">
-																												<input class="options__input" id="controll-status-6" type="radio" value="2" name="controll-time" />
-																												<label class="options__label" for="controll-status-6">
-																													<span class="options__text-wrapper">
-																														<svg class="color-pink">
-																															<use xlink:href="img/icons/icons.svg#archived"></use>
-																														</svg>
-																														<span class="options__text color-pink">Archived</span>
-																													</span>
-																													<svg>
-																														<use xlink:href="img/icons/icons.svg#tick"></use>
-																													</svg>
-																												</label>
-																											</div>
-																										</div>
-																										<div class="select__option option-select">
-																											<div class="options__item options__item--adapt">
-																												<input class="options__input" id="controll-status-7" type="radio" value="2" name="controll-time" />
-																												<label class="options__label" for="controll-status-7">
-																													<span class="options__text-wrapper">
-																														<svg class="color-cold">
-																															<use xlink:href="img/icons/icons.svg#on-hold"></use>
-																														</svg>
-																														<span class="options__text color-cold">On
-																															Hold</span>
-																													</span>
-																													<svg>
-																														<use xlink:href="img/icons/icons.svg#tick"></use>
-																													</svg>
-																												</label>
-																											</div>
-																										</div>
-																										<div class="select__option option-select">
-																											<div class="options__item options__item--adapt">
-																												<input class="options__input" id="controll-status-8" type="radio" value="2" name="controll-time" />
-																												<label class="options__label" for="controll-status-8">
-																													<span class="options__text-wrapper">
-																														<svg class="color-grey">
-																															<use xlink:href="img/icons/icons.svg#request"></use>
-																														</svg>
-																														<span class="options__text color-grey">Request</span>
-																													</span>
-																													<svg>
-																														<use xlink:href="img/icons/icons.svg#tick"></use>
-																													</svg>
-																												</label>
-																											</div>
-																										</div>
-																										<div class="select__option option-select">
-																											<div class="options__item options__item--adapt">
-																												<input class="options__input" id="controll-status-9" type="radio" value="2" name="controll-time" />
-																												<label class="options__label" for="controll-status-9">
-																													<span class="options__text-wrapper">
-																														<svg class="color-grey">
-																															<use xlink:href="img/icons/icons.svg#report"></use>
-																														</svg>
-																														<span class="options__text color-grey">InvoiReportced</span>
-																													</span>
-																													<svg>
-																														<use xlink:href="img/icons/icons.svg#tick"></use>
-																													</svg>
-																												</label>
-																											</div>
-																										</div>
-																										<div class="select__option option-select">
-																											<div class="options__item options__item--adapt">
-																												<input class="options__input" id="controll-status-10" type="radio" value="2" name="controll-time" />
-																												<label class="options__label" for="controll-status-10">
-																													<span class="options__text-wrapper">
-																														<svg class="color-grey">
-																															<use xlink:href="img/icons/icons.svg#quote"></use>
-																														</svg>
-																														<span class="options__text color-grey">Quote</span>
-																													</span>
-																													<svg>
-																														<use xlink:href="img/icons/icons.svg#tick"></use>
-																													</svg>
-																												</label>
-																											</div>
-																										</div>
-																										<div class="select__option option-select">
-																											<div class="options__item options__item--adapt">
-																												<input class="options__input" id="controll-status-11" type="radio" value="2" name="controll-time" />
-																												<label class="options__label" for="controll-status-11">
-																													<span class="options__text-wrapper">
-																														<svg class="color-grey">
-																															<use xlink:href="img/icons/icons.svg#variation"></use>
-																														</svg>
-																														<span class="options__text color-grey">Variation</span>
-																													</span>
-																													<svg>
-																														<use xlink:href="img/icons/icons.svg#tick"></use>
-																													</svg>
-																												</label>
-																											</div>
-																										</div>
-																										<div class="select__option option-select">
-																											<div class="options__item options__item--adapt">
-																												<input class="options__input" id="controll-status-12" type="radio" value="2" name="controll-time" />
-																												<label class="options__label" for="controll-status-12">
-																													<span class="options__text-wrapper">
-																														<svg class="color-grey">
-																															<use xlink:href="img/icons/icons.svg#secure"></use>
-																														</svg>
-																														<span class="options__text color-grey">Secure</span>
-																													</span>
-																													<svg>
-																														<use xlink:href="img/icons/icons.svg#tick"></use>
-																													</svg>
-																												</label>
-																											</div>
-																										</div>
-																									</div>
-																								</div>
-																							</div>
-																						</div>
-																					</div>
-																				</div>
-																			</div>
-																		</form>
-																		<form class="project-info__form form-info">
-																			<div class="form-info__body">
-																				<h3 class="form-info__title">Address</h3>
-																				<div class="form-info__body-inner">
-																					<div class="form-info__field">
-																						<div class="form-info__field-name">
-																							Suite/Level/Apt
-																						</div>
-																						<div class="form-info__field-input-wrapper input-wrapper">
-																							<input class="form-info__field-input input" type="text" />
-																						</div>
-																					</div>
-																					<div class="form-info__field">
-																						<div class="form-info__field-name">Street</div>
-																						<div class="form-info__field-input-wrapper input-wrapper">
-																							<input class="form-info__field-input input" type="text" />
-																						</div>
-																					</div>
-																					<div class="form-info__field">
-																						<div class="form-info__field-name">
-																							Post Code
-																						</div>
-																						<div class="form-info__field-input-wrapper input-wrapper">
-																							<input class="form-info__field-input input" type="text" />
-																						</div>
-																					</div>
-																					<div class="form-info__field">
-																						<div class="form-info__field-name">Suburb</div>
-																						<div class="form-info__field-input-wrapper input-wrapper">
-																							<input class="form-info__field-input input" type="text" />
-																						</div>
-																					</div>
-																					<div class="form-info__field">
-																						<div class="form-info__field-name">State</div>
-																						<div class="form-info__field-input-wrapper input-wrapper">
-																							<input class="form-info__field-input input" type="text" />
-																						</div>
-																					</div>
-																					<div class="form-info__field">
-																						<div class="form-info__field-name">State</div>
-																						<div class="form-info__field-input-wrapper input-wrapper">
-																							<input class="form-info__field-input input" type="text" />
-																						</div>
-																					</div>
-																					<div class="form-info__field">
-																						<div class="form-info__field-name">State</div>
-																						<div class="form-info__field-input-wrapper input-wrapper">
-																							<input class="form-info__field-input input" type="text" />
-																						</div>
-																					</div>
-																				</div>
-																			</div>
-																		</form>
-																	</div>
-																	<div class="project-info__col">
-																		<form class="project-info__form form-info">
-																			<div class="form-info__body">
-																				<h3 class="form-info__title">Address</h3>
-																				<div class="form-info__body-inner">
-																					<div class="form-info__field">
-																						<div class="form-info__field-name">
-																							Suite/Level/Apt
-																						</div>
-																						<div class="form-info__field-input-wrapper input-wrapper">
-																							<input class="form-info__field-input input" type="text" />
-																						</div>
-																					</div>
-																					<div class="form-info__field">
-																						<div class="form-info__field-name">Street</div>
-																						<div class="form-info__field-input-wrapper input-wrapper">
-																							<input class="form-info__field-input input" type="text" />
-																						</div>
-																					</div>
-																					<div class="form-info__field">
-																						<div class="form-info__field-name">
-																							Post Code
-																						</div>
-																						<div class="form-info__field-input-wrapper input-wrapper">
-																							<input class="form-info__field-input input" type="text" />
-																						</div>
-																					</div>
-																					<div class="form-info__field">
-																						<div class="form-info__field-name">Suburb</div>
-																						<div class="form-info__field-input-wrapper input-wrapper">
-																							<input class="form-info__field-input input" type="text" />
-																						</div>
-																					</div>
-																					<div class="form-info__field">
-																						<div class="form-info__field-name">State</div>
-																						<div class="form-info__field-input-wrapper input-wrapper">
-																							<input class="form-info__field-input input" type="text" />
-																						</div>
-																					</div>
-																				</div>
-																			</div>
-																		</form>
-																	</div>
-																</div>
+									<div class="projects-layout__content-body-wrapper">
+										<div class="projects-layout__content-body" data-projects-content>
+											<div class="project-item" id="project-item-0">
+												<div class="project-item__inner">
+													<div class="project-item__status">
+														<div class="project-item__status-mobile-wrapper">
+															<div class="project-item__status-icon color-green">
+																<svg>
+																	<use xlink:href="img/icons/icons.svg#required"></use>
+																</svg>
 															</div>
+															<span class="project-item__status-text color-green">Action Required</span>
 														</div>
 													</div>
-												</div>
-											</div>
-											<div class="new-project-tabs__body new-project-tab">
-												<div class="new-project-tab__container layout-container" data-project-tab>
-													<div class="new-project-tab__body"></div>
-												</div>
-											</div>
-											<div class="new-project-tabs__body new-project-tab">
-												<div class="new-project-tab__container layout-container" data-project-tab>
-													<div class="new-project-tab__body new-project-tab__body--managers-files">
-														<div class="managers-files">
-															<div class="managers-files__body" data-tabs>
-																<header class="managers-files__header">
-																	<div class="managers-files__header-search-wrapper input-wrapper">
-																		<input class="managers-files__search-input input" type="text" placeholder="Quick Search" />
-																	</div>
-																	<div class="managers-files__grid-type" data-tabs-titles>
-																		<button type="button" class="managers-files__grid-title _tab-active">
-																			List
-																		</button>
-																		<button type="button" class="managers-files__grid-title">
-																			Grid
-																		</button>
-																	</div>
-																	<label class="managers-files__file-input input">
-																		<span class="managers-files__file-input-text">Choose Files...</span>
-																		<input type="file" placeholder="Choose Files..." />
-																	</label>
-																</header>
-																<div class="managers-files__content" data-tabs-body>
-																	<div class="managers-files__tab">
-																		<div class="managers-files__tab-body managers-files__tab-body--list"></div>
-																	</div>
-																	<div class="managers-files__tab managers-files__tab--grid"></div>
-																</div>
-															</div>
+													<div class="project-item__project" data-da="#project-item-0 .project-item__center, 767.98">
+														<div class="project-item__project-mobile-wrapper color-green"></div>
+														<span data-da="#project-item-0 .project-item__project-mobile-wrapper, 767.98">Some Long Name of The Company Project</span>
+													</div>
+													<div class="project-item__supervisor">
+														<div class="project-item__supervisor-icon">
+															<svg>
+																<use xlink:href="img/icons/icons.svg#user"></use>
+															</svg>
+														</div>
+														<div class="project-item__supervisor-name">
+															Dmitri <br class="br--tablet" />
+															Kolontaevskii
 														</div>
 													</div>
+													<div class="project-item__customer-name" data-da="#project-item-0 .project-item__status, 767.98">
+														Department of Communities and Justice
+													</div>
+													<div class="project-item__address" data-da="#project-item-0 .project-item__center, 767.98, last">
+														Sydney <br />
+														Suite 201/54, Neridah St., <br />
+														Chatswood NSW 2067
+													</div>
+												</div>
+												<div class="project-item__center" data-da="#project-item-0 .project-item__inner, 767.98, 1"></div>
+											</div>
+											<div class="project-item" id="project-item-1">
+												<div class="project-item__inner">
+													<div class="project-item__status">
+														<div class="project-item__status-mobile-wrapper">
+															<div class="project-item__status-icon color-brown">
+																<svg>
+																	<use xlink:href="img/icons/icons.svg#invoiced"></use>
+																</svg>
+															</div>
+															<span class="project-item__status-text color-brown">Invoiced</span>
+														</div>
+													</div>
+													<div class="project-item__project" data-da="#project-item-1 .project-item__center, 767.98">
+														<div class="project-item__project-mobile-wrapper color-green"></div>
+														<span data-da="#project-item-1 .project-item__project-mobile-wrapper, 767.98">Some Long Name of The Company Project</span>
+													</div>
+													<div class="project-item__supervisor">
+														<div class="project-item__supervisor-avatar">
+															<picture><source srcset="img/avatars/avatar-01.webp" type="image/webp"><img src="img/avatars/avatar-01.jpg" alt="avatar" /></picture>
+														</div>
+														<div class="project-item__supervisor-name">
+															Sandra <br class="br--tablet" />
+															Wilson
+														</div>
+													</div>
+													<div class="project-item__customer-name" data-da="#project-item-1 .project-item__status, 767.98">
+														Department of Communities and Justice
+													</div>
+													<div class="project-item__address" data-da="#project-item-1 .project-item__center, 767.98, last">
+														Sydney <br />
+														Suite 201/54, Neridah St., <br />
+														Chatswood NSW 2067
+													</div>
+													<div class="project-item__center" data-da="#project-item-1 .project-item__inner, 767.98, 1"></div>
 												</div>
 											</div>
-											<div class="new-project-tabs__body new-project-tab">
-												<div class="new-project-tab__container layout-container" data-project-tab>
-													<div class="new-project-tab__body"></div>
+											<div class="project-item" id="project-item-2">
+												<div class="project-item__inner">
+													<div class="project-item__status">
+														<div class="project-item__status-mobile-wrapper">
+															<div class="project-item__status-icon color-blue">
+																<svg>
+																	<use xlink:href="img/icons/icons.svg#active"></use>
+																</svg>
+															</div>
+															<span class="project-item__status-text color-blue">Active</span>
+														</div>
+													</div>
+													<div class="project-item__project" data-da="#project-item-2 .project-item__center, 767.98">
+														<div class="project-item__project-mobile-wrapper color-green"></div>
+														<span data-da="#project-item-2 .project-item__project-mobile-wrapper, 767.98">Some Long Name of The Company Project</span>
+													</div>
+													<div class="project-item__supervisor">
+														<div class="project-item__supervisor-icon">
+															<svg>
+																<use xlink:href="img/icons/icons.svg#user"></use>
+															</svg>
+														</div>
+														<div class="project-item__supervisor-name">
+															Dmitri <br class="br--tablet" />
+															Kolontaevskii
+														</div>
+													</div>
+													<div class="project-item__customer-name" data-da="#project-item-2 .project-item__status, 767.98">
+														Department of Communities and Justice
+													</div>
+													<div class="project-item__address" data-da="#project-item-2 .project-item__center, 767.98, last">
+														Sydney <br />
+														Suite 201/54, Neridah St., <br />
+														Chatswood NSW 2067
+													</div>
 												</div>
+												<div class="project-item__center" data-da="#project-item-2 .project-item__inner, 767.98, 1"></div>
+											</div>
+											<div class="project-item" id="project-item-3">
+												<div class="project-item__inner">
+													<div class="project-item__status">
+														<div class="project-item__status-mobile-wrapper">
+															<div class="project-item__status-icon color-red">
+																<svg>
+																	<use xlink:href="img/icons/icons.svg#cancelled"></use>
+																</svg>
+															</div>
+															<span class="project-item__status-text color-red">Cancelled</span>
+														</div>
+													</div>
+													<div class="project-item__project" data-da="#project-item-3 .project-item__center, 767.98">
+														<div class="project-item__project-mobile-wrapper color-green"></div>
+														<span data-da="#project-item-3 .project-item__project-mobile-wrapper, 767.98">Some Long Name of The Company Project</span>
+													</div>
+													<div class="project-item__supervisor">
+														<div class="project-item__supervisor-icon">
+															<svg>
+																<use xlink:href="img/icons/icons.svg#user"></use>
+															</svg>
+														</div>
+														<div class="project-item__supervisor-name">
+															Dmitri <br class="br--tablet" />
+															Kolontaevskii
+														</div>
+													</div>
+													<div class="project-item__customer-name" data-da="#project-item-3 .project-item__status, 767.98">
+														Department of Communities and Justice
+													</div>
+													<div class="project-item__address" data-da="#project-item-3 .project-item__center, 767.98, last">
+														Sydney <br />
+														Suite 201/54, Neridah St., <br />
+														Chatswood NSW 2067
+													</div>
+												</div>
+												<div class="project-item__center" data-da="#project-item-3 .project-item__inner, 767.98, 1"></div>
+											</div>
+											<div class="project-item" id="project-item-4">
+												<div class="project-item__inner">
+													<div class="project-item__status">
+														<div class="project-item__status-mobile-wrapper">
+															<div class="project-item__status-icon color-pink">
+																<svg>
+																	<use xlink:href="img/icons/icons.svg#archived"></use>
+																</svg>
+															</div>
+															<span class="project-item__status-text color-pink">Archived</span>
+														</div>
+													</div>
+													<div class="project-item__project" data-da="#project-item-4 .project-item__center, 767.98">
+														<div class="project-item__project-mobile-wrapper color-green"></div>
+														<span data-da="#project-item-4 .project-item__project-mobile-wrapper, 767.98">Some Long Name of The Company Project</span>
+													</div>
+													<div class="project-item__supervisor">
+														<div class="project-item__supervisor-icon">
+															<svg>
+																<use xlink:href="img/icons/icons.svg#user"></use>
+															</svg>
+														</div>
+														<div class="project-item__supervisor-name">
+															Dmitri <br class="br--tablet" />
+															Kolontaevskii
+														</div>
+													</div>
+													<div class="project-item__customer-name" data-da="#project-item-4 .project-item__status, 767.98">
+														Department of Communities and Justice
+													</div>
+													<div class="project-item__address" data-da="#project-item-4 .project-item__center, 767.98, last">
+														Sydney <br />
+														Suite 201/54, Neridah St., <br />
+														Chatswood NSW 2067
+													</div>
+												</div>
+												<div class="project-item__center" data-da="#project-item-4 .project-item__inner, 767.98, 1"></div>
+											</div>
+											<div class="project-item" id="project-item-5">
+												<div class="project-item__inner">
+													<div class="project-item__status">
+														<div class="project-item__status-mobile-wrapper">
+															<div class="project-item__status-icon color-cold">
+																<svg>
+																	<use xlink:href="img/icons/icons.svg#on-hold"></use>
+																</svg>
+															</div>
+															<span class="project-item__status-text color-cold">On Hold</span>
+														</div>
+													</div>
+													<div class="project-item__project" data-da="#project-item-5 .project-item__center, 767.98">
+														<div class="project-item__project-mobile-wrapper color-green"></div>
+														<span data-da="#project-item-5 .project-item__project-mobile-wrapper, 767.98">Some Long Name of The Company Project</span>
+													</div>
+													<div class="project-item__supervisor">
+														<div class="project-item__supervisor-icon">
+															<svg>
+																<use xlink:href="img/icons/icons.svg#user"></use>
+															</svg>
+														</div>
+														<div class="project-item__supervisor-name">
+															Dmitri <br class="br--tablet" />
+															Kolontaevskii
+														</div>
+													</div>
+													<div class="project-item__customer-name" data-da="#project-item-0 .project-item__status, 767.98">
+														Department of Communities and Justice
+													</div>
+													<div class="project-item__address" data-da="#project-item-5 .project-item__center, 767.98, last">
+														Sydney <br />
+														Suite 201/54, Neridah St., <br />
+														Chatswood NSW 2067
+													</div>
+												</div>
+												<div class="project-item__center" data-da="#project-item-5 .project-item__inner, 767.98, 1"></div>
 											</div>
 										</div>
 									</div>
-									<div class="new-project-drawer__save-wrapper" data-save-project>
-										<button class="new-project-drawer__save button">Save Project</button>
-									</div>
-								</main>
-							</div>
-							<div class="file-drop__wrapper">
-								<div class="file-drop__body">
-									<div class="file-drop__description">Drop Files Here</div>
 								</div>
+							</div>
+							<div class="projects-layout__pagination pagination">
+								<button class="pagination__arrow pagination__arrow--left">
+									<svg>
+										<use xlink:href="img/icons/icons.svg#arrow"></use>
+									</svg>
+								</button>
+								<div class="pagination__buttons">
+									<button class="pagination__button">1</button>
+									<button class="pagination__button active">2</button>
+									<button class="pagination__button">3</button>
+									<button class="pagination__button">...</button>
+									<button class="pagination__button">23</button>
+									<button class="pagination__button">24</button>
+								</div>
+								<button class="pagination__arrow pagination__arrow--right">
+									<svg>
+										<use xlink:href="img/icons/icons.svg#arrow"></use>
+									</svg>
+								</button>
 							</div>
 						</div>
 					</div>
@@ -7451,7 +7050,23 @@
 				<div class="files-gallery__slider-wrapper">
 					<div class="files-gallery__slider-thumb-wrapper" data-da=".files-gallery__slider-wrapper, 991.98">
 						<div class="files-gallery__slider-thumb slider-thumb-gallery">
-							<div class="slider-thumb-gallery__slider-wrapper slider-thumb-gallery__swiper" data-slider-thumb></div>
+							<div class="slider-thumb-gallery__slider-wrapper slider-thumb-gallery__swiper" data-slider-thumb>
+								<div class="slider-thumb-gallery__slide">
+									<div class="slider-thumb-gallery__slide-wrapper">
+										<picture><source srcset="img/managers-files/image-01.webp" type="image/webp"><img src="img/managers-files/image-01.jpg" alt="slider-preview" /></picture>
+									</div>
+								</div>
+								<div class="slider-thumb-gallery__slide">
+									<div class="slider-thumb-gallery__slide-wrapper">
+										<picture><source srcset="img/managers-files/image-02.webp" type="image/webp"><img src="img/managers-files/image-02.jpg" alt="slider-preview" /></picture>
+									</div>
+								</div>
+								<div class="slider-thumb-gallery__slide">
+									<div class="slider-thumb-gallery__slide-wrapper">
+										<picture><source srcset="img/managers-files/image-01.webp" type="image/webp"><img src="img/managers-files/image-01.jpg" alt="slider-preview" /></picture>
+									</div>
+								</div>
+							</div>
 						</div>
 						<div class="slider-thumb-gallery__controlls">
 							<button class="slider-thumb-gallery__arrow-prev">
@@ -7468,7 +7083,23 @@
 					</div>
 					<div class="files-gallery__slider-preview-wrapper">
 						<div class="files-gallery__slider slider-gallery">
-							<div class="slider-gallery__slider-wrapper slider-gallery__swiper" data-slider-preview></div>
+							<div class="slider-gallery__slider-wrapper slider-gallery__swiper" data-slider-preview>
+								<div class="slider-gallery__slide">
+									<div class="slider-gallery__slide-wrapper">
+										<picture><source srcset="img/managers-files/slider-preview.webp" type="image/webp"><img src="img/managers-files/slider-preview.jpg" alt="slider-preview" /></picture>
+									</div>
+								</div>
+								<div class="slider-gallery__slide">
+									<div class="slider-gallery__slide-wrapper">
+										<picture><source srcset="img/managers-files/slider-preview.webp" type="image/webp"><img src="img/managers-files/slider-preview.jpg" alt="slider-preview" /></picture>
+									</div>
+								</div>
+								<div class="slider-gallery__slide">
+									<div class="slider-gallery__slide-wrapper">
+										<picture><source srcset="img/managers-files/slider-preview.webp" type="image/webp"><img src="img/managers-files/slider-preview.jpg" alt="slider-preview" /></picture>
+									</div>
+								</div>
+							</div>
 						</div>
 						<div class="slider-gallery__controlls-wrapper">
 							<div class="slider-gallery__controlls">
@@ -7497,22 +7128,22 @@
 		var hostUrl = 'assets/';
 	</script>
 	<!--begin::Global Javascript Bundle(mandatory for all pages)-->
-	<script src="./files/plugins.bundle.js.download?_v=20231108214451"></script>
-	<script src="./files/scripts.bundle.js.download?_v=20231108214451"></script>
+	<script src="./files/plugins.bundle.js.download?_v=20231110081810"></script>
+	<script src="./files/scripts.bundle.js.download?_v=20231110081810"></script>
 	<!--end::Global Javascript Bundle-->
 
 	<!--begin::Vendors Javascript(used for this page only)-->
-	<script src="./files/datatables.bundle.js.download?_v=20231108214451"></script>
+	<script src="./files/datatables.bundle.js.download?_v=20231110081810"></script>
 	<!--end::Vendors Javascript-->
 	<!--begin::Custom Javascript(used for this page only)-->
-	<script src="./files/table.js.download?_v=20231108214451"></script>
-	<script src="./files/widgets.bundle.js.download?_v=20231108214451"></script>
-	<script src="./files/widgets.js.download?_v=20231108214451"></script>
-	<script src="./files/chat.js.download?_v=20231108214451"></script>
-	<script src="./files/upgrade-plan.js.download?_v=20231108214451"></script>
-	<script src="./files/create-app.js.download?_v=20231108214451"></script>
-	<script src="./files/users-search.js.download?_v=20231108214451"></script>
-	<script src="https://kit.fontawesome.com/0445eaadf3.js?_v=20231108214451" crossorigin="anonymous"></script>
+	<script src="./files/table.js.download?_v=20231110081810"></script>
+	<script src="./files/widgets.bundle.js.download?_v=20231110081810"></script>
+	<script src="./files/widgets.js.download?_v=20231110081810"></script>
+	<script src="./files/chat.js.download?_v=20231110081810"></script>
+	<script src="./files/upgrade-plan.js.download?_v=20231110081810"></script>
+	<script src="./files/create-app.js.download?_v=20231110081810"></script>
+	<script src="./files/users-search.js.download?_v=20231110081810"></script>
+	<script src="https://kit.fontawesome.com/0445eaadf3.js?_v=20231110081810" crossorigin="anonymous"></script>
 	<!--end::Custom Javascript-->
 	<!--end::Javascript-->
 
@@ -7521,7 +7152,7 @@
 		<polyline id="SvgjsPolyline1003" points="0,0"></polyline>
 		<path id="SvgjsPath1004" d="M0 0 "></path>
 	</svg>
-	<script src="js/app.min.js?_v=20231108214451"></script>
+	<script src="js/app.min.js?_v=20231110081810"></script>
 
 </body>
 <!--end::Body-->
