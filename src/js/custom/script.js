@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 			'Sydney <br class="br--tablet"/>Suite 201/54, Neridah St., Chatswood <br class="br--tablet"/>NSW 2067'
 		);
 
-		for (let i = 7; i < 11; i++) {
+		for (let i = 7; i < 15; i++) {
 			projectItemCreate(
 				i,
 				{ iconPath: 'img/icons/icons.svg#required', text: 'Action Required', color: 'brown' },
@@ -140,7 +140,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 });
 
 window.addEventListener('load', (e) => {
-	scrollInit();
+	
 });
 
 function getSaveProjectButtonHeight() {
@@ -149,158 +149,6 @@ function getSaveProjectButtonHeight() {
 	const projectTabs = document
 		.querySelectorAll('[data-project-tab]')
 		.forEach((tab) => (tab.style.cssText += `--button-height: ${offsetHeight}px`));
-}
-
-function scrollInit() {
-	const scrollBlocks = document.querySelectorAll('[scroll-block-wrapper]');
-	scrollBlocks.forEach((scrollBlock) => {
-		if (scrollBlock.getAttribute('scroll-sync')) {
-			const syncBlocks = scrollBlock
-				.getAttribute('scroll-sync')
-				.split(',')
-				.map((string) => string.trim())
-				.map((selector) => document.querySelector(selector));
-
-			scrollSyncInit(scrollBlock, syncBlocks);
-		}
-
-		layerScrollTemplateInit(scrollBlock);
-	});
-}
-
-function scrollSyncInit(scrollBlock, syncBlocks) {
-	scrollBlock.addEventListener('layout-scroll', (scrollEvent) => {
-		syncBlocks.forEach((block) =>
-			moveBlockSync(block, scrollEvent.detail.scrollLeft, scrollEvent.detail.scrollTop)
-		);
-	});
-}
-
-function layerScrollTemplateInit(scrollBlockWrapper) {
-	const scrollBlock = scrollBlockWrapper.firstElementChild;
-
-	let leftStart = 0;
-	let leftEnd = 0;
-	let scrollX = 0;
-	let scrollableX = scrollBlock.offsetWidth - scrollBlockWrapper.offsetWidth;
-
-	let topStart = 0;
-	let topEnd = 0;
-	let scrollY = 0;
-	let scrollableY = scrollBlock.offsetHeight - scrollBlockWrapper.offsetHeight;
-
-	let drag = false;
-
-	const scrollEvent = new CustomEvent('layout-scroll', {
-		detail: {
-			scrollLeft: 0,
-			scrollTop: 0,
-		},
-	});
-
-	window.addEventListener('resize', (resizeEvent) => {
-		scrollableX = scrollBlock.offsetWidth - scrollBlockWrapper.offsetWidth;
-		scrollableY = scrollBlock.offsetHeight - scrollBlockWrapper.offsetHeight;
-	});
-
-	function pointerDown(e) {
-		drag = true;
-		leftStart = e.pageX;
-		topStart = e.pageY;
-
-		e.target.setPointerCapture(e.pointerId);
-	}
-
-	function pointerMove(e) {
-		console.log('move');
-
-		if (drag) {
-			let diffX = -(leftEnd + e.pageX - leftStart);
-
-			if (diffX <= 0) {
-				scrollX = 0;
-			} else if (!(diffX > scrollableX)) {
-				scrollX = -diffX;
-			}
-
-			let diffY = -(topEnd + e.pageY - topStart);
-
-			if (diffY <= 0) {
-				scrollY = 0;
-			} else if (!(diffY > scrollableY)) {
-				scrollY = -diffY;
-			}
-
-			scrollEvent.detail.scrollLeft = scrollX;
-			scrollEvent.detail.scrollTop = scrollY;
-			scrollBlockWrapper.dispatchEvent(scrollEvent);
-
-			moveBlock(scrollBlock, scrollX, scrollY);
-		}
-	}
-
-	function pointerUp(e) {
-		drag = false;
-
-		leftEnd += e.pageX - leftStart;
-		if (leftEnd > 0) {
-			leftEnd = 0;
-		} else if (leftEnd <= -scrollableX) {
-			leftEnd = -scrollableX;
-		}
-
-		topEnd += e.pageY - topStart;
-		if (topEnd > 0) {
-			topEnd = 0;
-		} else if (topEnd <= -scrollableY) {
-			topEnd = -scrollableY;
-		}
-	}
-
-	scrollBlock.addEventListener('pointerup', pointerUp);
-	scrollBlock.addEventListener('pointermove', pointerMove);
-	scrollBlock.addEventListener('pointerdown', pointerDown);
-}
-
-function moveBlockSync(scrollBlockWrapper, scrollX, scrollY) {
-	const scrollBlock = scrollBlockWrapper.firstElementChild;
-
-	const scrollXAllowed = getAllowedXScroll(scrollBlock, scrollBlockWrapper, scrollX);
-	const scrollYAllowed = getAllowedYScroll(scrollBlock, scrollBlockWrapper, scrollY);
-
-	scrollBlock.style.cssText += `
-			transition-duration: 0ms;
-			transition-delay: 0ms;
-			transform: translate3d(${scrollXAllowed}px, ${scrollYAllowed}px, 0px);
-		`;
-}
-
-function getAllowedXScroll(scrollBlock, scrollBlockWrapper, parentScrollValue) {
-	const scrollValue = scrollBlock.offsetWidth - scrollBlockWrapper.offsetWidth;
-	const scrollAllowed =
-		Math.abs(parentScrollValue) > scrollValue
-			? parentScrollValue - (parentScrollValue + scrollValue)
-			: parentScrollValue;
-
-	return scrollAllowed;
-}
-
-function getAllowedYScroll(scrollBlock, scrollBlockWrapper, parentScrollValue) {
-	const scrollValue = scrollBlock.offsetHeight - scrollBlockWrapper.offsetHeight;
-	const scrollAllowed =
-		Math.abs(parentScrollValue) > scrollValue
-			? parentScrollValue - (parentScrollValue + scrollValue)
-			: parentScrollValue;
-
-	return scrollAllowed;
-}
-
-function moveBlock(scrollBlock, scrollX, scrollY) {
-	scrollBlock.style.cssText += `
-			transition-duration: 0ms;
-			transition-delay: 0ms;
-			transform: translate3d(${scrollX}px, ${scrollY}px, 0px);
-		`;
 }
 
 function layoutGapObserver() {
@@ -324,9 +172,9 @@ function projectItemCreate(id, status, project, supervisor, customerName, addres
 					<span class="project-item__status-text color-${status.color}">${status.text}</span>
 				</div>
 			</div>
-			<div class="project-item__project" data-da="#project-item-${id} .project-item__center, 479.98">
+			<div class="project-item__project" data-da="#project-item-${id} .project-item__center, 767.98">
 				<div class="project-item__project-mobile-wrapper color-green"></div>
-				<span data-da="#project-item-${id} .project-item__project-mobile-wrapper, 479.98">${project}</span>
+				<span data-da="#project-item-${id} .project-item__project-mobile-wrapper, 767.98">${project}</span>
 			</div>
 			<div class="project-item__supervisor">
 				${
@@ -344,14 +192,14 @@ function projectItemCreate(id, status, project, supervisor, customerName, addres
 			</div>
 			<div
 				class="project-item__customer-name"
-				data-da="#project-item-${id} .project-item__status, 479.98">
+				data-da="#project-item-${id} .project-item__status, 767.98">
 				${customerName}
 			</div>
-			<div class="project-item__address" data-da="#project-item-${id} .project-item__center, 479.98, last">
+			<div class="project-item__address" data-da="#project-item-${id} .project-item__center, 767.98, last">
 				${address}
 			</div>
 		</div>
-		<div class="project-item__center" data-da="#project-item-${id} .project-item__inner, 479.98, 1"></div>
+		<div class="project-item__center" data-da="#project-item-${id} .project-item__inner, 767.98, 1"></div>
 	`;
 
 	document.querySelector('[data-projects-content]')?.append(projectItem);

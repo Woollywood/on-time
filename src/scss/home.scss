@@ -2327,13 +2327,6 @@
 	&__title-body {
 		display: flex;
 		padding: 0 var(--body-padding-x);
-
-		@media (max-width: $tablet) and (min-width: $mobileSmall) {
-			width: calc(
-				(var(--body-padding-x) * 2) + var(--first-col) + var(--second-col) + var(--third-col) +
-					var(--fourth-col) + var(--fifth-col)
-			);
-		}
 	}
 
 	&__title-item {
@@ -2353,7 +2346,7 @@
 			background-color: cl('grey', 0.2);
 		}
 
-		@media (min-width: $tablet) {
+		@media (min-width: $mobile) {
 			&:nth-child(1) {
 				flex: 0 0 var(--first-col-percent);
 			}
@@ -2375,38 +2368,19 @@
 			}
 		}
 
-		@media (max-width: $tablet) and (min-width: $mobileSmall) {
-			&:nth-child(1) {
-				flex: 0 0 var(--first-col);
-			}
-
-			&:nth-child(2) {
-				flex: 0 0 var(--second-col);
-			}
-
-			&:nth-child(3) {
-				flex: 0 0 var(--third-col);
-			}
-
-			&:nth-child(4) {
-				flex: 0 0 var(--fourth-col);
-			}
-
-			&:nth-child(5) {
-				flex: 0 0 var(--fifth-col);
-			}
-		}
-
 		&:not(:last-child) {
 			padding-right: rem(20);
 		}
 	}
 
 	&__content-body-wrapper {
+		overflow: auto;
+		@media (min-width: $mobile) {
+			max-height: 86%;
+		}
 	}
 
 	&__content-body {
-		cursor: grab;
 		display: flex;
 		flex-direction: column;
 		gap: rem(1);
@@ -2414,19 +2388,12 @@
 		@media (max-width: $mobileSmall) {
 			gap: rem(8);
 		}
-
-		@media (max-width: $tablet) and (min-width: $mobileSmall) {
-			width: calc(
-				(var(--body-padding-x) * 2) + var(--first-col) + var(--second-col) + var(--third-col) +
-					var(--fourth-col) + var(--fifth-col)
-			);
-		}
 	}
 
 	&__pagination {
 		position: absolute;
 		z-index: 3;
-		bottom: 0;
+		bottom: rem(20);
 		right: 0;
 
 		@media (max-width: $mobile) {
@@ -2461,6 +2428,8 @@
 }
 
 .project-item {
+	cursor: pointer;
+
 	&__inner {
 		position: relative;
 		z-index: 0;
@@ -2477,16 +2446,10 @@
 			flex-direction: column;
 		}
 
-		@media (min-width: $tablet) {
+		@media (min-width: $mobile) {
 			grid-template-columns:
 				var(--first-col-percent) var(--second-col-percent) var(--third-col-percent) var(--fourth-col-percent)
 				var(--fifth-col-percent);
-		}
-
-		@media (max-width: $tablet) and (min-width: $mobileSmall) {
-			grid-template-columns: var(--first-col) var(--second-col) var(--third-col) var(--fourth-col) var(
-					--fifth-col
-				);
 		}
 
 		> * {
@@ -2497,7 +2460,7 @@
 			}
 		}
 
-		@media (min-width: $mobileSmall) {
+		@media (min-width: $mobile) {
 			> * {
 				&:not(:last-child) {
 					padding-right: rem(8);
@@ -2526,7 +2489,7 @@
 		}
 	}
 
-	@media (max-width: $mobileSmall) {
+	@media (max-width: $mobile) {
 		.br--tablet {
 			display: none;
 		}
@@ -2541,16 +2504,17 @@
 		column-gap: rem(12);
 		row-gap: rem(6);
 
-		@media (max-width: $mobileSmall) {
+		@media (max-width: $mobile) {
 			align-items: center;
 			gap: rem(6);
 		}
 	}
 
 	&__status {
-		@media (max-width: $mobileSmall) {
+		@media (max-width: $mobile) {
 			display: flex;
 			gap: rem(16);
+			justify-content: space-between;
 
 			&:not(:last-child) {
 				margin-bottom: rem(12);
@@ -2563,7 +2527,7 @@
 		justify-content: center;
 		align-items: center;
 
-		@media (min-width: $mobileSmall) {
+		@media (min-width: $mobile) {
 			align-self: flex-start;
 		}
 
@@ -2571,7 +2535,7 @@
 			width: rem(16);
 			height: rem(20);
 
-			@media (max-width: $mobileSmall) {
+			@media (max-width: $mobile) {
 				width: rem(12);
 				height: rem(14);
 			}
@@ -2582,7 +2546,7 @@
 		overflow: hidden;
 		text-overflow: ellipsis;
 
-		@media (max-width: $mobileSmall) {
+		@media (max-width: $mobile) {
 			font-size: rem(12);
 			white-space: nowrap;
 		}
@@ -2592,13 +2556,13 @@
 	}
 
 	&__project-mobile-wrapper {
-		@media (min-width: $mobileSmall) {
+		@media (min-width: $mobile) {
 			display: none;
 		}
 	}
 
 	&__supervisor {
-		@media (max-width: $mobileSmall) {
+		@media (max-width: $mobile) {
 			display: flex;
 			align-items: center;
 			gap: rem(6);
@@ -2610,7 +2574,7 @@
 		justify-content: center;
 		align-items: center;
 
-		@media (min-width: $mobileSmall) {
+		@media (min-width: $mobile) {
 			display: none;
 		}
 
@@ -2631,7 +2595,7 @@
 		border-radius: 50%;
 		overflow: hidden;
 
-		@media (min-width: $mobileSmall) {
+		@media (min-width: $mobile) {
 			display: none;
 		}
 
@@ -2644,11 +2608,11 @@
 	}
 
 	&__center {
-		@media (min-width: $mobileSmall) {
+		@media (min-width: $mobile) {
 			display: none;
 		}
 
-		@media (max-width: $mobileSmall) {
+		@media (max-width: $mobile) {
 			display: flex;
 			flex-direction: column;
 			gap: rem(4);
@@ -2660,7 +2624,7 @@
 	}
 
 	&__customer-name {
-		@media (max-width: $mobileSmall) {
+		@media (max-width: $mobile) {
 			color: cl('grey');
 			white-space: nowrap;
 			overflow: hidden;
@@ -2670,7 +2634,7 @@
 	}
 
 	&__address {
-		@media (max-width: $mobileSmall) {
+		@media (max-width: $mobile) {
 			color: cl('grey');
 			font-style: italic;
 		}
@@ -2792,9 +2756,10 @@
 	}
 
 	&__body {
+		position: relative;
 		height: 100%;
 		display: grid;
-		grid-template-rows: auto 1fr;
+		grid-template-rows: auto auto;
 		padding: rem(28) 0 rem(20);
 		overflow: hidden;
 
@@ -2850,11 +2815,6 @@
 	&__projects {
 		overflow: hidden;
 	}
-}
-
-.scroll-block-wrapper {
-	overflow: hidden;
-	touch-action: none;
 }
 
 .new-project-drawer {
