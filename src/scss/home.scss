@@ -2319,7 +2319,7 @@
 	}
 
 	&__title-body-wrapper {
-		@media (max-width: $mobileSmall) {
+		@media (max-width: $mobile) {
 			display: none;
 		}
 	}
