@@ -144,7 +144,7 @@ function projectItemCreate(id, status, project, supervisor, customerName, addres
 function projectsFilesInit() {
 	projectFileLoadingCreate({
 		type: 'normal',
-		id: 0,
+		id: 3,
 		fileName: 'IMG_999999.JPG',
 		imagePath: 'img/managers-files/image-01.jpg',
 		iconExtPath: 'img/icons/icons.svg#x',
@@ -155,7 +155,7 @@ function projectsFilesInit() {
 
 	projectFileCreate({
 		type: 'mime-type',
-		id: 1,
+		id: 4,
 		fileName: 'FileNameShort',
 		iconExtPath: 'img/icons/icons.svg#w',
 		description: 'Aug 3, 8:00 AM, Sergey Zadrutsky',
@@ -165,57 +165,12 @@ function projectsFilesInit() {
 
 	projectFileCreate({
 		type: 'normal',
-		id: 2,
-		fileName: 'IMG_999_99_999999.JPG',
-		imagePath: 'img/managers-files/image-01.jpg',
-
-		previewPath: 'img/managers-files/slider-preview.jpg',
-		thumbPath: 'img/managers-files/image-01.jpg',
-
-		iconExtPath: 'img/icons/icons.svg#image',
-		description: 'Aug 3, 8:00 AM, Sergey Zadrutsky',
-		descriptionCrossed: false,
-		dialogType: 'empty',
-	});
-
-	projectFileCreate({
-		type: 'normal',
-		id: 3,
-		fileName: 'IMG_999_99_999999.JPG',
-		imagePath: 'img/managers-files/image-01.jpg',
-
-		previewPath: 'img/managers-files/slider-preview.jpg',
-		thumbPath: 'img/managers-files/image-02.jpg',
-
-		iconExtPath: 'img/icons/icons.svg#image',
-		description: 'Aug 3, 8:00 AM, Sergey Zadrutsky',
-		descriptionCrossed: false,
-		dialogType: 'empty',
-	});
-
-	projectFileCreate({
-		type: 'normal',
-		id: 4,
-		fileName: 'IMG_999_99_999999.JPG',
-		imagePath: 'img/managers-files/image-01.jpg',
-
-		previewPath: 'img/managers-files/slider-preview.jpg',
-		thumbPath: 'img/managers-files/image-01.jpg',
-
-		iconExtPath: 'img/icons/icons.svg#image',
-		description: 'Aug 3, 8:00 AM, Sergey Zadrutsky',
-		descriptionCrossed: false,
-		dialogType: 'empty',
-	});
-
-	projectFileCreate({
-		type: 'normal',
 		id: 5,
 		fileName: 'IMG_999_99_999999.JPG',
 		imagePath: 'img/managers-files/image-01.jpg',
 
 		previewPath: 'img/managers-files/slider-preview.jpg',
-		thumbPath: 'img/managers-files/image-02.jpg',
+		thumbPath: 'img/managers-files/image-01.jpg',
 
 		iconExtPath: 'img/icons/icons.svg#image',
 		description: 'Aug 3, 8:00 AM, Sergey Zadrutsky',
@@ -230,7 +185,7 @@ function projectsFilesInit() {
 		imagePath: 'img/managers-files/image-01.jpg',
 
 		previewPath: 'img/managers-files/slider-preview.jpg',
-		thumbPath: 'img/managers-files/image-01.jpg',
+		thumbPath: 'img/managers-files/image-02.jpg',
 
 		iconExtPath: 'img/icons/icons.svg#image',
 		description: 'Aug 3, 8:00 AM, Sergey Zadrutsky',
@@ -245,7 +200,7 @@ function projectsFilesInit() {
 		imagePath: 'img/managers-files/image-01.jpg',
 
 		previewPath: 'img/managers-files/slider-preview.jpg',
-		thumbPath: 'img/managers-files/image-02.jpg',
+		thumbPath: 'img/managers-files/image-01.jpg',
 
 		iconExtPath: 'img/icons/icons.svg#image',
 		description: 'Aug 3, 8:00 AM, Sergey Zadrutsky',
@@ -260,6 +215,21 @@ function projectsFilesInit() {
 		imagePath: 'img/managers-files/image-01.jpg',
 
 		previewPath: 'img/managers-files/slider-preview.jpg',
+		thumbPath: 'img/managers-files/image-02.jpg',
+
+		iconExtPath: 'img/icons/icons.svg#image',
+		description: 'Aug 3, 8:00 AM, Sergey Zadrutsky',
+		descriptionCrossed: false,
+		dialogType: 'empty',
+	});
+
+	projectFileCreate({
+		type: 'normal',
+		id: 9,
+		fileName: 'IMG_999_99_999999.JPG',
+		imagePath: 'img/managers-files/image-01.jpg',
+
+		previewPath: 'img/managers-files/slider-preview.jpg',
 		thumbPath: 'img/managers-files/image-01.jpg',
 
 		iconExtPath: 'img/icons/icons.svg#image',
@@ -269,32 +239,32 @@ function projectsFilesInit() {
 	});
 
 	projectFileCreate({
-		type: 'mime-type',
-		id: 9,
-		fileName: 'FileNameLong_with2_rows_with_with2_rows_with_with2_rows... end_of.pdf',
-		iconExtPath: 'img/icons/icons.svg#pdf',
-		description: 'Aug 3, 8:00 AM, Sergey Zadrutsky',
-		descriptionCrossed: true,
-		dialogType: 'empty',
-	});
-
-	projectFileCreate({
-		type: 'mime-type',
+		type: 'normal',
 		id: 10,
-		fileName: 'FileNameLong_with2_rows_with_with2_rows_with_with2_rows... end_of.pdf',
-		iconExtPath: 'img/icons/icons.svg#pdf',
+		fileName: 'IMG_999_99_999999.JPG',
+		imagePath: 'img/managers-files/image-01.jpg',
+
+		previewPath: 'img/managers-files/slider-preview.jpg',
+		thumbPath: 'img/managers-files/image-02.jpg',
+
+		iconExtPath: 'img/icons/icons.svg#image',
 		description: 'Aug 3, 8:00 AM, Sergey Zadrutsky',
-		descriptionCrossed: true,
+		descriptionCrossed: false,
 		dialogType: 'empty',
 	});
 
 	projectFileCreate({
-		type: 'mime-type',
+		type: 'normal',
 		id: 11,
-		fileName: 'FileNameLong_with2_rows_with_with2_rows_with_with2_rows... end_of.pdf',
-		iconExtPath: 'img/icons/icons.svg#pdf',
+		fileName: 'IMG_999_99_999999.JPG',
+		imagePath: 'img/managers-files/image-01.jpg',
+
+		previewPath: 'img/managers-files/slider-preview.jpg',
+		thumbPath: 'img/managers-files/image-01.jpg',
+
+		iconExtPath: 'img/icons/icons.svg#image',
 		description: 'Aug 3, 8:00 AM, Sergey Zadrutsky',
-		descriptionCrossed: true,
+		descriptionCrossed: false,
 		dialogType: 'empty',
 	});
 
@@ -347,11 +317,39 @@ function projectsFilesInit() {
 		descriptionCrossed: true,
 		dialogType: 'empty',
 	});
+
+	projectFileCreate({
+		type: 'mime-type',
+		id: 17,
+		fileName: 'FileNameLong_with2_rows_with_with2_rows_with_with2_rows... end_of.pdf',
+		iconExtPath: 'img/icons/icons.svg#pdf',
+		description: 'Aug 3, 8:00 AM, Sergey Zadrutsky',
+		descriptionCrossed: true,
+		dialogType: 'empty',
+	});
+
+	projectFileCreate({
+		type: 'mime-type',
+		id: 18,
+		fileName: 'FileNameLong_with2_rows_with_with2_rows_with_with2_rows... end_of.pdf',
+		iconExtPath: 'img/icons/icons.svg#pdf',
+		description: 'Aug 3, 8:00 AM, Sergey Zadrutsky',
+		descriptionCrossed: true,
+		dialogType: 'empty',
+	});
+
+	projectFileCreate({
+		type: 'mime-type',
+		id: 19,
+		fileName: 'FileNameLong_with2_rows_with_with2_rows_with_with2_rows... end_of.pdf',
+		iconExtPath: 'img/icons/icons.svg#pdf',
+		description: 'Aug 3, 8:00 AM, Sergey Zadrutsky',
+		descriptionCrossed: true,
+		dialogType: 'empty',
+	});
 }
 
 function projectFileLoadingCreate({ type, ...other }) {
-	console.log('project file create');
-
 	switch (type) {
 		case 'normal':
 			projectFileLoadingNormalCreateGrid(other);
