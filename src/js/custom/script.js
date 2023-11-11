@@ -423,23 +423,6 @@ function layerScrollTemplateInit(scrollBlock, allowScrollX, allowScrollY, depend
 				topEnd = -scrollableY;
 			}
 		}
-
-		setInterval(() => {
-			inertScroll(scrollBlock, allowScrollX, false);
-			dependentBlocks?.forEach((block) => {
-				inertScroll(block.elem, block.allowScrollX, false);
-			});
-		}, 30);
-	}
-
-	function inertScroll(scrollBlock, allowScrollX, allowScrollY) {
-		if (allowScrollX) scrollX -= 10;
-		if (allowScrollY) scrollY -= 10;
-
-		if (-scrollX > scrollableX) scrollX = -scrollableX;
-		if (-scrollY > scrollableY) scrollY = -scrollableY;
-
-		moveBlock(scrollBlock, allowScrollX, scrollX, allowScrollY, scrollY);
 	}
 
 	function moveBlock(scrollBlock, allowScrollX, scrollX, allowScrollY, scrollY) {
