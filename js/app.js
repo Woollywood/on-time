@@ -3340,7 +3340,7 @@
                         return tippy_render(itemBodyId);
                     },
                     allowHTML: true,
-                    appendTo: parent => parent.closest(".new-project-drawer"),
+                    appendTo: parent => document.body,
                     placement: "auto",
                     arrow: false,
                     trigger: "click",
@@ -6717,7 +6717,7 @@
             initSliders();
         }));
         const pickers = document.querySelectorAll("[data-metronic-rangepicker]");
-        pickers.forEach((picker => $(picker).daterangepicker()));
+        pickers.forEach((picker => console.log($(picker).daterangepicker())));
         let addWindowScrollEvent = false;
         setTimeout((() => {
             if (addWindowScrollEvent) {
@@ -6736,6 +6736,7 @@
             window.addEventListener("resize", layoutGapObserver);
             getSaveProjectButtonHeight();
             window.addEventListener("resize", getSaveProjectButtonHeight);
+            calendarInit();
             projectsInit();
             projectsFilesInit();
             function projectsInit() {
@@ -6782,6 +6783,11 @@
                 const offsetHeight = buttonWrapper.offsetHeight;
                 document.querySelectorAll("[data-project-tab]").forEach((tab => tab.style.cssText += `--button-height: ${offsetHeight}px`));
             }
+        }
+        function calendarInit() {
+            const calendar = document.querySelector(".daterangepicker");
+            const button = document.querySelector("[data-metronic-rangepicker]");
+            button?.addEventListener("click", (e => calendar.classList.toggle("open")));
         }
         function layoutGapObserver() {
             const wrapper = document.querySelector("[data-wrapper]");
