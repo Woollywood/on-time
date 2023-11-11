@@ -2381,6 +2381,7 @@
 	}
 
 	&__content-body {
+		position: relative;
 		display: flex;
 		flex-direction: column;
 		gap: rem(1);
@@ -2391,13 +2392,15 @@
 	}
 
 	&__pagination {
-		position: absolute;
-		z-index: 3;
-		bottom: rem(20);
-		right: 0;
+		@media (min-width: $mobile) {
+			position: absolute;
+			z-index: 3;
+			bottom: rem(20);
+			right: 0;
+		}
 
 		@media (max-width: $mobile) {
-			display: none !important;
+			padding-bottom: rem(46);
 		}
 	}
 
@@ -2719,6 +2722,9 @@
 			align-items: center;
 			justify-content: center;
 			width: auto;
+
+			@media (max-width: $mobile) {
+			}
 		}
 
 		.projects-layout__title-body {
