@@ -3232,6 +3232,21 @@
 		gap: rem(20);
 		grid-template-columns: rem(132) 1fr;
 
+		&--second {
+			display: flex;
+			flex-direction: column;
+			gap: rem(4);
+			align-items: flex-start;
+
+			.form-info__field-name {
+				width: 100%;
+			}
+
+			.form-info__field-input-wrapper {
+				width: 100%;
+			}
+		}
+
 		@media (max-width: $tablet) {
 			gap: rem(16);
 			grid-template-columns: rem(96) 1fr;
@@ -3263,6 +3278,18 @@
 		&--number {
 			@media (min-width: em(667.98)) {
 				width: 62%;
+			}
+		}
+
+		&--street {
+			textarea {
+				min-height: rem(64);
+			}
+		}
+
+		&--post-code {
+			@media (min-width: $mobile) {
+				max-width: rem(80);
 			}
 		}
 	}

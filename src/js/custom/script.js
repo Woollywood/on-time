@@ -19,6 +19,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
 	getSaveProjectButtonHeight();
 	window.addEventListener('resize', getSaveProjectButtonHeight);
 
+	calendarInit();
+
 	projectsInit();
 
 	projectsFilesInit();
@@ -85,6 +87,12 @@ function getSaveProjectButtonHeight() {
 			.querySelectorAll('[data-project-tab]')
 			.forEach((tab) => (tab.style.cssText += `--button-height: ${offsetHeight}px`));
 	}
+}
+
+function calendarInit() {
+	const calendar = document.querySelector('.daterangepicker');
+	const button = document.querySelector('[data-metronic-rangepicker]');
+	button?.addEventListener('click', e => calendar.classList.toggle('open'))
 }
 
 function layoutGapObserver() {

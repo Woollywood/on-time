@@ -537,7 +537,6 @@ body::after {
 
 		@media (min-width: $tablet) {
 			margin-right: rem(40);
-			border: rem(1) solid cl('natural-black');
 			@include adaptiveValue('padding-left', 166, 48, 0, 1280, 992);
 			@include adaptiveValue('padding-right', 166, 48, 0, 1280, 992);
 		}
@@ -595,19 +594,17 @@ body::after {
 			left: 0;
 			width: 100%;
 			height: 100%;
-			object-fit: cover;
+			object-fit: fill;
 		}
 	}
 
 	&__controlls-wrapper {
 		pointer-events: none;
 		position: absolute;
-		top: 50%;
+		top: 0;
 		left: 0;
 		width: 100%;
-		transform: translateY(-50%);
-		@include adaptiveValue('padding-left', 112, 12, 0, 1280, 992);
-		@include adaptiveValue('padding-right', 112, 12, 0, 1280, 992);
+		height: 100%;
 	}
 
 	&__controlls {
@@ -615,6 +612,7 @@ body::after {
 		gap: rem(36);
 		justify-content: space-between;
 		align-items: center;
+		height: 100%;
 
 		@media (max-width: $tablet) {
 			display: none;
@@ -627,6 +625,9 @@ body::after {
 		display: flex;
 		justify-content: center;
 		align-items: center;
+
+		height: 100%;
+		@include adaptiveValue('width', 166, 48, 0, 1280, 992);
 
 		&:disabled {
 			svg {

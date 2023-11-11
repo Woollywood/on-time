@@ -60,8 +60,8 @@
 																					<div
 																						class="select__placeholder-wrapper">
 																						<span
-																							class="select__placeholder"
-																							>Status</span
+																							class="select__placeholder color-black"
+																							>Request</span
 																						>
 																						<svg>
 																							<use
@@ -461,13 +461,13 @@
 																		</div>
 																		<div class="form-info__field-input-wrapper">
 																			<div
-																				class="select select--adapt select--adapt-desktop select--empty">
+																				class="select select--multy select--empty select--hover-reset">
 																				<div class="select__title">
 																					<div
-																						class="select__placeholder-wrapper">
+																						class="select__placeholder-wrapper select__placeholder-wrapper--tokens-empty">
 																						<span
 																							class="select__placeholder"
-																							>Status</span
+																							>Select</span
 																						>
 																						<svg>
 																							<use
@@ -476,384 +476,343 @@
 																					</div>
 																				</div>
 																				<div class="select__options">
-																					<div class="option-select__items">
+																					<div
+																						class="select__option option-select option-select--search">
 																						<div
-																							class="select__option option-select">
+																							class="option-select__search-wrapper">
+																							<input
+																								class="option-select__search"
+																								type="text"
+																								placeholder="Quick Search" />
+																						</div>
+																					</div>
+																					<div
+																						class="option-select__items option-select__items--staff">
+																						<div
+																							class="select__option option-select option-select--staff">
 																							<div
-																								class="options__item options__item--adapt">
-																								<input
-																									class="options__input"
-																									id="controll-status-1"
-																									type="radio"
-																									value="1"
-																									checked
-																									name="controll-time" />
-																								<label
-																									class="options__label"
-																									for="controll-status-1">
-																									<span
-																										class="options__text"
-																										>Any</span
-																									>
-																									<svg>
-																										<use
-																											xlink:href="@img/icons/icons.svg#tick"></use>
-																									</svg>
-																								</label>
+																								class="option-select__staff">
+																								<div
+																									class="option-select__checkbox checkbox">
+																									<input
+																										class="option-select__checkbox-input checkbox__input"
+																										id="person-01"
+																										type="checkbox"
+																										value="1" />
+																									<label
+																										class="option-select__checkbox-label checkbox__label"
+																										for="person-01">
+																										<img
+																											class="option-select__avatar"
+																											src="@img/content/new-job/person-01.jpg"
+																											alt="avatar" />
+																										<span
+																											class="option-select__person-name"
+																											>Alyona
+																											Kolontaevskaya</span
+																										>
+																									</label>
+																								</div>
 																							</div>
 																						</div>
 																						<div
-																							class="select__option option-select">
+																							class="select__option option-select option-select--staff">
 																							<div
-																								class="options__item options__item--adapt">
-																								<input
-																									class="options__input"
-																									id="controll-status-2"
-																									type="radio"
-																									value="2"
-																									name="controll-time" />
-																								<label
-																									class="options__label"
-																									for="controll-status-2">
-																									<span
-																										class="options__text-wrapper">
-																										<svg
-																											class="color-brown">
-																											<use
-																												xlink:href="@img/icons/icons.svg#invoiced"></use>
-																										</svg>
+																								class="option-select__staff">
+																								<div
+																									class="option-select__checkbox checkbox">
+																									<input
+																										class="option-select__checkbox-input checkbox__input"
+																										id="person-02"
+																										type="checkbox"
+																										value="2"
+																										checked />
+																									<label
+																										class="option-select__checkbox-label checkbox__label"
+																										for="person-02">
+																										<img
+																											class="option-select__avatar"
+																											src="@img/content/new-job/person-02.jpg"
+																											alt="avatar" />
 																										<span
-																											class="options__text color-brown"
-																											>Invoiced</span
+																											class="option-select__person-name"
+																											>Alyona
+																											Kolontaevskaya</span
 																										>
-																									</span>
-																									<svg>
-																										<use
-																											xlink:href="@img/icons/icons.svg#tick"></use>
-																									</svg>
-																								</label>
+																									</label>
+																								</div>
 																							</div>
 																						</div>
 																						<div
-																							class="select__option option-select">
+																							class="select__option option-select option-select--staff">
 																							<div
-																								class="options__item options__item--adapt">
-																								<input
-																									class="options__input"
-																									id="controll-status-3"
-																									type="radio"
-																									value="2"
-																									name="controll-time" />
-																								<label
-																									class="options__label"
-																									for="controll-status-3">
-																									<span
-																										class="options__text-wrapper">
-																										<svg
-																											class="color-green">
-																											<use
-																												xlink:href="@img/icons/icons.svg#required"></use>
-																										</svg>
+																								class="option-select__staff">
+																								<div
+																									class="option-select__checkbox checkbox">
+																									<input
+																										class="option-select__checkbox-input checkbox__input"
+																										id="person-03"
+																										type="checkbox"
+																										value="3"
+																										checked />
+																									<label
+																										class="option-select__checkbox-label checkbox__label"
+																										for="person-03">
+																										<img
+																											class="option-select__avatar"
+																											src="@img/content/new-job/person-03.jpg"
+																											alt="avatar" />
 																										<span
-																											class="options__text color-green"
-																											>Action
-																											Required</span
+																											class="option-select__person-name"
+																											>Alyona
+																											Kolontaevskaya</span
 																										>
-																									</span>
-																									<svg>
-																										<use
-																											xlink:href="@img/icons/icons.svg#tick"></use>
-																									</svg>
-																								</label>
+																									</label>
+																								</div>
 																							</div>
 																						</div>
 																						<div
-																							class="select__option option-select">
+																							class="select__option option-select option-select--staff">
 																							<div
-																								class="options__item options__item--adapt">
-																								<input
-																									class="options__input"
-																									id="controll-status-4"
-																									type="radio"
-																									value="2"
-																									name="controll-time" />
-																								<label
-																									class="options__label"
-																									for="controll-status-4">
-																									<span
-																										class="options__text-wrapper">
-																										<svg
-																											class="color-blue">
-																											<use
-																												xlink:href="@img/icons/icons.svg#active"></use>
-																										</svg>
+																								class="option-select__staff">
+																								<div
+																									class="option-select__checkbox checkbox">
+																									<input
+																										class="option-select__checkbox-input checkbox__input"
+																										id="person-04"
+																										type="checkbox"
+																										value="4"
+																										checked />
+																									<label
+																										class="option-select__checkbox-label checkbox__label"
+																										for="person-04">
+																										<img
+																											class="option-select__avatar"
+																											src="@img/content/new-job/person-04.jpg"
+																											alt="avatar" />
 																										<span
-																											class="options__text color-blue"
-																											>Active</span
+																											class="option-select__person-name"
+																											>Alyona
+																											Kolontaevskaya</span
 																										>
-																									</span>
-																									<svg>
-																										<use
-																											xlink:href="@img/icons/icons.svg#tick"></use>
-																									</svg>
-																								</label>
+																									</label>
+																								</div>
 																							</div>
 																						</div>
 																						<div
-																							class="select__option option-select">
+																							class="select__option option-select option-select--staff">
 																							<div
-																								class="options__item options__item--adapt">
-																								<input
-																									class="options__input"
-																									id="controll-status-5"
-																									type="radio"
-																									value="2"
-																									name="controll-time" />
-																								<label
-																									class="options__label"
-																									for="controll-status-5">
-																									<span
-																										class="options__text-wrapper">
-																										<svg
-																											class="color-red">
-																											<use
-																												xlink:href="@img/icons/icons.svg#cancelled"></use>
-																										</svg>
+																								class="option-select__staff">
+																								<div
+																									class="option-select__checkbox checkbox">
+																									<input
+																										class="option-select__checkbox-input checkbox__input"
+																										id="person-05"
+																										type="checkbox"
+																										value="5" />
+																									<label
+																										class="option-select__checkbox-label checkbox__label"
+																										for="person-05">
+																										<img
+																											class="option-select__avatar"
+																											src="@img/content/new-job/person-05.jpg"
+																											alt="avatar" />
 																										<span
-																											class="options__text color-red"
-																											>Cancelled</span
+																											class="option-select__person-name"
+																											>Alyona
+																											Kolontaevskaya</span
 																										>
-																									</span>
-																									<svg>
-																										<use
-																											xlink:href="@img/icons/icons.svg#tick"></use>
-																									</svg>
-																								</label>
+																									</label>
+																								</div>
 																							</div>
 																						</div>
 																						<div
-																							class="select__option option-select">
+																							class="select__option option-select option-select--staff">
 																							<div
-																								class="options__item options__item--adapt">
-																								<input
-																									class="options__input"
-																									id="controll-status-6"
-																									type="radio"
-																									value="2"
-																									name="controll-time" />
-																								<label
-																									class="options__label"
-																									for="controll-status-6">
-																									<span
-																										class="options__text-wrapper">
-																										<svg
-																											class="color-pink">
-																											<use
-																												xlink:href="@img/icons/icons.svg#archived"></use>
-																										</svg>
+																								class="option-select__staff">
+																								<div
+																									class="option-select__checkbox checkbox">
+																									<input
+																										class="option-select__checkbox-input checkbox__input"
+																										id="person-06"
+																										type="checkbox"
+																										value="6" />
+																									<label
+																										class="option-select__checkbox-label checkbox__label"
+																										for="person-06">
+																										<img
+																											class="option-select__avatar"
+																											src="@img/content/new-job/person-06.jpg"
+																											alt="avatar" />
 																										<span
-																											class="options__text color-pink"
-																											>Archived</span
+																											class="option-select__person-name"
+																											>Alyona
+																											Kolontaevskaya</span
 																										>
-																									</span>
-																									<svg>
-																										<use
-																											xlink:href="@img/icons/icons.svg#tick"></use>
-																									</svg>
-																								</label>
+																									</label>
+																								</div>
 																							</div>
 																						</div>
 																						<div
-																							class="select__option option-select">
+																							class="select__option option-select option-select--staff">
 																							<div
-																								class="options__item options__item--adapt">
-																								<input
-																									class="options__input"
-																									id="controll-status-7"
-																									type="radio"
-																									value="2"
-																									name="controll-time" />
-																								<label
-																									class="options__label"
-																									for="controll-status-7">
-																									<span
-																										class="options__text-wrapper">
-																										<svg
-																											class="color-cold">
-																											<use
-																												xlink:href="@img/icons/icons.svg#on-hold"></use>
-																										</svg>
+																								class="option-select__staff">
+																								<div
+																									class="option-select__checkbox checkbox">
+																									<input
+																										class="option-select__checkbox-input checkbox__input"
+																										id="person-07"
+																										type="checkbox"
+																										value="7" />
+																									<label
+																										class="option-select__checkbox-label checkbox__label"
+																										for="person-07">
+																										<img
+																											class="option-select__avatar"
+																											src="@img/content/new-job/person-01.jpg"
+																											alt="avatar" />
 																										<span
-																											class="options__text color-cold"
-																											>On
-																											Hold</span
+																											class="option-select__person-name"
+																											>Alyona
+																											Kolontaevskaya</span
 																										>
-																									</span>
-																									<svg>
-																										<use
-																											xlink:href="@img/icons/icons.svg#tick"></use>
-																									</svg>
-																								</label>
+																									</label>
+																								</div>
 																							</div>
 																						</div>
 																						<div
-																							class="select__option option-select">
+																							class="select__option option-select option-select--staff">
 																							<div
-																								class="options__item options__item--adapt">
-																								<input
-																									class="options__input"
-																									id="controll-status-8"
-																									type="radio"
-																									value="2"
-																									name="controll-time" />
-																								<label
-																									class="options__label"
-																									for="controll-status-8">
-																									<span
-																										class="options__text-wrapper">
-																										<svg
-																											class="color-grey">
-																											<use
-																												xlink:href="@img/icons/icons.svg#request"></use>
-																										</svg>
+																								class="option-select__staff">
+																								<div
+																									class="option-select__checkbox checkbox">
+																									<input
+																										class="option-select__checkbox-input checkbox__input"
+																										id="person-08"
+																										type="checkbox"
+																										value="8" />
+																									<label
+																										class="option-select__checkbox-label checkbox__label"
+																										for="person-08">
+																										<img
+																											class="option-select__avatar"
+																											src="@img/content/new-job/person-02.jpg"
+																											alt="avatar" />
 																										<span
-																											class="options__text color-grey"
-																											>Request</span
+																											class="option-select__person-name"
+																											>Alyona
+																											Kolontaevskaya</span
 																										>
-																									</span>
-																									<svg>
-																										<use
-																											xlink:href="@img/icons/icons.svg#tick"></use>
-																									</svg>
-																								</label>
+																									</label>
+																								</div>
 																							</div>
 																						</div>
 																						<div
-																							class="select__option option-select">
+																							class="select__option option-select option-select--staff">
 																							<div
-																								class="options__item options__item--adapt">
-																								<input
-																									class="options__input"
-																									id="controll-status-9"
-																									type="radio"
-																									value="2"
-																									name="controll-time" />
-																								<label
-																									class="options__label"
-																									for="controll-status-9">
-																									<span
-																										class="options__text-wrapper">
-																										<svg
-																											class="color-grey">
-																											<use
-																												xlink:href="@img/icons/icons.svg#report"></use>
-																										</svg>
+																								class="option-select__staff">
+																								<div
+																									class="option-select__checkbox checkbox">
+																									<input
+																										class="option-select__checkbox-input checkbox__input"
+																										id="person-09"
+																										type="checkbox"
+																										value="9" />
+																									<label
+																										class="option-select__checkbox-label checkbox__label"
+																										for="person-09">
+																										<img
+																											class="option-select__avatar"
+																											src="@img/content/new-job/person-03.jpg"
+																											alt="avatar" />
 																										<span
-																											class="options__text color-grey"
-																											>InvoiReportced</span
+																											class="option-select__person-name"
+																											>Alyona
+																											Kolontaevskaya</span
 																										>
-																									</span>
-																									<svg>
-																										<use
-																											xlink:href="@img/icons/icons.svg#tick"></use>
-																									</svg>
-																								</label>
+																									</label>
+																								</div>
 																							</div>
 																						</div>
 																						<div
-																							class="select__option option-select">
+																							class="select__option option-select option-select--staff">
 																							<div
-																								class="options__item options__item--adapt">
-																								<input
-																									class="options__input"
-																									id="controll-status-10"
-																									type="radio"
-																									value="2"
-																									name="controll-time" />
-																								<label
-																									class="options__label"
-																									for="controll-status-10">
-																									<span
-																										class="options__text-wrapper">
-																										<svg
-																											class="color-grey">
-																											<use
-																												xlink:href="@img/icons/icons.svg#quote"></use>
-																										</svg>
+																								class="option-select__staff">
+																								<div
+																									class="option-select__checkbox checkbox">
+																									<input
+																										class="option-select__checkbox-input checkbox__input"
+																										id="person-10"
+																										type="checkbox"
+																										value="10" />
+																									<label
+																										class="option-select__checkbox-label checkbox__label"
+																										for="person-10">
+																										<img
+																											class="option-select__avatar"
+																											src="@img/content/new-job/person-04.jpg"
+																											alt="avatar" />
 																										<span
-																											class="options__text color-grey"
-																											>Quote</span
+																											class="option-select__person-name"
+																											>Alyona
+																											Kolontaevskaya</span
 																										>
-																									</span>
-																									<svg>
-																										<use
-																											xlink:href="@img/icons/icons.svg#tick"></use>
-																									</svg>
-																								</label>
+																									</label>
+																								</div>
 																							</div>
 																						</div>
 																						<div
-																							class="select__option option-select">
+																							class="select__option option-select option-select--staff">
 																							<div
-																								class="options__item options__item--adapt">
-																								<input
-																									class="options__input"
-																									id="controll-status-11"
-																									type="radio"
-																									value="2"
-																									name="controll-time" />
-																								<label
-																									class="options__label"
-																									for="controll-status-11">
-																									<span
-																										class="options__text-wrapper">
-																										<svg
-																											class="color-grey">
-																											<use
-																												xlink:href="@img/icons/icons.svg#variation"></use>
-																										</svg>
+																								class="option-select__staff">
+																								<div
+																									class="option-select__checkbox checkbox">
+																									<input
+																										class="option-select__checkbox-input checkbox__input"
+																										id="person-11"
+																										type="checkbox"
+																										value="11" />
+																									<label
+																										class="option-select__checkbox-label checkbox__label"
+																										for="person-11">
+																										<img
+																											class="option-select__avatar"
+																											src="@img/content/new-job/person-05.jpg"
+																											alt="avatar" />
 																										<span
-																											class="options__text color-grey"
-																											>Variation</span
+																											class="option-select__person-name"
+																											>Alyona
+																											Kolontaevskaya</span
 																										>
-																									</span>
-																									<svg>
-																										<use
-																											xlink:href="@img/icons/icons.svg#tick"></use>
-																									</svg>
-																								</label>
+																									</label>
+																								</div>
 																							</div>
 																						</div>
 																						<div
-																							class="select__option option-select">
+																							class="select__option option-select option-select--staff">
 																							<div
-																								class="options__item options__item--adapt">
-																								<input
-																									class="options__input"
-																									id="controll-status-12"
-																									type="radio"
-																									value="2"
-																									name="controll-time" />
-																								<label
-																									class="options__label"
-																									for="controll-status-12">
-																									<span
-																										class="options__text-wrapper">
-																										<svg
-																											class="color-grey">
-																											<use
-																												xlink:href="@img/icons/icons.svg#secure"></use>
-																										</svg>
+																								class="option-select__staff">
+																								<div
+																									class="option-select__checkbox checkbox">
+																									<input
+																										class="option-select__checkbox-input checkbox__input"
+																										id="person-12"
+																										type="checkbox"
+																										value="12" />
+																									<label
+																										class="option-select__checkbox-label checkbox__label"
+																										for="person-12">
+																										<img
+																											class="option-select__avatar"
+																											src="@img/content/new-job/person-06.jpg"
+																											alt="avatar" />
 																										<span
-																											class="options__text color-grey"
-																											>Secure</span
+																											class="option-select__person-name"
+																											>Alyona
+																											Kolontaevskaya</span
 																										>
-																									</span>
-																									<svg>
-																										<use
-																											xlink:href="@img/icons/icons.svg#tick"></use>
-																									</svg>
-																								</label>
+																									</label>
+																								</div>
 																							</div>
 																						</div>
 																					</div>
@@ -882,10 +841,10 @@
 																	<div class="form-info__field">
 																		<div class="form-info__field-name">Street</div>
 																		<div
-																			class="form-info__field-input-wrapper input-wrapper">
-																			<input
+																			class="form-info__field-input-wrapper form-info__field-input-wrapper--street input-wrapper">
+																			<textarea
 																				class="form-info__field-input input"
-																				type="text" />
+																				type="text"></textarea>
 																		</div>
 																	</div>
 																	<div class="form-info__field">
@@ -893,7 +852,7 @@
 																			Post Code
 																		</div>
 																		<div
-																			class="form-info__field-input-wrapper input-wrapper">
+																			class="form-info__field-input-wrapper form-info__field-input-wrapper--post-code input-wrapper">
 																			<input
 																				class="form-info__field-input input"
 																				type="text" />
@@ -901,24 +860,6 @@
 																	</div>
 																	<div class="form-info__field">
 																		<div class="form-info__field-name">Suburb</div>
-																		<div
-																			class="form-info__field-input-wrapper input-wrapper">
-																			<input
-																				class="form-info__field-input input"
-																				type="text" />
-																		</div>
-																	</div>
-																	<div class="form-info__field">
-																		<div class="form-info__field-name">State</div>
-																		<div
-																			class="form-info__field-input-wrapper input-wrapper">
-																			<input
-																				class="form-info__field-input input"
-																				type="text" />
-																		</div>
-																	</div>
-																	<div class="form-info__field">
-																		<div class="form-info__field-name">State</div>
 																		<div
 																			class="form-info__field-input-wrapper input-wrapper">
 																			<input
@@ -942,11 +883,11 @@
 													<div class="project-info__col">
 														<form class="project-info__form form-info">
 															<div class="form-info__body">
-																<h3 class="form-info__title">Address</h3>
+																<h3 class="form-info__title">Customer Details</h3>
 																<div class="form-info__body-inner">
-																	<div class="form-info__field">
+																	<div class="form-info__field form-info__field--second">
 																		<div class="form-info__field-name">
-																			Suite/Level/Apt
+																			First Name
 																		</div>
 																		<div
 																			class="form-info__field-input-wrapper input-wrapper">
@@ -955,8 +896,8 @@
 																				type="text" />
 																		</div>
 																	</div>
-																	<div class="form-info__field">
-																		<div class="form-info__field-name">Street</div>
+																	<div class="form-info__field form-info__field--second">
+																		<div class="form-info__field-name">Last Name</div>
 																		<div
 																			class="form-info__field-input-wrapper input-wrapper">
 																			<input
@@ -964,9 +905,9 @@
 																				type="text" />
 																		</div>
 																	</div>
-																	<div class="form-info__field">
+																	<div class="form-info__field form-info__field--second">
 																		<div class="form-info__field-name">
-																			Post Code
+																			Phone Number
 																		</div>
 																		<div
 																			class="form-info__field-input-wrapper input-wrapper">
@@ -975,17 +916,8 @@
 																				type="text" />
 																		</div>
 																	</div>
-																	<div class="form-info__field">
-																		<div class="form-info__field-name">Suburb</div>
-																		<div
-																			class="form-info__field-input-wrapper input-wrapper">
-																			<input
-																				class="form-info__field-input input"
-																				type="text" />
-																		</div>
-																	</div>
-																	<div class="form-info__field">
-																		<div class="form-info__field-name">State</div>
+																	<div class="form-info__field form-info__field--second">
+																		<div class="form-info__field-name">E-mail Address</div>
 																		<div
 																			class="form-info__field-input-wrapper input-wrapper">
 																			<input
@@ -1155,8 +1087,7 @@
 																			FileNameShort
 																		</div>
 																	</div>
-																	<div
-																		class="managers-files-item__author-info">
+																	<div class="managers-files-item__author-info">
 																		Aug 3, 8:00 AM, Sergey Zadrutsky
 																	</div>
 																	<div

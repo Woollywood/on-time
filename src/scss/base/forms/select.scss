@@ -18,6 +18,14 @@
 		}
 	}
 
+	&--hover-reset {
+		.option-select {
+			&:hover {
+				background-color: transparent !important;
+			}
+		}
+	}
+
 	&--adapt {
 		&:not(&.select--adapt-desktop) {
 			@media (max-width: $mobile) {
@@ -92,6 +100,12 @@
 			> svg {
 				margin-top: rem(12);
 			}
+		}
+
+		&--tokens-empty {
+			padding: rem(12) rem(16) !important;
+			color: cl('grey');
+
 		}
 
 		> svg {

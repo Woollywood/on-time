@@ -34,3 +34,29 @@
 	color: cl('text-grey') !important;
 	fill: cl('text-grey') !important;
 }
+
+.color-black {
+	color: cl('black') !important;
+}
+
+.daterangepicker.show-calendar {
+	&.open {
+		@media (max-width: $mobileLow) {
+			position: fixed !important;
+			top: 0 !important;
+			left: 0 !important;
+			width: 100% !important;
+			height: 100% !important;
+
+			display: flex !important;
+			flex-direction: column;
+			justify-content: center;
+
+			.drp-buttons {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+		}
+	}
+}
