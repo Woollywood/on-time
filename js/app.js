@@ -6758,6 +6758,7 @@
             const dragZone = document.querySelector("[drag-zone]");
             dragZone?.addEventListener("dragenter", (event => {
                 event.preventDefault();
+                console.log("dragEnter");
                 const relatedTarget = event.relatedTarget;
                 if (relatedTarget == null || !dragZone.contains(relatedTarget)) {
                     const dragZone = event.target.closest("[drag-zone]");
