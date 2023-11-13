@@ -5088,20 +5088,6 @@ body::after {
   padding: 0 !important;
 }
 
-.top-mark {
-  position: fixed;
-  z-index: 999999;
-  top: 0;
-  right: 0;
-}
-
-.bottom-mark {
-  position: fixed;
-  z-index: 999999;
-  bottom: 0;
-  right: 0;
-}
-
 .qs-datepicker-container {
   font-size: 1rem;
   font-family: sans-serif;
