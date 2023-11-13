@@ -3368,6 +3368,10 @@
                             inputMessage.value = "";
                             itemBody.dispatchEvent(sendMessageEvent);
                         }));
+                    },
+                    onMount: event => {
+                        const popper = event.popper;
+                        popper.querySelector("[data-comment-input]").focus();
                     }
                 });
                 document.querySelectorAll("[data-tippy-content]").forEach((item => {
