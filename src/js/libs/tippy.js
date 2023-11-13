@@ -243,12 +243,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
 				});
 			},
 
-			// onMount: (event) => {
-			// 	if (window.innerWidth < 479.98) {
-			// 		const popper = event.popper;
-			// 		console.log(popper.style.transform);
-			// 	}
-			// },
+			onMount: (event) => {
+				const popper = event.popper;
+				popper.querySelector('[data-comment-input]').focus();
+			},
 
 			// onShow: (event) => {
 			// 	if (window.innerWidth < 479.98) {
