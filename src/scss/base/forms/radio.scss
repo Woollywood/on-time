@@ -47,7 +47,7 @@
 				&:not(.select--adapt-desktop &) {
 					@media (min-width: $mobile) {
 						&:checked + .options__label {
-							background-color: #d0e4f0 !important;
+							background-color: #d0e4f0;
 							color: #111;
 						}
 					}
@@ -93,6 +93,12 @@
 
 		&:checked + .options__label .options__text {
 			color: #111;
+		}
+
+		&:checked + .options__label {
+			.selected-fix & {
+				background-color: transparent !important;
+			}
 		}
 
 		&:not(.select--adapt &) {

@@ -54,6 +54,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 	dragZone?.addEventListener('dragenter', (event) => {
 		event.preventDefault();
+		console.log('dragEnter');
 
 		const relatedTarget = event.relatedTarget;
 		if (relatedTarget == null || !dragZone.contains(relatedTarget)) {
@@ -92,7 +93,7 @@ function getSaveProjectButtonHeight() {
 function calendarInit() {
 	const calendar = document.querySelector('.daterangepicker');
 	const button = document.querySelector('[data-metronic-rangepicker]');
-	button?.addEventListener('click', e => calendar.classList.toggle('open'))
+	button?.addEventListener('click', (e) => calendar.classList.toggle('open'));
 }
 
 function layoutGapObserver() {
