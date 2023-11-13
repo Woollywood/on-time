@@ -218,7 +218,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 				return render(itemBodyId);
 			},
 			allowHTML: true,
-			appendTo: (parent) => parent.closest('.new-project-drawer'),
+			appendTo: (parent) => document.body,
 			placement: 'auto',
 			arrow: false,
 			trigger: 'click',

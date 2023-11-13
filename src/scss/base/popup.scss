@@ -621,13 +621,11 @@ body::after {
 
 	&__arrow-prev,
 	&__arrow-next {
+		position: relative;
 		pointer-events: auto;
-		display: flex;
-		justify-content: center;
-		align-items: center;
 
 		height: 100%;
-		@include adaptiveValue('width', 166, 48, 0, 1280, 992);
+		width: 50%;
 
 		&:disabled {
 			svg {
@@ -635,16 +633,39 @@ body::after {
 			}
 		}
 
+		&:not(&:disabled) {
+			&:hover {
+				svg {
+					transform: scale(1.3);
+				}
+			}
+		}
+
 		svg {
 			width: rem(24);
 			height: rem(24);
 			stroke: cl('accent');
-			transition: stroke 0.3s ease;
+			transition: all 0.3s ease;
 		}
 	}
 
+	&__arrow-inner {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+
 	&__arrow-prev {
-		transform: rotate(180deg);
+		.slider-gallery__arrow-inner {
+			@include adaptiveValue('left', calc(166 - (24 + 28)), calc(48 - (24 + 16)), 0, 1280, 992);
+			transform: rotate(180deg) translateY(-50%);
+		}
+	}
+
+	&__arrow-next {
+		.slider-gallery__arrow-inner {
+			@include adaptiveValue('right', calc(166 - (24 + 28)), calc(48 - (24 + 16)), 0, 1280, 992);
+		}
 	}
 }
 
