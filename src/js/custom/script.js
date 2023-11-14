@@ -13,6 +13,20 @@ document.addEventListener('DOMContentLoaded', (event) => {
 		}
 	});
 
+	if (document.querySelector('.layout-wrapper--drawer')) {
+		const layoutWrapper = document.querySelector('.layout-wrapper--drawer');
+		const buttonOpen = document.querySelector('[data-new-projects-open]');
+		const buttonClose = document.querySelector('[data-new-projects-close]');
+
+		buttonOpen.addEventListener('click', ev => {
+			layoutWrapper.classList.add('new-projects-opened');
+		})
+
+		buttonClose.addEventListener('click', ev => {
+			layoutWrapper.classList.remove('new-projects-opened');
+		})
+	}
+
 	layoutGapObserver();
 	window.addEventListener('resize', layoutGapObserver);
 

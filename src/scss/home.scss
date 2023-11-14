@@ -2732,6 +2732,14 @@
 		overflow: visible;
 	}
 
+	&--drawer {
+		overflow: hidden;
+
+		&.new-projects-opened {
+			overflow: visible;
+		}
+	}
+
 	&--not-found {
 		.projects-layout__inner {
 			@media (max-width: $mobile) {
@@ -2859,6 +2867,15 @@
 	width: 100%;
 	height: calc(100% + var(--top-gap));
 	background-color: cl('white');
+	transition: left 0.3s ease;
+
+	&--drawer {
+		left: 100%;
+
+		.new-projects-opened & {
+			left: 0;
+		}
+	}
 
 	&__body {
 		height: 100%;
