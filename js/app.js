@@ -6736,6 +6736,17 @@
                 const targetElement = clickEvent.target;
                 if (targetElement.closest(".select") && !targetElement.closest(".select__options")) targetElement.closest(".select").classList.toggle("select-open");
             }));
+            if (document.querySelector(".layout-wrapper--drawer")) {
+                const layoutWrapper = document.querySelector(".layout-wrapper--drawer");
+                const buttonOpen = document.querySelector("[data-new-projects-open]");
+                const buttonClose = document.querySelector("[data-new-projects-close]");
+                buttonOpen.addEventListener("click", (ev => {
+                    layoutWrapper.classList.add("new-projects-opened");
+                }));
+                buttonClose.addEventListener("click", (ev => {
+                    layoutWrapper.classList.remove("new-projects-opened");
+                }));
+            }
             layoutGapObserver();
             window.addEventListener("resize", layoutGapObserver);
             getSaveProjectButtonHeight();

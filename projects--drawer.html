@@ -11,7 +11,7 @@
 
 	<meta name="description" content="The most advanced Bootstrap 5 Admin Theme with 40 unique prebuilt layouts on Themeforest trusted by 100,000 beginners and professionals. Multi-demo, Dark Mode, RTL support and complete React, Angular, Vue, Asp.Net Core, Rails, Spring, Blazor, Django, Express.js, Node.js, Flask, Symfony &amp; Laravel versions. Grab your copy now and get life-time updates for free." />
 	<meta name="keywords" content="metronic, bootstrap, bootstrap 5, angular, VueJs, React, Asp.Net Core, Rails, Spring, Blazor, Django, Express.js, Node.js, Flask, Symfony &amp; Laravel starter kits, admin themes, web design, figma, web development, free templates, free admin themes, bootstrap theme, bootstrap template, bootstrap dashboard, bootstrap dak mode, bootstrap button, bootstrap datepicker, bootstrap timepicker, fullcalendar, datatables, flaticon" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, interactive-widget=resizes-content" />
 	<meta property="og:locale" content="en_US" />
 	<meta property="og:type" content="article" />
 	<meta property="og:title" content="Metronic - Bootstrap Admin Template, HTML, VueJS, React, Angular. Laravel, Asp.Net Core, Ruby on Rails, Spring Boot, Blazor, Django, Express.js, Node.js, Flask Admin Dashboard Theme &amp; Template" />
@@ -2064,14 +2064,16 @@
 				<!--end::Sidebar-->
 
 				<!-- Custom code here -->
-				<div class="layout-wrapper" data-wrapper="projects">
+				<div class="layout-wrapper layout-wrapper--drawer" data-wrapper="projects">
 					<div class="layout-wrapper__container">
 						<div class="layout-wrapper__body">
 							<div class="layout-wrapper__top">
 								<div class="layout-wrapper__controlls">
-									<input class="layout-wrapper__search input" type="text" placeholder="Quick Search" />
+									<div class="layout-wrapper__search input-wrapper">
+										<input class="input" type="text" placeholder="Quick Search" />
+									</div>
 									<div class="layout-wrapper__selects">
-										<div class="select select--adapt select--adapt-desktop select--empty">
+										<div class="select select--adapt select--adapt-desktop select--empty selected-fix">
 											<div class="select__title">
 												<div class="select__placeholder-wrapper">
 													<span class="select__placeholder">Status</span>
@@ -2284,11 +2286,11 @@
 										</div>
 									</div>
 								</div>
-								<button class="layout__button button" type="button" data-new-project-open>New Project</button>
+								<button class="layout__button button" data-new-projects-open>New Project</button>
 							</div>
 							<div class="layout-wrapper__projects projects-layout">
 								<div class="projects-layout__inner">
-									<div class="projects-layout__title-body-wrapper scroll-block-wrapper">
+									<div class="projects-layout__title-body-wrapper">
 										<div class="projects-layout__title-body">
 											<div class="projects-layout__title-item">Status</div>
 											<div class="projects-layout__title-item">Project</div>
@@ -2297,38 +2299,265 @@
 											<div class="projects-layout__title-item">Address</div>
 										</div>
 									</div>
-									<div class="projects-layout__content-body-wrapper scroll-block-wrapper" scroll-block-wrapper scroll-sync=".projects-layout__title-body-wrapper" onmousedown="return false">
-										<div class="projects-layout__content-body" data-projects-content></div>
+									<div class="projects-layout__content-body-wrapper">
+										<div class="projects-layout__content-body" data-projects-content>
+											<div class="project-item" id="project-item-0">
+												<div class="project-item__inner">
+													<div class="project-item__status">
+														<div class="project-item__status-mobile-wrapper">
+															<div class="project-item__status-icon color-green">
+																<svg>
+																	<use xlink:href="img/icons/icons.svg#required"></use>
+																</svg>
+															</div>
+															<span class="project-item__status-text color-green">Action Required</span>
+														</div>
+													</div>
+													<div class="project-item__project" data-da="#project-item-0 .project-item__center, 767.98">
+														<div class="project-item__project-mobile-wrapper color-green"></div>
+														<span data-da="#project-item-0 .project-item__project-mobile-wrapper, 767.98">Some Long Name of The Company Project</span>
+													</div>
+													<div class="project-item__supervisor">
+														<div class="project-item__supervisor-icon">
+															<svg>
+																<use xlink:href="img/icons/icons.svg#user"></use>
+															</svg>
+														</div>
+														<div class="project-item__supervisor-name">
+															Dmitri <br class="br--tablet" />
+															Kolontaevskii
+														</div>
+													</div>
+													<div class="project-item__customer-name" data-da="#project-item-0 .project-item__status, 767.98">
+														Department of Communities and Justice
+													</div>
+													<div class="project-item__address" data-da="#project-item-0 .project-item__center, 767.98, last">
+														Sydney <br />
+														Suite 201/54, Neridah St., <br />
+														Chatswood NSW 2067
+													</div>
+												</div>
+												<div class="project-item__center" data-da="#project-item-0 .project-item__inner, 767.98, 1"></div>
+											</div>
+											<div class="project-item" id="project-item-1">
+												<div class="project-item__inner">
+													<div class="project-item__status">
+														<div class="project-item__status-mobile-wrapper">
+															<div class="project-item__status-icon color-brown">
+																<svg>
+																	<use xlink:href="img/icons/icons.svg#invoiced"></use>
+																</svg>
+															</div>
+															<span class="project-item__status-text color-brown">Invoiced</span>
+														</div>
+													</div>
+													<div class="project-item__project" data-da="#project-item-1 .project-item__center, 767.98">
+														<div class="project-item__project-mobile-wrapper color-green"></div>
+														<span data-da="#project-item-1 .project-item__project-mobile-wrapper, 767.98">Some Long Name of The Company Project</span>
+													</div>
+													<div class="project-item__supervisor">
+														<div class="project-item__supervisor-avatar">
+															<picture><source srcset="img/avatars/avatar-01.webp" type="image/webp"><img src="img/avatars/avatar-01.jpg" alt="avatar" /></picture>
+														</div>
+														<div class="project-item__supervisor-name">
+															Sandra <br class="br--tablet" />
+															Wilson
+														</div>
+													</div>
+													<div class="project-item__customer-name" data-da="#project-item-1 .project-item__status, 767.98">
+														Department of Communities and Justice
+													</div>
+													<div class="project-item__address" data-da="#project-item-1 .project-item__center, 767.98, last">
+														Sydney <br />
+														Suite 201/54, Neridah St., <br />
+														Chatswood NSW 2067
+													</div>
+													<div class="project-item__center" data-da="#project-item-1 .project-item__inner, 767.98, 1"></div>
+												</div>
+											</div>
+											<div class="project-item" id="project-item-2">
+												<div class="project-item__inner">
+													<div class="project-item__status">
+														<div class="project-item__status-mobile-wrapper">
+															<div class="project-item__status-icon color-blue">
+																<svg>
+																	<use xlink:href="img/icons/icons.svg#active"></use>
+																</svg>
+															</div>
+															<span class="project-item__status-text color-blue">Active</span>
+														</div>
+													</div>
+													<div class="project-item__project" data-da="#project-item-2 .project-item__center, 767.98">
+														<div class="project-item__project-mobile-wrapper color-green"></div>
+														<span data-da="#project-item-2 .project-item__project-mobile-wrapper, 767.98">Some Long Name of The Company Project</span>
+													</div>
+													<div class="project-item__supervisor">
+														<div class="project-item__supervisor-icon">
+															<svg>
+																<use xlink:href="img/icons/icons.svg#user"></use>
+															</svg>
+														</div>
+														<div class="project-item__supervisor-name">
+															Dmitri <br class="br--tablet" />
+															Kolontaevskii
+														</div>
+													</div>
+													<div class="project-item__customer-name" data-da="#project-item-2 .project-item__status, 767.98">
+														Department of Communities and Justice
+													</div>
+													<div class="project-item__address" data-da="#project-item-2 .project-item__center, 767.98, last">
+														Sydney <br />
+														Suite 201/54, Neridah St., <br />
+														Chatswood NSW 2067
+													</div>
+												</div>
+												<div class="project-item__center" data-da="#project-item-2 .project-item__inner, 767.98, 1"></div>
+											</div>
+											<div class="project-item" id="project-item-3">
+												<div class="project-item__inner">
+													<div class="project-item__status">
+														<div class="project-item__status-mobile-wrapper">
+															<div class="project-item__status-icon color-red">
+																<svg>
+																	<use xlink:href="img/icons/icons.svg#cancelled"></use>
+																</svg>
+															</div>
+															<span class="project-item__status-text color-red">Cancelled</span>
+														</div>
+													</div>
+													<div class="project-item__project" data-da="#project-item-3 .project-item__center, 767.98">
+														<div class="project-item__project-mobile-wrapper color-green"></div>
+														<span data-da="#project-item-3 .project-item__project-mobile-wrapper, 767.98">Some Long Name of The Company Project</span>
+													</div>
+													<div class="project-item__supervisor">
+														<div class="project-item__supervisor-icon">
+															<svg>
+																<use xlink:href="img/icons/icons.svg#user"></use>
+															</svg>
+														</div>
+														<div class="project-item__supervisor-name">
+															Dmitri <br class="br--tablet" />
+															Kolontaevskii
+														</div>
+													</div>
+													<div class="project-item__customer-name" data-da="#project-item-3 .project-item__status, 767.98">
+														Department of Communities and Justice
+													</div>
+													<div class="project-item__address" data-da="#project-item-3 .project-item__center, 767.98, last">
+														Sydney <br />
+														Suite 201/54, Neridah St., <br />
+														Chatswood NSW 2067
+													</div>
+												</div>
+												<div class="project-item__center" data-da="#project-item-3 .project-item__inner, 767.98, 1"></div>
+											</div>
+											<div class="project-item" id="project-item-4">
+												<div class="project-item__inner">
+													<div class="project-item__status">
+														<div class="project-item__status-mobile-wrapper">
+															<div class="project-item__status-icon color-pink">
+																<svg>
+																	<use xlink:href="img/icons/icons.svg#archived"></use>
+																</svg>
+															</div>
+															<span class="project-item__status-text color-pink">Archived</span>
+														</div>
+													</div>
+													<div class="project-item__project" data-da="#project-item-4 .project-item__center, 767.98">
+														<div class="project-item__project-mobile-wrapper color-green"></div>
+														<span data-da="#project-item-4 .project-item__project-mobile-wrapper, 767.98">Some Long Name of The Company Project</span>
+													</div>
+													<div class="project-item__supervisor">
+														<div class="project-item__supervisor-icon">
+															<svg>
+																<use xlink:href="img/icons/icons.svg#user"></use>
+															</svg>
+														</div>
+														<div class="project-item__supervisor-name">
+															Dmitri <br class="br--tablet" />
+															Kolontaevskii
+														</div>
+													</div>
+													<div class="project-item__customer-name" data-da="#project-item-4 .project-item__status, 767.98">
+														Department of Communities and Justice
+													</div>
+													<div class="project-item__address" data-da="#project-item-4 .project-item__center, 767.98, last">
+														Sydney <br />
+														Suite 201/54, Neridah St., <br />
+														Chatswood NSW 2067
+													</div>
+												</div>
+												<div class="project-item__center" data-da="#project-item-4 .project-item__inner, 767.98, 1"></div>
+											</div>
+											<div class="project-item" id="project-item-5">
+												<div class="project-item__inner">
+													<div class="project-item__status">
+														<div class="project-item__status-mobile-wrapper">
+															<div class="project-item__status-icon color-cold">
+																<svg>
+																	<use xlink:href="img/icons/icons.svg#on-hold"></use>
+																</svg>
+															</div>
+															<span class="project-item__status-text color-cold">On Hold</span>
+														</div>
+													</div>
+													<div class="project-item__project" data-da="#project-item-5 .project-item__center, 767.98">
+														<div class="project-item__project-mobile-wrapper color-green"></div>
+														<span data-da="#project-item-5 .project-item__project-mobile-wrapper, 767.98">Some Long Name of The Company Project</span>
+													</div>
+													<div class="project-item__supervisor">
+														<div class="project-item__supervisor-icon">
+															<svg>
+																<use xlink:href="img/icons/icons.svg#user"></use>
+															</svg>
+														</div>
+														<div class="project-item__supervisor-name">
+															Dmitri <br class="br--tablet" />
+															Kolontaevskii
+														</div>
+													</div>
+													<div class="project-item__customer-name" data-da="#project-item-0 .project-item__status, 767.98">
+														Department of Communities and Justice
+													</div>
+													<div class="project-item__address" data-da="#project-item-5 .project-item__center, 767.98, last">
+														Sydney <br />
+														Suite 201/54, Neridah St., <br />
+														Chatswood NSW 2067
+													</div>
+												</div>
+												<div class="project-item__center" data-da="#project-item-5 .project-item__inner, 767.98, 1"></div>
+											</div>
+										</div>
+										<div class="projects-layout__pagination pagination pagination--no-wrap">
+											<button class="pagination__arrow pagination__arrow--left">
+												<svg>
+													<use xlink:href="img/icons/icons.svg#arrow"></use>
+												</svg>
+											</button>
+											<div class="pagination__buttons">
+												<button class="pagination__button">1</button>
+												<button class="pagination__button active">2</button>
+												<button class="pagination__button">3</button>
+												<button class="pagination__button">...</button>
+												<button class="pagination__button">23</button>
+												<button class="pagination__button">24</button>
+											</div>
+											<button class="pagination__arrow pagination__arrow--right">
+												<svg>
+													<use xlink:href="img/icons/icons.svg#arrow"></use>
+												</svg>
+											</button>
+										</div>
 									</div>
-								</div>
-								<div class="projects-layout__pagination pagination">
-									<button class="pagination__arrow pagination__arrow--left">
-										<svg>
-											<use xlink:href="img/icons/icons.svg#arrow"></use>
-										</svg>
-									</button>
-									<div class="pagination__buttons">
-										<button class="pagination__button">1</button>
-										<button class="pagination__button active">2</button>
-										<button class="pagination__button">3</button>
-										<button class="pagination__button">...</button>
-										<button class="pagination__button">23</button>
-										<button class="pagination__button">24</button>
-									</div>
-									<button class="pagination__arrow pagination__arrow--right">
-										<svg>
-											<use xlink:href="img/icons/icons.svg#arrow"></use>
-										</svg>
-									</button>
 								</div>
 							</div>
 						</div>
-						<div class="new-project-drawer" drag-zone>
+						<div class="new-project-drawer new-project-drawer--drawer" drag-zone>
 							<div class="new-project-drawer__body">
 								<header class="new-project-drawer__header">
 									<div class="new-project-drawer__header-container layout-container">
 										<div class="new-project-drawer__title-wrapper">
-											<button class="new-project-drawer__back">
+											<button class="new-project-drawer__back" data-new-projects-close>
 												<svg>
 													<use xlink:href="img/icons/icons.svg#arrow-back"></use>
 												</svg>
@@ -2342,11 +2571,11 @@
 										<nav class="new-project-tabs__navigation">
 											<div class="new-project-tabs__navigation-container layout-container">
 												<div class="new-project-tabs__navigation-body" data-tabs-titles>
-													<button class="new-project-tabs__title _tab-active" type="button">Project Info</button>
-													<button class="new-project-tabs__title" type="button">Project Files</button>
-													<button class="new-project-tabs__title" type="button">
-														Managers Files
+													<button class="new-project-tabs__title _tab-active" type="button">
+														Project Info
 													</button>
+													<button class="new-project-tabs__title" type="button">Project Files</button>
+													<button class="new-project-tabs__title" type="button">Managers Files</button>
 													<button class="new-project-tabs__title" type="button">Tasks</button>
 												</div>
 											</div>
@@ -2367,17 +2596,17 @@
 																						<div class="form-info__field-name">
 																							Job Number
 																						</div>
-																						<div class="form-info__field-input-wrapper">
-																							<input class="form-info__field-input form-info__field-input--number input" type="number" />
+																						<div class="form-info__field-input-wrapper form-info__field-input-wrapper--number input-wrapper">
+																							<input class="form-info__field-input input" type="text" />
 																						</div>
 																					</div>
 																					<div class="form-info__field">
 																						<div class="form-info__field-name">Status</div>
 																						<div class="form-info__field-input-wrapper">
-																							<div class="select select--adapt select--adapt-desktop select--empty">
+																							<div class="select select--adapt select--adapt-desktop select--empty selected-fix">
 																								<div class="select__title">
 																									<div class="select__placeholder-wrapper">
-																										<span class="select__placeholder">Status</span>
+																										<span class="select__placeholder color-black">Request</span>
 																										<svg>
 																											<use xlink:href="img/icons/icons.svg#arrow-down"></use>
 																										</svg>
@@ -2584,204 +2813,164 @@
 																							Supervisor
 																						</div>
 																						<div class="form-info__field-input-wrapper">
-																							<div class="select select--adapt select--adapt-desktop select--empty">
+																							<div class="select select--multy select--empty select--hover-reset">
 																								<div class="select__title">
-																									<div class="select__placeholder-wrapper">
-																										<span class="select__placeholder">Status</span>
+																									<div class="select__placeholder-wrapper select__placeholder-wrapper--tokens-empty">
+																										<span class="select__placeholder">Select</span>
 																										<svg>
 																											<use xlink:href="img/icons/icons.svg#arrow-down"></use>
 																										</svg>
 																									</div>
 																								</div>
 																								<div class="select__options">
-																									<div class="option-select__items">
-																										<div class="select__option option-select">
-																											<div class="options__item options__item--adapt">
-																												<input class="options__input" id="controll-status-1" type="radio" value="1" checked name="controll-time" />
-																												<label class="options__label" for="controll-status-1">
-																													<span class="options__text">Any</span>
-																													<svg>
-																														<use xlink:href="img/icons/icons.svg#tick"></use>
-																													</svg>
-																												</label>
+																									<div class="select__option option-select option-select--search">
+																										<div class="option-select__search-wrapper">
+																											<input class="option-select__search" type="text" placeholder="Quick Search" />
+																										</div>
+																									</div>
+																									<div class="option-select__items option-select__items--staff">
+																										<div class="select__option option-select option-select--staff">
+																											<div class="option-select__staff">
+																												<div class="option-select__checkbox checkbox">
+																													<input class="option-select__checkbox-input checkbox__input" id="person-01" type="checkbox" value="1" />
+																													<label class="option-select__checkbox-label checkbox__label" for="person-01">
+																														<picture><source srcset="img/content/new-job/person-01.webp" type="image/webp"><img class="option-select__avatar" src="img/content/new-job/person-01.jpg" alt="avatar" /></picture>
+																														<span class="option-select__person-name">Alyona
+																															Kolontaevskaya</span>
+																													</label>
+																												</div>
 																											</div>
 																										</div>
-																										<div class="select__option option-select">
-																											<div class="options__item options__item--adapt">
-																												<input class="options__input" id="controll-status-2" type="radio" value="2" name="controll-time" />
-																												<label class="options__label" for="controll-status-2">
-																													<span class="options__text-wrapper">
-																														<svg class="color-brown">
-																															<use xlink:href="img/icons/icons.svg#invoiced"></use>
-																														</svg>
-																														<span class="options__text color-brown">Invoiced</span>
-																													</span>
-																													<svg>
-																														<use xlink:href="img/icons/icons.svg#tick"></use>
-																													</svg>
-																												</label>
+																										<div class="select__option option-select option-select--staff">
+																											<div class="option-select__staff">
+																												<div class="option-select__checkbox checkbox">
+																													<input class="option-select__checkbox-input checkbox__input" id="person-02" type="checkbox" value="2" checked />
+																													<label class="option-select__checkbox-label checkbox__label" for="person-02">
+																														<picture><source srcset="img/content/new-job/person-02.webp" type="image/webp"><img class="option-select__avatar" src="img/content/new-job/person-02.jpg" alt="avatar" /></picture>
+																														<span class="option-select__person-name">Alyona
+																															Kolontaevskaya</span>
+																													</label>
+																												</div>
 																											</div>
 																										</div>
-																										<div class="select__option option-select">
-																											<div class="options__item options__item--adapt">
-																												<input class="options__input" id="controll-status-3" type="radio" value="2" name="controll-time" />
-																												<label class="options__label" for="controll-status-3">
-																													<span class="options__text-wrapper">
-																														<svg class="color-green">
-																															<use xlink:href="img/icons/icons.svg#required"></use>
-																														</svg>
-																														<span class="options__text color-green">Action
-																															Required</span>
-																													</span>
-																													<svg>
-																														<use xlink:href="img/icons/icons.svg#tick"></use>
-																													</svg>
-																												</label>
+																										<div class="select__option option-select option-select--staff">
+																											<div class="option-select__staff">
+																												<div class="option-select__checkbox checkbox">
+																													<input class="option-select__checkbox-input checkbox__input" id="person-03" type="checkbox" value="3" checked />
+																													<label class="option-select__checkbox-label checkbox__label" for="person-03">
+																														<picture><source srcset="img/content/new-job/person-03.webp" type="image/webp"><img class="option-select__avatar" src="img/content/new-job/person-03.jpg" alt="avatar" /></picture>
+																														<span class="option-select__person-name">Alyona
+																															Kolontaevskaya</span>
+																													</label>
+																												</div>
 																											</div>
 																										</div>
-																										<div class="select__option option-select">
-																											<div class="options__item options__item--adapt">
-																												<input class="options__input" id="controll-status-4" type="radio" value="2" name="controll-time" />
-																												<label class="options__label" for="controll-status-4">
-																													<span class="options__text-wrapper">
-																														<svg class="color-blue">
-																															<use xlink:href="img/icons/icons.svg#active"></use>
-																														</svg>
-																														<span class="options__text color-blue">Active</span>
-																													</span>
-																													<svg>
-																														<use xlink:href="img/icons/icons.svg#tick"></use>
-																													</svg>
-																												</label>
+																										<div class="select__option option-select option-select--staff">
+																											<div class="option-select__staff">
+																												<div class="option-select__checkbox checkbox">
+																													<input class="option-select__checkbox-input checkbox__input" id="person-04" type="checkbox" value="4" checked />
+																													<label class="option-select__checkbox-label checkbox__label" for="person-04">
+																														<picture><source srcset="img/content/new-job/person-04.webp" type="image/webp"><img class="option-select__avatar" src="img/content/new-job/person-04.jpg" alt="avatar" /></picture>
+																														<span class="option-select__person-name">Alyona
+																															Kolontaevskaya</span>
+																													</label>
+																												</div>
 																											</div>
 																										</div>
-																										<div class="select__option option-select">
-																											<div class="options__item options__item--adapt">
-																												<input class="options__input" id="controll-status-5" type="radio" value="2" name="controll-time" />
-																												<label class="options__label" for="controll-status-5">
-																													<span class="options__text-wrapper">
-																														<svg class="color-red">
-																															<use xlink:href="img/icons/icons.svg#cancelled"></use>
-																														</svg>
-																														<span class="options__text color-red">Cancelled</span>
-																													</span>
-																													<svg>
-																														<use xlink:href="img/icons/icons.svg#tick"></use>
-																													</svg>
-																												</label>
+																										<div class="select__option option-select option-select--staff">
+																											<div class="option-select__staff">
+																												<div class="option-select__checkbox checkbox">
+																													<input class="option-select__checkbox-input checkbox__input" id="person-05" type="checkbox" value="5" />
+																													<label class="option-select__checkbox-label checkbox__label" for="person-05">
+																														<picture><source srcset="img/content/new-job/person-05.webp" type="image/webp"><img class="option-select__avatar" src="img/content/new-job/person-05.jpg" alt="avatar" /></picture>
+																														<span class="option-select__person-name">Alyona
+																															Kolontaevskaya</span>
+																													</label>
+																												</div>
 																											</div>
 																										</div>
-																										<div class="select__option option-select">
-																											<div class="options__item options__item--adapt">
-																												<input class="options__input" id="controll-status-6" type="radio" value="2" name="controll-time" />
-																												<label class="options__label" for="controll-status-6">
-																													<span class="options__text-wrapper">
-																														<svg class="color-pink">
-																															<use xlink:href="img/icons/icons.svg#archived"></use>
-																														</svg>
-																														<span class="options__text color-pink">Archived</span>
-																													</span>
-																													<svg>
-																														<use xlink:href="img/icons/icons.svg#tick"></use>
-																													</svg>
-																												</label>
+																										<div class="select__option option-select option-select--staff">
+																											<div class="option-select__staff">
+																												<div class="option-select__checkbox checkbox">
+																													<input class="option-select__checkbox-input checkbox__input" id="person-06" type="checkbox" value="6" />
+																													<label class="option-select__checkbox-label checkbox__label" for="person-06">
+																														<picture><source srcset="img/content/new-job/person-06.webp" type="image/webp"><img class="option-select__avatar" src="img/content/new-job/person-06.jpg" alt="avatar" /></picture>
+																														<span class="option-select__person-name">Alyona
+																															Kolontaevskaya</span>
+																													</label>
+																												</div>
 																											</div>
 																										</div>
-																										<div class="select__option option-select">
-																											<div class="options__item options__item--adapt">
-																												<input class="options__input" id="controll-status-7" type="radio" value="2" name="controll-time" />
-																												<label class="options__label" for="controll-status-7">
-																													<span class="options__text-wrapper">
-																														<svg class="color-cold">
-																															<use xlink:href="img/icons/icons.svg#on-hold"></use>
-																														</svg>
-																														<span class="options__text color-cold">On
-																															Hold</span>
-																													</span>
-																													<svg>
-																														<use xlink:href="img/icons/icons.svg#tick"></use>
-																													</svg>
-																												</label>
+																										<div class="select__option option-select option-select--staff">
+																											<div class="option-select__staff">
+																												<div class="option-select__checkbox checkbox">
+																													<input class="option-select__checkbox-input checkbox__input" id="person-07" type="checkbox" value="7" />
+																													<label class="option-select__checkbox-label checkbox__label" for="person-07">
+																														<picture><source srcset="img/content/new-job/person-01.webp" type="image/webp"><img class="option-select__avatar" src="img/content/new-job/person-01.jpg" alt="avatar" /></picture>
+																														<span class="option-select__person-name">Alyona
+																															Kolontaevskaya</span>
+																													</label>
+																												</div>
 																											</div>
 																										</div>
-																										<div class="select__option option-select">
-																											<div class="options__item options__item--adapt">
-																												<input class="options__input" id="controll-status-8" type="radio" value="2" name="controll-time" />
-																												<label class="options__label" for="controll-status-8">
-																													<span class="options__text-wrapper">
-																														<svg class="color-grey">
-																															<use xlink:href="img/icons/icons.svg#request"></use>
-																														</svg>
-																														<span class="options__text color-grey">Request</span>
-																													</span>
-																													<svg>
-																														<use xlink:href="img/icons/icons.svg#tick"></use>
-																													</svg>
-																												</label>
+																										<div class="select__option option-select option-select--staff">
+																											<div class="option-select__staff">
+																												<div class="option-select__checkbox checkbox">
+																													<input class="option-select__checkbox-input checkbox__input" id="person-08" type="checkbox" value="8" />
+																													<label class="option-select__checkbox-label checkbox__label" for="person-08">
+																														<picture><source srcset="img/content/new-job/person-02.webp" type="image/webp"><img class="option-select__avatar" src="img/content/new-job/person-02.jpg" alt="avatar" /></picture>
+																														<span class="option-select__person-name">Alyona
+																															Kolontaevskaya</span>
+																													</label>
+																												</div>
 																											</div>
 																										</div>
-																										<div class="select__option option-select">
-																											<div class="options__item options__item--adapt">
-																												<input class="options__input" id="controll-status-9" type="radio" value="2" name="controll-time" />
-																												<label class="options__label" for="controll-status-9">
-																													<span class="options__text-wrapper">
-																														<svg class="color-grey">
-																															<use xlink:href="img/icons/icons.svg#report"></use>
-																														</svg>
-																														<span class="options__text color-grey">InvoiReportced</span>
-																													</span>
-																													<svg>
-																														<use xlink:href="img/icons/icons.svg#tick"></use>
-																													</svg>
-																												</label>
+																										<div class="select__option option-select option-select--staff">
+																											<div class="option-select__staff">
+																												<div class="option-select__checkbox checkbox">
+																													<input class="option-select__checkbox-input checkbox__input" id="person-09" type="checkbox" value="9" />
+																													<label class="option-select__checkbox-label checkbox__label" for="person-09">
+																														<picture><source srcset="img/content/new-job/person-03.webp" type="image/webp"><img class="option-select__avatar" src="img/content/new-job/person-03.jpg" alt="avatar" /></picture>
+																														<span class="option-select__person-name">Alyona
+																															Kolontaevskaya</span>
+																													</label>
+																												</div>
 																											</div>
 																										</div>
-																										<div class="select__option option-select">
-																											<div class="options__item options__item--adapt">
-																												<input class="options__input" id="controll-status-10" type="radio" value="2" name="controll-time" />
-																												<label class="options__label" for="controll-status-10">
-																													<span class="options__text-wrapper">
-																														<svg class="color-grey">
-																															<use xlink:href="img/icons/icons.svg#quote"></use>
-																														</svg>
-																														<span class="options__text color-grey">Quote</span>
-																													</span>
-																													<svg>
-																														<use xlink:href="img/icons/icons.svg#tick"></use>
-																													</svg>
-																												</label>
+																										<div class="select__option option-select option-select--staff">
+																											<div class="option-select__staff">
+																												<div class="option-select__checkbox checkbox">
+																													<input class="option-select__checkbox-input checkbox__input" id="person-10" type="checkbox" value="10" />
+																													<label class="option-select__checkbox-label checkbox__label" for="person-10">
+																														<picture><source srcset="img/content/new-job/person-04.webp" type="image/webp"><img class="option-select__avatar" src="img/content/new-job/person-04.jpg" alt="avatar" /></picture>
+																														<span class="option-select__person-name">Alyona
+																															Kolontaevskaya</span>
+																													</label>
+																												</div>
 																											</div>
 																										</div>
-																										<div class="select__option option-select">
-																											<div class="options__item options__item--adapt">
-																												<input class="options__input" id="controll-status-11" type="radio" value="2" name="controll-time" />
-																												<label class="options__label" for="controll-status-11">
-																													<span class="options__text-wrapper">
-																														<svg class="color-grey">
-																															<use xlink:href="img/icons/icons.svg#variation"></use>
-																														</svg>
-																														<span class="options__text color-grey">Variation</span>
-																													</span>
-																													<svg>
-																														<use xlink:href="img/icons/icons.svg#tick"></use>
-																													</svg>
-																												</label>
+																										<div class="select__option option-select option-select--staff">
+																											<div class="option-select__staff">
+																												<div class="option-select__checkbox checkbox">
+																													<input class="option-select__checkbox-input checkbox__input" id="person-11" type="checkbox" value="11" />
+																													<label class="option-select__checkbox-label checkbox__label" for="person-11">
+																														<picture><source srcset="img/content/new-job/person-05.webp" type="image/webp"><img class="option-select__avatar" src="img/content/new-job/person-05.jpg" alt="avatar" /></picture>
+																														<span class="option-select__person-name">Alyona
+																															Kolontaevskaya</span>
+																													</label>
+																												</div>
 																											</div>
 																										</div>
-																										<div class="select__option option-select">
-																											<div class="options__item options__item--adapt">
-																												<input class="options__input" id="controll-status-12" type="radio" value="2" name="controll-time" />
-																												<label class="options__label" for="controll-status-12">
-																													<span class="options__text-wrapper">
-																														<svg class="color-grey">
-																															<use xlink:href="img/icons/icons.svg#secure"></use>
-																														</svg>
-																														<span class="options__text color-grey">Secure</span>
-																													</span>
-																													<svg>
-																														<use xlink:href="img/icons/icons.svg#tick"></use>
-																													</svg>
-																												</label>
+																										<div class="select__option option-select option-select--staff">
+																											<div class="option-select__staff">
+																												<div class="option-select__checkbox checkbox">
+																													<input class="option-select__checkbox-input checkbox__input" id="person-12" type="checkbox" value="12" />
+																													<label class="option-select__checkbox-label checkbox__label" for="person-12">
+																														<picture><source srcset="img/content/new-job/person-06.webp" type="image/webp"><img class="option-select__avatar" src="img/content/new-job/person-06.jpg" alt="avatar" /></picture>
+																														<span class="option-select__person-name">Alyona
+																															Kolontaevskaya</span>
+																													</label>
+																												</div>
 																											</div>
 																										</div>
 																									</div>
@@ -2800,45 +2989,33 @@
 																						<div class="form-info__field-name">
 																							Suite/Level/Apt
 																						</div>
-																						<div class="form-info__field-input-wrapper">
+																						<div class="form-info__field-input-wrapper input-wrapper">
 																							<input class="form-info__field-input input" type="text" />
 																						</div>
 																					</div>
 																					<div class="form-info__field">
 																						<div class="form-info__field-name">Street</div>
-																						<div class="form-info__field-input-wrapper">
-																							<input class="form-info__field-input input" type="text" />
+																						<div class="form-info__field-input-wrapper form-info__field-input-wrapper--street input-wrapper">
+																							<textarea class="form-info__field-input input" type="text"></textarea>
 																						</div>
 																					</div>
 																					<div class="form-info__field">
 																						<div class="form-info__field-name">
 																							Post Code
 																						</div>
-																						<div class="form-info__field-input-wrapper">
+																						<div class="form-info__field-input-wrapper form-info__field-input-wrapper--post-code input-wrapper">
 																							<input class="form-info__field-input input" type="text" />
 																						</div>
 																					</div>
 																					<div class="form-info__field">
 																						<div class="form-info__field-name">Suburb</div>
-																						<div class="form-info__field-input-wrapper">
+																						<div class="form-info__field-input-wrapper input-wrapper">
 																							<input class="form-info__field-input input" type="text" />
 																						</div>
 																					</div>
 																					<div class="form-info__field">
 																						<div class="form-info__field-name">State</div>
-																						<div class="form-info__field-input-wrapper">
-																							<input class="form-info__field-input input" type="text" />
-																						</div>
-																					</div>
-																					<div class="form-info__field">
-																						<div class="form-info__field-name">State</div>
-																						<div class="form-info__field-input-wrapper">
-																							<input class="form-info__field-input input" type="text" />
-																						</div>
-																					</div>
-																					<div class="form-info__field">
-																						<div class="form-info__field-name">State</div>
-																						<div class="form-info__field-input-wrapper">
+																						<div class="form-info__field-input-wrapper input-wrapper">
 																							<input class="form-info__field-input input" type="text" />
 																						</div>
 																					</div>
@@ -2849,39 +3026,33 @@
 																	<div class="project-info__col">
 																		<form class="project-info__form form-info">
 																			<div class="form-info__body">
-																				<h3 class="form-info__title">Address</h3>
+																				<h3 class="form-info__title">Customer Details</h3>
 																				<div class="form-info__body-inner">
-																					<div class="form-info__field">
+																					<div class="form-info__field form-info__field--second">
 																						<div class="form-info__field-name">
-																							Suite/Level/Apt
+																							First Name
 																						</div>
-																						<div class="form-info__field-input-wrapper">
+																						<div class="form-info__field-input-wrapper input-wrapper">
 																							<input class="form-info__field-input input" type="text" />
 																						</div>
 																					</div>
-																					<div class="form-info__field">
-																						<div class="form-info__field-name">Street</div>
-																						<div class="form-info__field-input-wrapper">
+																					<div class="form-info__field form-info__field--second">
+																						<div class="form-info__field-name">Last Name</div>
+																						<div class="form-info__field-input-wrapper input-wrapper">
 																							<input class="form-info__field-input input" type="text" />
 																						</div>
 																					</div>
-																					<div class="form-info__field">
+																					<div class="form-info__field form-info__field--second">
 																						<div class="form-info__field-name">
-																							Post Code
+																							Phone Number
 																						</div>
-																						<div class="form-info__field-input-wrapper">
+																						<div class="form-info__field-input-wrapper input-wrapper">
 																							<input class="form-info__field-input input" type="text" />
 																						</div>
 																					</div>
-																					<div class="form-info__field">
-																						<div class="form-info__field-name">Suburb</div>
-																						<div class="form-info__field-input-wrapper">
-																							<input class="form-info__field-input input" type="text" />
-																						</div>
-																					</div>
-																					<div class="form-info__field">
-																						<div class="form-info__field-name">State</div>
-																						<div class="form-info__field-input-wrapper">
+																					<div class="form-info__field form-info__field--second">
+																						<div class="form-info__field-name">E-mail Address</div>
+																						<div class="form-info__field-input-wrapper input-wrapper">
 																							<input class="form-info__field-input input" type="text" />
 																						</div>
 																					</div>
@@ -2903,19 +3074,221 @@
 											<div class="new-project-tabs__body new-project-tab">
 												<div class="new-project-tab__container layout-container" data-project-tab>
 													<div class="new-project-tab__body new-project-tab__body--managers-files">
-														<div class="managers-files managers-files--files-not-found">
+														<div class="managers-files">
 															<div class="managers-files__body" data-tabs>
-																<div class="managers-files__not-found-wrapper">
-																	<div class="managers-files__not-found-icon">
-																		<svg>
-																			<use xlink:href="img/icons/icons.svg#not-found"></use>
-																		</svg>
+																<header class="managers-files__header">
+																	<div class="managers-files__header-search-wrapper input-wrapper">
+																		<input class="managers-files__search-input input" type="text" placeholder="Quick Search" />
 																	</div>
-																	<div class="managers-files__not-found-title">There are no files here yet. Let's upload something here</div>
-																	<label class="managers-files__not-found-input input">
-																		<span class="managers-files__not-found-input-inner">Choose Files...</span>
-																		<input type="file">
+																	<div class="managers-files__grid-type" data-tabs-titles>
+																		<button type="button" class="managers-files__grid-title _tab-active">
+																			List
+																		</button>
+																		<button type="button" class="managers-files__grid-title">
+																			Grid
+																		</button>
+																	</div>
+																	<label class="managers-files__file-input input">
+																		<span class="managers-files__file-input-text">Choose Files...</span>
+																		<input type="file" placeholder="Choose Files..." />
 																	</label>
+																</header>
+																<div class="managers-files__content" data-tabs-body>
+																	<div class="managers-files__tab">
+																		<div class="managers-files__tab-body managers-files__tab-body--list">
+																			<div class="managers-files-item managers-files-item--list" data-file-item-id="0">
+																				<div class="managers-files-item__body">
+																					<div class="managers-files-item__body--mobile-wrapper"></div>
+																					<div class="managers-files-item__file-info" data-da="[data-file-item-id='0'] .managers-files-item__body--mobile-wrapper, 589.98">
+																						<div class="managers-files-item__file-ext-icon">
+																							<svg>
+																								<use xlink:href="img/icons/icons.svg#w"></use>
+																							</svg>
+																						</div>
+																						<div class="managers-files-item__file-name">
+																							FileNameShort
+																						</div>
+																					</div>
+																					<div class="managers-files-item__loading-wrapper">
+																						<div class="managers-files-item__loading-line-wrapper">
+																							<div class="managers-files-item__loading-line-progress" style="width: 50%"></div>
+																						</div>
+																						<div class="managers-files-item__loading-value">
+																							50%
+																						</div>
+																					</div>
+																					<div class="managers-files-item__controlls" data-da="[data-file-item-id='0'] .managers-files-item__body--mobile-wrapper, 589.98">
+																						<button class="managers-files-item__controll-item" data-tippy-content>
+																							<img src="img/icons/dialog--empty.svg" alt="icon" />
+																						</button>
+																						<button class="managers-files-item__controll-item" data-delete-file data-popup="#delete-file--pl">
+																							<img src="img/icons/delete.svg" alt="icon" />
+																						</button>
+																					</div>
+																				</div>
+																			</div>
+																			<div class="managers-files-item managers-files-item--list" data-file-item-id="1">
+																				<div class="managers-files-item__body">
+																					<div class="managers-files-item__body--mobile-wrapper"></div>
+																					<div class="managers-files-item__file-info" data-da="[data-file-item-id='1'] .managers-files-item__body--mobile-wrapper, 589.98">
+																						<div class="managers-files-item__file-ext-icon">
+																							<svg>
+																								<use xlink:href="img/icons/icons.svg#pdf"></use>
+																							</svg>
+																						</div>
+																						<div class="managers-files-item__file-name">
+																							FileNameShort
+																						</div>
+																					</div>
+																					<div class="managers-files-item__author-info managers-files-item__author-info--line-through">
+																						Aug 3, 8:00 AM, Sergey Zadrutsky
+																					</div>
+																					<div class="managers-files-item__controlls" data-da="[data-file-item-id='1'] .managers-files-item__body--mobile-wrapper, 589.98">
+																						<button class="managers-files-item__controll-item" data-tippy-content>
+																							<img src="img/icons/dialog.svg" alt="icon" />
+																						</button>
+																						<button class="managers-files-item__controll-item" data-delete-file data-popup="#delete-file--pl">
+																							<img src="img/icons/delete.svg" alt="icon" />
+																						</button>
+																					</div>
+																				</div>
+																			</div>
+																			<div class="managers-files-item managers-files-item--list" data-file-item-id="2">
+																				<div class="managers-files-item__body">
+																					<div class="managers-files-item__body--mobile-wrapper"></div>
+																					<div class="managers-files-item__file-info" data-da="[data-file-item-id='2'] .managers-files-item__body--mobile-wrapper, 589.98">
+																						<div class="managers-files-item__file-ext-icon">
+																							<svg>
+																								<use xlink:href="img/icons/icons.svg#pdf"></use>
+																							</svg>
+																						</div>
+																						<div class="managers-files-item__file-name">
+																							FileNameShort
+																						</div>
+																					</div>
+																					<div class="managers-files-item__author-info">
+																						Aug 3, 8:00 AM, Sergey Zadrutsky
+																					</div>
+																					<div class="managers-files-item__controlls" data-da="[data-file-item-id='2'] .managers-files-item__body--mobile-wrapper, 589.98">
+																						<button class="managers-files-item__controll-item" data-tippy-content>
+																							<img src="img/icons/dialog--empty.svg" alt="icon" />
+																						</button>
+																						<button class="managers-files-item__controll-item" data-delete-file data-popup="#delete-file--pl">
+																							<img src="img/icons/delete.svg" alt="icon" />
+																						</button>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																	<div class="managers-files__tab managers-files__tab--grid">
+																		<div class="managers-files-item managers-files-item--grid" data-file-item-id="0">
+																			<div class="managers-files-item__body">
+																				<div class="managers-files-item__controlls">
+																					<button class="managers-files-item__controll-item" data-tippy-content>
+																						<img src="img/icons/dialog--empty.svg" alt="icon" />
+																					</button>
+																					<button class="managers-files-item__controll-item" data-delete-file data-popup="#delete-file--pl">
+																						<img src="img/icons/delete.svg" alt="icon" />
+																					</button>
+																				</div>
+																				<div class="managers-files-item__background-ibg">
+																					<picture><source srcset="img/managers-files/image-01.webp" type="image/webp"><img src="img/managers-files/image-01.jpg" alt="background" /></picture>
+																				</div>
+																			</div>
+																			<footer class="managers-files-item__footer">
+																				<div class="managers-files-item__load-progress">
+																					<div class="managers-files-item__load-progress-line">
+																						<div class="managers-files-item__load-progress-line-inner" style="width: 0%"></div>
+																					</div>
+																					<div class="managers-files-item__load-progress-text">
+																						0%
+																					</div>
+																				</div>
+																			</footer>
+																		</div>
+																		<div class="managers-files-item managers-files-item--grid" data-file-item-id="1">
+																			<div class="managers-files-item__body">
+																				<div class="managers-files-item__controlls">
+																					<button class="managers-files-item__controll-item" data-tippy-content>
+																						<img src="img/icons/dialog.svg" alt="icon" />
+																					</button>
+																					<button class="managers-files-item__controll-item" data-delete-file data-popup="#delete-file--pl">
+																						<img src="img/icons/delete.svg" alt="icon" />
+																					</button>
+																				</div>
+																				<div class="managers-files-item__mime-type">
+																					<div class="managers-files-item__mime-type-icon">
+																						<svg>
+																							<use xlink:href="img/icons/icons.svg#x"></use>
+																						</svg>
+																					</div>
+																					<div class="managers-files-item__mime-type-name">
+																						FileNameShort
+																					</div>
+																				</div>
+																			</div>
+																			<footer class="managers-files-item__footer">
+																				<div class="managers-files-item__load-progress">
+																					<div class="managers-files-item__load-progress-line">
+																						<div class="managers-files-item__load-progress-line-inner" style="width: 0%"></div>
+																					</div>
+																					<div class="managers-files-item__load-progress-text">
+																						0%
+																					</div>
+																				</div>
+																			</footer>
+																		</div>
+																		<div class="managers-files-item managers-files-item--grid" data-file-item-id="2">
+																			<div class="managers-files-item__body">
+																				<div class="managers-files-item__controlls">
+																					<button class="managers-files-item__controll-item" data-tippy-content>
+																						<img src="img/icons/dialog--empty.svg" alt="icon" />
+																					</button>
+																					<button class="managers-files-item__controll-item" data-delete-file data-popup="#delete-file--pl">
+																						<img src="img/icons/delete.svg" alt="icon" />
+																					</button>
+																				</div>
+																				<a class="managers-files-item__background-ibg" href="#" data-popup="#files-gallery--pl">
+																					<picture><source srcset="img/managers-files/image-01.webp" type="image/webp"><img src="img/managers-files/image-01.jpg" alt="background" /></picture>
+																				</a>
+																			</div>
+																			<footer class="managers-files-item__footer">
+																				<div class="managers-files-item__description">
+																					Aug 2, 8:00 AM, <br />
+																					Sergey Zadrutsky
+																				</div>
+																			</footer>
+																		</div>
+																		<div class="managers-files-item managers-files-item--grid" data-file-item-id="3">
+																			<div class="managers-files-item__body">
+																				<div class="managers-files-item__controlls">
+																					<button class="managers-files-item__controll-item" data-tippy-content>
+																						<img src="img/icons/dialog--empty.svg" alt="icon" />
+																					</button>
+																					<button class="managers-files-item__controll-item" data-delete-file data-popup="#delete-file--pl">
+																						<img src="img/icons/delete.svg" alt="icon" />
+																					</button>
+																				</div>
+																				<div class="managers-files-item__mime-type">
+																					<div class="managers-files-item__mime-type-icon">
+																						<svg>
+																							<use xlink:href="img/icons/icons.svg#pdf"></use>
+																						</svg>
+																					</div>
+																					<div class="managers-files-item__mime-type-name">
+																						FileNameLong_with2_line... _end_of
+																					</div>
+																				</div>
+																			</div>
+																			<footer class="managers-files-item__footer">
+																				<div class="managers-files-item__description managers-files-item__description--line-through">
+																					Aug 3, 8:00 AM, <br />
+																					Sergey Zadrutsky
+																				</div>
+																			</footer>
+																		</div>
+																	</div>
 																</div>
 															</div>
 														</div>
@@ -2942,7 +3315,6 @@
 						</div>
 					</div>
 				</div>
-
 			</div>
 			<!--end::Wrapper-->
 		</div>

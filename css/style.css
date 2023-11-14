@@ -4056,6 +4056,14 @@ body::after {
   overflow: visible;
 }
 
+.layout-wrapper--drawer {
+  overflow: hidden;
+}
+
+.layout-wrapper--drawer.new-projects-opened {
+  overflow: visible;
+}
+
 .layout-wrapper--not-found .projects-layout__content-body {
   height: 100%;
   cursor: auto;
@@ -4149,6 +4157,17 @@ body::after {
   width: 100%;
   height: calc(100% + var(--top-gap));
   background-color: var(--ui-color-white);
+  -webkit-transition: left 0.3s ease;
+  -o-transition: left 0.3s ease;
+  transition: left 0.3s ease;
+}
+
+.new-project-drawer--drawer {
+  left: 100%;
+}
+
+.new-projects-opened .new-project-drawer--drawer {
+  left: 0;
 }
 
 .new-project-drawer__body {
