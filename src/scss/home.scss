@@ -1290,11 +1290,11 @@
 		transform: translateX(0);
 	}
 
+	display: grid;
+	grid-template-rows: auto 1fr auto;
+
 	&__top {
-		position: absolute;
-		z-index: 2;
-		top: 0;
-		left: 0;
+		position: relative;
 		width: 100%;
 		padding: rem(12) rem(28);
 		display: flex;
@@ -1338,11 +1338,10 @@
 	&__main {
 		overflow: auto;
 		height: 100%;
-		padding: rem(91) rem(28) rem(112);
-		@media (max-width: $mobile) {
-			padding: rem(16);
-			padding: rem(72) rem(16) rem(92);
-		}
+		@include adaptiveValue("padding-top", 20, 16, 0, 1920, 568);
+		@include adaptiveValue("padding-bottom", 36, 20, 0, 1920, 568);
+		@include adaptiveValue("padding-left", 28, 16, 0, 1920, 568);
+		@include adaptiveValue("padding-right", 28, 16, 0, 1920, 568);
 	}
 
 	&__row {
@@ -1738,10 +1737,6 @@
 	}
 
 	&__bottom {
-		position: absolute;
-		z-index: 2;
-		bottom: 0;
-		left: 0;
 		width: 100%;
 		padding: rem(12) rem(28);
 		display: flex;
