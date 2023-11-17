@@ -543,7 +543,7 @@ body::after {
 
 		@media (max-width: $tablet) {
 			margin-top: rem(32);
-			padding: rem(16);
+			padding: rem(16) 0;
 		}
 	}
 

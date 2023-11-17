@@ -32,7 +32,7 @@ export const path = {
 	rootFolder: rootFolder,
 	srcFolder: srcFolder,
 	// Путь к нужной папке на удаленном сервере.
-	ftp: `${rootFolder}`,
+	ftp: `${rootFolder}-projects`,
 	// Пример: загрузить в папку 2022 далее в папку с названием проекта
 	// ftp: `2022/${rootFolder}`
 };
