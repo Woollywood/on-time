@@ -20,9 +20,8 @@
 
 	&:not(.swiper-button-disabled) {
 		&:disabled {
-			color: cl('grey', 0.3);
-			border: 1px solid cl('grey', 0.3);
-			background-color: transparent;
+			color: cl('grey');
+			background-color: cl('grey', 0.3);
 		}
 	}
 

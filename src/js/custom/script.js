@@ -11,6 +11,25 @@ document.addEventListener('DOMContentLoaded', (event) => {
 		if (targetElement.closest('.select') && !targetElement.closest('.select__options')) {
 			targetElement.closest('.select').classList.toggle('select-open');
 		}
+
+		if (targetElement.closest('#new-job-button')) {
+			document.documentElement.classList.add('new-job-open');
+		} else if (!targetElement.closest('.new-job') || targetElement.closest('.new-job__close')) {
+			document.documentElement.classList.remove('new-job-open');
+		}
+
+		if (targetElement.closest('.project-tasks__body')) {
+			if (document.documentElement.classList.contains('task-details-open')) {
+				document.documentElement.classList.remove('task-details-open');
+				setTimeout(() => {
+					document.documentElement.classList.add('task-details-open');
+				}, 300);
+			} else {
+				document.documentElement.classList.add('task-details-open');
+			}
+		} else if (!targetElement.closest('.task-details') || targetElement.closest('.task-details__close')) {
+			document.documentElement.classList.remove('task-details-open');
+		}
 	});
 
 	if (document.querySelector('.layout-wrapper--drawer')) {
@@ -18,13 +37,13 @@ document.addEventListener('DOMContentLoaded', (event) => {
 		const buttonOpen = document.querySelector('[data-new-projects-open]');
 		const buttonClose = document.querySelector('[data-new-projects-close]');
 
-		buttonOpen.addEventListener('click', ev => {
+		buttonOpen.addEventListener('click', (ev) => {
 			layoutWrapper.classList.add('new-projects-opened');
-		})
+		});
 
-		buttonClose.addEventListener('click', ev => {
+		buttonClose.addEventListener('click', (ev) => {
 			layoutWrapper.classList.remove('new-projects-opened');
-		})
+		});
 	}
 
 	layoutGapObserver();
