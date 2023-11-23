@@ -31,6 +31,7 @@
 	&__top {
 		display: flex;
 		align-items: center;
+		flex-wrap: wrap;
 		justify-content: space-between;
 		@include adaptiveValue('gap', 24, 12, 0, $maxWidthContainer, 375);
 		@include adaptiveValue('padding-top', 28, 16, 0, $maxWidthContainer, 375);
@@ -2675,7 +2676,7 @@
 	--grid-line: 17% 23% 19% 19% 1fr;
 
 	@media (max-width: $mobile) {
-		--grid-line: 20% 20% 20% 1fr;
+		--grid-line: 17% 30% 30% 1fr;
 	}
 
 	$avatar-width-from: 28;
@@ -2766,6 +2767,45 @@
 			@include adaptiveValue('font-size', 14, 11, 0, 1920, 568);
 			font-style: italic;
 			line-height: 142%;
+		}
+	}
+
+	&__task {
+		display: flex;
+		@include adaptiveValue("gap", 8, 4, 0, 1920, 568);
+		align-items: center;
+
+		&--cancelled {
+			span {
+				text-decoration: line-through;
+				color: cl('red-2') !important;
+			}
+
+			.event-tasks__task-icon {
+				svg {
+					fill: cl('red-2');
+				}
+			}
+		}
+
+		span {
+			color: cl('black');
+			@include adaptiveValue("font-size", 14, 11, 0, 1920, 568);
+			line-height: 142%;
+		}
+	}
+
+	&__task-icon {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		svg {
+			flex-shrink: 0;
+			flex-grow: 0;
+			@include adaptiveValue("flex-basis", 14, 11, 0, 1920, 568);
+			@include adaptiveValue("width", 14, 11, 0, 1920, 568);
+			aspect-ratio: 1;
 		}
 	}
 
