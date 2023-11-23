@@ -34,8 +34,18 @@ document.addEventListener('DOMContentLoaded', (event) => {
 	}
 });
 
+function tasksHeightObserver() {
+	const wrapper = document.querySelector('.cells-layout__scroll-wrapper');
+	const layoutTop = document.querySelector('.layout__top');
+	const appHeader = document.querySelector('#kt_app_header');
+
+	wrapper.style.maxHeight = `${(window.innerHeight - (appHeader.offsetHeight + layoutTop.offsetHeight)) * 0.9}px`;
+}
+
 window.addEventListener('load', (windowEvent) => {
 	// flsModules.popup.open('#on-board--pl');
+	tasksHeightObserver();
+	window.addEventListener('resize', tasksHeightObserver);
 
 	if (document.querySelector('.layout__calendar')) {
 		let arrayDays = [
@@ -96,6 +106,26 @@ window.addEventListener('load', (windowEvent) => {
 		dayHeightLayoutObserver();
 		window.addEventListener('resize', dayHeightLayoutObserver);
 
+		taskEventAdd('6:00 am – All Day', 'Ermington', 'Riverside Church', 'Must attend today', [
+			'img/content/calendar-layout/event-block/02/user-01.jpg',
+			'img/content/calendar-layout/event-block/02/user-01.jpg',
+		]);
+		taskEventAdd('6:00 am – All Day', 'Ermington', 'Riverside Church', 'Must attend today', [
+			'img/content/calendar-layout/event-block/02/user-01.jpg',
+			'img/content/calendar-layout/event-block/02/user-01.jpg',
+		]);
+		taskEventAdd('6:00 am – All Day', 'Ermington', 'Riverside Church', 'Must attend today', [
+			'img/content/calendar-layout/event-block/02/user-01.jpg',
+			'img/content/calendar-layout/event-block/02/user-01.jpg',
+		]);
+		taskEventAdd('6:00 am – All Day', 'Ermington', 'Riverside Church', 'Must attend today', [
+			'img/content/calendar-layout/event-block/02/user-01.jpg',
+			'img/content/calendar-layout/event-block/02/user-01.jpg',
+		]);
+		taskEventAdd('6:00 am – All Day', 'Ermington', 'Riverside Church', 'Must attend today', [
+			'img/content/calendar-layout/event-block/02/user-01.jpg',
+			'img/content/calendar-layout/event-block/02/user-01.jpg',
+		]);
 		taskEventAdd('6:00 am – All Day', 'Ermington', 'Riverside Church', 'Must attend today', [
 			'img/content/calendar-layout/event-block/02/user-01.jpg',
 			'img/content/calendar-layout/event-block/02/user-01.jpg',

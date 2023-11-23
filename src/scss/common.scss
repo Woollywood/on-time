@@ -34,3 +34,26 @@
 	color: cl('text-grey') !important;
 	fill: cl('text-grey') !important;
 }
+
+.scrollbar {
+	overflow: auto;
+
+	&::-webkit-scrollbar {
+		width: rem(6);
+	}
+
+	&::-webkit-scrollbar-track {
+		background: transparent;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background-color: cl('accent', 0.3);
+		border-radius: rem(12);
+	}
+
+	&:hover {
+		&::-webkit-scrollbar-thumb {
+			background-color: cl('accent', 0.8);
+		}
+	}
+}
