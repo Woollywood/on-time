@@ -223,8 +223,9 @@
 									style="display: none">
 									<div class="time-stamp__inner">
 										<div class="time-stamp__value">Time</div>
-										<div class="time-stamp__value">Address</div>
+										<div class="time-stamp__value">People</div>
 										<div class="time-stamp__value">Task</div>
+										<div class="time-stamp__value">Address</div>
 										<div class="time-stamp__value">Description</div>
 									</div>
 								</div>
@@ -893,50 +894,418 @@
 									data-layout-cells-display="tasks"
 									style="display: none">
 									<div class="cells-layout__scroll-wrapper scrollbar">
-										<div class="project-tasks__line avatar-visible">
-											<div class="project-tasks__top">
-												<div class="project-tasks__top-label">Time</div>
-												<div class="project-tasks__top-label">People</div>
-												<div class="project-tasks__top-label">Description</div>
+										<div class="event-tasks avatar-visible" id="event-task-1">
+											<div class="event-tasks__body-col event-tasks__body-col--time">
+												<span class="event-tasks__body-col--time-top">30 Sep 2023,</span>
+												<span class="event-tasks__body-col--time-bottom"
+													>8:00 am – 11:30 pm</span
+												>
 											</div>
-											<div class="project-tasks__body">
-												<div class="project-tasks__body-col project-tasks__body-col--time">
-													<span class="project-tasks__body-col--time-top"
-														>30 Sep 2023,</span
-													>
-													<span class="project-tasks__body-col--time-bottom"
-														>8:00 am – 11:30 pm</span
-													>
+											<div class="event-tasks__body-col event-tasks__body-col--people">
+												<div class="event-tasks__user">
+													<div class="event-tasks__user-avatar">
+														<img src="@img/avatars/avatar-01.jpg" alt="avatar" />
+													</div>
+													<div class="event-tasks__user-name">Alyona Kolontaevskaya</div>
 												</div>
-												<div class="project-tasks__body-col project-tasks__body-col--people">
-													<div class="project-tasks__user">
-														<div class="project-tasks__user-avatar">
-															<img src="@img/avatars/avatar-01.jpg" alt="avatar" />
-														</div>
-														<div class="project-tasks__user-name">
-															Alyona Kolontaevskaya
-														</div>
+												<div class="event-tasks__user">
+													<div class="event-tasks__user-avatar">
+														<img src="@img/avatars/avatar-03.jpg" alt="avatar" />
 													</div>
-													<div class="project-tasks__user">
-														<div class="project-tasks__user-avatar">
-															<img src="@img/avatars/avatar-03.jpg" alt="avatar" />
-														</div>
-														<div class="project-tasks__user-name">Pavel Buyanov</div>
+													<div class="event-tasks__user-name">Pavel Buyanov</div>
+												</div>
+												<div class="event-tasks__user">
+													<div class="event-tasks__user-avatar">
+														<img src="@img/avatars/avatar-02.jpg" alt="avatar" />
 													</div>
-													<div class="project-tasks__user">
-														<div class="project-tasks__user-avatar">
-															<img src="@img/avatars/avatar-02.jpg" alt="avatar" />
-														</div>
-														<div
-															class="project-tasks__user-name project-tasks__user-name--bold">
-															Sergey Zadrutsky
-														</div>
+													<div class="event-tasks__user-name event-tasks__user-name--bold">
+														Sergey Zadrutsky
 													</div>
 												</div>
-												<div
-													class="project-tasks__body-col project-tasks__body-col--description">
-													Meeting David Answer Electrical
+											</div>
+											<div class="event-tasks__body-col event-tasks__body-col--task">
+												The Magic Name Of Department
+											</div>
+											<div class="event-tasks__body-col event-tasks__body-col--address">
+												<div class="event-tasks__address" data-da="#event-task-1 .event-tasks__body-col--task, 767.98">
+													<div class="event-tasks__address-icon">
+														<svg>
+															<use xlink:href="@img/icons/icons.svg#location"></use>
+														</svg>
+													</div>
+													<div class="event-tasks__address-name">Chatswood</div>
 												</div>
+											</div>
+											<div class="event-tasks__body-col event-tasks__body-col--description">
+												Meeting David Answer Electrical
+											</div>
+										</div>
+										<div class="event-tasks avatar-visible" id="event-task-2">
+											<div class="event-tasks__body-col event-tasks__body-col--time">
+												<span class="event-tasks__body-col--time-top">30 Sep 2023,</span>
+												<span class="event-tasks__body-col--time-bottom"
+													>8:00 am – 11:30 pm</span
+												>
+											</div>
+											<div class="event-tasks__body-col event-tasks__body-col--people">
+												<div class="event-tasks__user">
+													<div class="event-tasks__user-avatar">
+														<img src="@img/avatars/avatar-01.jpg" alt="avatar" />
+													</div>
+													<div class="event-tasks__user-name">Alyona Kolontaevskaya</div>
+												</div>
+												<div class="event-tasks__user">
+													<div class="event-tasks__user-avatar">
+														<img src="@img/avatars/avatar-03.jpg" alt="avatar" />
+													</div>
+													<div class="event-tasks__user-name">Pavel Buyanov</div>
+												</div>
+												<div class="event-tasks__user">
+													<div class="event-tasks__user-avatar">
+														<img src="@img/avatars/avatar-02.jpg" alt="avatar" />
+													</div>
+													<div class="event-tasks__user-name event-tasks__user-name--bold">
+														Sergey Zadrutsky
+													</div>
+												</div>
+											</div>
+											<div class="event-tasks__body-col event-tasks__body-col--task">
+												The Magic Name Of Department
+											</div>
+											<div class="event-tasks__body-col event-tasks__body-col--address">
+												<div class="event-tasks__address" data-da="#event-task-2 .event-tasks__body-col--task, 767.98">
+													<div class="event-tasks__address-icon">
+														<svg>
+															<use xlink:href="@img/icons/icons.svg#location"></use>
+														</svg>
+													</div>
+													<div class="event-tasks__address-name">Chatswood</div>
+												</div>
+											</div>
+											<div class="event-tasks__body-col event-tasks__body-col--description">
+												Meeting David Answer Electrical
+											</div>
+										</div>
+										<div class="event-tasks avatar-visible" id="event-task-3">
+											<div class="event-tasks__body-col event-tasks__body-col--time">
+												<span class="event-tasks__body-col--time-top">30 Sep 2023,</span>
+												<span class="event-tasks__body-col--time-bottom"
+													>8:00 am – 11:30 pm</span
+												>
+											</div>
+											<div class="event-tasks__body-col event-tasks__body-col--people">
+												<div class="event-tasks__user">
+													<div class="event-tasks__user-avatar">
+														<img src="@img/avatars/avatar-01.jpg" alt="avatar" />
+													</div>
+													<div class="event-tasks__user-name">Alyona Kolontaevskaya</div>
+												</div>
+												<div class="event-tasks__user">
+													<div class="event-tasks__user-avatar">
+														<img src="@img/avatars/avatar-03.jpg" alt="avatar" />
+													</div>
+													<div class="event-tasks__user-name">Pavel Buyanov</div>
+												</div>
+												<div class="event-tasks__user">
+													<div class="event-tasks__user-avatar">
+														<img src="@img/avatars/avatar-02.jpg" alt="avatar" />
+													</div>
+													<div class="event-tasks__user-name event-tasks__user-name--bold">
+														Sergey Zadrutsky
+													</div>
+												</div>
+											</div>
+											<div class="event-tasks__body-col event-tasks__body-col--task">
+												The Magic Name Of Department
+											</div>
+											<div class="event-tasks__body-col event-tasks__body-col--address">
+												<div class="event-tasks__address" data-da="#event-task-3 .event-tasks__body-col--task, 767.98">
+													<div class="event-tasks__address-icon">
+														<svg>
+															<use xlink:href="@img/icons/icons.svg#location"></use>
+														</svg>
+													</div>
+													<div class="event-tasks__address-name">Chatswood</div>
+												</div>
+											</div>
+											<div class="event-tasks__body-col event-tasks__body-col--description">
+												Meeting David Answer Electrical
+											</div>
+										</div>
+										<div class="event-tasks avatar-visible" id="event-task-4">
+											<div class="event-tasks__body-col event-tasks__body-col--time">
+												<span class="event-tasks__body-col--time-top">30 Sep 2023,</span>
+												<span class="event-tasks__body-col--time-bottom"
+													>8:00 am – 11:30 pm</span
+												>
+											</div>
+											<div class="event-tasks__body-col event-tasks__body-col--people">
+												<div class="event-tasks__user">
+													<div class="event-tasks__user-avatar">
+														<img src="@img/avatars/avatar-01.jpg" alt="avatar" />
+													</div>
+													<div class="event-tasks__user-name">Alyona Kolontaevskaya</div>
+												</div>
+												<div class="event-tasks__user">
+													<div class="event-tasks__user-avatar">
+														<img src="@img/avatars/avatar-03.jpg" alt="avatar" />
+													</div>
+													<div class="event-tasks__user-name">Pavel Buyanov</div>
+												</div>
+												<div class="event-tasks__user">
+													<div class="event-tasks__user-avatar">
+														<img src="@img/avatars/avatar-02.jpg" alt="avatar" />
+													</div>
+													<div class="event-tasks__user-name event-tasks__user-name--bold">
+														Sergey Zadrutsky
+													</div>
+												</div>
+											</div>
+											<div class="event-tasks__body-col event-tasks__body-col--task">
+												The Magic Name Of Department
+											</div>
+											<div class="event-tasks__body-col event-tasks__body-col--address">
+												<div class="event-tasks__address" data-da="#event-task-4 .event-tasks__body-col--task, 767.98">
+													<div class="event-tasks__address-icon">
+														<svg>
+															<use xlink:href="@img/icons/icons.svg#location"></use>
+														</svg>
+													</div>
+													<div class="event-tasks__address-name">Chatswood</div>
+												</div>
+											</div>
+											<div class="event-tasks__body-col event-tasks__body-col--description">
+												Meeting David Answer Electrical
+											</div>
+										</div>
+										<div class="event-tasks avatar-visible" id="event-task-5">
+											<div class="event-tasks__body-col event-tasks__body-col--time">
+												<span class="event-tasks__body-col--time-top">30 Sep 2023,</span>
+												<span class="event-tasks__body-col--time-bottom"
+													>8:00 am – 11:30 pm</span
+												>
+											</div>
+											<div class="event-tasks__body-col event-tasks__body-col--people">
+												<div class="event-tasks__user">
+													<div class="event-tasks__user-avatar">
+														<img src="@img/avatars/avatar-01.jpg" alt="avatar" />
+													</div>
+													<div class="event-tasks__user-name">Alyona Kolontaevskaya</div>
+												</div>
+												<div class="event-tasks__user">
+													<div class="event-tasks__user-avatar">
+														<img src="@img/avatars/avatar-03.jpg" alt="avatar" />
+													</div>
+													<div class="event-tasks__user-name">Pavel Buyanov</div>
+												</div>
+												<div class="event-tasks__user">
+													<div class="event-tasks__user-avatar">
+														<img src="@img/avatars/avatar-02.jpg" alt="avatar" />
+													</div>
+													<div class="event-tasks__user-name event-tasks__user-name--bold">
+														Sergey Zadrutsky
+													</div>
+												</div>
+											</div>
+											<div class="event-tasks__body-col event-tasks__body-col--task">
+												The Magic Name Of Department
+											</div>
+											<div class="event-tasks__body-col event-tasks__body-col--address">
+												<div class="event-tasks__address" data-da="#event-task-5 .event-tasks__body-col--task, 767.98">
+													<div class="event-tasks__address-icon">
+														<svg>
+															<use xlink:href="@img/icons/icons.svg#location"></use>
+														</svg>
+													</div>
+													<div class="event-tasks__address-name">Chatswood</div>
+												</div>
+											</div>
+											<div class="event-tasks__body-col event-tasks__body-col--description">
+												Meeting David Answer Electrical
+											</div>
+										</div>
+										<div class="event-tasks avatar-visible" id="event-task-6">
+											<div class="event-tasks__body-col event-tasks__body-col--time">
+												<span class="event-tasks__body-col--time-top">30 Sep 2023,</span>
+												<span class="event-tasks__body-col--time-bottom"
+													>8:00 am – 11:30 pm</span
+												>
+											</div>
+											<div class="event-tasks__body-col event-tasks__body-col--people">
+												<div class="event-tasks__user">
+													<div class="event-tasks__user-avatar">
+														<img src="@img/avatars/avatar-01.jpg" alt="avatar" />
+													</div>
+													<div class="event-tasks__user-name">Alyona Kolontaevskaya</div>
+												</div>
+												<div class="event-tasks__user">
+													<div class="event-tasks__user-avatar">
+														<img src="@img/avatars/avatar-03.jpg" alt="avatar" />
+													</div>
+													<div class="event-tasks__user-name">Pavel Buyanov</div>
+												</div>
+												<div class="event-tasks__user">
+													<div class="event-tasks__user-avatar">
+														<img src="@img/avatars/avatar-02.jpg" alt="avatar" />
+													</div>
+													<div class="event-tasks__user-name event-tasks__user-name--bold">
+														Sergey Zadrutsky
+													</div>
+												</div>
+											</div>
+											<div class="event-tasks__body-col event-tasks__body-col--task">
+												The Magic Name Of Department
+											</div>
+											<div class="event-tasks__body-col event-tasks__body-col--address">
+												<div class="event-tasks__address" data-da="#event-task-6 .event-tasks__body-col--task, 767.98">
+													<div class="event-tasks__address-icon">
+														<svg>
+															<use xlink:href="@img/icons/icons.svg#location"></use>
+														</svg>
+													</div>
+													<div class="event-tasks__address-name">Chatswood</div>
+												</div>
+											</div>
+											<div class="event-tasks__body-col event-tasks__body-col--description">
+												Meeting David Answer Electrical
+											</div>
+										</div>
+										<div class="event-tasks avatar-visible" id="event-task-7">
+											<div class="event-tasks__body-col event-tasks__body-col--time">
+												<span class="event-tasks__body-col--time-top">30 Sep 2023,</span>
+												<span class="event-tasks__body-col--time-bottom"
+													>8:00 am – 11:30 pm</span
+												>
+											</div>
+											<div class="event-tasks__body-col event-tasks__body-col--people">
+												<div class="event-tasks__user">
+													<div class="event-tasks__user-avatar">
+														<img src="@img/avatars/avatar-01.jpg" alt="avatar" />
+													</div>
+													<div class="event-tasks__user-name">Alyona Kolontaevskaya</div>
+												</div>
+												<div class="event-tasks__user">
+													<div class="event-tasks__user-avatar">
+														<img src="@img/avatars/avatar-03.jpg" alt="avatar" />
+													</div>
+													<div class="event-tasks__user-name">Pavel Buyanov</div>
+												</div>
+												<div class="event-tasks__user">
+													<div class="event-tasks__user-avatar">
+														<img src="@img/avatars/avatar-02.jpg" alt="avatar" />
+													</div>
+													<div class="event-tasks__user-name event-tasks__user-name--bold">
+														Sergey Zadrutsky
+													</div>
+												</div>
+											</div>
+											<div class="event-tasks__body-col event-tasks__body-col--task">
+												The Magic Name Of Department
+											</div>
+											<div class="event-tasks__body-col event-tasks__body-col--address">
+												<div class="event-tasks__address" data-da="#event-task-7 .event-tasks__body-col--task, 767.98">
+													<div class="event-tasks__address-icon">
+														<svg>
+															<use xlink:href="@img/icons/icons.svg#location"></use>
+														</svg>
+													</div>
+													<div class="event-tasks__address-name">Chatswood</div>
+												</div>
+											</div>
+											<div class="event-tasks__body-col event-tasks__body-col--description">
+												Meeting David Answer Electrical
+											</div>
+										</div>
+										<div class="event-tasks avatar-visible" id="event-task-8">
+											<div class="event-tasks__body-col event-tasks__body-col--time">
+												<span class="event-tasks__body-col--time-top">30 Sep 2023,</span>
+												<span class="event-tasks__body-col--time-bottom"
+													>8:00 am – 11:30 pm</span
+												>
+											</div>
+											<div class="event-tasks__body-col event-tasks__body-col--people">
+												<div class="event-tasks__user">
+													<div class="event-tasks__user-avatar">
+														<img src="@img/avatars/avatar-01.jpg" alt="avatar" />
+													</div>
+													<div class="event-tasks__user-name">Alyona Kolontaevskaya</div>
+												</div>
+												<div class="event-tasks__user">
+													<div class="event-tasks__user-avatar">
+														<img src="@img/avatars/avatar-03.jpg" alt="avatar" />
+													</div>
+													<div class="event-tasks__user-name">Pavel Buyanov</div>
+												</div>
+												<div class="event-tasks__user">
+													<div class="event-tasks__user-avatar">
+														<img src="@img/avatars/avatar-02.jpg" alt="avatar" />
+													</div>
+													<div class="event-tasks__user-name event-tasks__user-name--bold">
+														Sergey Zadrutsky
+													</div>
+												</div>
+											</div>
+											<div class="event-tasks__body-col event-tasks__body-col--task">
+												The Magic Name Of Department
+											</div>
+											<div class="event-tasks__body-col event-tasks__body-col--address">
+												<div class="event-tasks__address" data-da="#event-task-8 .event-tasks__body-col--task, 767.98">
+													<div class="event-tasks__address-icon">
+														<svg>
+															<use xlink:href="@img/icons/icons.svg#location"></use>
+														</svg>
+													</div>
+													<div class="event-tasks__address-name">Chatswood</div>
+												</div>
+											</div>
+											<div class="event-tasks__body-col event-tasks__body-col--description">
+												Meeting David Answer Electrical
+											</div>
+										</div>
+										<div class="event-tasks avatar-visible" id="event-task-9">
+											<div class="event-tasks__body-col event-tasks__body-col--time">
+												<span class="event-tasks__body-col--time-top">30 Sep 2023,</span>
+												<span class="event-tasks__body-col--time-bottom"
+													>8:00 am – 11:30 pm</span
+												>
+											</div>
+											<div class="event-tasks__body-col event-tasks__body-col--people">
+												<div class="event-tasks__user">
+													<div class="event-tasks__user-avatar">
+														<img src="@img/avatars/avatar-01.jpg" alt="avatar" />
+													</div>
+													<div class="event-tasks__user-name">Alyona Kolontaevskaya</div>
+												</div>
+												<div class="event-tasks__user">
+													<div class="event-tasks__user-avatar">
+														<img src="@img/avatars/avatar-03.jpg" alt="avatar" />
+													</div>
+													<div class="event-tasks__user-name">Pavel Buyanov</div>
+												</div>
+												<div class="event-tasks__user">
+													<div class="event-tasks__user-avatar">
+														<img src="@img/avatars/avatar-02.jpg" alt="avatar" />
+													</div>
+													<div class="event-tasks__user-name event-tasks__user-name--bold">
+														Sergey Zadrutsky
+													</div>
+												</div>
+											</div>
+											<div class="event-tasks__body-col event-tasks__body-col--task">
+												The Magic Name Of Department
+											</div>
+											<div class="event-tasks__body-col event-tasks__body-col--address">
+												<div class="event-tasks__address" data-da="#event-task-9 .event-tasks__body-col--task, 767.98">
+													<div class="event-tasks__address-icon">
+														<svg>
+															<use xlink:href="@img/icons/icons.svg#location"></use>
+														</svg>
+													</div>
+													<div class="event-tasks__address-name">Chatswood</div>
+												</div>
+											</div>
+											<div class="event-tasks__body-col event-tasks__body-col--description">
+												Meeting David Answer Electrical
 											</div>
 										</div>
 									</div>

@@ -295,16 +295,23 @@
 	}
 
 	&--tasks {
+		--grid-line: 17% 23% 19% 19% 1fr;
+
 		.time-stamp__inner {
 			display: grid;
-			grid-template-columns: calc(rem(20) + 17.8%) calc(rem(4) + 17.8%) 17.8% 1fr;
+			gap: rem(8);
+			grid-template-columns: var(--grid-line);
+			padding-left: rem(12);
+			padding-right: rem(12);
+
+			.time-stamp__value {
+				&:not(:first-child) {
+					padding-left: rem(12);
+				} 
+			}
 		}
 
-		.time-stamp__inner {
-			padding-left: 0 !important;
-		}
-
-		@media (max-width: $mobileSmall) {
+		@media (max-width: $mobile) {
 			display: none;
 		}
 	}
@@ -501,6 +508,16 @@
 	cursor: grab;
 	will-change: transform;
 
+	&__scroll-wrapper {
+		display: flex;
+		flex-direction: column;
+		gap: rem(1);
+
+		@media (max-width: $mobile) {
+			margin: 0 rem(-16);
+		}
+	}
+
 	&--day {
 		position: relative;
 
@@ -561,11 +578,6 @@
 		@media (max-width: $mobileSmall) {
 			grid-auto-rows: rem(72);
 		}
-	}
-
-	&--tasks {
-		--min-mobile-width: 728px;
-		min-width: var(--min-mobile-width);
 	}
 
 	&__cell-day {
@@ -1331,10 +1343,10 @@
 	&__main {
 		overflow: auto;
 		height: 100%;
-		@include adaptiveValue("padding-top", 20, 16, 0, 1920, 568);
-		@include adaptiveValue("padding-bottom", 36, 20, 0, 1920, 568);
-		@include adaptiveValue("padding-left", 28, 16, 0, 1920, 568);
-		@include adaptiveValue("padding-right", 28, 16, 0, 1920, 568);
+		@include adaptiveValue('padding-top', 20, 16, 0, 1920, 568);
+		@include adaptiveValue('padding-bottom', 36, 20, 0, 1920, 568);
+		@include adaptiveValue('padding-left', 28, 16, 0, 1920, 568);
+		@include adaptiveValue('padding-right', 28, 16, 0, 1920, 568);
 	}
 
 	&__row {
@@ -2418,60 +2430,60 @@
 				&:nth-child(1) {
 					flex: 0 0 var(--first-col-percent);
 				}
-	
+
 				&:nth-child(2) {
 					flex: 0 0 var(--second-col-percent);
 				}
-	
+
 				&:nth-child(3) {
 					flex: 0 0 var(--third-col-percent);
 				}
-	
+
 				&:nth-child(4) {
 					flex: 0 0 var(--fourth-col-percent);
 				}
-	
+
 				&:nth-child(5) {
 					flex: 0 0 var(--fifth-col-percent);
 				}
 			}
-	
+
 			@media (max-width: $tablet) and (min-width: $mobileSmall) {
 				&:nth-child(1) {
 					flex: 0 0 max(var(--first-col), var(--first-col-percent));
 				}
-	
+
 				&:nth-child(2) {
 					flex: 0 0 max(var(--second-col, var(--second-col-percent)));
 				}
-	
+
 				&:nth-child(3) {
 					flex: 0 0 max(var(--third-col), var(--third-col-percent));
 				}
-	
+
 				&:nth-child(4) {
 					flex: 0 0 max(var(--fourth-col), var(--fourth-col-percent));
 				}
-	
+
 				&:nth-child(5) {
 					flex: 0 0 max(var(--fifth-col), var(--fifth-col-percent));
 				}
 			}
-	
+
 			@media (min-width: $mobileSmall) {
 				&:not(:last-child) {
 					padding-right: rem(20);
 				}
 			}
 		}
-	
+
 		@media (min-width: $mobileSmall) {
 			> * {
 				&:not(:last-child) {
 					padding-right: rem(8);
 					border-right: rem(1) solid cl('grey-4');
 				}
-	
+
 				&:not(:first-child) {
 					padding-left: rem(12);
 				}
@@ -2659,96 +2671,44 @@
 
 //====================================================================================================
 
-.project-tasks {
-	display: flex;
-	flex-direction: column;
-	@include adaptiveValue('gap', 76, 1, 0, 1920, 568);
-
-	--grid-line: 17% 33% 1fr;
-	--grid-line-multi: 17% 23% 18% 1fr;
+.event-tasks {
+	--grid-line: 17% 23% 19% 19% 1fr;
 
 	@media (max-width: $mobile) {
-		--grid-line: 18% 37% 1fr;
-		--grid-line-multi: 17.5% 29% 30.5% 1fr;
+		--grid-line: 20% 20% 20% 1fr;
 	}
 
 	$avatar-width-from: 28;
 	$avatar-width-to: 20;
 
-	&__line {
-		&.avatar-visible {
-			@media (max-width: $mobile) {
-				.project-tasks__user-avatar {
-					display: block;
-				}
-			}
+	display: grid;
+	gap: rem(8);
+	grid-template-columns: var(--grid-line);
 
-			@media (max-width: $mobile) {
-				--grid-line: 17% 38% 1fr;
-				--grid-line-multi: 17% 30% 30% 1fr;
-			}
-		}
+	cursor: pointer;
+	padding: rem(8) rem(12);
+	border-radius: rem(8);
+	background: cl('white');
+	box-shadow: 0px 4px 14px 0px cl('accent-5', 0.04);
+	transition: all 0.3s ease;
 
-		&.multi-location {
-			.project-tasks__top {
-				grid-template-columns: var(--grid-line-multi);
-			}
-
-			.project-tasks__body {
-				grid-template-columns: var(--grid-line-multi);
-			}
-		}
+	@media (max-width: $mobile) {
+		padding: rem(8) rem(16);
 	}
 
-	&__top {
-		padding: 0 rem(12);
-		display: grid;
-		grid-template-columns: var(--grid-line);
-		gap: rem(8);
-		padding-bottom: rem(12);
-		border-bottom: rem(1) solid cl('accent', 0.2);
+	&:hover {
+		box-shadow: 0px 4px 14px 0px cl('accent-5', 0.4);
+	}
+
+	&.avatar-visible {
+		@media (max-width: $mobile) {
+			.event-tasks__user-avatar {
+				display: block;
+			}
+		}
 
 		@media (max-width: $mobile) {
-			display: none;
-		}
-	}
-
-	&__top-label {
-		color: cl('grey');
-		font-family: SuisseIntl, sans-serif;
-		font-size: rem(12);
-		line-height: 116%;
-
-		&:not(:first-child) {
-			padding-left: rem(12);
-
-			@media (max-width: $mobile) {
-				padding-left: rem(8);
-			}
-		}
-
-		padding-bottom: rem(2);
-	}
-
-	&__body {
-		display: grid;
-		gap: rem(8);
-		grid-template-columns: var(--grid-line);
-
-		cursor: pointer;
-		@include adaptiveValue('margin-top', 12, 0, 0, 1920, 568);
-		padding: rem(8) rem(12);
-		border-radius: rem(8);
-		background: cl('white');
-		box-shadow: 0px 4px 14px 0px cl('accent-5', 0.04);
-		transition: all 0.3s ease;
-
-		@media (max-width: $mobile) {
-			padding: rem(8) rem(16);
-		}
-
-		&:hover {
-			box-shadow: 0px 4px 14px 0px cl('accent-5', 0.4);
+			--grid-line: 17% 30% 30% 1fr;
 		}
 	}
 
@@ -2782,7 +2742,23 @@
 			gap: rem(4);
 		}
 
+		&--task {
+			color: cl('black');
+			@include adaptiveValue("font-size", 14, 11, 0, 1920, 568);
+			line-height: 146%;
+
+			@media (max-width: $mobile) {
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				padding-bottom: rem(10);
+			}
+		}
+
 		&--address {
+			@media (max-width: $mobile) {
+				display: none;
+			}
 		}
 
 		&--description {

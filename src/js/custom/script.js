@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 		const wrapperType = document.querySelector('[data-wrapper]').dataset.wrapper;
 		switch (wrapperType) {
 			case 'projects':
-				// projectsInit();
+			// projectsInit();
 			default:
 				break;
 		}
@@ -106,57 +106,57 @@ window.addEventListener('load', (windowEvent) => {
 		dayHeightLayoutObserver();
 		window.addEventListener('resize', dayHeightLayoutObserver);
 
-		taskEventAdd('6:00 am – All Day', 'Ermington', 'Riverside Church', 'Must attend today', [
-			'img/content/calendar-layout/event-block/02/user-01.jpg',
-			'img/content/calendar-layout/event-block/02/user-01.jpg',
-		]);
-		taskEventAdd('6:00 am – All Day', 'Ermington', 'Riverside Church', 'Must attend today', [
-			'img/content/calendar-layout/event-block/02/user-01.jpg',
-			'img/content/calendar-layout/event-block/02/user-01.jpg',
-		]);
-		taskEventAdd('6:00 am – All Day', 'Ermington', 'Riverside Church', 'Must attend today', [
-			'img/content/calendar-layout/event-block/02/user-01.jpg',
-			'img/content/calendar-layout/event-block/02/user-01.jpg',
-		]);
-		taskEventAdd('6:00 am – All Day', 'Ermington', 'Riverside Church', 'Must attend today', [
-			'img/content/calendar-layout/event-block/02/user-01.jpg',
-			'img/content/calendar-layout/event-block/02/user-01.jpg',
-		]);
-		taskEventAdd('6:00 am – All Day', 'Ermington', 'Riverside Church', 'Must attend today', [
-			'img/content/calendar-layout/event-block/02/user-01.jpg',
-			'img/content/calendar-layout/event-block/02/user-01.jpg',
-		]);
-		taskEventAdd('6:00 am – All Day', 'Ermington', 'Riverside Church', 'Must attend today', [
-			'img/content/calendar-layout/event-block/02/user-01.jpg',
-			'img/content/calendar-layout/event-block/02/user-01.jpg',
-		]);
-		taskEventAdd('6:00 am – All Day', 'Ermington', 'Riverside Church', 'Must attend today', [
-			'img/content/calendar-layout/event-block/02/user-01.jpg',
-			'img/content/calendar-layout/event-block/02/user-01.jpg',
-		]);
-		taskEventAdd('6:00 am – All Day', 'Ermington', 'Riverside Church', 'Must attend today', [
-			'img/content/calendar-layout/event-block/02/user-01.jpg',
-			'img/content/calendar-layout/event-block/02/user-01.jpg',
-		]);
-		taskEventAdd('6:00 am – All Day', 'Ermington', 'Riverside Church', 'Must attend today', [
-			'img/content/calendar-layout/event-block/02/user-01.jpg',
-			'img/content/calendar-layout/event-block/02/user-01.jpg',
-		]);
-		taskEventAdd('6:00 am – All Day', 'Ermington', 'Riverside Church', 'Must attend today', [
-			'img/content/calendar-layout/event-block/02/user-01.jpg',
-			'img/content/calendar-layout/event-block/02/user-01.jpg',
-		]);
+		// taskEventAdd('6:00 am – All Day', 'Ermington', 'Riverside Church', 'Must attend today', [
+		// 	'img/content/calendar-layout/event-block/02/user-01.jpg',
+		// 	'img/content/calendar-layout/event-block/02/user-01.jpg',
+		// ]);
+		// taskEventAdd('6:00 am – All Day', 'Ermington', 'Riverside Church', 'Must attend today', [
+		// 	'img/content/calendar-layout/event-block/02/user-01.jpg',
+		// 	'img/content/calendar-layout/event-block/02/user-01.jpg',
+		// ]);
+		// taskEventAdd('6:00 am – All Day', 'Ermington', 'Riverside Church', 'Must attend today', [
+		// 	'img/content/calendar-layout/event-block/02/user-01.jpg',
+		// 	'img/content/calendar-layout/event-block/02/user-01.jpg',
+		// ]);
+		// taskEventAdd('6:00 am – All Day', 'Ermington', 'Riverside Church', 'Must attend today', [
+		// 	'img/content/calendar-layout/event-block/02/user-01.jpg',
+		// 	'img/content/calendar-layout/event-block/02/user-01.jpg',
+		// ]);
+		// taskEventAdd('6:00 am – All Day', 'Ermington', 'Riverside Church', 'Must attend today', [
+		// 	'img/content/calendar-layout/event-block/02/user-01.jpg',
+		// 	'img/content/calendar-layout/event-block/02/user-01.jpg',
+		// ]);
+		// taskEventAdd('6:00 am – All Day', 'Ermington', 'Riverside Church', 'Must attend today', [
+		// 	'img/content/calendar-layout/event-block/02/user-01.jpg',
+		// 	'img/content/calendar-layout/event-block/02/user-01.jpg',
+		// ]);
+		// taskEventAdd('6:00 am – All Day', 'Ermington', 'Riverside Church', 'Must attend today', [
+		// 	'img/content/calendar-layout/event-block/02/user-01.jpg',
+		// 	'img/content/calendar-layout/event-block/02/user-01.jpg',
+		// ]);
+		// taskEventAdd('6:00 am – All Day', 'Ermington', 'Riverside Church', 'Must attend today', [
+		// 	'img/content/calendar-layout/event-block/02/user-01.jpg',
+		// 	'img/content/calendar-layout/event-block/02/user-01.jpg',
+		// ]);
+		// taskEventAdd('6:00 am – All Day', 'Ermington', 'Riverside Church', 'Must attend today', [
+		// 	'img/content/calendar-layout/event-block/02/user-01.jpg',
+		// 	'img/content/calendar-layout/event-block/02/user-01.jpg',
+		// ]);
+		// taskEventAdd('6:00 am – All Day', 'Ermington', 'Riverside Church', 'Must attend today', [
+		// 	'img/content/calendar-layout/event-block/02/user-01.jpg',
+		// 	'img/content/calendar-layout/event-block/02/user-01.jpg',
+		// ]);
 
-		taskEventAdd('6:00 am – All Day', 'Ermington', 'Riverside Church', 'Must attend today', [
-			'img/content/calendar-layout/event-block/02/user-01.jpg',
-			'img/content/calendar-layout/event-block/02/user-01.jpg',
-			'img/content/calendar-layout/event-block/02/user-01.jpg',
-			'img/content/calendar-layout/event-block/02/user-01.jpg',
-			'img/content/calendar-layout/event-block/02/user-01.jpg',
-			'img/content/calendar-layout/event-block/02/user-01.jpg',
-			'img/content/calendar-layout/event-block/02/user-01.jpg',
-			'img/content/calendar-layout/event-block/02/user-01.jpg',
-		]);
+		// taskEventAdd('6:00 am – All Day', 'Ermington', 'Riverside Church', 'Must attend today', [
+		// 	'img/content/calendar-layout/event-block/02/user-01.jpg',
+		// 	'img/content/calendar-layout/event-block/02/user-01.jpg',
+		// 	'img/content/calendar-layout/event-block/02/user-01.jpg',
+		// 	'img/content/calendar-layout/event-block/02/user-01.jpg',
+		// 	'img/content/calendar-layout/event-block/02/user-01.jpg',
+		// 	'img/content/calendar-layout/event-block/02/user-01.jpg',
+		// 	'img/content/calendar-layout/event-block/02/user-01.jpg',
+		// 	'img/content/calendar-layout/event-block/02/user-01.jpg',
+		// ]);
 
 		const layoutControlls = new Map();
 
@@ -227,6 +227,12 @@ window.addEventListener('load', (windowEvent) => {
 					layout.style.display = 'none';
 				});
 
+				if (iterator[1].calendarCellsLayout.classList.contains('cells-layout--tasks')) {
+					document.querySelector('.layout__calendar').style.overflow = 'visible';
+				} else {
+					document.querySelector('.layout__calendar').style.overflow = '';
+				}
+
 				iterator[1].timeStampLayout.style.display = '';
 				iterator[1].calendarCellsLayout.style.display = '';
 
@@ -296,11 +302,7 @@ window.addEventListener('load', (windowEvent) => {
 	document.addEventListener('click', (clickEvent) => {
 		const targetElement = clickEvent.target;
 
-		if (
-			targetElement.closest('.event-block') ||
-			targetElement.closest('.event-block__mobile') ||
-			targetElement.closest('.event-day')
-		) {
+		if (targetElement.closest('.event-tasks')) {
 			if (document.documentElement.classList.contains('task-details-open')) {
 				document.documentElement.classList.remove('task-details-open');
 				setTimeout(() => {
@@ -866,57 +868,11 @@ function dayEventAdder() {
 }
 
 function taskEventAdd(time, address, task, description, usersImageUrl) {
-	taskEventAddDesktop(time, address, task, description, usersImageUrl);
-	taskEventAddMobile(time, address, task, description);
+	const layout = document.querySelector('.cells-layout__scroll-wrapper.scrollbar');
+	const eventBlock = document.createElement('div');
+	eventBlock.classList.add('event-block', 'event-block--desktop');
 
-	function taskEventAddMobile(time, address, task, description) {
-		const layout = document.querySelector('.cells-layout--mobile');
-		const eventBlock = document.createElement('div');
-		eventBlock.classList.add('event-block__mobile', 'event-block--mobile');
-
-		eventBlock.innerHTML = `
-			<div class="event-block__mobile-row event-block__mobile-row--col">
-				<div class="event-block__mobile-left">
-					<div class="event-block__time">${time}</div>
-					<div class="event-block__address">${address}</div>
-				</div>
-				<div class="event-block__mobile-right">
-					<a class="event-block__image-wrapper" href="#">
-						<svg
-							width="50"
-							height="32"
-							viewBox="0 0 50 32"
-							fill="none"
-							xmlns="http://www.w3.org/2000/svg">
-							<circle cx="14" cy="16" r="14" fill="#D9D9D9" />
-							<circle
-								cx="34"
-								cy="16"
-								r="15"
-								fill="#D9D9D9"
-								stroke="white"
-								stroke-width="2" />
-						</svg>
-					</a>
-				</div>
-			</div>
-			<div class="event-block__mobile-row">
-				<div class="event-block__task">${task}</div>
-				<div class="event-block__description">
-					<span class="event-block__description-text">${description}</span>
-				</div>
-			</div>
-		`;
-
-		layout.append(eventBlock);
-	}
-
-	function taskEventAddDesktop(time, address, task, description, usersImageUrl) {
-		const layout = document.querySelector('.cells-layout--desktop');
-		const eventBlock = document.createElement('div');
-		eventBlock.classList.add('event-block', 'event-block--desktop');
-
-		eventBlock.innerHTML = `
+	eventBlock.innerHTML = `
 				<div class="event-block__time">${time}</div>
 				<div class="event-block__address">${address}</div>
 				<div class="event-block__task">${task}</div>
@@ -928,13 +884,13 @@ function taskEventAdd(time, address, task, description, usersImageUrl) {
 				</div>
 		`;
 
-		layout.append(eventBlock);
+	layout.append(eventBlock);
 
-		function userCollectionInsert(usersImageUrl) {
-			return usersImageUrl.length <= 4
-				? String(
-						usersImageUrl.map(
-							(user) => `
+	function userCollectionInsert(usersImageUrl) {
+		return usersImageUrl.length <= 4
+			? String(
+					usersImageUrl.map(
+						(user) => `
 							<div class="event-block__description-images">
 								<img
 									class="event-block__description-image"
@@ -942,9 +898,9 @@ function taskEventAdd(time, address, task, description, usersImageUrl) {
 									alt="user-img" />
 							</div>
 							`
-						)
-				  ).replaceAll(',', '')
-				: `
+					)
+			  ).replaceAll(',', '')
+			: `
 				<div class="event-block__description-images">
 					${String(
 						usersImageUrl.map((user, index) =>
@@ -963,7 +919,6 @@ function taskEventAdd(time, address, task, description, usersImageUrl) {
 				</div>
 				<div class="event-block__description-more">+${usersImageUrl.length - 4}</div>
 				`;
-		}
 	}
 }
 
@@ -1046,8 +1001,6 @@ function clockPosition(position) {
 	calendarLayout.style.cssText += `--clock-position: ${position}`;
 	timeStampLayout.style.cssText += `--clock-position: ${position}`;
 }
-
-
 
 function projectItemCreate(id, status, project, supervisor, customerName, address) {
 	console.log('project create start...');
