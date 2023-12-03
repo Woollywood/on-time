@@ -39,7 +39,11 @@ function tasksHeightObserver() {
 	const layoutTop = document.querySelector('.layout__top');
 	const appHeader = document.querySelector('#kt_app_header');
 
-	wrapper.style.maxHeight = `${(window.innerHeight - (appHeader.offsetHeight + layoutTop.offsetHeight)) * 0.9}px`;
+	if (window.innerWidth > 767.98) {
+		wrapper.style.maxHeight = `${(window.innerHeight - (appHeader.offsetHeight + layoutTop.offsetHeight)) * 0.9}px`;
+	} else {
+		wrapper.style.maxHeight = `${window.innerHeight - (appHeader.offsetHeight + layoutTop.offsetHeight)}px`;
+	}
 }
 
 window.addEventListener('load', (windowEvent) => {
@@ -229,8 +233,10 @@ window.addEventListener('load', (windowEvent) => {
 
 				if (iterator[1].calendarCellsLayout.classList.contains('cells-layout--tasks')) {
 					document.querySelector('.layout__calendar').style.overflow = 'visible';
+					document.querySelector('.calendar-layout__cells-layout').style.zIndex = 2;
 				} else {
 					document.querySelector('.layout__calendar').style.overflow = '';
+					document.querySelector('.calendar-layout__cells-layout').style.zIndex = '';
 				}
 
 				iterator[1].timeStampLayout.style.display = '';

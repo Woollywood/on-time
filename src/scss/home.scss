@@ -231,6 +231,10 @@
 		// font-size: rem(48);
 	}
 
+	&--staff {
+		
+	}
+
 	&__time-stamp {
 		position: sticky;
 		z-index: 2;
@@ -516,6 +520,7 @@
 
 		@media (max-width: $mobile) {
 			margin: 0 rem(-16);
+			margin-top: rem(-12);
 		}
 	}
 
@@ -2674,6 +2679,7 @@
 
 .event-tasks {
 	--grid-line: 17% 23% 19% 19% 1fr;
+	--grid-line-avatar-none: 21% 23% 34% 1fr;
 
 	@media (max-width: $mobile) {
 		--grid-line: 17% 30% 30% 1fr;
@@ -2695,6 +2701,7 @@
 
 	@media (max-width: $mobile) {
 		padding: rem(8) rem(16);
+		grid-template-columns: var(--grid-line-avatar-none);
 	}
 
 	&:hover {
@@ -2703,6 +2710,8 @@
 
 	&.avatar-visible {
 		@media (max-width: $mobile) {
+			grid-template-columns: var(--grid-line);
+
 			.event-tasks__user-avatar {
 				display: block;
 			}
